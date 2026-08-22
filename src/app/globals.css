@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+
+/*
+  CPT Deals design tokens.
+
+  Dark slate ground, orange as the single accent. Copy is white, orange or
+  black — nothing else. The palette is fixed (there is no light variant) so the
+  site looks identical on every phone and keeps its contrast guarantees:
+    white on bg .......... 16.5:1
+    white/60 on bg ......... 6.6:1
+    orange on bg ........... 7.9:1
+    black on orange ........ 9.0:1
+*/
+@theme {
+  --color-bg: #17181a;
+  --color-surface: #202225;
+  --color-surface-2: #292c30;
+  --color-line: #35383d;
+
+  --color-orange: #ff7a1a;
+  --color-orange-dark: #e2680b;
+  /* Orange at low opacity over the ground, pre-mixed so chips stay opaque. */
+  --color-orange-dim: #3a2413;
+
+  --color-ink: #0e0f11;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --radius-card: 1.25rem;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background-color: var(--color-bg);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  /* Comfortable base size — nothing on the public site drops below 14px. */
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Visible, high-contrast focus for keyboard users everywhere. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-orange);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Respect the visitor's motion preference; animation here is minimal anyway. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Horizontal day strip: swipeable on phones, no visible scrollbar. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--color-orange);
+  color: var(--color-ink);
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-radius: 0 0 0.75rem 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* Form controls inherit the dark ground rather than the browser's white. */
+input,
+textarea,
+select {
+  color: #ffffff;
+}
+input::placeholder,
+textarea::placeholder {
+  color: rgb(255 255 255 / 0.45);
+}

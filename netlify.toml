@@ -1,0 +1,91 @@
+# ============================================================================
+# Netlify configuration for CPT Deals (Next.js App Router)
+#
+# Netlify builds Next.js with the OpenNext adapter, applied automatically — the
+# adapter is deliberately NOT pinned here so it keeps pace with Next.js
+# releases. Do not add a `publish` directory: the adapter sets it.
+# ============================================================================
+
+[build]
+  command = "npm run build"
+  functions = "netlify/functions"
+
+# The scheduled Instagram sweep imports TypeScript from src/, so bundle it.
+[functions]
+  node_bundler = "esbuild"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Deterministic installs on CI.
+  NPM_FLAGS = "--no-audit --no-fund"
+
+# Preview deploys (branch and pull-request builds) inherit the production
+# settings above. Set NEXT_PUBLIC_SITE_URL per context in the Netlify UI if you
+# want canonical URLs to differ between previews and production.
+[context.production.environment]
+  NODE_ENV = "production"
+
+[context.deploy-preview.environment]
+  NODE_ENV = "production"
+
+[context.branch-deploy.environment]
+  NODE_ENV = "production"
+
+# ------------------------------------------------------------------ headers
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(self), camera=(), microphone=(), payment=(), usb=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Cross-Origin-Opener-Policy = "same-origin"
+    # Supabase is the only third-party origin the browser needs to reach.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+# The service worker must never be cached, or visitors get stuck on an old one.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Service-Worker-Allowed = "/"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/icons/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Content-hashed build output is safe to cache forever.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# The admin dashboard is never cached and never indexed.
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow"
+
+# ----------------------------------------------------------------- redirects
+# Next.js routing is handled by the adapter, so no catch-all SPA rewrite is
+# needed — every public route survives a hard refresh on its own URL.
+
+[[redirects]]
+  from = "/today"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/specials"
+  to = "/"
+  status = 301

@@ -1,0 +1,2793 @@
+<!doctype html>
+<html lang="en-ZA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#17181A" />
+    <title>City Bowl Instagram Sweep</title>
+    <style>
+      :root {
+        --bg: #17181a;
+        --surface: #202225;
+        --surface-2: #292c30;
+        --line: #35383d;
+        --orange: #ff7a1a;
+        --orange-dark: #e2680b;
+        --orange-dim: #3a2413;
+        --ink: #0e0f11;
+        --text: #fff;
+        --text-2: rgb(255 255 255/0.72);
+        --text-3: rgb(255 255 255/0.55);
+        --font:
+          ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+          sans-serif;
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font);
+        font-size: 16px;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+      :where(a, button, input, label):focus-visible {
+        outline: 3px solid var(--orange);
+        outline-offset: 2px;
+        border-radius: 8px;
+      }
+      .wrap {
+        max-width: 760px;
+        margin-inline: auto;
+        padding: 0 16px;
+      }
+
+      header.top {
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+        padding: 24px 0 20px;
+        position: sticky;
+        top: 0;
+        z-index: 5;
+      }
+      h1 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      h1 span {
+        color: var(--orange);
+      }
+      .lede {
+        margin: 6px 0 0;
+        font-size: 15px;
+        color: var(--text-3);
+      }
+      .progress {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .bar {
+        flex: 1;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--surface-2);
+        overflow: hidden;
+      }
+      .bar i {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: var(--orange);
+        transition: width 0.2s ease;
+      }
+      .progress b {
+        font-size: 14px;
+        font-variant-numeric: tabular-nums;
+        color: var(--text-2);
+        white-space: nowrap;
+      }
+
+      .safety {
+        margin: 20px 0 0;
+        border: 1px solid rgb(255 122 26/0.3);
+        background: var(--orange-dim);
+        border-radius: 16px;
+        padding: 14px 16px;
+      }
+      .safety h2 {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--orange);
+      }
+      .safety p {
+        margin: 6px 0 0;
+        font-size: 14px;
+        color: var(--text-2);
+      }
+      .safety p + p {
+        margin-top: 6px;
+      }
+
+      .area {
+        margin-top: 28px;
+      }
+      .area-head h2 {
+        margin: 0;
+        font-size: 19px;
+        font-weight: 800;
+      }
+      .area-sub {
+        margin: 2px 0 0;
+        font-size: 14px;
+        color: var(--text-3);
+      }
+      .area-count {
+        margin: 2px 0 0;
+        font-size: 13px;
+        color: var(--orange);
+        font-variant-numeric: tabular-nums;
+      }
+
+      ul.venues {
+        list-style: none;
+        margin: 12px 0 0;
+        padding: 0;
+        display: grid;
+        gap: 8px;
+      }
+      .venue {
+        display: flex;
+        align-items: stretch;
+        gap: 8px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--surface);
+        overflow: hidden;
+      }
+      .venue.done {
+        opacity: 0.5;
+      }
+      .tick {
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 0 12px 14px;
+        cursor: pointer;
+        min-height: 56px;
+      }
+      .tick input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .box {
+        flex: 0 0 auto;
+        margin-top: 2px;
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        border: 2px solid var(--line);
+        background: var(--bg);
+        display: grid;
+        place-items: center;
+      }
+      .tick input:checked + .box {
+        background: var(--orange);
+        border-color: var(--orange);
+      }
+      .tick input:checked + .box::after {
+        content: '✓';
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 1;
+      }
+      .tick input:focus-visible + .box {
+        outline: 3px solid var(--orange);
+        outline-offset: 2px;
+      }
+      .body {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+      }
+      .name {
+        font-size: 15.5px;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+      .venue.done .name {
+        text-decoration: line-through;
+      }
+      .addr {
+        font-size: 13px;
+        color: var(--text-3);
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 4px;
+      }
+      .tag {
+        font-size: 11.5px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 999px;
+      }
+      .tag.have {
+        background: var(--orange);
+        color: var(--ink);
+      }
+      .tag.queue {
+        background: var(--orange-dim);
+        color: var(--orange);
+      }
+      .tag.ig {
+        background: var(--surface-2);
+        color: var(--text-2);
+        font-weight: 600;
+      }
+      .go {
+        flex: 0 0 auto;
+        display: grid;
+        place-items: center;
+        padding: 0 16px;
+        background: var(--surface-2);
+        color: var(--orange);
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        border-left: 1px solid var(--line);
+      }
+      .go:hover {
+        background: var(--line);
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 20px;
+      }
+      .btn {
+        min-height: 44px;
+        padding: 0 16px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--text);
+        font: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .btn.primary {
+        background: var(--orange);
+        border-color: var(--orange);
+        color: var(--ink);
+      }
+      footer {
+        margin: 40px 0 56px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        font-size: 13px;
+        color: var(--text-3);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap">
+        <h1>City Bowl <span>Instagram sweep</span></h1>
+        <p class="lede">113 venues. Tap IG to open each one, tick it off when you've looked.</p>
+        <div class="progress">
+          <span class="bar"><i id="bar"></i></span>
+          <b id="progress-label"></b>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="safety">
+        <h2>Scroll these yourself — don't let anything automate it</h2>
+        <p>
+          Opening dozens of profiles in quick succession from one account is the pattern Instagram's
+          systems flag. Normal human browsing in the app is fine; automated browsing of a personal
+          account breaches their terms and risks an action block.
+        </p>
+        <p>
+          When you spot a special: screenshot it, then add it through
+          <strong>/admin/capture</strong> — same as photographing a board.
+        </p>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="hide-done" type="button" aria-pressed="false">
+          Hide the ones I've done
+        </button>
+        <button class="btn" id="reset" type="button">Reset all ticks</button>
+      </div>
+
+      <section class="area">
+        <div class="area-head">
+          <h2>Bree Street</h2>
+          <p class="area-sub">City Centre</p>
+          <p class="area-count" data-area-count="0"></p>
+        </div>
+        <ul class="venues" data-area="0">
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-0" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Aiko Sushi</span>
+                <span class="addr">4 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Aiko%20Sushi%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Aiko Sushi on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-1" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Amber on Bree</span>
+                <span class="addr">16 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Amber%20on%20Bree%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Amber on Bree on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-2" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Cookie Co</span>
+                <span class="addr">16 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Cookie%20Co%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Cookie Co on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-3" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The General Store</span>
+                <span class="addr">22 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20General%20Store%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The General Store on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-4" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Villa 47</span>
+                <span class="addr">47 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Villa%2047%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Villa 47 on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-5" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">VIXI Social House</span>
+                <span class="addr">49 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=VIXI%20Social%20House%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open VIXI Social House on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-6" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">MiCaffè</span>
+                <span class="addr">50 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=MiCaff%C3%A8%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open MiCaffè on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-7" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Shelflife Café</span>
+                <span class="addr">50 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Shelflife%20Caf%C3%A9%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Shelflife Café on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-8" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Susa</span>
+                <span class="addr">70 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Susa%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Susa on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-9" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Tannin</span>
+                <span class="addr">86 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Tannin%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Tannin on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-10" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Yatai Ramen Bar</span>
+                <span class="addr">87 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Yatai%20Ramen%20Bar%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Yatai Ramen Bar on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-11" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Nikkei Japanese Peruvian</span>
+                <span class="addr">87 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Nikkei%20Japanese%20Peruvian%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Nikkei Japanese Peruvian on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-12" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Chefs Warehouse &amp; Canteen</span>
+                <span class="addr">91 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Chefs%20Warehouse%20%26%20Canteen%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Chefs Warehouse &amp; Canteen on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-13" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Merchant Bar &amp; Grill</span>
+                <span class="addr">91 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Merchant%20Bar%20%26%20Grill%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Merchant Bar &amp; Grill on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-14" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Bailey Brasserie</span>
+                <span class="addr">91 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Bailey%20Brasserie%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Bailey Brasserie on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-15" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Hacienda Coastal Mexican</span>
+                <span class="addr">92 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Hacienda%20Coastal%20Mexican%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Hacienda Coastal Mexican on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-16" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Nish Nush</span>
+                <span class="addr">100 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Nish%20Nush%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Nish Nush on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-17" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Rosetta Roastery</span>
+                <span class="addr">101 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Rosetta%20Roastery%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Rosetta Roastery on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-18" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Grub &amp; Vine</span>
+                <span class="addr">103 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Grub%20%26%20Vine%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Grub &amp; Vine on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-19" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Blue Room</span>
+                <span class="addr">103 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Blue%20Room%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Blue Room on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-20" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Culture Wine Bar</span>
+                <span class="addr">103 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Culture%20Wine%20Bar%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Culture Wine Bar on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-21" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Burger &amp; Lobster</span>
+                <span class="addr">105 Bree Street</span>
+                <span class="tags"><span class="tag have">On the site</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Burger%20%26%20Lobster%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Burger &amp; Lobster on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-22" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Maru Korean Steakhouse</span>
+                <span class="addr">107 Bree Street</span>
+                <span class="tags"><span class="tag have">On the site</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Maru%20Korean%20Steakhouse%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Maru Korean Steakhouse on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-23" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Boma on Bree</span>
+                <span class="addr">107 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Boma%20on%20Bree%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Boma on Bree on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-24" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Iron Steak and Bar</span>
+                <span class="addr">114 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Iron%20Steak%20and%20Bar%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Iron Steak and Bar on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-25" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Max Bagels</span>
+                <span class="addr">120 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Max%20Bagels%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Max Bagels on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-26" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Tomson</span>
+                <span class="addr">120 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Tomson%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Tomson on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-27" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Leo&#39;s Wine Bar</span>
+                <span class="addr">120 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Leo's%20Wine%20Bar%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Leo&#39;s Wine Bar on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-28" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Stellski Coffee Bar</span>
+                <span class="addr">129 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Stellski%20Coffee%20Bar%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Stellski Coffee Bar on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-29" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Clarke&#39;s Bar &amp; Dining Room</span>
+                <span class="addr">133 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Clarke's%20Bar%20%26%20Dining%20Room%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Clarke&#39;s Bar &amp; Dining Room on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-30" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Ladder</span>
+                <span class="addr">136 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Ladder%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Ladder on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-31" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Café Frank</span>
+                <span class="addr">160 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Caf%C3%A9%20Frank%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Café Frank on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-32" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Between Us</span>
+                <span class="addr">176 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Between%20Us%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Between Us on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-33" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Bootlegger Coffee</span>
+                <span class="addr">185 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Bootlegger%20Coffee%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Bootlegger Coffee on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-34" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Clay Café in the City</span>
+                <span class="addr">199 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Clay%20Caf%C3%A9%20in%20the%20City%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Clay Café in the City on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-35" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">SeaBreeze Fish &amp; Shell</span>
+                <span class="addr">213 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=SeaBreeze%20Fish%20%26%20Shell%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open SeaBreeze Fish &amp; Shell on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-36" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Sugarbird Wine Bar</span>
+                <span class="addr">213 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Sugarbird%20Wine%20Bar%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Sugarbird Wine Bar on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-37" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Artezian on Bree</span>
+                <span class="addr">217 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Artezian%20on%20Bree%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Artezian on Bree on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-38" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Aperitif</span>
+                <span class="addr">227 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Aperitif%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Aperitif on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-39" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Pizza Shed</span>
+                <span class="addr">231 Bree Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Pizza%20Shed%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Pizza Shed on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-40" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Florentin</span>
+                <span class="addr">Bree Street</span>
+                <span class="tags"><span class="tag have">On the site</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Florentin%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Florentin on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-0-41" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Mulberry &amp; Prince</span>
+                <span class="addr">12 Pepper Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Mulberry%20%26%20Prince%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Mulberry &amp; Prince on Instagram"
+              >IG →</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="area">
+        <div class="area-head">
+          <h2>Church, Wale &amp; Shortmarket</h2>
+          <p class="area-sub">City Centre</p>
+          <p class="area-count" data-area-count="1"></p>
+        </div>
+        <ul class="venues" data-area="1">
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-1-0" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Flirt Mexican Restaurant</span>
+                <span class="addr">75 Church Street</span>
+                <span class="tags"><span class="tag have">On the site</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Flirt%20Mexican%20Restaurant%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Flirt Mexican Restaurant on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-1-1" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Scala Pasta Bar</span>
+                <span class="addr">81 Church Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Scala%20Pasta%20Bar%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Scala Pasta Bar on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-1-2" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Silk Asian Restaurant</span>
+                <span class="addr">108 Shortmarket Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Silk%20Asian%20Restaurant%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Silk Asian Restaurant on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-1-3" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Waterside</span>
+                <span class="addr">55 Shortmarket Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Waterside%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Waterside on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-1-4" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Wes Bistro and Bar</span>
+                <span class="addr">55 Shortmarket Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Wes%20Bistro%20and%20Bar%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Wes Bistro and Bar on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-1-5" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Mediterranean by Nic Charalambous</span>
+                <span class="addr">58 Wale Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Mediterranean%20by%20Nic%20Charalambous%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Mediterranean by Nic Charalambous on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-1-6" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Fable Cocktail Bar</span>
+                <span class="addr">Corner Bree &amp; Wale Streets</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Fable%20Cocktail%20Bar%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Fable Cocktail Bar on Instagram"
+              >IG →</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="area">
+        <div class="area-head">
+          <h2>Long &amp; Loop</h2>
+          <p class="area-sub">City Centre</p>
+          <p class="area-count" data-area-count="2"></p>
+        </div>
+        <ul class="venues" data-area="2">
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-2-0" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Obi Restaurant</span>
+                <span class="addr">14 Long Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Obi%20Restaurant%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Obi Restaurant on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-2-1" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Ocean&#39;s Twelve Fisheries</span>
+                <span class="addr">22 Long Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Ocean's%20Twelve%20Fisheries%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Ocean&#39;s Twelve Fisheries on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-2-2" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Tiger&#39;s Milk Long Street</span>
+                <span class="addr">44 Long Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Tiger's%20Milk%20Long%20Street%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Tiger&#39;s Milk Long Street on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-2-3" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">InFusion on Long</span>
+                <span class="addr">57 Long Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=InFusion%20on%20Long%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open InFusion on Long on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-2-4" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Pekish</span>
+                <span class="addr">196 Long Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Pekish%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Pekish on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-2-5" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">BEERHOUSE on Long</span>
+                <span class="addr">223 Long Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=BEERHOUSE%20on%20Long%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open BEERHOUSE on Long on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-2-6" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Lola&#39;s</span>
+                <span class="addr">228 Long Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Lola's%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Lola&#39;s on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-2-7" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Crema</span>
+                <span class="addr">9 Lower Long Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Crema%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Crema on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-2-8" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Copa Restaurant</span>
+                <span class="addr">Pepperclub Hotel, 167 Loop Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Copa%20Restaurant%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Copa Restaurant on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-2-9" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Village Idiot</span>
+                <span class="addr">Loop Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Village%20Idiot%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Village Idiot on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-2-10" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Bombay Brasserie</span>
+                <span class="addr">Taj Cape Town, 1 Wale Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Bombay%20Brasserie%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Bombay Brasserie on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-2-11" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Mint Restaurant</span>
+                <span class="addr">Taj Cape Town, 1 Wale Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Mint%20Restaurant%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Mint Restaurant on Instagram"
+              >IG →</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="area">
+        <div class="area-head">
+          <h2>East City &amp; Harrington</h2>
+          <p class="area-sub">District Six / Zonnebloem · not yet covered by the site</p>
+          <p class="area-count" data-area-count="3"></p>
+        </div>
+        <ul class="venues" data-area="3">
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-3-0" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Truth Coffee</span>
+                <span class="addr">36 Buitenkant Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Truth%20Coffee%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Truth Coffee on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-3-1" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">FYN Restaurant</span>
+                <span class="addr">37 Parliament Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=FYN%20Restaurant%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open FYN Restaurant on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-3-2" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">SurfaRosa</span>
+                <span class="addr">61a Harrington Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=SurfaRosa%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open SurfaRosa on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-3-3" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Harrington Cocktail Lounge</span>
+                <span class="addr">61b Harrington Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Harrington%20Cocktail%20Lounge%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Harrington Cocktail Lounge on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-3-4" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">MamaCitas</span>
+                <span class="addr">75 Harrington Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=MamaCitas%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open MamaCitas on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-3-5" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Tommy&#39;s Chop Shop</span>
+                <span class="addr">50 Canterbury Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Tommy's%20Chop%20Shop%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Tommy&#39;s Chop Shop on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-3-6" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">New York Bagels</span>
+                <span class="addr">44 Harrington Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=New%20York%20Bagels%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open New York Bagels on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-3-7" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Belly of the Beast</span>
+                <span class="addr">110 Harrington Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Belly%20of%20the%20Beast%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Belly of the Beast on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-3-8" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Galjoen</span>
+                <span class="addr">99 Harrington Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Galjoen%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Galjoen on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-3-9" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Cousins Italian</span>
+                <span class="addr">3b Barrack Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Cousins%20Italian%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Cousins Italian on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-3-10" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Lebanese Bakery</span>
+                <span class="addr">7 Constitution Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Lebanese%20Bakery%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Lebanese Bakery on Instagram"
+              >IG →</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="area">
+        <div class="area-head">
+          <h2>Kloof Street &amp; Gardens</h2>
+          <p class="area-sub">Gardens</p>
+          <p class="area-count" data-area-count="4"></p>
+        </div>
+        <ul class="venues" data-area="4">
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-0" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Rick&#39;s Café Américain</span>
+                <span class="addr">103 Kloof Street</span>
+                <span class="tags"
+                  ><span class="tag have">On the site</span
+                  ><span class="tag ig">@rickscapetown</span></span
+                >
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/rickscapetown/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Rick&#39;s Café Américain on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-1" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Hudsons The Burger Joint</span>
+                <span class="addr">22 Kloof Street</span>
+                <span class="tags"
+                  ><span class="tag have">On the site</span
+                  ><span class="tag ig">@hudsonsburgers</span></span
+                >
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/hudsonsburgers/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Hudsons The Burger Joint on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-2" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Our Local</span>
+                <span class="addr">117 Kloof Street</span>
+                <span class="tags"><span class="tag have">On the site</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Our%20Local%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Our Local on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-3" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Asoka</span>
+                <span class="addr">68 Kloof Street</span>
+                <span class="tags"
+                  ><span class="tag queue">In the queue</span
+                  ><span class="tag ig">@asokakloofstreet</span></span
+                >
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/asokakloofstreet/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Asoka on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-4" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Kloof Street House</span>
+                <span class="addr">30 Kloof Street</span>
+                <span class="tags"><span class="tag queue">In the queue</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Kloof%20Street%20House%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Kloof Street House on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-5" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">La Parada Kloof Street</span>
+                <span class="addr">47 Kloof Street</span>
+                <span class="tags"><span class="tag queue">In the queue</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=La%20Parada%20Kloof%20Street%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open La Parada Kloof Street on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-6" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Arnold&#39;s</span>
+                <span class="addr">60 Kloof Street</span>
+                <span class="tags"><span class="tag queue">In the queue</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Arnold's%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Arnold&#39;s on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-7" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Public House</span>
+                <span class="addr">108 Kloof Street</span>
+                <span class="tags"><span class="tag queue">In the queue</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Public%20House%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Public House on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-8" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Van Hunks</span>
+                <span class="addr">Corner Kloof &amp; Upper Union Streets</span>
+                <span class="tags"><span class="tag queue">In the queue</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Van%20Hunks%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Van Hunks on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-9" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Rita&#39;s Cocktail Club</span>
+                <span class="addr">22 Kloof Street</span>
+                <span class="tags"><span class="tag queue">In the queue</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Rita's%20Cocktail%20Club%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Rita&#39;s Cocktail Club on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-10" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Fat Cactus Gardens</span>
+                <span class="addr">5 Park Road</span>
+                <span class="tags"><span class="tag queue">In the queue</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Fat%20Cactus%20Gardens%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Fat Cactus Gardens on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-11" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Kyoto Garden</span>
+                <span class="addr">11 Kloof Nek Road</span>
+                <span class="tags"
+                  ><span class="tag queue">In the queue</span
+                  ><span class="tag ig">@kyotogardenct</span></span
+                >
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/kyotogardenct/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Kyoto Garden on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-12" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Black Sheep</span>
+                <span class="addr">104 Kloof Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Black%20Sheep%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Black Sheep on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-13" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Yours Truly Kloof Street</span>
+                <span class="addr">73 Kloof Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Yours%20Truly%20Kloof%20Street%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Yours Truly Kloof Street on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-14" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Bacini&#39;s on Kloof</span>
+                <span class="addr">177 Kloof Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Bacini's%20on%20Kloof%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Bacini&#39;s on Kloof on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-15" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Carne on Kloof</span>
+                <span class="addr">153 Kloof Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Carne%20on%20Kloof%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Carne on Kloof on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-16" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Vadivelu</span>
+                <span class="addr">151 Kloof Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Vadivelu%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Vadivelu on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-17" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Nelson&#39;s Eye Steakhouse</span>
+                <span class="addr">9 Hof Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Nelson's%20Eye%20Steakhouse%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Nelson&#39;s Eye Steakhouse on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-18" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Perseverance Tavern</span>
+                <span class="addr">Buitenkant Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Perseverance%20Tavern%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Perseverance Tavern on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-19" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Societi Bistro</span>
+                <span class="addr">50 Orange Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Societi%20Bistro%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Societi Bistro on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-20" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Manna Epicure</span>
+                <span class="addr">Kloof Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Manna%20Epicure%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Manna Epicure on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-21" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Melissa&#39;s</span>
+                <span class="addr">94 Kloof Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Melissa's%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Melissa&#39;s on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-22" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Blondie</span>
+                <span class="addr">71 Kloof Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Blondie%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Blondie on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-23" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Upper Union</span>
+                <span class="addr">3 Upper Union Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Upper%20Union%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Upper Union on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-24" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">ëlgr</span>
+                <span class="addr">75 Kloof Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=%C3%ABlgr%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open ëlgr on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-25" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Thali</span>
+                <span class="addr">3 Park Road</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Thali%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Thali on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-26" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Café Paradiso</span>
+                <span class="addr">110 Kloof Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Caf%C3%A9%20Paradiso%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Café Paradiso on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-27" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Amura at Mount Nelson</span>
+                <span class="addr">76 Orange Street</span>
+                <span class="tags"><span class="tag queue">In the queue</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Amura%20at%20Mount%20Nelson%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Amura at Mount Nelson on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-28" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Red Room by Chefs Warehouse</span>
+                <span class="addr">76 Orange Street</span>
+                <span class="tags"><span class="tag queue">In the queue</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Red%20Room%20by%20Chefs%20Warehouse%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Red Room by Chefs Warehouse on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-4-29" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Planet Bar</span>
+                <span class="addr">76 Orange Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Planet%20Bar%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Planet Bar on Instagram"
+              >IG →</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="area">
+        <div class="area-head">
+          <h2>Tamboerskloof</h2>
+          <p class="area-sub">Tamboerskloof</p>
+          <p class="area-count" data-area-count="5"></p>
+        </div>
+        <ul class="venues" data-area="5">
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-5-0" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Club Kloof</span>
+                <span class="addr">84 Kloof Street</span>
+                <span class="tags"><span class="tag have">On the site</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Club%20Kloof%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Club Kloof on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-5-1" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Cargo</span>
+                <span class="addr">158 Kloof Street</span>
+                <span class="tags"
+                  ><span class="tag queue">In the queue</span
+                  ><span class="tag ig">@c__a__r__g__o</span></span
+                >
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/c__a__r__g__o/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Cargo on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-5-2" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">El Burro Taqueria</span>
+                <span class="addr">Corner New Church &amp; Kloof Nek Road</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=El%20Burro%20Taqueria%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open El Burro Taqueria on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-5-3" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Miller&#39;s Thumb</span>
+                <span class="addr">Kloof Nek Road</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Miller's%20Thumb%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Miller&#39;s Thumb on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-5-4" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Power &amp; The Glory</span>
+                <span class="addr">Kloof Nek Road</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Power%20%26%20The%20Glory%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Power &amp; The Glory on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-5-5" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Bombay Bicycle Club</span>
+                <span class="addr">Kloof Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Bombay%20Bicycle%20Club%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Bombay Bicycle Club on Instagram"
+              >IG →</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="area">
+        <div class="area-head">
+          <h2>Oranjezicht &amp; Vredehoek</h2>
+          <p class="area-sub">Oranjezicht / Vredehoek</p>
+          <p class="area-count" data-area-count="6"></p>
+        </div>
+        <ul class="venues" data-area="6">
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-6-0" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Woodlands Eatery</span>
+                <span class="addr">8 Breda Street</span>
+                <span class="tags"
+                  ><span class="tag have">On the site</span
+                  ><span class="tag ig">@the_woodlands_eatery</span></span
+                >
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/the_woodlands_eatery/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Woodlands Eatery on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-6-1" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Deer Park Café</span>
+                <span class="addr">Deer Park Drive</span>
+                <span class="tags"><span class="tag queue">In the queue</span></span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Deer%20Park%20Caf%C3%A9%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Deer Park Café on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-6-2" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Ou Meul Oranjezicht</span>
+                <span class="addr">Oranjezicht</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Ou%20Meul%20Oranjezicht%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Ou Meul Oranjezicht on Instagram"
+              >IG →</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="area">
+        <div class="area-head">
+          <h2>De Waterkant</h2>
+          <p class="area-sub">De Waterkant · not yet covered by the site</p>
+          <p class="area-count" data-area-count="7"></p>
+        </div>
+        <ul class="venues" data-area="7">
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-7-0" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">The Piano Bar</span>
+                <span class="addr">47 Napier Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=The%20Piano%20Bar%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open The Piano Bar on Instagram"
+              >IG →</a
+            >
+          </li>
+          <li class="venue">
+            <label class="tick"
+              ><input type="checkbox" id="v-7-1" data-v /><span
+                class="box"
+                aria-hidden="true"
+              ></span>
+              <span class="body">
+                <span class="name">Bella gio</span>
+                <span class="addr">74 Prestwich Street</span>
+              </span>
+            </label>
+            <a
+              class="go"
+              href="https://www.instagram.com/explore/search/keyword/?q=Bella%20gio%20cape%20town"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Bella gio on Instagram"
+              >IG →</a
+            >
+          </li>
+        </ul>
+      </section>
+
+      <footer>
+        Every venue and address here came from a published source. Handles are only shown where one
+        was actually seen — everything else opens an Instagram search for the venue name, so check
+        you've landed on the right account before trusting what you see.
+        <br /><br />
+        Ticks are saved in this browser only. 9 venues are already listed on CPT Deals.
+      </footer>
+    </main>
+
+    <script>
+      const KEY = 'cpt-ig-sweep-v1';
+      const boxes = Array.from(document.querySelectorAll('[data-v]'));
+
+      let saved = {};
+      try {
+        saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+      } catch {
+        saved = {};
+      }
+
+      function persist() {
+        try {
+          localStorage.setItem(
+            KEY,
+            JSON.stringify(
+              Object.fromEntries(boxes.filter((b) => b.checked).map((b) => [b.id, 1])),
+            ),
+          );
+        } catch {
+          /* private window — ticks just won't survive a reload */
+        }
+      }
+
+      function paint() {
+        let done = 0;
+        boxes.forEach((b) => {
+          b.closest('.venue').classList.toggle('done', b.checked);
+          if (b.checked) done += 1;
+        });
+        const pct = boxes.length ? Math.round((done / boxes.length) * 100) : 0;
+        document.getElementById('bar').style.width = pct + '%';
+        document.getElementById('progress-label').textContent = done + ' / ' + boxes.length;
+
+        document.querySelectorAll('[data-area]').forEach((list) => {
+          const items = Array.from(list.querySelectorAll('[data-v]'));
+          const n = items.filter((i) => i.checked).length;
+          const label = document.querySelector('[data-area-count="' + list.dataset.area + '"]');
+          if (label) label.textContent = n + ' of ' + items.length + ' checked';
+        });
+
+        if (document.getElementById('hide-done').getAttribute('aria-pressed') === 'true') {
+          boxes.forEach((b) => {
+            b.closest('.venue').hidden = b.checked;
+          });
+        }
+      }
+
+      boxes.forEach((b) => {
+        if (saved[b.id]) b.checked = true;
+        b.addEventListener('change', () => {
+          persist();
+          paint();
+        });
+      });
+
+      document.getElementById('hide-done').addEventListener('click', (e) => {
+        const on = e.currentTarget.getAttribute('aria-pressed') === 'true';
+        e.currentTarget.setAttribute('aria-pressed', String(!on));
+        e.currentTarget.textContent = on ? "Hide the ones I've done" : 'Show everything again';
+        if (on)
+          boxes.forEach((b) => {
+            b.closest('.venue').hidden = false;
+          });
+        paint();
+      });
+
+      document.getElementById('reset').addEventListener('click', () => {
+        boxes.forEach((b) => {
+          b.checked = false;
+          b.closest('.venue').hidden = false;
+        });
+        persist();
+        paint();
+      });
+
+      paint();
+    </script>
+  </body>
+</html>
