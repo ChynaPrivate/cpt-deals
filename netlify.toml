@@ -22,14 +22,12 @@
 # Preview deploys (branch and pull-request builds) inherit the production
 # settings above. Set NEXT_PUBLIC_SITE_URL per context in the Netlify UI if you
 # want canonical URLs to differ between previews and production.
-[context.production.environment]
-  NODE_ENV = "production"
-
-[context.deploy-preview.environment]
-  NODE_ENV = "production"
-
-[context.branch-deploy.environment]
-  NODE_ENV = "production"
+#
+# Deliberately NOT setting NODE_ENV here. Setting it to "production" makes npm
+# skip devDependencies, and Next.js keeps Tailwind, TypeScript and the type
+# packages there by default - the build then dies on a missing
+# '@tailwindcss/postcss'. Netlify and Next.js each set NODE_ENV correctly on
+# their own during the build.
 
 # ------------------------------------------------------------------ headers
 
