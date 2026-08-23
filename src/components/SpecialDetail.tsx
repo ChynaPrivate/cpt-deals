@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import VenueAvatar from './VenueAvatar';
 import { Pill, VerificationBadge } from './Badges';
 import ReportForm from './ReportForm';
 import { formatIsoDate, formatRand, formatTimeRange } from '@/lib/time';
@@ -69,13 +70,21 @@ export default function SpecialDetail({ special, todayIso, onClose }: Props) {
     >
       <div className="max-h-[92dvh] overflow-y-auto px-5 pt-4 pb-8">
         <div className="border-line bg-bg sticky top-0 -mx-5 mb-2 flex items-start justify-between gap-3 border-b px-5 pt-1 pb-3">
-          <div>
-            <p className="text-orange text-[13px] font-bold tracking-wider uppercase">
-              {restaurant.name}
-            </p>
-            <h2 id="special-detail-title" className="text-[22px] leading-tight font-extrabold">
-              {special.title}
-            </h2>
+          <div className="flex min-w-0 items-start gap-3">
+            <VenueAvatar
+              name={restaurant.name}
+              categories={restaurant.categories}
+              imageUrl={restaurant.image_url}
+              size={40}
+            />
+            <div className="min-w-0">
+              <p className="text-orange text-[13px] font-bold tracking-wider uppercase">
+                {restaurant.name}
+              </p>
+              <h2 id="special-detail-title" className="text-[22px] leading-tight font-extrabold">
+                {special.title}
+              </h2>
+            </div>
           </div>
           <button
             type="button"

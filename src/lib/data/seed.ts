@@ -1295,7 +1295,7 @@ export const RESTAURANTS_SEED: Restaurant[] = [
     suburb: 'Sea Point',
     latitude: null,
     longitude: null,
-    phone: null,
+    phone: '+27214393944',
     website_url: 'https://www.mischu.co.za',
     booking_url: null,
     instagram_url: null,
@@ -1399,6 +1399,29 @@ export const RESTAURANTS_SEED: Restaurant[] = [
     created_at: NOW_ISO,
     updated_at: NOW_ISO,
   },
+  {
+    id: 'a1000000-0000-4000-8000-00000000003c',
+    name: "Arnold's",
+    slug: 'arnolds',
+    description:
+      'Kloof Street institution opposite the Mount Nelson, open from a quarter to seven in the morning until late, 364 days a year.',
+    categories: ['Restaurant', 'Bar', 'Breakfast', 'Grill'],
+    street_address: '60 Kloof Street',
+    suburb: 'Gardens',
+    latitude: null,
+    longitude: null,
+    phone: '+27214244344',
+    website_url: 'https://www.arnolds.co.za',
+    booking_url: 'https://www.dineplan.com/restaurants/arnolds-on-kloof',
+    instagram_url: 'https://www.instagram.com/arnoldsonkloof/',
+    facebook_url: 'https://www.facebook.com/arnoldsonkloof/',
+    google_maps_url: mapsUrl("Arnold's Restaurant", '60 Kloof Street, Gardens'),
+    image_url: null,
+    active: true,
+    last_checked_at: CHECKED_4,
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
 ];
 
 const RICKS = RESTAURANTS_SEED[0].id;
@@ -1460,6 +1483,7 @@ const AIKO = RESTAURANTS_SEED[55].id;
 const CAFE_MANHATTAN = RESTAURANTS_SEED[56].id;
 const VAN_HUNKS = RESTAURANTS_SEED[57].id;
 const ASOKA = RESTAURANTS_SEED[58].id;
+const ARNOLDS = RESTAURANTS_SEED[59].id;
 
 /** The Cape Town Blog's Monday round-up, last updated 12 August 2026. */
 const CTB_MONDAY = 'https://thecapetownblog.com/monday-specials/';
@@ -3692,6 +3716,25 @@ export const SPECIALS_SEED: Special[] = [
     source_type: 'publication',
     source_published_at: '2026-08-12',
   }),
+
+  special({
+    id: 'b2000000-0000-4000-8000-00000000008d',
+    last_verified_at: CHECKED_4,
+    restaurant_id: ARNOLDS,
+    title: 'Happy hour, every day',
+    description:
+      'Two hours of reduced prices on drinks and cocktails, every afternoon of the year.',
+    category: 'happy_hour',
+    days_of_week: [1, 2, 3, 4, 5, 6, 7],
+    start_time: '16:30',
+    end_time: '18:30',
+    terms:
+      'The restaurant publishes the hours on its own site but not the prices. A 2021 write-up put cocktails at R49; that figure is five years old and is not shown here.',
+    source_url: 'https://www.arnolds.co.za/',
+    source_type: 'official_website',
+    source_published_at: CHECKED_4,
+    featured: true,
+  }),
 ];
 
 /**
@@ -4507,6 +4550,65 @@ export const RESEARCH_QUEUE_SEED: ResearchQueueItem[] = [
     confidence: 'low',
     review_status: 'needs_more_evidence',
     reviewer_notes: 'Re-check on foot, or leave the suburb empty — the empty state handles it.',
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-000000000031',
+    restaurant_id: null,
+    proposed_special_data: {
+      restaurant: "Arnold's",
+      street_address: '60 Kloof Street, Gardens',
+      title: 'Five more priced offers alongside the published happy hour',
+      note: 'Early-bird breakfast R35 from 6:30am; happy-hour cocktails R49; cheese and guacamole burger with a Jack Black R75; mimosas R30 all day; steak, egg and chips R99; half-price pizzas.',
+    },
+    source_url:
+      'https://www.eatplaydrink.capetown/eat/arnolds-in-kloof-street-is-an-institution-and-still-going-strong/',
+    photo_url: null,
+    detected_at: CHECKED_4,
+    confidence: 'low',
+    review_status: 'needs_more_evidence',
+    reviewer_notes:
+      "The article is from March 2021 — five years old, and R35 for a cooked breakfast tells you how far the prices have moved. The happy hour itself is published from the restaurant's own site and is live; only these prices are unconfirmed. Phone 021 424 4344 and this becomes five or six Gardens listings in one call.",
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-000000000032',
+    restaurant_id: null,
+    proposed_special_data: {
+      restaurant: 'La Boheme, Bootlegger Sea Point',
+      street_address: 'Main Road and Regent Road, Sea Point',
+      title: 'Two-course R120 / three-course R145; R12 coffee before 8am and evening happy hour',
+      note: 'Sea Point is one of the thinnest suburbs on the site, so these are worth chasing even though the source is old.',
+    },
+    source_url: 'https://www.eatout.co.za/article/hood-eat-sea-point/',
+    photo_url: null,
+    detected_at: CHECKED_4,
+    confidence: 'low',
+    review_status: 'needs_more_evidence',
+    reviewer_notes:
+      'The article is from January 2014. Nothing on it can be published; it is here only because Sea Point has so few confirmed listings that even a twelve-year-old lead is worth a phone call.',
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-000000000033',
+    restaurant_id: null,
+    proposed_special_data: {
+      restaurant: "Rita's Cocktail Club, Clarke's, Tiger's Milk, The Wolf House",
+      street_address: 'Kloof Street and Bree Street',
+      title: 'Four City Bowl two-for-one nights',
+      note: "Rita's: 50% off tacos on Tuesdays. Clarke's: two-for-one burgers Tuesday 7–8pm. Tiger's Milk: two pizzas for the price of one, Tuesday all day, dine-in, selected pizzas. The Wolf House, Kloof Street: burger, wings, cheese balls and chilli fries for R208 on Wednesdays.",
+    },
+    source_url:
+      'https://www.timeout.com/cape-town/restaurants/best-2-for-1-restaurant-specials-in-cape-town',
+    photo_url: null,
+    detected_at: CHECKED_4,
+    confidence: 'medium',
+    review_status: 'needs_more_evidence',
+    reviewer_notes:
+      "The article is from April 2025 — sixteen months old. Three of the four venues are already on the site, so these are four phone calls that would each add a listing to a day that needs them. Worth knowing how prices move on this evidence: the same article and a December 2025 round-up both put Iron's Wagyu Wednesday at R99, while a June 2026 page says R119.",
     created_at: NOW_ISO,
     updated_at: NOW_ISO,
   },

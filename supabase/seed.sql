@@ -444,7 +444,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000037', 'mischu', 'mischu', 'Coffee roastery and all-day café on Regent Road, roasting its own beans on site.', array['Café', 'Coffee', 'Breakfast']::text[],
-  '85A Regent Road', 'Sea Point', null, null, null,
+  '85A Regent Road', 'Sea Point', null, null, '+27214393944',
   'https://www.mischu.co.za', null, null, 'https://www.facebook.com/mischu.coffee/',
   'https://www.google.com/maps/search/?api=1&query=mischu%2C%2085A%20Regent%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
 ) on conflict (id) do update set
@@ -479,6 +479,14 @@ insert into public.restaurants (id, name, slug, description, categories, street_
   '68 Kloof Street', 'Gardens', null, null, '+27214220909',
   'https://asoka.za.com', null, 'https://www.instagram.com/asokakloofstreet/', null,
   'https://www.google.com/maps/search/?api=1&query=Asoka%2C%2068%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000003c', 'Arnold''s', 'arnolds', 'Kloof Street institution opposite the Mount Nelson, open from a quarter to seven in the morning until late, 364 days a year.', array['Restaurant', 'Bar', 'Breakfast', 'Grill']::text[],
+  '60 Kloof Street', 'Gardens', null, null, '+27214244344',
+  'https://www.arnolds.co.za', 'https://www.dineplan.com/restaurants/arnolds-on-kloof', 'https://www.instagram.com/arnoldsonkloof/', 'https://www.facebook.com/arnoldsonkloof/',
+  'https://www.google.com/maps/search/?api=1&query=Arnold''s%20Restaurant%2C%2060%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
@@ -2091,6 +2099,18 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
 ) on conflict (id) do update set
   restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000008d', 'a1000000-0000-4000-8000-00000000003c', 'Happy hour, every day',
+  'Two hours of reduced prices on drinks and cocktails, every afternoon of the year.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], '16:30', '18:30',
+  null, null, 'The restaurant publishes the hours on its own site but not the prices. A 2021 write-up put cocktails at R49; that figure is five years old and is not shown here.', false,
+  'unknown'::holiday_status, 'https://www.arnolds.co.za/', 'official_website'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
 -- ------------------------------------------- research queue (not public)
 insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
   'c3000000-0000-4000-8000-000000000018', null,
@@ -2384,6 +2404,27 @@ insert into public.research_queue (id, restaurant_id, proposed_special_data, sou
   '{"restaurant":"Oranjezicht — nothing found","street_address":"Oranjezicht","title":"No verifiable special found in this suburb","note":"Oranjezicht is largely residential. No restaurant or bar there published a current special on any source that could be read."}'::jsonb,
   'https://www.restaurants.co.za/specials/western-cape', '2026-08-21', 'low'::confidence_level,
   'needs_more_evidence'::review_status, 'Re-check on foot, or leave the suburb empty — the empty state handles it.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000031', null,
+  '{"restaurant":"Arnold''s","street_address":"60 Kloof Street, Gardens","title":"Five more priced offers alongside the published happy hour","note":"Early-bird breakfast R35 from 6:30am; happy-hour cocktails R49; cheese and guacamole burger with a Jack Black R75; mimosas R30 all day; steak, egg and chips R99; half-price pizzas."}'::jsonb,
+  'https://www.eatplaydrink.capetown/eat/arnolds-in-kloof-street-is-an-institution-and-still-going-strong/', '2026-08-23', 'low'::confidence_level,
+  'needs_more_evidence'::review_status, 'The article is from March 2021 — five years old, and R35 for a cooked breakfast tells you how far the prices have moved. The happy hour itself is published from the restaurant''s own site and is live; only these prices are unconfirmed. Phone 021 424 4344 and this becomes five or six Gardens listings in one call.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000032', null,
+  '{"restaurant":"La Boheme, Bootlegger Sea Point","street_address":"Main Road and Regent Road, Sea Point","title":"Two-course R120 / three-course R145; R12 coffee before 8am and evening happy hour","note":"Sea Point is one of the thinnest suburbs on the site, so these are worth chasing even though the source is old."}'::jsonb,
+  'https://www.eatout.co.za/article/hood-eat-sea-point/', '2026-08-23', 'low'::confidence_level,
+  'needs_more_evidence'::review_status, 'The article is from January 2014. Nothing on it can be published; it is here only because Sea Point has so few confirmed listings that even a twelve-year-old lead is worth a phone call.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000033', null,
+  '{"restaurant":"Rita''s Cocktail Club, Clarke''s, Tiger''s Milk, The Wolf House","street_address":"Kloof Street and Bree Street","title":"Four City Bowl two-for-one nights","note":"Rita''s: 50% off tacos on Tuesdays. Clarke''s: two-for-one burgers Tuesday 7–8pm. Tiger''s Milk: two pizzas for the price of one, Tuesday all day, dine-in, selected pizzas. The Wolf House, Kloof Street: burger, wings, cheese balls and chilli fries for R208 on Wednesdays."}'::jsonb,
+  'https://www.timeout.com/cape-town/restaurants/best-2-for-1-restaurant-specials-in-cape-town', '2026-08-23', 'medium'::confidence_level,
+  'needs_more_evidence'::review_status, 'The article is from April 2025 — sixteen months old. Three of the four venues are already on the site, so these are four phone calls that would each add a listing to a day that needs them. Worth knowing how prices move on this evidence: the same article and a December 2025 round-up both put Iron''s Wagyu Wednesday at R99, while a June 2026 page says R119.'
 ) on conflict (id) do nothing;
 
 commit;

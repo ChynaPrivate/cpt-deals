@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import VenueAvatar from './VenueAvatar';
 import { Pill, VerificationBadge } from './Badges';
 import { formatIsoDate, formatRand, formatTimeRange, isOpenNow, type ZonedNow } from '@/lib/time';
 import { freshnessLabel } from '@/lib/specials';
@@ -28,23 +28,11 @@ export default function SpecialCard({ special, now, distanceKm, onOpen }: Props)
     <li className="border-line bg-surface overflow-hidden rounded-[var(--radius-card)] border">
       <article className="p-4">
         <div className="flex items-center gap-3">
-          {special.restaurant.image_url ? (
-            <Image
-              src={special.restaurant.image_url}
-              alt=""
-              width={52}
-              height={52}
-              loading="lazy"
-              className="h-13 w-13 shrink-0 rounded-xl object-cover"
-            />
-          ) : (
-            <div
-              aria-hidden="true"
-              className="bg-orange-dim text-orange flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-xl text-[20px] font-extrabold"
-            >
-              {special.restaurant.name.slice(0, 1)}
-            </div>
-          )}
+          <VenueAvatar
+            name={special.restaurant.name}
+            categories={special.restaurant.categories}
+            imageUrl={special.restaurant.image_url}
+          />
 
           <div className="min-w-0 flex-1">
             <h3 className="text-[16px] leading-tight font-bold text-white">
