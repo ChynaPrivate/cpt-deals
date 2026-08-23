@@ -25,7 +25,7 @@
 #
 # Deliberately NOT setting NODE_ENV here. Setting it to "production" makes npm
 # skip devDependencies, and Next.js keeps Tailwind, TypeScript and the type
-# packages there by default - the build then dies on a missing
+# packages there by default — the build then dies on a missing
 # '@tailwindcss/postcss'. Netlify and Next.js each set NODE_ENV correctly on
 # their own during the build.
 

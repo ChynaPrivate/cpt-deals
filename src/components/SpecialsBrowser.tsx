@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import DayPicker from './DayPicker';
+import KindToggle from './KindToggle';
 import ControlBar from './ControlBar';
 import InstallHelp from './InstallHelp';
 import SpecialCard from './SpecialCard';
@@ -9,6 +10,7 @@ import SpecialDetail from './SpecialDetail';
 import {
   applyFilters,
   countsByDay,
+  countsByKind,
   countsBySuburb,
   distanceForSpecial,
   sortSpecials,
@@ -21,6 +23,7 @@ import {
   WEEKDAY_NAMES,
   type FilterKey,
   type SortKey,
+  type SpecialKind,
   type SpecialWithRestaurant,
   type Suburb,
   type Weekday,
@@ -40,6 +43,8 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
   const [selectedDay, setSelectedDay] = useState<Weekday>(serverNow.weekday);
   const [dayChosenByUser, setDayChosenByUser] = useState(false);
   const [filters, setFilters] = useState<FilterKey[]>([]);
+  // Food, drinks, or everything. The site opens on everything.
+  const [kind, setKind] = useState<SpecialKind>('all');
   // Empty means every suburb — how the site opens.
   const [suburbs, setSuburbs] = useState<Suburb[]>([]);
   const [sort, setSort] = useState<SortKey>('recommended');
@@ -68,20 +73,27 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
   }, []);
 
   const counts = useMemo(
-    () => countsByDay(specials, now.date, suburbs),
-    [specials, now.date, suburbs],
+    () => countsByDay(specials, now.date, suburbs, kind),
+    [specials, now.date, suburbs, kind],
   );
 
   const suburbCounts = useMemo(
-    () => countsBySuburb(specials, now.date, selectedDay),
-    [specials, now.date, selectedDay],
+    () => countsBySuburb(specials, now.date, selectedDay, kind),
+    [specials, now.date, selectedDay, kind],
+  );
+
+  // The toggle's own numbers ignore the kind filter — otherwise the option you
+  // are not on would always read zero.
+  const kindCounts = useMemo(
+    () => countsByKind(specials, now.date, selectedDay, suburbs),
+    [specials, now.date, selectedDay, suburbs],
   );
 
   const visible = useMemo(() => {
-    const forDay = specialsForDay(specials, selectedDay, now.date, suburbs);
+    const forDay = specialsForDay(specials, selectedDay, now.date, suburbs, kind);
     const filtered = applyFilters(forDay, filters, now);
     return sortSpecials(filtered, sort, now, coords);
-  }, [specials, selectedDay, now, filters, sort, coords, suburbs]);
+  }, [specials, selectedDay, now, filters, sort, coords, suburbs, kind]);
 
   const requestLocation = useCallback(() => {
     if (!('geolocation' in navigator)) {
@@ -148,6 +160,10 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
           />
         </div>
       </section>
+
+      <div className="mt-5">
+        <KindToggle value={kind} counts={kindCounts} onChange={setKind} />
+      </div>
 
       <ControlBar
         suburbs={suburbs}

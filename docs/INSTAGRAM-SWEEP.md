@@ -26,7 +26,7 @@ You need an Instagram **Professional** account of your own — Business or Creat
 2. Create a Facebook Page and link the Instagram account to it.
 3. At [developers.facebook.com](https://developers.facebook.com), create an app of type **Business** and add the **Instagram Graph API** product.
 4. Use the Graph API Explorer to generate a token with **four** permissions: `instagram_basic`, `pages_show_list`, `pages_read_engagement` and `instagram_manage_insights`. The last one is not optional — Business Discovery returns `(#10) Application does not have permission for this action` without it. Then exchange the token for a long-lived one.
-5. Find your Instagram account's ID. `me/accounts` is the documented route but frequently returns an empty array on Business-type apps even when the Page is granted. The reliable route is the **Access Token Debugger** (Explorer → the ⓘ beside the token → *Open in Access Token Tool*): under **Granular Scopes**, the numeric ID listed against `instagram_basic` _is_ your Instagram account ID.
+5. Find your Instagram account's ID. `me/accounts` is the documented route but frequently returns an empty array on Business-type apps even when the Page is granted. The reliable route is the **Access Token Debugger** (Explorer → the ⓘ beside the token → _Open in Access Token Tool_): under **Granular Scopes**, the numeric ID listed against `instagram_basic` _is_ your Instagram account ID.
 6. In Netlify → **Site configuration** → **Environment variables**, add:
 
 | Variable                    | Value                                  |
@@ -41,12 +41,12 @@ You need an Instagram **Professional** account of your own — Business or Creat
 
 Recorded here so they do not have to be rediscovered. Neither is a secret — an account ID is not a credential.
 
-| Thing                             | Value                |
-| --------------------------------- | -------------------- |
-| Caller Instagram account           | `@cpthappyhour`      |
-| `IG_BUSINESS_ID`                   | `17841438488011653`  |
-| Linked Facebook Page               | Stereo Night, `1719547058139439` |
-| Meta app                           | Cape Town Deals, `1867672531260147` |
+| Thing                    | Value                               |
+| ------------------------ | ----------------------------------- |
+| Caller Instagram account | `@cpthappyhour`                     |
+| `IG_BUSINESS_ID`         | `17841438488011653`                 |
+| Linked Facebook Page     | Stereo Night, `1719547058139439`    |
+| Meta app                 | Cape Town Deals, `1867672531260147` |
 
 The **token itself is a secret** and lives only in the Netlify environment variable. It is not written down here, in the repository, or anywhere else in this project.
 

@@ -244,6 +244,19 @@ export const FILTER_LABELS: Record<FilterKey, string> = {
   open_now: 'Open now',
 };
 
+/**
+ * The top-level split a visitor makes first: am I after something to eat, or
+ * something to drink? Every category maps to exactly one of these, so the two
+ * halves always add up to the whole.
+ */
+export type SpecialKind = 'all' | 'food' | 'drinks';
+
+export const KIND_LABELS: Record<SpecialKind, string> = {
+  all: 'Everything',
+  food: 'Food',
+  drinks: 'Drinks',
+};
+
 export const DISCLAIMER =
   'Specials can change without notice. Please confirm with the restaurant before visiting.';
 

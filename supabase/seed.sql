@@ -108,6 +108,139 @@ insert into public.restaurants (id, name, slug, description, categories, street_
   'https://www.google.com/maps/search/?api=1&query=Flirt%20Mexican%20Restaurant%2C%2075%20Church%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
 ) on conflict (id) do nothing;
 
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000000f', 'fable cocktail bar', 'fable-cocktail-bar', 'Cocktail bar on the corner of Bree and Wale, with a daily happy hour and a daytime sandwich-and-pie menu on the days it opens at noon.', array['Cocktails', 'Bar', 'Small plates']::text[],
+  'Corner Bree Street and Wale Street', 'Cape Town City Centre', null, null, '+27660097786',
+  'https://fablecocktailbar.capetown/', 'https://www.dineplan.com/restaurants/fable-cocktail-bar', 'https://www.instagram.com/fablecpt/', 'https://www.facebook.com/fablecpt',
+  'https://www.google.com/maps/search/?api=1&query=fable%20cocktail%20bar%2C%20Corner%20Bree%20and%20Wale%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000010', 'Amura at Mount Nelson', 'amura-mount-nelson', 'Restaurant at the Mount Nelson Hotel on Orange Street, serving a seasonal four-course menu.', array['Fine dining', 'Hotel restaurant']::text[],
+  '76 Orange Street', 'Gardens', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/amura', null, null,
+  'https://www.google.com/maps/search/?api=1&query=Amura%20at%20Mount%20Nelson%2C%2076%20Orange%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000011', 'Copa Restaurant', 'copa-restaurant', 'Restaurant at the Pepperclub Hotel on Loop Street.', array['Restaurant', 'Hotel restaurant']::text[],
+  '167 Loop Street, Pepperclub Hotel', 'Cape Town City Centre', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/copa', null, null,
+  'https://www.google.com/maps/search/?api=1&query=Copa%20Restaurant%2C%20167%20Loop%20Street%2C%20Pepperclub%20Hotel%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000012', 'FYN Restaurant', 'fyn-restaurant', 'Fine-dining restaurant on Parliament Street pairing South African produce with Japanese technique.', array['Fine dining', 'Japanese', 'Tasting menu']::text[],
+  '37 Parliament Street', 'Cape Town City Centre', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/fyn', null, null,
+  'https://www.google.com/maps/search/?api=1&query=FYN%20Restaurant%2C%2037%20Parliament%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000013', 'Hacienda', 'hacienda-bree', 'Mexican Baja Californian kitchen and bar on Bree Street.', array['Mexican', 'Bar', 'Sharing plates']::text[],
+  '92 Bree Street', 'Cape Town City Centre', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/hacienda', null, null,
+  'https://www.google.com/maps/search/?api=1&query=Hacienda%2C%2092%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000014', 'Iron Steak and Bar', 'iron-steak-and-bar', 'Steakhouse and bar on Bree Street.', array['Steakhouse', 'Bar']::text[],
+  '114 Bree Street', 'Cape Town City Centre', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/iron-steak-and-bar', null, null,
+  'https://www.google.com/maps/search/?api=1&query=Iron%20Steak%20and%20Bar%2C%20114%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000015', 'Mint Restaurant at Taj Cape Town', 'mint-taj-cape-town', 'Restaurant at the Taj hotel on Wale Street, with a menu that changes destination monthly.', array['Restaurant', 'Hotel restaurant']::text[],
+  '1 Wale Street', 'Cape Town City Centre', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/mint', null, null,
+  'https://www.google.com/maps/search/?api=1&query=Mint%20Restaurant%20at%20Taj%20Cape%20Town%2C%201%20Wale%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000016', 'Nikkei Japanese Peruvian', 'nikkei-japanese-peruvian', 'Japanese-Peruvian restaurant on Bree Street.', array['Japanese', 'Peruvian', 'Sushi']::text[],
+  '87 Bree Street', 'Cape Town City Centre', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/nikkei', null, null,
+  'https://www.google.com/maps/search/?api=1&query=Nikkei%20Japanese%20Peruvian%2C%2087%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000017', 'The Waterside', 'the-waterside', 'Five-course tasting restaurant on Shortmarket Street.', array['Fine dining', 'Tasting menu']::text[],
+  '55 Shortmarket Street', 'Cape Town City Centre', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/the-waterside', null, null,
+  'https://www.google.com/maps/search/?api=1&query=The%20Waterside%2C%2055%20Shortmarket%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000018', 'The Wes Bistro and Bar', 'the-wes-bistro-and-bar', 'Bistro and bar on Shortmarket Street.', array['Bistro', 'Bar']::text[],
+  '55 Shortmarket Street', 'Cape Town City Centre', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/the-wes', null, null,
+  'https://www.google.com/maps/search/?api=1&query=The%20Wes%20Bistro%20and%20Bar%2C%2055%20Shortmarket%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000019', 'Yatai Japanese', 'yatai-japanese', 'Japanese restaurant on Bree Street serving a curated sharing menu.', array['Japanese', 'Sharing plates']::text[],
+  '87 Bree Street', 'Cape Town City Centre', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/yatai', null, null,
+  'https://www.google.com/maps/search/?api=1&query=Yatai%20Japanese%2C%2087%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000001a', 'Grand Pavilion', 'grand-pavilion', 'Restaurant on the Sea Point promenade.', array['Restaurant', 'Seaside']::text[],
+  '277 Beach Road', 'Sea Point', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/grand-pavilion', null, null,
+  'https://www.google.com/maps/search/?api=1&query=Grand%20Pavilion%2C%20277%20Beach%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000001b', 'The President Hotel', 'the-president-hotel', 'Hotel restaurant on Alexander Road in Sea Point, running a paired dinner on Thursdays.', array['Hotel restaurant', 'Wine pairing']::text[],
+  'S4 Alexander Road', 'Sea Point', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/the-president-hotel', null, null,
+  'https://www.google.com/maps/search/?api=1&query=The%20President%20Hotel%2C%20S4%20Alexander%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000001c', 'Harry''s Beach', 'harrys-beach', 'Beachfront restaurant on Victoria Road in Camps Bay.', array['Restaurant', 'Seaside']::text[],
+  '41 Victoria Road', 'Camps Bay', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/harrys-beach', null, null,
+  'https://www.google.com/maps/search/?api=1&query=Harry''s%20Beach%2C%2041%20Victoria%20Road%2C%20Camps%20Bay%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000001d', 'Harbour House Camps Bay', 'harbour-house-camps-bay', 'Seafood restaurant on the Camps Bay promenade.', array['Seafood', 'Restaurant']::text[],
+  '87 Victoria Road, The Promenade', 'Camps Bay', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/harbour-house-camps-bay', null, null,
+  'https://www.google.com/maps/search/?api=1&query=Harbour%20House%20Camps%20Bay%2C%2087%20Victoria%20Road%2C%20The%20Promenade%2C%20Camps%20Bay%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000001e', 'Salsify at the Roundhouse', 'salsify-at-the-roundhouse', 'Fine-dining restaurant in the historic Round House above Camps Bay.', array['Fine dining', 'Tasting menu']::text[],
+  'Round House Road, Kloof Road', 'Camps Bay', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/salsify-at-the-roundhouse', null, null,
+  'https://www.google.com/maps/search/?api=1&query=Salsify%20at%20the%20Roundhouse%2C%20Round%20House%20Road%2C%20Kloof%20Road%2C%20Camps%20Bay%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000001f', 'Rita''s Cocktail Club', 'ritas-cocktail-club', 'Rooftop tequila and cocktail bar on Kloof Street, with small plates and a daily social hour.', array['Cocktails', 'Bar', 'Tequila', 'Small plates']::text[],
+  '22 Kloof Street', 'Gardens', null, null, '+27213006695',
+  'https://www.ritascocktailclub.com/', 'https://account.dineplan.com/widgetframe/lg0VXhdN', 'https://www.instagram.com/ritascocktailclub/', null,
+  'https://www.google.com/maps/search/?api=1&query=Rita''s%20Cocktail%20Club%2C%2022%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000020', 'Kloof Street House', 'kloof-street-house', 'Victorian house on Kloof Street with a garden, several dining rooms and live jazz over Sunday lunch.', array['Restaurant', 'Bar', 'Live music']::text[],
+  '30 Kloof Street', 'Gardens', null, null, '+27214234413',
+  'https://www.kloofstreethouse.co.za/', 'https://www.kloofstreethouse.co.za/reservations/', 'https://www.instagram.com/kloofstreethouse/', null,
+  'https://www.google.com/maps/search/?api=1&query=Kloof%20Street%20House%2C%2030%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do nothing;
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000021', 'The Village Idiot', 'the-village-idiot', 'Pub and party bar on Loop Street, with DJs midweek and a different food-and-drink offer most nights.', array['Bar', 'Pub', 'Pizza', 'Live DJ']::text[],
+  '32 Loop Street', 'Cape Town City Centre', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/the-village-idiot', 'https://www.instagram.com/thevillageidiotct/', null,
+  'https://www.google.com/maps/search/?api=1&query=The%20Village%20Idiot%2C%2032%20Loop%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do nothing;
+
 -- ------------------------------------------------------------- specials
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000001', 'a1000000-0000-4000-8000-000000000001', 'Happy hour',
@@ -527,7 +660,345 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   false, true
 ) on conflict (id) do nothing;
 
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000002d', 'a1000000-0000-4000-8000-00000000000f', 'Happy hour',
+  'Selected food and drinks from the menu at reduced prices, early evening, every day the bar is open.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[2, 3, 4, 5, 6, 7]::smallint[], '17:00', '19:00',
+  null, null, 'Selected items only. The bar does not publish which items, or the reduced prices.', false,
+  'unknown'::holiday_status, 'https://fablecocktailbar.capetown/', 'official_website'::source_type,
+  '2026-07-25', '2026-08-22', 'verified'::verification_status,
+  true, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000002e', 'a1000000-0000-4000-8000-00000000000f', 'Women''s Wednesdays',
+  'Half price on all classic cocktails for women, mid-evening on Wednesdays.',
+  null, null, 'drinks'::special_category, '{}',
+  array[3]::smallint[], '19:00', '22:00',
+  null, null, 'The bar states this offer applies to women.', false,
+  'unknown'::holiday_status, 'https://fablecocktailbar.capetown/', 'official_website'::source_type,
+  '2026-07-25', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000002f', 'a1000000-0000-4000-8000-00000000000f', 'Fable Fix',
+  'Any sandwich or pie from the daytime menu, with a daytime drink.',
+  150, null, 'lunch'::special_category, '{}',
+  array[5, 6]::smallint[], '12:00', '16:00',
+  null, null, 'Advertised for 12pm to 4pm. The bar opens at noon on Friday and Saturday only, so those are the days it can run.', false,
+  'unknown'::holiday_status, 'https://fablecocktailbar.capetown/', 'official_website'::source_type,
+  '2026-07-25', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000030', 'a1000000-0000-4000-8000-00000000000f', 'Winter Warmer',
+  'Creamy roasted tomato soup with a four-cheese toastie.',
+  120, null, 'lunch'::special_category, '{}',
+  array[5, 6]::smallint[], '12:00', '16:00',
+  null, null, 'Advertised for 12pm to 4pm; the bar opens at noon on Friday and Saturday only. No end date is published - being a winter dish, confirm before relying on it in spring.', false,
+  'unknown'::holiday_status, 'https://fablecocktailbar.capetown/', 'official_website'::source_type,
+  '2026-07-25', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000031', 'a1000000-0000-4000-8000-000000000010', 'Four-course winter menu',
+  'Four courses from the winter menu at the Mount Nelson.',
+  750, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, null, 'R750 per person. Served at dinner every day, and at lunch Friday to Sunday. Dineplan lists it as running through August and September; no exact end date is published.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000032', 'a1000000-0000-4000-8000-000000000011', 'Three-course winter menu',
+  'Three courses from the winter menu at the Pepperclub.',
+  445, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, null, 'R445 per person, from midday daily. Advertised as a winter menu with no end date published.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000033', 'a1000000-0000-4000-8000-000000000012', 'Five-course lunch tasting menu',
+  'A five-course tasting menu at lunch.',
+  1275, null, 'lunch'::special_category, '{}',
+  array[2, 3, 4, 5, 6]::smallint[], null, null,
+  null, null, 'R1275 per person, from midday. Advertised as a winter menu with no end date published. Booking strongly advised.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000034', 'a1000000-0000-4000-8000-000000000013', 'Sharing winter menu',
+  'A Baja Californian sharing menu built for the table.',
+  349, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, null, 'R349 per person, all day. Advertised as a winter menu with no end date published.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000035', 'a1000000-0000-4000-8000-000000000014', '200g flat iron steak with salad',
+  'A 200g flat iron steak served with a salad.',
+  265, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, null, 'R265 per person. Advertised as a winter offer with no end date published.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000036', 'a1000000-0000-4000-8000-000000000015', 'Three-course menu with a Port',
+  'Three courses, with a complimentary glass of Port. The menu changes destination each month.',
+  595, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', 'R595 per person, from midday daily. Dineplan lists this as running through August.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000037', 'a1000000-0000-4000-8000-000000000016', 'Winter bento box',
+  'A bento box from the Japanese-Peruvian menu, served per person rather than to share.',
+  349, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, null, 'R349 per person. Not a sharing menu. Advertised as a winter offer with no end date published.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000038', 'a1000000-0000-4000-8000-000000000017', 'Five-course lunch or dinner',
+  'Five courses, opening with a bread stack, with prawn toast among the signatures.',
+  795, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, null, 'R795 per person, from midday for lunch and from 6pm for dinner. Advertised as a winter menu with no end date published.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000039', 'a1000000-0000-4000-8000-000000000018', 'Three-course winter menu',
+  'Three courses with a choice at each one.',
+  495, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, null, 'R495 per person, from midday daily. Advertised as a winter menu with no end date published.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000003a', 'a1000000-0000-4000-8000-000000000019', 'Sharing tasting menu',
+  'A curated tasting menu meant for sharing.',
+  349, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, null, 'R349 per person. Advertised as a winter menu with no end date published.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000003b', 'a1000000-0000-4000-8000-00000000001a', 'Two- or three-course winter menu',
+  'Winter set menu running to oxtail ravioli and slow-roasted lamb shank.',
+  450, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, null, 'R450 for two courses, R550 for three. Lunch and dinner daily. Advertised as a winter menu with no end date published.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000003c', 'a1000000-0000-4000-8000-00000000001b', 'Three-course paired dinner',
+  'Three courses, each paired with a drink.',
+  750, null, 'dinner'::special_category, '{}',
+  array[4]::smallint[], null, null,
+  null, null, 'R750 per person, Thursdays from 6:30pm. Advertised as a winter offer with no end date published.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000003d', 'a1000000-0000-4000-8000-00000000001c', 'Two- or three-course lunch',
+  'Winter lunch menu on the Camps Bay beachfront.',
+  285, null, 'lunch'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, null, 'R285 for two courses, R375 for three, from midday daily. Advertised as a winter menu with no end date published.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000003e', 'a1000000-0000-4000-8000-00000000001d', 'Weekday set menu',
+  'Two or three courses, weekdays only.',
+  295, null, 'lunch'::special_category, '{}',
+  array[1, 2, 3, 4, 5]::smallint[], null, null,
+  null, null, 'R295 for two courses, R365 for three, Monday to Friday, all day. Advertised as a winter menu with no end date published.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000003f', 'a1000000-0000-4000-8000-00000000001e', 'Five-course lunch',
+  'Five courses at the Round House, from cured game fish through to Karoo lamb.',
+  1090, null, 'lunch'::special_category, '{}',
+  array[2, 3, 4, 5, 6]::smallint[], null, null,
+  null, null, 'R1090 per person, from 12:30. Advertised as a winter menu with no end date published. Booking strongly advised.', false,
+  'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
+  '2026-07-23', '2026-08-22', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000040', 'a1000000-0000-4000-8000-00000000001f', 'Social Hour — half-price margaritas',
+  'Half price on margaritas and on the small plates menu, early evening.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[2, 3, 4, 5, 6, 7]::smallint[], '17:00', '19:00',
+  null, null, 'Confirmed twice: the bar''s own site, and an Instagram post on 22 August 2026. One caption also says ''the best two hours of your day start at 4pm'', but every explicit statement of the times says 5pm to 7pm.', false,
+  'unknown'::holiday_status, 'https://www.ritascocktailclub.com/', 'official_website'::source_type,
+  '2026-08-22', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000041', 'a1000000-0000-4000-8000-000000000020', 'Winter lunch menu',
+  'A two- or three-course winter lunch, served through the afternoon.',
+  250, null, 'lunch'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6]::smallint[], '12:00', '16:00',
+  null, null, 'R250 for two courses, R295 for three. Monday to Saturday. Advertised as a winter menu with no end date published, so confirm before relying on it in spring.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/Db0k4EDoNxL/', 'social'::source_type,
+  '2026-08-09', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000042', 'a1000000-0000-4000-8000-000000000021', 'Happy hour',
+  'Happy-hour prices at the bar, Wednesday through Saturday evening.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[3, 4, 5, 6]::smallint[], '18:00', '20:00',
+  null, null, 'Advertised as 6pm to 8pm Wednesday to Saturday. One Friday post extended it to 10pm, so Friday may run longer.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/DcJaxFcimTs/', 'social'::source_type,
+  '2026-08-17', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000043', 'a1000000-0000-4000-8000-000000000021', 'Free frozen cocktail with any pizza',
+  'Order any pizza on a Wednesday and the frozen cocktail is on the house.',
+  null, null, 'food'::special_category, '{}',
+  array[3]::smallint[], null, null,
+  null, null, 'Posted on three separate Wednesdays in August 2026, which is what makes it a weekly offer rather than a one-off.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/DcJaxFcimTs/', 'social'::source_type,
+  '2026-08-19', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000044', 'a1000000-0000-4000-8000-000000000021', 'Half-price baskets on Thursdays',
+  'Fifty percent off the basket menu, all night.',
+  null, null, 'food'::special_category, '{}',
+  array[4]::smallint[], null, null,
+  null, null, 'Posted on three separate Thursdays in August 2026.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/DcLq5j0Diwf/', 'social'::source_type,
+  '2026-08-20', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000045', 'a1000000-0000-4000-8000-000000000021', 'Free jug or bubbly with a party platter',
+  'Order any party platter on a Friday and get a frozen jug or a bottle of bubbly free.',
+  null, null, 'food'::special_category, '{}',
+  array[5]::smallint[], null, null,
+  null, null, 'Posted on three separate Fridays in August 2026.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/DcTZWoFCKyH/', 'social'::source_type,
+  '2026-08-21', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do nothing;
+
 -- ------------------------------------------- research queue (not public)
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000018', null,
+  '{"restaurant":"Cargo","street_address":"178 Kloof Street, Gardens","title":"Happy hour, early evening","start_time":"17:00","end_time":"18:00","note":"Sources conflict. Cape Town Magazine (updated 22 January 2026) says R20 house wine, beer or tequila, Monday to Thursday 4-6pm, at 158 Kloof Street in Tamboerskloof. The operator All Yours Co says 178 Kloof Street in Gardens and happy hour 5-6pm, with no price. The official source wins, so nothing here is publishable as advertised."}'::jsonb,
+  'https://www.allyoursco.com/cargo', '2026-08-22', 'medium'::confidence_level,
+  'pending'::review_status, 'Phone 021 213 1221. Confirm the street number, the suburb, the exact hours, and whether the R20 price is real.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000019', null,
+  '{"restaurant":"Rita''s Cocktail Club","street_address":"22 Kloof Street, Gardens","title":"Half-price margaritas, daily 5-7pm","note":"Listed by Secret Cape Town, whose page was last updated in December 2023 - nearly three years ago. No current official source found."}'::jsonb,
+  'https://secretcapetown.co.za/happy-hour-specials-in-cape-town/', '2026-08-22', 'low'::confidence_level,
+  'pending'::review_status, 'Walk past or phone. A near-three-year-old listing is a lead, not evidence.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000001a', null,
+  '{"restaurant":"Arnold''s","street_address":"60 Kloof Street, Gardens","title":"R30 mimosas and R49 cocktails, daily 2-6pm","note":"From the same December 2023 Secret Cape Town roundup. Rand prices from 2023 are unlikely to have survived unchanged."}'::jsonb,
+  'https://secretcapetown.co.za/happy-hour-specials-in-cape-town/', '2026-08-22', 'low'::confidence_level,
+  'pending'::review_status, 'Check current menu prices before publishing. Treat the rand figures as certainly stale.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000001b', null,
+  '{"restaurant":"The Public House","street_address":"108 Kloof Street, Gardens","title":"Two-for-one nights, Wednesday to Sunday","note":"Secret Cape Town (December 2023) lists two-for-one margaritas on Wednesday, buy-one-get-one beer and pizza on Thursday, and a Sunday set of two-for-ones. Rich if true, but undated and unconfirmed."}'::jsonb,
+  'https://secretcapetown.co.za/happy-hour-specials-in-cape-town/', '2026-08-22', 'medium'::confidence_level,
+  'pending'::review_status, 'Worth a phone call - if even half of this still runs it is four listings across three days.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000001c', null,
+  '{"restaurant":"Van Hunks","street_address":"Corner Kloof and Upper Union Street, Gardens","title":"R12 single tot deal, daily 5-7pm and 10-11pm","note":"Secret Cape Town (December 2023). The official site was checked on 22 August 2026 and publishes no specials at all - only a description of the venue."}'::jsonb,
+  'https://vanhunks.framer.website/', '2026-08-22', 'low'::confidence_level,
+  'pending'::review_status, 'The official site carries nothing. Phone 021 422 5422, or read the board in person.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000001d', null,
+  '{"restaurant":"The Village Idiot","street_address":"Loop Street, Cape Town City Centre","title":"Weeknight food-and-drink combos","note":"Secret Cape Town (December 2023) lists a R115 pizza-and-drink on Wednesday, half-price food on Thursday, a R125 burger-and-drink on Friday, and a R350 two-mains-and-wine deal on Saturday."}'::jsonb,
+  'https://secretcapetown.co.za/happy-hour-specials-in-cape-town/', '2026-08-22', 'medium'::confidence_level,
+  'pending'::review_status, 'Four potential listings across four days. Worth chasing properly.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000001e', null,
+  '{"restaurant":"MiCaffe","street_address":"Shop 5, The Barracks, 50 Bree Street, Cape Town City Centre","title":"Happy hour Wed-Sat 4-6pm; free mimosas with Sunday breakfast","note":"Secret Cape Town (December 2023). The free-mimosa-with-breakfast claim in particular needs confirming before it goes anywhere near the site."}'::jsonb,
+  'https://secretcapetown.co.za/happy-hour-specials-in-cape-town/', '2026-08-22', 'low'::confidence_level,
+  'pending'::review_status, 'Confirm both offers on the spot. Never publish a free-drink claim on a 2023 source.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000001f', null,
+  '{"restaurant":"Cafe Extrablatt","street_address":"Exhibition Building, Green Point","title":"Cocktails R45 and mocktails R33, Monday to Friday 5-8pm","note":"Cape Town Magazine, page last updated 22 January 2026 - seven months old, and third-party. Extrablatt already has a verified listing from an earlier sweep; check whether this is the same offer or a second one."}'::jsonb,
+  'https://www.capetownmagazine.com/happy-hours', '2026-08-22', 'medium'::confidence_level,
+  'pending'::review_status, 'Cross-check against the existing Extrablatt listing before adding, to avoid a duplicate.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000020', null,
+  '{"restaurant":"The Sanctuary","street_address":"Kloof Street, Gardens","title":"CBC Fridays","note":"FoodBlog Cape Town mentions a Friday CBC beer promotion but publishes no price, no times and no date for the claim."}'::jsonb,
+  'https://www.food-blog.co.za/cape-town-specials/', '2026-08-22', 'low'::confidence_level,
+  'pending'::review_status, 'Too thin to publish. Needs a price and a time from the venue itself.'
+) on conflict (id) do nothing;
+
 insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
   'c3000000-0000-4000-8000-000000000001', null,
   '{"restaurant":"Asoka","street_address":"68 Kloof Street, Gardens","title":"Three-course dinner for R295","price":295,"days_of_week":[1,3,4,7],"start_time":"17:30","note":"Asoka''s own site shows a ''Dinner special May 2026'' item but publishes no price, days or times. The R295 / Mon-Wed-Thu-Sun detail comes from an undated third-party listing."}'::jsonb,

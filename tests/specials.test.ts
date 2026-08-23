@@ -2,7 +2,10 @@ import { describe, expect, it } from 'vitest';
 import {
   applyFilters,
   countsByDay,
+  countsByKind,
   countsBySuburb,
+  inKind,
+  kindOf,
   inSuburbs,
   distanceKm,
   freshnessLabel,
@@ -316,5 +319,65 @@ describe('the bundled seed data', () => {
     for (const special of SPECIALS_SEED) {
       if (special.valid_until) expect(special.valid_until >= TODAY).toBe(true);
     }
+  });
+});
+
+describe('the food / drinks split', () => {
+  it('puts every category on exactly one side', () => {
+    expect(kindOf('food')).toBe('food');
+    expect(kindOf('breakfast')).toBe('food');
+    expect(kindOf('lunch')).toBe('food');
+    expect(kindOf('dinner')).toBe('food');
+    expect(kindOf('drinks')).toBe('drinks');
+    expect(kindOf('happy_hour')).toBe('drinks');
+  });
+
+  it('splits the real seed data with nothing left over', () => {
+    const all = joinSeed();
+    const food = inKind(all, 'food').length;
+    const drinks = inKind(all, 'drinks').length;
+    expect(food + drinks).toBe(all.length);
+    expect(food).toBeGreaterThan(0);
+    expect(drinks).toBeGreaterThan(0);
+  });
+
+  it("'all' is a pass-through", () => {
+    const all = joinSeed();
+    expect(inKind(all, 'all')).toHaveLength(all.length);
+  });
+
+  it('narrows a day to one side', () => {
+    const supper = make({ category: 'dinner', days_of_week: [4] as Weekday[] });
+    const pint = make({ category: 'happy_hour', days_of_week: [4] as Weekday[] });
+    const all = [supper, pint];
+
+    expect(specialsForDay(all, 4, TODAY, [], 'all')).toHaveLength(2);
+    expect(specialsForDay(all, 4, TODAY, [], 'food')).toHaveLength(1);
+    expect(specialsForDay(all, 4, TODAY, [], 'drinks')).toHaveLength(1);
+    expect(specialsForDay(all, 4, TODAY, [], 'drinks')[0].id).toBe(pint.id);
+  });
+
+  it('carries the split through to the weekday counts', () => {
+    const supper = make({ category: 'dinner', days_of_week: [4] as Weekday[] });
+    const pint = make({ category: 'drinks', days_of_week: [4] as Weekday[] });
+    const all = [supper, pint];
+
+    expect(countsByDay(all, TODAY, [], 'all')[4]).toBe(2);
+    expect(countsByDay(all, TODAY, [], 'food')[4]).toBe(1);
+    expect(countsByDay(all, TODAY, [], 'drinks')[4]).toBe(1);
+  });
+
+  it('counts both sides regardless of which is selected, so the toggle never reads zero by accident', () => {
+    const supper = make({ category: 'lunch', days_of_week: [4] as Weekday[] });
+    const pint = make({ category: 'happy_hour', days_of_week: [4] as Weekday[] });
+    const counts = countsByKind([supper, pint], TODAY, 4);
+    expect(counts.food).toBe(1);
+    expect(counts.drinks).toBe(1);
+  });
+
+  it('ignores specials that do not run on the chosen day', () => {
+    const monday = make({ category: 'drinks', days_of_week: [1] as Weekday[] });
+    const counts = countsByKind([monday], TODAY, 4);
+    expect(counts.drinks).toBe(0);
   });
 });

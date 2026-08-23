@@ -10,7 +10,15 @@ import {
   runsOnDay,
   type ZonedNow,
 } from './time';
-import type { FilterKey, SortKey, SpecialWithRestaurant, Suburb, Weekday } from './types';
+import type {
+  FilterKey,
+  SortKey,
+  SpecialCategory,
+  SpecialKind,
+  SpecialWithRestaurant,
+  Suburb,
+  Weekday,
+} from './types';
 
 /**
  * The public gate. A special reaches visitors only when it is active, has been
@@ -41,14 +49,33 @@ export function inSuburbs(
   return all.filter((special) => suburbs.includes(special.restaurant.suburb as Suburb));
 }
 
+/**
+ * Which half of the site a special belongs to. Breakfast, lunch and dinner are
+ * food; happy hour sits with drinks, which is how people read it even when a
+ * few bars discount snacks alongside the cocktails.
+ */
+export function kindOf(category: SpecialCategory): Exclude<SpecialKind, 'all'> {
+  return category === 'drinks' || category === 'happy_hour' ? 'drinks' : 'food';
+}
+
+/** Narrow to food or drinks. 'all' is the pass-through the site opens on. */
+export function inKind(all: SpecialWithRestaurant[], kind: SpecialKind): SpecialWithRestaurant[] {
+  if (kind === 'all') return all;
+  return all.filter((special) => kindOf(special.category) === kind);
+}
+
 export function publishedSpecials(
   all: SpecialWithRestaurant[],
   isoDate: string,
   suburbs: Suburb[] = [],
+  kind: SpecialKind = 'all',
 ): SpecialWithRestaurant[] {
-  return inSuburbs(
-    all.filter((special) => special.restaurant.active && isPubliclyVisible(special, isoDate)),
-    suburbs,
+  return inKind(
+    inSuburbs(
+      all.filter((special) => special.restaurant.active && isPubliclyVisible(special, isoDate)),
+      suburbs,
+    ),
+    kind,
   );
 }
 
@@ -58,8 +85,11 @@ export function specialsForDay(
   day: Weekday,
   isoDate: string,
   suburbs: Suburb[] = [],
+  kind: SpecialKind = 'all',
 ): SpecialWithRestaurant[] {
-  return publishedSpecials(all, isoDate, suburbs).filter((special) => runsOnDay(special, day));
+  return publishedSpecials(all, isoDate, suburbs, kind).filter((special) =>
+    runsOnDay(special, day),
+  );
 }
 
 /** Verified-special count shown beside each weekday button. */
@@ -67,9 +97,10 @@ export function countsByDay(
   all: SpecialWithRestaurant[],
   isoDate: string,
   suburbs: Suburb[] = [],
+  kind: SpecialKind = 'all',
 ): Record<Weekday, number> {
   const counts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0 } as Record<Weekday, number>;
-  for (const special of publishedSpecials(all, isoDate, suburbs)) {
+  for (const special of publishedSpecials(all, isoDate, suburbs, kind)) {
     for (const day of special.days_of_week) counts[day] += 1;
   }
   return counts;
@@ -80,9 +111,10 @@ export function countsBySuburb(
   all: SpecialWithRestaurant[],
   isoDate: string,
   day: Weekday,
+  kind: SpecialKind = 'all',
 ): Record<string, number> {
   const counts: Record<string, number> = {};
-  for (const special of publishedSpecials(all, isoDate)) {
+  for (const special of publishedSpecials(all, isoDate, [], kind)) {
     if (!runsOnDay(special, day)) continue;
     const suburb = special.restaurant.suburb;
     counts[suburb] = (counts[suburb] ?? 0) + 1;
@@ -240,4 +272,19 @@ export function freshnessLabel(
   if (isExpiringSoon(special, isoDate)) return 'expiring_soon';
   if (needsRecheck(special, isoDate)) return 'needs_recheck';
   return 'verified';
+}
+
+/** How many food and drinks specials run on a given day, for the toggle labels. */
+export function countsByKind(
+  all: SpecialWithRestaurant[],
+  isoDate: string,
+  day: Weekday,
+  suburbs: Suburb[] = [],
+): Record<Exclude<SpecialKind, 'all'>, number> {
+  const counts = { food: 0, drinks: 0 };
+  for (const special of publishedSpecials(all, isoDate, suburbs)) {
+    if (!runsOnDay(special, day)) continue;
+    counts[kindOf(special.category)] += 1;
+  }
+  return counts;
 }

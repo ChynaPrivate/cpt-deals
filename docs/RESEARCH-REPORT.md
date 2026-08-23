@@ -268,3 +268,83 @@ The expired Dizzys entries are worth noting: they are exactly what the freshness
 | Instagram and Facebook, all venues                  | Sign-in walls, not bypassed                                                                                                                                                                 |
 
 **The pagination limit is the biggest gap in this sweep.** Only the first ten of Cape Town Central's 78 listed specials could be read. Working through the rest by hand is the single highest-yield thing left to do.
+
+---
+
+# Part 3 — City Bowl sweep, 22 August 2026
+
+Run while the site was already live. Nothing here was taken on trust: each
+source was opened and read on the day, and the date it carries is recorded.
+
+## Accepted — sixteen new specials across sixteen venues
+
+### fable cocktail bar, corner Bree and Wale Street, Cape Town City Centre
+
+Source: [fablecocktailbar.capetown](https://fablecocktailbar.capetown/), which
+carries an updated date of **25 July 2026** — four weeks old, and the venue's
+own site. Four specials published: the daily 5–7pm happy hour, Women's
+Wednesdays, the R150 Fable Fix and the R120 Winter Warmer.
+
+One judgement was needed. fable advertises Fable Fix and Winter Warmer for
+"12pm–4pm", but its own opening hours are 5pm on Tuesday to Thursday and
+4:30pm on Sunday. A midday offer cannot run on a day the doors open at five,
+so both are listed for **Friday and Saturday only**, with the reasoning written
+into the terms rather than left implicit. If the bar means something different,
+the terms make the assumption visible enough to correct.
+
+### Fifteen venues from Dineplan's winter guide
+
+Source: [dineplan.com winter specials](https://www.dineplan.com/blog/winter-specials-and-set-menus/),
+published 15 July 2026 and **updated 23 July 2026**. Dineplan is the booking
+platform these restaurants use, so the listings originate with the venues.
+
+Gardens: Amura at Mount Nelson. City Centre: Copa, FYN, Hacienda, Iron Steak
+and Bar, Mint at Taj, Nikkei, The Waterside, The Wes, Yatai. Sea Point: Grand
+Pavilion, The President Hotel. Camps Bay: Harry's Beach, Harbour House,
+Salsify at the Roundhouse.
+
+Two rules were applied throughout:
+
+- **Only Mint publishes an end date** ("through August"), so only Mint carries
+  a `valid_until`. Every other entry says "through the season", which is not a
+  date, so none was invented — instead each one's terms state plainly that no
+  expiry is published. These are winter menus and it is late August; they need
+  re-checking within weeks, and the site will not do that on its own.
+- **Where a price is a range**, the lower figure is the price and the range is
+  spelled out in the terms. R450–R550 is stored as R450, not as an average.
+
+Deliberately excluded from the same guide, being outside the nine suburbs this
+site covers: Gibson's, Heirloom, Pier, Sevruga, Terrarium and Tobago's (V&A
+Waterfront), Bellagio (De Waterkant), Galjoen and Belly of the Beast (District
+Six), TTK Fledgelings (Woodstock).
+
+## Rejected, with reasons
+
+| Venue                                                                                 | Claimed offer                                  | Source                                                                                                | Why it was not published                                                                                                                                                                                                                                             |
+| ------------------------------------------------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cargo, Kloof Street                                                                   | R20 house wine, beer or tequila, Mon–Thu 4–6pm | [capetownmagazine.com/happy-hours](https://www.capetownmagazine.com/happy-hours), updated 22 Jan 2026 | The operator's own page says **178 Kloof Street, Gardens** and happy hour **5–6pm**, with no price. The magazine says 158 Kloof Street, Tamboerskloof, 4–6pm, R20. Address, suburb, hours and price all conflict; the official source wins and it publishes no offer |
+| The Village Idiot, Tommy's Chop Shop                                                  | R50 signature cocktails                        | [food-blog.co.za](https://www.food-blog.co.za/cape-town-specials/)                                    | Cape Town Cocktail Week, **10–16 December 2025**. Expired eight months ago                                                                                                                                                                                           |
+| Rita's, Arnold's, The Public House, Van Hunks, The Village Idiot, MiCaffè, Harrington | Various happy hours and weeknight deals        | [secretcapetown.co.za](https://secretcapetown.co.za/happy-hour-specials-in-cape-town/)                | Page **last updated December 2023** — nearly three years old. Rand prices from 2023 are almost certainly stale                                                                                                                                                       |
+| Van Hunks                                                                             | R12 single tot, daily                          | Official site checked 22 Aug 2026                                                                     | [vanhunks.framer.website](https://vanhunks.framer.website/) publishes **no specials at all** — only a description of the venue. The 2023 claim has no current support                                                                                                |
+| Café Extrablatt                                                                       | Cocktails R45, Mon–Fri 5–8pm                   | capetownmagazine.com, updated 22 Jan 2026                                                             | Seven months old and third-party. Extrablatt already has a verified listing from an earlier sweep; queued to check for duplication first                                                                                                                             |
+| The Sanctuary, Kloof Street                                                           | CBC Fridays                                    | food-blog.co.za                                                                                       | No price, no times, no date. Too thin to publish                                                                                                                                                                                                                     |
+
+## Nine candidates added to the review queue
+
+Roughly twelve potential listings, each with a note saying exactly what to
+confirm and, where known, the number to call. They are worth chasing: The
+Public House alone could be four listings across three days.
+
+## What this sweep says about the sources
+
+The finding worth keeping is how quickly published specials rot. Of the
+happy-hour listings found today, the December 2023 roundup could not support a
+single publication, and a January 2026 page contradicted the venue's own site
+on four fields at once. The only sources that held up were a venue's own page
+updated four weeks ago, and a booking platform's guide updated a month ago.
+
+That is the argument for this site in one paragraph, and it is also a warning:
+sixteen new specials went up today on evidence roughly a month old. In three
+months they will be exactly as unreliable as the pages rejected above unless
+someone re-checks them. The `last_verified_at` date on every card is what makes
+that visible, and the 30-day flag in the admin dashboard is what will nag.
