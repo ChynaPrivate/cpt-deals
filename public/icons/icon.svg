@@ -1,14 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="CPT Deals">
+  <!-- Dark rounded square, matching the site's ground colour. -->
   <rect width="512" height="512" rx="112" ry="112" fill="#17181A"/>
-  <g transform="translate(0,10)">
-    <!-- plate -->
-    <ellipse cx="256" cy="352" rx="152" ry="24" fill="#FFFFFF"/>
-    <!-- cloche dome -->
-    <path d="M126 342 a130 130 0 0 1 260 0 z" fill="#FFFFFF"/>
-    <!-- cloche handle -->
-    <circle cx="256" cy="196" r="19" fill="#FFFFFF"/>
-    <!-- location pin -->
-    <path d="M362 120c-26 0-47 21-47 47 0 35 47 78 47 78s47-43 47-78c0-26-21-47-47-47z" fill="#FF7A1A"/>
-    <circle cx="362" cy="166" r="16.5" fill="#17181A"/>
+
+  <!--
+    A martini glass drawn as an outline in the site's orange.
+
+    Stroked rather than filled: at 32px a filled triangle reads as a solid
+    blob, whereas an outline keeps the silhouette legible. round joins stop
+    the bowl's points going spiky when the icon is scaled down.
+  -->
+  <g fill="none" stroke="#FF7A1A" stroke-width="24"
+     stroke-linecap="round" stroke-linejoin="round">
+    <!-- bowl -->
+    <path d="M136 156 L256 288 L376 156 Z"/>
+    <!-- stem -->
+    <path d="M256 288 L256 380"/>
+    <!-- foot -->
+    <path d="M186 380 L326 380"/>
   </g>
+
+  <!-- Olive on a stick, so the glass reads as a cocktail rather than a funnel. -->
+  <g stroke="#FF7A1A" stroke-width="14" stroke-linecap="round">
+    <path d="M318 130 L266 210"/>
+  </g>
+  <circle cx="262" cy="218" r="20" fill="#FF7A1A"/>
 </svg>

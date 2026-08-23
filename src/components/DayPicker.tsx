@@ -1,6 +1,6 @@
 'use client';
 
-import { WEEKDAYS, WEEKDAY_NAMES, WEEKDAY_SHORT, type Weekday } from '@/lib/types';
+import { WEEKDAYS, WEEKDAY_NAMES, type Weekday } from '@/lib/types';
 
 interface Props {
   selected: Weekday;
@@ -10,11 +10,17 @@ interface Props {
 }
 
 /**
- * The seven weekday buttons.
+ * The seven weekday buttons, stacked one per row and sized to fill the first
+ * screen.
  *
- * All seven are always on screen — a four-column grid on phones (two rows) and
- * on desktop. An earlier version scrolled horizontally, which meant the strip
- * opened part-scrolled and the first days were invisible on a phone.
+ * Earlier versions packed them into a grid, which left the top of the phone
+ * mostly empty and made the day — the thing the whole site turns on — feel
+ * incidental. Now the opening screen is the question: which day?
+ *
+ * The rows share the space with `flex-1`, so seven of them fill the viewport
+ * without any per-device height maths. `min-h-[64px]` stops them collapsing
+ * below a comfortable touch target on a short screen, at which point the page
+ * simply scrolls.
  *
  * Rendered as a radiogroup so screen readers and arrow keys behave the way
  * people expect from a segmented control.
@@ -36,7 +42,7 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
       role="radiogroup"
       aria-label="Choose a day of the week"
       onKeyDown={handleKeyDown}
-      className="grid grid-cols-4 gap-2"
+      className="flex min-h-[70svh] flex-col gap-2"
     >
       {WEEKDAYS.map((day) => {
         const isSelected = day === selected;
@@ -51,32 +57,30 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
             tabIndex={isSelected ? 0 : -1}
             onClick={() => onSelect(day)}
             className={[
-              'min-h-[76px] min-w-0 rounded-2xl border-2 px-3 py-3 text-left transition-colors',
+              'flex min-h-[64px] flex-1 items-center justify-between gap-3 rounded-2xl border-2',
+              'px-5 text-left transition-colors',
               isSelected
                 ? 'border-orange bg-orange text-ink shadow-[0_6px_20px_-8px_rgba(255,122,26,0.9)]'
                 : 'border-line bg-surface hover:border-orange/50 text-white',
             ].join(' ')}
           >
-            <span className="block text-[15px] font-bold">
-              <span className="sm:hidden">{WEEKDAY_SHORT[day]}</span>
-              <span className="hidden sm:inline">{WEEKDAY_NAMES[day]}</span>
+            <span className="flex items-center gap-3">
+              <span className="text-[20px] font-bold">{WEEKDAY_NAMES[day]}</span>
+              {isToday && (
+                <span
+                  className={`rounded-full px-2 py-0.5 text-[11px] font-bold tracking-wide uppercase ${
+                    isSelected ? 'bg-ink/15 text-ink' : 'bg-orange-dim text-orange'
+                  }`}
+                >
+                  Today
+                </span>
+              )}
             </span>
             <span
-              className={`mt-1 block text-[12.5px] leading-tight tabular-nums ${
-                isSelected ? 'text-ink/75' : 'text-white/60'
-              }`}
+              className={`text-[15px] tabular-nums ${isSelected ? 'text-ink/75' : 'text-white/60'}`}
             >
-              {count} {count === 1 ? 'special' : 'specials'}
+              {count}
             </span>
-            {isToday && (
-              <span
-                className={`mt-1 inline-block rounded-full px-2 py-0.5 text-[11px] font-bold tracking-wide uppercase ${
-                  isSelected ? 'bg-ink/15 text-ink' : 'bg-orange-dim text-orange'
-                }`}
-              >
-                Today
-              </span>
-            )}
             <span className="sr-only">
               {WEEKDAY_NAMES[day]}
               {isToday ? ', today' : ''}, {count} verified {count === 1 ? 'special' : 'specials'}

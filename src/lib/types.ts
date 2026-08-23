@@ -251,12 +251,6 @@ export const FILTER_LABELS: Record<FilterKey, string> = {
  */
 export type SpecialKind = 'all' | 'food' | 'drinks';
 
-export const KIND_LABELS: Record<SpecialKind, string> = {
-  all: 'Everything',
-  food: 'Food',
-  drinks: 'Drinks',
-};
-
 export const DISCLAIMER =
   'Specials can change without notice. Please confirm with the restaurant before visiting.';
 
