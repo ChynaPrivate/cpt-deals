@@ -44,6 +44,7 @@ export const SUBURBS = [
   'Green Point',
   'Mouille Point',
   'Camps Bay',
+  'Victoria & Alfred Waterfront',
 ] as const;
 
 export type Suburb = (typeof SUBURBS)[number];
@@ -59,6 +60,7 @@ export const SUBURB_SHORT: Record<Suburb, string> = {
   'Green Point': 'Green Point',
   'Mouille Point': 'Mouille Point',
   'Camps Bay': 'Camps Bay',
+  'Victoria & Alfred Waterfront': 'Waterfront',
 };
 
 export type SpecialCategory = 'food' | 'drinks' | 'breakfast' | 'lunch' | 'dinner' | 'happy_hour';

@@ -1,46 +1,318 @@
 # Specials awaiting manual confirmation
 
-These nine candidates are **not published**. They are seeded into the `research_queue` table, which the public can never read, and they appear in the admin dashboard under **Research queue**.
+GENERATED FILE. Edit the research queue in `src/lib/data/seed.ts` and run
+`npm run docs:unresolved`.
 
-Each one needs a person to confirm it against a current official source — usually a phone call — before it can be created as a special and marked verified.
+These **39 candidates are not published.** They live in the `research_queue`
+table, which the public can never read, and appear in the admin dashboard under
+**Research queue**.
 
-| #   | Venue                           | Address                                 | Candidate offer                                                  | Why it is not published                                                                                                                              | Suggested next step                                                      |
-| --- | ------------------------------- | --------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| 1   | Asoka                           | 68 Kloof Street, Gardens                | Three-course dinner, R295, Mon/Wed/Thu/Sun from 17:30            | The restaurant's own site shows a "Dinner special May 2026" panel with no price, days or times. The detail comes from an undated third-party listing | Phone **021 422 0909** and confirm price, days and times                 |
-| 2   | Amura at Mount Nelson           | 76 Orange Street, Gardens               | Four-course winter menu, R750pp, dinner daily plus Fri–Sun lunch | Belmond's own pages publish no pricing. The round-up gives a vague end date ("end August / September 2026")                                          | Phone the hotel; high price point, so confirm before publishing          |
-| 3   | The Red Room by Chefs Warehouse | Mount Nelson, 76 Orange Street, Gardens | Four-course winter dinner, R650pp, nightly from 17:00            | The Chefs Warehouse page for The Red Room lists no winter special or price                                                                           | Confirm with the restaurant                                              |
-| 4   | Kyoto Garden                    | 11 Kloof Nek Road, Gardens              | Three-course winter special                                      | A listing page exists but its publisher's `robots.txt` disallowed reading it. The restaurant's own site shows no special                             | Open the listing in a browser by hand, or phone **021 422 2001**         |
-| 5   | La Parada Kloof Street          | 47 Kloof Street, Gardens                | Tuesday "date night"                                             | Appears only in a customer review on the booking page — no price, times or terms                                                                     | Phone **021 001 7312**                                                   |
-| 6   | Hudsons — Kloof Street          | 22 Kloof Street, Gardens                | First Thursdays: live DJ and drink specials from 20:00           | Monthly rather than weekly, so it does not fit the weekday model. No drink prices published                                                          | Decide whether to support monthly offers, then capture the actual prices |
-| 7   | Kloof Street House              | 30 Kloof Street, Gardens                | Two- or three-course lunch, R250 / R295                          | The only source is a guide article from October 2023. Nothing on the current site                                                                    | Phone **021 423 4413**                                                   |
-| 8   | Fat Cactus Gardens              | 5 Park Road, Gardens                    | Unconfirmed weekday specials                                     | The group runs specials at other branches; the specials page returns 404 and nothing Gardens-specific could be verified                              | Phone **021 422 5022**                                                   |
-| 9   | Our Local — Kloof Street        | 117 Kloof Street, Gardens               | Cinnamon bun, R50, "while stocks last"                           | A bakery item with no days or times, not a day-of-week special                                                                                       | Decide whether all-week items belong on the site                         |
+Each needs a person to confirm it against a current official source — usually a
+phone call — before it can be created as a special and marked verified. They are
+ordered by confidence, so the ones most likely to survive a phone call come first.
 
-## Also worth a manual pass
+| #   | Venue                                                                                                                         | Where                                                                            | Candidate offer                                                                                                   | Confidence | Status              | Why it is not published                                                                                                                                                                                                                                                                                                                                                                                     |
+| --- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ---------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | The Duchess Lounge                                                                                                            | 123 Lower Main Road, Observatory                                                 | Classic cocktails from R79, happy hour 5–7pm daily                                                                | high       | Pending             | Complete and well dated — the only thing stopping it is that Observatory is not in the suburb allowlist. Add the suburb (types.ts and a migration, both) and this can be published as it stands.                                                                                                                                                                                                            |
+| 2   | Woodstock Brewery                                                                                                             | 252 Albert Road, Woodstock                                                       | A different food special every day, from R62.50                                                                   | high       | Pending             | Seven listings from one venue, well priced, and from a page updated 14 August. The only thing stopping them is that Woodstock is not in the suburb allowlist. Adding it would also unlock StarDust on Sir Lowry Road and Cellar Collective on Albert Road — worth deciding as one call rather than venue by venue.                                                                                          |
+| 3   | Our Local — Kloof Street                                                                                                      | 117 Kloof Street, Gardens                                                        | Cinnamon bun for R50                                                                                              | high       | Pending             | Decide whether all-week bakery offers belong on the site.                                                                                                                                                                                                                                                                                                                                                   |
+| 4   | Cargo                                                                                                                         | 178 Kloof Street, Gardens                                                        | Happy hour, early evening                                                                                         | medium     | Pending             | Phone 021 213 1221. Confirm the street number, the suburb, the exact hours, and whether the R20 price is real.                                                                                                                                                                                                                                                                                              |
+| 5   | The Public House                                                                                                              | 108 Kloof Street, Gardens                                                        | Two-for-one nights, Wednesday to Sunday                                                                           | medium     | Pending             | Worth a phone call - if even half of this still runs it is four listings across three days.                                                                                                                                                                                                                                                                                                                 |
+| 6   | The Village Idiot                                                                                                             | Loop Street, Cape Town City Centre                                               | Weeknight food-and-drink combos                                                                                   | medium     | Pending             | Four potential listings across four days. Worth chasing properly.                                                                                                                                                                                                                                                                                                                                           |
+| 7   | Cafe Extrablatt                                                                                                               | Exhibition Building, Green Point                                                 | Cocktails R45 and mocktails R33, Monday to Friday 5-8pm                                                           | medium     | Pending             | Cross-check against the existing Extrablatt listing before adding, to avoid a duplicate.                                                                                                                                                                                                                                                                                                                    |
+| 8   | Cargo                                                                                                                         | 158 Kloof Street, Tamboerskloof                                                  | R20 happy hour — house wine, beer or a tequila shot, Mon–Thu 4–6pm                                                | medium     | Needs more evidence | Twenty rand for a drink on Kloof Street would be the best offer on the site — which is exactly why it needs checking. The round-up is from January 2026 and the venue's own Instagram has not posted since June 2025. One phone call settles it.                                                                                                                                                            |
+| 9   | Beluga                                                                                                                        | Alfred Chambers, Cruise Terminal, Duncan Road, V&A Waterfront                    | Six oysters with Boschendal Brut MCC; Dine & Dance Saturdays with 20% off featured wines; Soul Sunday 13:00–16:00 | medium     | Pending             | Two prices for one offer is a listing error somewhere; confirm which is which. The address question is settled: a 2021 guide puts Beluga at The Foundry in Green Point, but its own current listing gives the Cruise Terminal at the Waterfront, so it has moved. The daily sushi, dim sum and cocktail specials are now published; this entry covers only the oyster offer and the Saturday wine discount. |
+| 10  | London Road Bistro                                                                                                            | 13 London Road, Sea Point                                                        | Happy hour daily 5–7pm — kegtails R90, two house wines R80, buy three draughts get one free                       | medium     | Needs more evidence | The article is from August 2025, not 2026 — a year old, and prices move. Worth a call; the offer is good enough to be worth confirming.                                                                                                                                                                                                                                                                     |
+| 11  | Bellagio                                                                                                                      | Green Point                                                                      | Dinner date for two, R785 a couple                                                                                | medium     | Pending             | July 2026, no end date, and the street address is not published. Get both.                                                                                                                                                                                                                                                                                                                                  |
+| 12  | Sessions Cape Town                                                                                                            | 15 Lower Long Street, Cape Town City Centre                                      | Weekday happy hour — two for one on tap beers and cocktails                                                       | medium     | Needs more evidence | Good offer, but no times are published anywhere and a happy hour without a window tells a visitor nothing. Get the hours and it goes straight up.                                                                                                                                                                                                                                                           |
+| 13  | Door 221, Clarke's, Quaglino's, Bootlegger Sea Point                                                                          | Bree Street; Bree Street; Mouille Point; Sea Point                               | Four priced happy hours from an undated article                                                                   | medium     | Needs more evidence | The article carries no publication date, so none of it can be published as it stands. The Clarke's entry matters most: the 5–6pm happy hour is already live without a price, and R27 doubles would complete that card. Door 221 is two doors from Clarke's — one walk confirms both.                                                                                                                        |
+| 14  | Iron Steak and Bar, Café Extrablatt, Van Hunks, Mai Thai Sushi Gardens                                                        | 114 Bree Street; Green Point; Kloof Street; Gardens                              | Four Wednesday specials                                                                                           | medium     | Needs more evidence | The page was last updated 12 June, which is ten weeks old, and Iron's own Facebook advertised the same Wagyu Wednesday at R99 — so the price has moved at least once. Two of these venues are already on the site, so confirming them is cheap and would add four Wednesday listings.                                                                                                                       |
+| 15  | Café Manhattan                                                                                                                | 74 Waterkant Street, De Waterkant                                                | Daily two-for-one happy hour; Tuesday date night                                                                  | medium     | Needs more evidence | First-party, so the offers are real — but a happy hour with no window tells a visitor nothing, which is why Sessions is queued too. One call gets the times and both go up. The Monday burger and the Thursday R20 shots from the same venue are already published.                                                                                                                                         |
+| 16  | Asoka                                                                                                                         | 68 Kloof Street, Gardens                                                         | Three-course dinner for R295                                                                                      | medium     | Pending             | Phone 021 422 0909 to confirm price, days and times, then publish.                                                                                                                                                                                                                                                                                                                                          |
+| 17  | Amura at Mount Nelson                                                                                                         | 76 Orange Street, Gardens                                                        | Four-course winter menu                                                                                           | medium     | Pending             | High price point — confirm directly with the hotel before publishing.                                                                                                                                                                                                                                                                                                                                       |
+| 18  | The Red Room by Chefs Warehouse (Mount Nelson)                                                                                | 76 Orange Street, Gardens                                                        | Four-course winter dinner                                                                                         | medium     | Pending             | Confirm with the restaurant before publishing.                                                                                                                                                                                                                                                                                                                                                              |
+| 19  | Hudsons The Burger Joint — Kloof Street                                                                                       | 22 Kloof Street, Gardens                                                         | First Thursdays — live DJ and drink specials                                                                      | medium     | Pending             | Decide whether to model monthly offers, then capture the actual drink prices.                                                                                                                                                                                                                                                                                                                               |
+| 20  | Cargo                                                                                                                         | 158 Kloof Street, Tamboerskloof                                                  | R20 house wine, beer or tequila                                                                                   | medium     | Pending             | Phone 021 213 1221 to confirm. This is the only Tamboerskloof happy hour found.                                                                                                                                                                                                                                                                                                                             |
+| 21  | Deer Park Café                                                                                                                | Deer Park Drive, Vredehoek                                                       | Weekly changing menu with Indian specials                                                                         | medium     | Needs more evidence | The only Vredehoek lead found. Phone for the current week’s prices and days.                                                                                                                                                                                                                                                                                                                                |
+| 22  | The Nines                                                                                                                     | Main Road, Sea Point                                                             | Fridays Come Alive, Aperitivo, and the winter set menu                                                            | medium     | Pending             | Get prices before publishing. The Sunday lunch from the same venue is already live.                                                                                                                                                                                                                                                                                                                         |
+| 23  | Grand Pavilion, and The President Hotel                                                                                       | 277 Beach Road and S4 Alexander Road, Sea Point                                  | Winter set menu R450/R550; Thursday date-night dinner R750                                                        | medium     | Pending             | Confirm with each venue before publishing.                                                                                                                                                                                                                                                                                                                                                                  |
+| 24  | Lily’s and Bobo’s                                                                                                             | Mouille Point                                                                    | Winter chef’s specialities and set menus                                                                          | medium     | Pending             | Get prices and days.                                                                                                                                                                                                                                                                                                                                                                                        |
+| 25  | Rita's Cocktail Club                                                                                                          | 22 Kloof Street, Gardens                                                         | Half-price margaritas, daily 5-7pm                                                                                | low        | Pending             | Walk past or phone. A near-three-year-old listing is a lead, not evidence.                                                                                                                                                                                                                                                                                                                                  |
+| 26  | Arnold's                                                                                                                      | 60 Kloof Street, Gardens                                                         | R30 mimosas and R49 cocktails, daily 2-6pm                                                                        | low        | Pending             | Check current menu prices before publishing. Treat the rand figures as certainly stale.                                                                                                                                                                                                                                                                                                                     |
+| 27  | Van Hunks                                                                                                                     | Corner Kloof and Upper Union Street, Gardens                                     | R12 single tot deal, daily 5-7pm and 10-11pm                                                                      | low        | Pending             | The official site carries nothing. Phone 021 422 5422, or read the board in person.                                                                                                                                                                                                                                                                                                                         |
+| 28  | MiCaffe                                                                                                                       | Shop 5, The Barracks, 50 Bree Street, Cape Town City Centre                      | Happy hour Wed-Sat 4-6pm; free mimosas with Sunday breakfast                                                      | low        | Pending             | Confirm both offers on the spot. Never publish a free-drink claim on a 2023 source.                                                                                                                                                                                                                                                                                                                         |
+| 29  | The Sanctuary                                                                                                                 | Kloof Street, Gardens                                                            | CBC Fridays                                                                                                       | low        | Pending             | Too thin to publish. Needs a price and a time from the venue itself.                                                                                                                                                                                                                                                                                                                                        |
+| 30  | Clarke's Bar & Dining Room                                                                                                    | 133 Bree Street                                                                  | R35 cocktails during the 5–6pm happy hour                                                                         | low        | Needs more evidence | The list it comes from carries no date at all and still lists Bombay Bicycle Club, which Cargo replaced. Treat every price on it as unverified.                                                                                                                                                                                                                                                             |
+| 31  | Roast & Co, The Company's Garden Restaurant, Aces 'n' Spades, Café Manhattan, The Stack, Café Paradiso, Lola's, Sidewalk Café | City Bowl — Shortmarket, Queen Victoria, Hout, Waterkant, Kloof, Long, Vredehoek | Eight undated City Bowl happy hours                                                                               | low        | Needs more evidence | One undated page, and it still lists a venue that closed. None of these can be published on it. They are all within walking distance of one another, so an afternoon on foot would confirm or kill the lot.                                                                                                                                                                                                 |
+| 32  | Pepperclub Hotel                                                                                                              | Loop Street, Cape Town City Centre                                               | Breakfast buffet R295, daily 07:00–10:30                                                                          | low        | Pending             | A price on its own is not a special. Find out what the buffet normally costs before publishing this.                                                                                                                                                                                                                                                                                                        |
+| 33  | Kyoto Garden                                                                                                                  | 11 Kloof Nek Road, Gardens                                                       | Three-course winter special                                                                                       | low        | Needs more evidence | Open the listing in a browser by hand, or phone 021 422 2001.                                                                                                                                                                                                                                                                                                                                               |
+| 34  | La Parada Kloof Street                                                                                                        | 47 Kloof Street, Gardens                                                         | Tuesday date-night offer                                                                                          | low        | Pending             | Customer-review hearsay only. Confirm before publishing.                                                                                                                                                                                                                                                                                                                                                    |
+| 35  | Kloof Street House                                                                                                            | 30 Kloof Street, Gardens                                                         | Two- or three-course lunch menu                                                                                   | low        | Needs more evidence | Source is three years old. Do not publish without current confirmation.                                                                                                                                                                                                                                                                                                                                     |
+| 36  | Fat Cactus Gardens                                                                                                            | 5 Park Road, Gardens                                                             | Unconfirmed weekday specials                                                                                      | low        | Pending             | Phone 021 422 5022 to ask what runs on which day.                                                                                                                                                                                                                                                                                                                                                           |
+| 37  | Zenzero, Surfshack Diner, La Belle, Bilboa, Chinchilla                                                                        | Camps Bay                                                                        | Winter specialities; Chinchilla Sunset Sessions Fri–Sun 16:00–20:00                                               | low        | Pending             | Decide whether priceless “chef’s specialities” count as a special at all.                                                                                                                                                                                                                                                                                                                                   |
+| 38  | Arnold’s, The Public House, Van Hunks, Rita’s Cocktail Club                                                                   | Kloof Street and Upper Union Street, Gardens                                     | Four Gardens happy hours                                                                                          | low        | Needs more evidence | Source last updated December 2023 — far too old to publish. Worth four phone calls: these are all a short walk apart.                                                                                                                                                                                                                                                                                       |
+| 39  | Oranjezicht — nothing found                                                                                                   | Oranjezicht                                                                      | No verifiable special found in this suburb                                                                        | low        | Needs more evidence | Re-check on foot, or leave the suburb empty — the empty state handles it.                                                                                                                                                                                                                                                                                                                                   |
 
-These Gardens (or possibly Gardens) venues could not be checked against a working official source and are not in the queue because no candidate offer was found:
+## Detail and sources
 
-Societi Bistro (50 Orange Street — its domain did not resolve), Upper Union, Blondie, Melissa's, Manna Epicure, Thali, Ocean Basket Gardens, Col'Cacchio Gardens, Café Paradiso (110 Kloof Street — its domain now serves unrelated content).
+**1. The Duchess Lounge** — detected 2026-08-23
 
-## Standing limitation
+- Offer: Classic cocktails from R79, happy hour 5–7pm daily
+- Note: Queer bar with drag and burlesque nights. Open Wed–Thu from 3pm, Fri–Sat from noon, Sun noon–9pm.
+- Source: <https://www.capetownmagazine.com/new>
 
-Instagram and Facebook were not readable without signing in, and the research rules forbid bypassing that. Any Gardens venue that announces its specials only on social media is missing from both the published data and this list.
+**2. Woodstock Brewery** — detected 2026-08-23
+
+- Offer: A different food special every day, from R62.50
+- Note: Half-price burgers Monday; curry with a free lager Tuesday; schnitzel Wednesday; rib platters Thursday; steak Saturday; beer-battered hake Sunday. Open daily 11am–10pm. A separate round-up also gives a daily 4–6pm happy hour: two Born Slippy draughts R70, one R35.
+- Source: <https://www.capetownmagazine.com/winter-specials>
+
+**3. Our Local — Kloof Street** — detected 2026-08-20
+
+- Offer: Cinnamon bun for R50
+- Note: Advertised on the official site "while stocks last" with no days or times — a bakery item rather than a day-of-week special.
+- Source: <https://ourlocal.co.za/>
+
+**4. Cargo** — detected 2026-08-22
+
+- Offer: Happy hour, early evening
+- Note: Sources conflict. Cape Town Magazine (updated 22 January 2026) says R20 house wine, beer or tequila, Monday to Thursday 4-6pm, at 158 Kloof Street in Tamboerskloof. The operator All Yours Co says 178 Kloof Street in Gardens and happy hour 5-6pm, with no price. The official source wins, so nothing here is publishable as advertised.
+- Source: <https://www.allyoursco.com/cargo>
+
+**5. The Public House** — detected 2026-08-22
+
+- Offer: Two-for-one nights, Wednesday to Sunday
+- Note: Secret Cape Town (December 2023) lists two-for-one margaritas on Wednesday, buy-one-get-one beer and pizza on Thursday, and a Sunday set of two-for-ones. Rich if true, but undated and unconfirmed.
+- Source: <https://secretcapetown.co.za/happy-hour-specials-in-cape-town/>
+
+**6. The Village Idiot** — detected 2026-08-22
+
+- Offer: Weeknight food-and-drink combos
+- Note: Secret Cape Town (December 2023) lists a R115 pizza-and-drink on Wednesday, half-price food on Thursday, a R125 burger-and-drink on Friday, and a R350 two-mains-and-wine deal on Saturday.
+- Source: <https://secretcapetown.co.za/happy-hour-specials-in-cape-town/>
+
+**7. Cafe Extrablatt** — detected 2026-08-22
+
+- Offer: Cocktails R45 and mocktails R33, Monday to Friday 5-8pm
+- Note: Cape Town Magazine, page last updated 22 January 2026 - seven months old, and third-party. Extrablatt already has a verified listing from an earlier sweep; check whether this is the same offer or a second one.
+- Source: <https://www.capetownmagazine.com/happy-hours>
+
+**8. Cargo** — detected 2026-08-23
+
+- Offer: R20 happy hour — house wine, beer or a tequila shot, Mon–Thu 4–6pm
+- Note: Also a R75 breakfast with coffee and juice, Mon–Thu 7–11am.
+- Source: <https://www.capetownmagazine.com/happy-hours>
+
+**9. Beluga** — detected 2026-08-23
+
+- Offer: Six oysters with Boschendal Brut MCC; Dine & Dance Saturdays with 20% off featured wines; Soul Sunday 13:00–16:00
+- Note: The oyster offer is listed at both R235 and R425 without saying what separates them.
+- Source: <https://www.restaurants.co.za/specials/western-cape/victoria-alfred-waterfront>
+
+**10. London Road Bistro** — detected 2026-08-23
+
+- Offer: Happy hour daily 5–7pm — kegtails R90, two house wines R80, buy three draughts get one free
+- Note: The burger special from the same venue is published; this one is not.
+- Source: <https://www.food-blog.co.za/happy-hour-elevated-london-road-bistro-brings-the-vibes-to-sea-point/>
+
+**11. Bellagio** — detected 2026-08-23
+
+- Offer: Dinner date for two, R785 a couple
+- Note: Focaccia and a set menu.
+- Source: <https://www.food-blog.co.za/a-date-night-special-for-two-at-bellagio-in-green-point/>
+
+**12. Sessions Cape Town** — detected 2026-08-23
+
+- Offer: Weekday happy hour — two for one on tap beers and cocktails
+- Note: Eleventh-floor bar with pool tables and a view. Open Wed–Tue 1pm–midnight.
+- Source: <https://www.capetownmagazine.com/new>
+
+**13. Door 221, Clarke's, Quaglino's, Bootlegger Sea Point** — detected 2026-08-23
+
+- Offer: Four priced happy hours from an undated article
+- Note: Door 221: two cocktails R50, Tue–Sat 6–7pm. Clarke's: double spirits R27 and R26 beer with a free shot, weekdays 5–6pm. Quaglino's: half-price craft beer and cocktails, weekdays 5–7pm. Bootlegger Sea Point: half-price beer and cocktails 4:30–6:30pm daily, about R30 a cocktail.
+- Source: <https://www.eatout.co.za/article/5-great-happy-hour-specials-cape-town/>
+
+**14. Iron Steak and Bar, Café Extrablatt, Van Hunks, Mai Thai Sushi Gardens** — detected 2026-08-23
+
+- Offer: Four Wednesday specials
+- Note: Iron: Wagyu Wednesday burger R119. Café Extrablatt: buy one burger get one free, all day. Van Hunks: half a peri-peri chicken in a Portuguese roll R125. Mai Thai Sushi Gardens: sushi buffet R249 adults, R179 under-tens.
+- Source: <https://restaurants-in-cape-town.co.za/wednesday-specials-in-cape-town/>
+
+**15. Café Manhattan** — detected 2026-08-23
+
+- Offer: Daily two-for-one happy hour; Tuesday date night
+- Note: Both are advertised on the venue's own site with no times and no prices. A 2019 list put the happy hour at 4–6pm and again 9–11pm.
+- Source: <https://cafemanhattan.co.za>
+
+**16. Asoka** — detected 2026-08-20
+
+- Offer: Three-course dinner for R295
+- Note: Asoka's own site shows a 'Dinner special May 2026' item but publishes no price, days or times. The R295 / Mon-Wed-Thu-Sun detail comes from an undated third-party listing.
+- Source: <https://asoka.za.com/>
+
+**17. Amura at Mount Nelson** — detected 2026-08-20
+
+- Offer: Four-course winter menu
+- Note: Dinner daily plus Friday-to-Sunday lunch. Reported end date is vague ("end August / September 2026") and Belmond's own site publishes no pricing.
+- Source: <https://www.dineplan.com/blog/winter-specials-and-set-menus/>
+
+**18. The Red Room by Chefs Warehouse (Mount Nelson)** — detected 2026-08-20
+
+- Offer: Four-course winter dinner
+- Note: Chefs Warehouse's own page for The Red Room lists no winter special or price.
+- Source: <https://www.dineplan.com/blog/winter-specials-and-set-menus/>
+
+**19. Hudsons The Burger Joint — Kloof Street** — detected 2026-08-20
+
+- Offer: First Thursdays — live DJ and drink specials
+- Note: Monthly rather than weekly, so it does not fit the weekday model as-is. The site does not say which drinks are discounted or by how much.
+- Source: <https://www.theburgerjoint.co.za/specials>
+
+**20. Cargo** — detected 2026-08-21
+
+- Offer: R20 house wine, beer or tequila
+- Note: From a happy-hour round-up last updated in January 2026 — seven months old, and nothing on the venue’s own site confirms it.
+- Source: <https://www.capetownmagazine.com/happy-hours>
+
+**21. Deer Park Café** — detected 2026-08-21
+
+- Offer: Weekly changing menu with Indian specials
+- Note: The café’s own site advertises a weekly changing menu built around Indian dishes, but publishes no prices, days or times.
+- Source: <https://deerparkcafe.co.za/>
+
+**22. The Nines** — detected 2026-08-21
+
+- Offer: Fridays Come Alive, Aperitivo, and the winter set menu
+- Note: Three further offers listed with end dates but no prices at all.
+- Source: <https://www.restaurants.co.za/specials/western-cape/sea-point>
+
+**23. Grand Pavilion, and The President Hotel** — detected 2026-08-21
+
+- Offer: Winter set menu R450/R550; Thursday date-night dinner R750
+- Note: Both from the July 2026 winter round-up. Neither hotel publishes the offer on its own site.
+- Source: <https://www.dineplan.com/blog/winter-specials-and-set-menus/>
+
+**24. Lily’s and Bobo’s** — detected 2026-08-21
+
+- Offer: Winter chef’s specialities and set menus
+- Note: Listed with end dates of 30 September 2026 but no prices, days or times.
+- Source: <https://www.restaurants.co.za/specials/western-cape/mouille-point>
+
+**25. Rita's Cocktail Club** — detected 2026-08-22
+
+- Offer: Half-price margaritas, daily 5-7pm
+- Note: Listed by Secret Cape Town, whose page was last updated in December 2023 - nearly three years ago. No current official source found.
+- Source: <https://secretcapetown.co.za/happy-hour-specials-in-cape-town/>
+
+**26. Arnold's** — detected 2026-08-22
+
+- Offer: R30 mimosas and R49 cocktails, daily 2-6pm
+- Note: From the same December 2023 Secret Cape Town roundup. Rand prices from 2023 are unlikely to have survived unchanged.
+- Source: <https://secretcapetown.co.za/happy-hour-specials-in-cape-town/>
+
+**27. Van Hunks** — detected 2026-08-22
+
+- Offer: R12 single tot deal, daily 5-7pm and 10-11pm
+- Note: Secret Cape Town (December 2023). The official site was checked on 22 August 2026 and publishes no specials at all - only a description of the venue.
+- Source: <https://vanhunks.framer.website/>
+
+**28. MiCaffe** — detected 2026-08-22
+
+- Offer: Happy hour Wed-Sat 4-6pm; free mimosas with Sunday breakfast
+- Note: Secret Cape Town (December 2023). The free-mimosa-with-breakfast claim in particular needs confirming before it goes anywhere near the site.
+- Source: <https://secretcapetown.co.za/happy-hour-specials-in-cape-town/>
+
+**29. The Sanctuary** — detected 2026-08-22
+
+- Offer: CBC Fridays
+- Note: FoodBlog Cape Town mentions a Friday CBC beer promotion but publishes no price, no times and no date for the claim.
+- Source: <https://www.food-blog.co.za/cape-town-specials/>
+
+**30. Clarke's Bar & Dining Room** — detected 2026-08-23
+
+- Offer: R35 cocktails during the 5–6pm happy hour
+- Note: The hour itself is published and live on the site; only the R35 price is unconfirmed.
+- Source: <https://www.vibescout.com/za/city/cape-town/post/happy-hour>
+
+**31. Roast & Co, The Company's Garden Restaurant, Aces 'n' Spades, Café Manhattan, The Stack, Café Paradiso, Lola's, Sidewalk Café** — detected 2026-08-23
+
+- Offer: Eight undated City Bowl happy hours
+- Note: 2-for-1 all drinks 4–6pm at Roast & Co and The Company's Garden; half-price spirits Wed–Fri 4–8pm at Aces 'n' Spades; R40 cocktails 3–6pm at The Stack; G&T R35 at Lola's; 2-for-1 at Café Manhattan, Café Paradiso and Sidewalk Café.
+- Source: <https://www.vibescout.com/za/city/cape-town/post/happy-hour>
+
+**32. Pepperclub Hotel** — detected 2026-08-23
+
+- Offer: Breakfast buffet R295, daily 07:00–10:30
+- Note: Described as reduced pricing, but no normal price is given to compare it against.
+- Source: <https://www.food-blog.co.za/begin-your-day-with-a-gourmet-buffet-at-pepperclub-hotel/>
+
+**33. Kyoto Garden** — detected 2026-08-20
+
+- Offer: Three-course winter special
+- Note: A listing page for a Kyoto Garden winter special exists but could not be read — the publisher's robots.txt disallows automated access. Kyoto Garden's own site shows no special.
+- Source: <https://www.kyotogarden.co.za/>
+
+**34. La Parada Kloof Street** — detected 2026-08-20
+
+- Offer: Tuesday date-night offer
+- Note: Mentioned only in a customer review on the booking page — no price, times or terms, and nothing on the restaurant's own site.
+- Source: <https://www.dineplan.com/restaurants/la-parada-kloof-street>
+
+**35. Kloof Street House** — detected 2026-08-20
+
+- Offer: Two- or three-course lunch menu
+- Note: Reported by a 2023 listing article as R250 for two courses and R295 for three. Nothing on the restaurant's current site.
+- Source: <https://www.kloofstreethouse.co.za/>
+
+**36. Fat Cactus Gardens** — detected 2026-08-20
+
+- Offer: Unconfirmed weekday specials
+- Note: The group runs specials at other branches, but the specials page returns a 404 and nothing branch-specific to Gardens could be verified.
+- Source: <https://fatcactus.co.za/contact/>
+
+**37. Zenzero, Surfshack Diner, La Belle, Bilboa, Chinchilla** — detected 2026-08-21
+
+- Offer: Winter specialities; Chinchilla Sunset Sessions Fri–Sun 16:00–20:00
+- Note: All carry end dates but none publishes a price. Chinchilla’s is a DJ session rather than a discount.
+- Source: <https://www.restaurants.co.za/specials/western-cape/camps-bay>
+
+**38. Arnold’s, The Public House, Van Hunks, Rita’s Cocktail Club** — detected 2026-08-21
+
+- Offer: Four Gardens happy hours
+- Note: R30 mimosas and R49 cocktails at Arnold’s; 2-for-1 margaritas, beers and pizzas at The Public House; R12–R45 drinks at Van Hunks; half-price margaritas at Rita’s.
+- Source: <https://secretcapetown.co.za/happy-hour-specials-in-cape-town/>
+
+**39. Oranjezicht — nothing found** — detected 2026-08-21
+
+- Offer: No verifiable special found in this suburb
+- Note: Oranjezicht is largely residential. No restaurant or bar there published a current special on any source that could be read.
+- Source: <https://www.restaurants.co.za/specials/western-cape>
 
 ---
 
-## Added by the wider Cape Town sweep (21 August 2026)
+## Resolved
 
-| #   | Venue                                                       | Suburb        | Candidate offer                                      | Why it is not published                                                                         | Next step                                                                       |
-| --- | ----------------------------------------------------------- | ------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| 10  | Cargo                                                       | Tamboerskloof | R20 house wine, beer or tequila, Mon–Thu 16:00–18:00 | Only source is a happy-hour round-up last updated January 2026; nothing on the venue's own site | Phone **021 213 1221**. This is the only Tamboerskloof happy hour found         |
-| 11  | Deer Park Café                                              | Vredehoek     | Weekly changing menu with Indian specials            | The café's own site advertises it but publishes no prices, days or times                        | Phone for the current week. Only Vredehoek lead found                           |
-| 12  | The Nines                                                   | Sea Point     | Fridays Come Alive, Aperitivo, winter set menu       | Three offers with end dates but no prices at all                                                | Get prices. Their Sunday lunch is already live                                  |
-| 13  | Grand Pavilion; The President Hotel                         | Sea Point     | Winter set menu R450/R550; Thursday date-night R750  | Both from the July 2026 round-up; neither hotel publishes it on its own site                    | Confirm with each venue                                                         |
-| 14  | Lily's; Bobo's                                              | Mouille Point | Winter chef's specialities and set menus             | End dates of 30 Sep 2026 but no prices, days or times                                           | Get prices and days                                                             |
-| 15  | Zenzero, Surfshack, La Belle, Bilboa, Chinchilla            | Camps Bay     | Winter specialities; Chinchilla Sunset Sessions      | All dated, none priced. Chinchilla's is a DJ set rather than a discount                         | Decide whether priceless "chef's specialities" count as a special               |
-| 16  | Arnold's, The Public House, Van Hunks, Rita's Cocktail Club | Gardens       | Four Gardens happy hours                             | Source last updated December 2023 — far too old                                                 | Four phone calls, all a short walk apart. Highest yield per minute in this list |
-| 17  | Oranjezicht                                                 | Oranjezicht   | Nothing found                                        | Largely residential; nothing published anywhere readable                                        | Re-check on foot, or leave the suburb empty                                     |
+Candidates that have since been confirmed and published. Kept here so the
+record shows what the queue caught, not only what it still holds.
 
-## The single biggest opportunity
+| Venue                       | Offer                                                                                                       | How it was resolved                                                                                                                                                                                                                                         |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Harringtons Cocktail Lounge | Fiesta Fridays — two courses and two cocktails R330; bottomless frozen margaritas R200; margarita jugs R275 | Resolved on 23 August. The lounge's own Instagram post of 13 August gives the R50 frozen margaritas and the R330 dinner first-hand, so both are published. The bottomless margaritas at R200 and the R275 jugs are still unconfirmed and are NOT published. |
+| Filini Bar, Radisson Hotel  | Daily happy hour, 5–6pm                                                                                     | Published on 23 August with the hour and the 31 August end date from the venue's own listing, and a note on the card saying the prices are not published. Getting the actual prices would still improve it.                                                 |
+| Asoka                       | Three-course dinner, R295; live jazz on Tuesdays from 8pm                                                   | Resolved. The R295 three-course dinner is confirmed by The Cape Town Blog's Monday round-up, updated 12 August 2026, and published as a Monday listing. The Tuesday jazz night stays out: it is an event with no offer attached to it.                      |
 
-The venue-submitted specials directory lists **78 specials for Cape Town Central** and its pagination could not be read past the first ten. Working through the remaining pages by hand would likely add more listings than everything else on this page combined.
+---
+
+## Standing limitation
+
+Instagram is readable only through the Business Discovery API, which needs an
+exact username. Handles found by guessing have a hit rate around one in three,
+and several guesses turned out to be entirely different businesses abroad — so
+only handles confirmed against a search result or a venue page were used. Any
+Cape Town bar whose handle was not found is absent from the research, not ruled
+out.
+
+Several venue sites could not be read at all because their `robots.txt` would
+not resolve. Those were left alone rather than worked around, which is why a
+few candidates below cite a third-party page instead of the venue itself.

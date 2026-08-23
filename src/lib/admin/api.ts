@@ -103,7 +103,14 @@ export async function updateResearchItem(
 
 /**
  * Possible duplicates: the same venue with a very similar title, or the same
- * venue and price sharing a weekday. Flagged for a human, never auto-merged.
+ * venue and price sharing a weekday AND describing the same thing. Flagged for
+ * a human, never auto-merged.
+ *
+ * Price alone is not enough. A pub can perfectly well run "R169 specials" and
+ * "a meal and a Guinness from R169" side by side — same venue, same price,
+ * same days, two different offers. So the price rule also asks the titles to
+ * share a real word, with bare amounts (r169, 250) thrown away first, since
+ * matching on the price twice is not corroboration.
  */
 export function findDuplicates(specials: Special[]): Array<[Special, Special]> {
   const normalise = (value: string) =>
@@ -111,6 +118,34 @@ export function findDuplicates(specials: Special[]): Array<[Special, Special]> {
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, ' ')
       .trim();
+
+  const STOPWORDS = new Set([
+    'a',
+    'an',
+    'and',
+    'at',
+    'for',
+    'from',
+    'in',
+    'of',
+    'on',
+    'or',
+    'the',
+    'to',
+    'with',
+    'special',
+    'specials',
+    'deal',
+    'deals',
+  ]);
+
+  /** Title words worth matching on: no stopwords, no bare rand amounts. */
+  const keywords = (title: string) =>
+    new Set(
+      normalise(title)
+        .split(' ')
+        .filter((word) => word.length > 2 && !STOPWORDS.has(word) && !/^r?\d+$/.test(word)),
+    );
 
   const pairs: Array<[Special, Special]> = [];
   for (let i = 0; i < specials.length; i += 1) {
@@ -123,7 +158,10 @@ export function findDuplicates(specials: Special[]): Array<[Special, Special]> {
       const overlapDays = a.days_of_week.some((day: Weekday) => b.days_of_week.includes(day));
       const samePrice = a.price !== null && a.price === b.price;
 
-      if (sameTitle || (overlapDays && samePrice && a.category === b.category)) {
+      const aWords = keywords(a.title);
+      const sharesAWord = [...keywords(b.title)].some((word) => aWords.has(word));
+
+      if (sameTitle || (overlapDays && samePrice && a.category === b.category && sharesAWord)) {
         pairs.push([a, b]);
       }
     }

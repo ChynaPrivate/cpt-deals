@@ -19,6 +19,30 @@ const dietaryArray = (values: string[]): string =>
   values.length === 0 ? `'{}'` : `array[${values.map(q).join(', ')}]::dietary_tag[]`;
 const smallintArray = (values: number[]): string => `array[${values.join(', ')}]::smallint[]`;
 
+/**
+ * Columns that a re-run of the seed is allowed to overwrite.
+ *
+ * The seed file is the sync mechanism for the live database: paste it into the
+ * SQL editor and run it, and the database matches src/lib/data/seed.ts exactly.
+ * That only works if a repeat insert updates the row rather than skipping it —
+ * otherwise a corrected price or a newly discovered expiry date would never
+ * reach production. `id` is excluded for the obvious reason, and `created_at`
+ * so a row keeps the date it first appeared.
+ */
+const RESTAURANT_COLUMNS = [
+  'name', 'slug', 'description', 'categories', 'street_address', 'suburb',
+  'latitude', 'longitude', 'phone', 'website_url', 'booking_url', 'instagram_url',
+  'facebook_url', 'google_maps_url', 'image_url', 'active', 'last_checked_at',
+];
+
+const SPECIAL_COLUMNS = [
+  'restaurant_id', 'title', 'description', 'price', 'original_price', 'category',
+  'dietary_tags', 'days_of_week', 'start_time', 'end_time', 'valid_from',
+  'valid_until', 'terms', 'booking_required', 'public_holiday_status', 'source_url',
+  'source_type', 'source_published_at', 'last_verified_at', 'verification_status',
+  'featured', 'active',
+];
+
 const lines: string[] = [
   '-- ============================================================================',
   '-- CPT Deals — verified seed data',
@@ -41,7 +65,8 @@ for (const r of RESTAURANTS_SEED) {
     `  ${q(r.street_address)}, ${q(r.suburb)}, ${num(r.latitude)}, ${num(r.longitude)}, ${q(r.phone)},`,
     `  ${q(r.website_url)}, ${q(r.booking_url)}, ${q(r.instagram_url)}, ${q(r.facebook_url)},`,
     `  ${q(r.google_maps_url)}, ${q(r.image_url)}, ${bool(r.active)}, ${q(r.last_checked_at)}`,
-    `) on conflict (id) do nothing;`,
+    `) on conflict (id) do update set`,
+    `  ${RESTAURANT_COLUMNS.map((c) => `${c} = excluded.${c}`).join(', ')}, updated_at = now();`,
     '',
   );
 }
@@ -58,7 +83,8 @@ for (const s of SPECIALS_SEED) {
     `  ${q(s.public_holiday_status)}::holiday_status, ${q(s.source_url)}, ${q(s.source_type)}::source_type,`,
     `  ${q(s.source_published_at)}, ${q(s.last_verified_at)}, ${q(s.verification_status)}::verification_status,`,
     `  ${bool(s.featured)}, ${bool(s.active)}`,
-    `) on conflict (id) do nothing;`,
+    `) on conflict (id) do update set`,
+    `  ${SPECIAL_COLUMNS.map((c) => `${c} = excluded.${c}`).join(', ')}, updated_at = now();`,
     '',
   );
 }
@@ -71,6 +97,8 @@ for (const item of RESEARCH_QUEUE_SEED) {
     `  ${q(JSON.stringify(item.proposed_special_data))}::jsonb,`,
     `  ${q(item.source_url)}, ${q(item.detected_at)}, ${q(item.confidence)}::confidence_level,`,
     `  ${q(item.review_status)}::review_status, ${q(item.reviewer_notes)}`,
+    // Deliberately `do nothing`: once an administrator has reviewed a candidate,
+    // re-running the seed must not reset their decision back to 'pending'.
     `) on conflict (id) do nothing;`,
     '',
   );

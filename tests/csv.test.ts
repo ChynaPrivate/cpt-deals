@@ -89,6 +89,35 @@ describe('duplicate detection', () => {
     expect(findDuplicates([a, b])).toHaveLength(0);
   });
 
+  it('does not treat a shared price as a duplicate on its own', () => {
+    // Ferryman's really does run both of these at R169 on the same days.
+    const base = SPECIALS_SEED[0] as Special;
+    const a: Special = {
+      ...base,
+      id: 'a',
+      title: 'R169 specials',
+      category: 'food',
+      price: 169,
+      days_of_week: [1, 2, 3, 4, 5, 6, 7],
+    };
+    const b: Special = { ...a, id: 'b', title: 'A meal and a Guinness from R169' };
+    expect(findDuplicates([a, b])).toHaveLength(0);
+  });
+
+  it('still flags a shared price when the titles describe the same thing', () => {
+    const base = SPECIALS_SEED[0] as Special;
+    const a: Special = {
+      ...base,
+      id: 'a',
+      title: 'Oysters and bubbly for R179',
+      category: 'drinks',
+      price: 179,
+      days_of_week: [1, 2, 3],
+    };
+    const b: Special = { ...a, id: 'b', title: 'Six oysters with bubbly, R179' };
+    expect(findDuplicates([a, b])).toHaveLength(1);
+  });
+
   it('finds no duplicates in the shipped seed data', () => {
     expect(findDuplicates(SPECIALS_SEED as Special[])).toHaveLength(0);
   });

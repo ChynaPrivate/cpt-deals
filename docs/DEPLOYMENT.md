@@ -151,3 +151,55 @@ Every push to the production branch deploys. Every pull request gets its own pre
 - The Content-Security-Policy in `netlify.toml` allows the browser to reach `https://*.supabase.co` and nothing else off-origin. If you add an image host or a font CDN later, extend `img-src` / `font-src` there.
 - `/admin/*` is served with `Cache-Control: no-store` and `X-Robots-Tag: noindex`, and is excluded in `public/robots.txt` and from the service worker.
 - Report submissions are rate-limited in the route handler. That limit is held in memory, so it bounds one serverless instance rather than the whole site — enough to stop a naive flood. If reports ever get abused at scale, move the counter to a shared store such as Netlify Blobs or a Supabase table.
+
+---
+
+## Keeping the database in step with the repo
+
+`src/lib/data/seed.ts` is the source of truth for every listing. There are two
+ways to get it into Supabase, and the second one is worth setting up once.
+
+### By hand
+
+Run `npm run seed:sql`, open the Supabase SQL editor, paste `supabase/seed.sql`
+and run it.
+
+Two things about that editor cost an hour to work out, so they are written down
+here. **Cmd-Return only fires when the editor itself has focus** — click into the
+SQL text first, or the shortcut goes nowhere and the previous result stays on
+screen looking like a fresh one. And **any statement the editor reads as a broad
+`UPDATE` raises a confirmation dialog** ("It may update every row in the target
+table") which must be accepted before anything runs; while it is open the page
+ignores the keyboard entirely. A run that seems to do nothing is almost always
+one of those two, not a failed query. The file is idempotent — restaurants and specials upsert on their
+id, so re-running it corrects prices and expiry dates rather than skipping rows.
+Research-queue candidates insert but never update, so an administrator's review
+decisions are never reset to pending.
+
+### Automatically
+
+Set `SUPABASE_SERVICE_ROLE_KEY` in Netlify under **Site configuration →
+Environment variables**, scoped to the production context. Take the value from
+Supabase → Project Settings → API. Do not put it in a committed `.env` file and
+do not paste it into source.
+
+With that set, `netlify/functions/sync-seed.mts` runs at 03:20 UTC (05:20 in
+Cape Town) every day and applies exactly the same upserts through the Supabase
+client. A `git push` then publishes listings on its own: Netlify builds, the
+next run syncs, and the home page — which revalidates every five minutes —
+picks them up.
+
+The key is read inside a server-side function. It is never bundled into the
+browser, and the Content-Security-Policy in `netlify.toml` would not let it
+leave the page even if it were.
+
+To run the sync on demand rather than waiting for the schedule, also set
+`SEED_SYNC_TOKEN` to any long random string, then call the function with it:
+
+```
+curl -X POST "https://<your-site>.netlify.app/.netlify/functions/sync-seed" \
+  -H "x-sync-token: <the token you set>"
+```
+
+Manual runs without a matching token are refused. Scheduled runs need no token —
+Netlify identifies them by the payload it posts.

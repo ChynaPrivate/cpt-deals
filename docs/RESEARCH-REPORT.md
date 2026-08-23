@@ -348,3 +348,140 @@ sixteen new specials went up today on evidence roughly a month old. In three
 months they will be exactly as unreliable as the pages rejected above unless
 someone re-checks them. The `last_verified_at` date on every card is what makes
 that visible, and the 30-day flag in the admin dashboard is what will nag.
+
+---
+
+# Part 4 — drinks-weighted sweep, 23 August 2026
+
+Run at the request of "more listings, and more drinks than food". The site went
+from 36 venues / 84 specials / 23 drinks offers to **55 venues / 126 specials /
+41 drinks offers**, with 41 candidates in the private review queue. Most of it
+went straight to the live database as it was found, so the public site carried
+each batch within minutes rather than at the next deploy; the last few batches
+are committed and queued to push, because the browser connection dropped.
+
+## Where the listings came from
+
+| Source | Yield | Notes |
+| --- | --- | --- |
+| restaurants.co.za, V&A Waterfront (4 pages) | 5 venues, 19 specials | The only source in Cape Town that publishes an end date on nearly every offer |
+| FoodBlog Cape Town, weekday and happy-hour tags | 7 specials | Dated posts, mostly July–August 2026 |
+| Instagram Business Discovery (Meta Graph API) | 8 specials, 3 corrections | The strongest evidence available: first-party and usually days old |
+| capetownmagazine.com round-ups | 0 published, 8 queued | Undated or stale; see below |
+| Dineplan blog, Women's Day 2026 | 0 | Every offer had already expired on 9 August |
+
+## Accepted — the drinks
+
+| Venue | Offer | When | Source and date |
+| --- | --- | --- | --- |
+| Judd's Local, 141 Kloof St | Wine tasting, free | Tue 18:30–20:30, to 23 Feb 2027 | restaurants.co.za venue page |
+| Harringtons, 61B Harrington St | 40% off cocktails, house wine, pouring spirits | Wed/Thu/Sat 17:00–19:00 | Own Instagram, 15 Aug 2026 |
+| Harringtons | R50 frozen margaritas | Fri 16:00–18:00 | Own Instagram, 13 Aug 2026 |
+| The Tiki Tomb, 101 Bree St | R60 happy hour | Wed–Sat 17:00–18:00 | Own Instagram, 14 Aug 2026 |
+| The Tiki Tomb | R60 margaritas, karaoke night | Wed from 21:00 | Own Instagram, 10 Aug 2026 |
+| ONOMO, 10 Greenmarket Square | Two Heinekens for one | Fri 16:00–19:00 | FoodBlog, 16 Jul 2026 |
+| Filini, 29 Heerengracht | Free Aperol Spritz with any pizza | Fri 12:00–22:00, to 31 Aug | FoodBlog |
+| Quay Four / Upper Quay / Ferryman's | Two Aperol Spritz, R215 | Daily, to 31 Aug | restaurants.co.za venue pages |
+| Quay Four / Mitchell's / Ferryman's | Six oysters and bubbly, R179 | Daily, to 30 Sep or 31 Oct | restaurants.co.za venue pages |
+| Rick's, 103 Kloof St | Cap classique for women | Sun, to 31 Aug | FoodBlog, 5 Aug 2026 |
+| Clarke's, 133 Bree St | Happy hour | Daily 17:00–18:00 | Own Instagram, 2 Jul 2026 |
+
+## One correction, and why it matters
+
+Harringtons was published in the morning as **4–6pm, Wednesday to Saturday**, on
+the strength of a write-up dated 4 August. Its own Instagram, posted 15 August,
+says **5–7pm on Wednesday, Thursday and Saturday, and from 4pm on Friday**.
+
+Under the rule that the newest official source wins, the card was rewritten to
+the venue's own times, the Friday split out as a separate listing, and the
+disagreement written onto the card itself so a visitor can see it. Eleven days
+was all it took for a reputable publication to be wrong about opening and
+closing time on three days of the week.
+
+## Rejected or queued, with reasons
+
+| Candidate | Why it is not published |
+| --- | --- |
+| Cargo, 158 Kloof St — R20 happy hour | Would be the best offer on the site. The round-up is from January 2026 and the venue's Instagram has not posted since June 2025. Queued for a phone call. |
+| Eight City Bowl happy hours from vibescout | The page carries no date at all and still lists Bombay Bicycle Club, which Cargo replaced. Nothing on it can be trusted. |
+| SGT Pepper, 194 Long St | Page last updated February 2023. |
+| London Road Bistro happy hour | The article is August **2025**, not 2026. Its burger special, from August 2026, is published. |
+| Filini's daily 5–6pm happy hour | No prices published anywhere. The Friday spritz, which has a clear offer, is published. |
+| Beluga oyster special | Listed at both R235 and R425 without saying what separates them. |
+| Pepperclub breakfast buffet, R295 | Described as reduced, but no normal price is given to compare against. |
+| Bombay Brasserie wine dinner, R785 | A single-night event at full price, not a discount. |
+| Women's Day 2026 specials (Dineplan, 15 venues) | All expired on 9 August. |
+
+## Sources that could not be read
+
+- **insideguide.co.za** — robots.txt could not be fetched, so the whole domain
+  was left alone. It carries a Tiki Tomb "Triple Threat Thursday" at R180 that
+  remains unverified.
+- **harringtons.co.za** — same robots.txt failure. The venue's Instagram
+  covered the gap.
+- **quay4.co.za** — same. The restaurants.co.za venue pages covered the gap.
+- **capetownmagazine.com/specials** — returns a 500 error.
+
+None of these were worked around. Where a venue's own site could not be read,
+the listing either came from another first-party channel or was not published.
+
+## Honest limits
+
+This is not exhaustive and should not be described as such. Instagram Business
+Discovery only works on an exact username, and guessing them has a hit rate
+around one in three — six guessed handles in an earlier round turned out to be
+entirely different businesses in the United States, Albania and Colombia. Every
+handle used here was confirmed against a search result or a venue page first.
+Any Cape Town bar whose handle was not found is simply absent from this sweep,
+not ruled out.
+
+## A cliff on 31 August
+
+Worth planning for: **29 of the 121 published specials expire between now and
+31 August 2026** — very nearly a quarter of the site. Women's Month accounts for
+most of them (the Aperol Spritz offers at Rick's, Florentin, Quay Four, Upper
+Quay and Ferryman's all end on the 31st), and the winter set menus at the two
+Hussar Grills, Copa and Mint end the same day.
+
+The site handles this correctly on its own: anything past `valid_until` stops
+appearing, so nothing false will be shown. But on 1 September the site loses a
+quarter of its listings in one morning, and Monday and Sunday — already the
+thinnest days — will feel it most. A re-check sweep in the first week of
+September is the single most useful thing that could be done to this data.
+
+A second number matters alongside it: **50 of 121 specials carry no end date at
+all**, because their venue never published one. Those are the ones the 30-day
+re-verification flag in the admin dashboard exists for.
+
+## Later additions to the same sweep
+
+After the tables above were written, a further pass over
+capetownmagazine.com's winter round-up (last updated 14 August 2026) and
+FoodBlog's lunch and Wednesday tags added:
+
+| Venue | Offer | Source date |
+| --- | --- | --- |
+| ELVN11, 29 Heerengracht | Winter Warmers, two courses R475 or three R660, to 31 Aug | 14 Aug 2026 |
+| ELVN11 | Sharing menu for two, R1,100 a couple with a bottle of wine | 14 Aug 2026 |
+| East City Grill, 84 Harrington St | Three-course winter menu R595, to 28 Aug | 14 Aug 2026 |
+| mischu, 85A Regent Rd | Eggs benedict and a cappuccino R119, daily 6:45–15:00 | 14 Aug 2026 |
+| Beluga | Soup of the day R90 with a roll, weekdays 11:00–15:00, to 31 Aug | 31 Jul 2026 |
+| The Power Above, 13b Kloof Nek Rd | A free glass of wine or draught with any Sunday pizza | 29 Jul 2026 |
+| Duchess of Wisbeach, 321 Main Rd | Prego Wednesdays, R200 with a Duchess Spritz | Own Instagram, 17 Aug 2026 |
+
+It also settled an open question: fable's R150 weekend lunch was published as
+Friday and Saturday only, inferred from the bar's opening hours against an
+advertised "12pm to 4pm". A write-up of 27 July describes it as the weekend
+lunch special, which confirms the inference.
+
+Two suburb decisions were deliberately left for the owner rather than taken
+here, because each needs a line in `src/lib/types.ts` and a migration, and
+because they widen what the site claims to cover:
+
+- **Woodstock** would publish seven Woodstock Brewery listings (a different
+  food special every day from R62.50, plus a daily 4–6pm draught happy hour)
+  and unlock StarDust and Cellar Collective.
+- **Observatory** would publish The Duchess Lounge's cocktails from R79,
+  5–7pm daily — a complete, well-dated listing with nothing else wrong with it.
+
+Both are sitting in the review queue with those notes attached.

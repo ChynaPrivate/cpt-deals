@@ -35,13 +35,48 @@ values ('d4000000-0000-4000-8000-000000000002',
 on conflict do nothing;
 
 -- ------------------------------------------------------------ anonymous role
+--
+-- The expected numbers are worked out here, as a privileged role, from the
+-- rule as the brief states it: the public may read an active restaurant, and a
+-- special that is active, verified, in date, and belongs to an active
+-- restaurant. They are deliberately NOT read off the policy definitions — the
+-- point is to check the policies against the requirement, not against
+-- themselves. Stashing them in session settings means they survive `set role`.
+--
+-- They are computed rather than hard-coded because the seed grows every time
+-- research runs; the previous version of this file asserted 14 restaurants and
+-- 38 specials and started failing the moment a sweep added a venue.
+select set_config('test.expect_restaurants',
+  (select count(*)::text from public.restaurants where active), false);
+
+select set_config('test.expect_specials',
+  (select count(*)::text
+     from public.specials s
+     join public.restaurants r on r.id = s.restaurant_id
+    where s.active
+      and r.active
+      and s.verification_status = 'verified'
+      and (s.valid_from is null or s.valid_from <= public.current_cpt_date())
+      and (s.valid_until is null or s.valid_until >= public.current_cpt_date())), false);
+
+select set_config('test.total_specials',
+  (select count(*)::text from public.specials), false);
+select set_config('test.total_queue',
+  (select count(*)::text from public.research_queue), false);
+
 set role anon;
 
-select public.assert((select count(*) from public.restaurants) = 14,
-  'anon reads active restaurants across every covered suburb');
+select public.assert(
+  (select count(*) from public.restaurants)
+    = current_setting('test.expect_restaurants')::int
+  and current_setting('test.expect_restaurants')::int > 0,
+  'anon reads exactly the active restaurants, and there is at least one');
 
-select public.assert((select count(*) from public.specials) = 38,
-  'anon sees only the 38 verified, in-date specials');
+select public.assert(
+  (select count(*) from public.specials)
+    = current_setting('test.expect_specials')::int
+  and current_setting('test.expect_specials')::int > 0,
+  'anon sees exactly the active, verified, in-date specials');
 
 select public.assert(
   not exists (select 1 from public.specials where title = 'Expired test offer'),
@@ -94,8 +129,10 @@ on conflict (user_id) do nothing;
 set role authenticated;
 set request.jwt.claim.sub = 'e5000000-0000-4000-8000-000000000001';
 
-select public.assert((select count(*) from public.specials) = 38,
-  'unapproved user sees only public specials');
+select public.assert(
+  (select count(*) from public.specials)
+    = current_setting('test.expect_specials')::int,
+  'unapproved user sees no more than the public does');
 
 select public.assert((select count(*) from public.research_queue) = 0,
   'unapproved user reads no research-queue rows');
@@ -122,10 +159,15 @@ on conflict (user_id) do update set approved = true;
 set role authenticated;
 set request.jwt.claim.sub = 'e5000000-0000-4000-8000-000000000002';
 
-select public.assert((select count(*) from public.specials) = 40,
-  'approved admin sees every special, including expired and unverified');
-select public.assert((select count(*) from public.research_queue) = 17,
-  'approved admin reads the research queue');
+select public.assert(
+  (select count(*) from public.specials) = current_setting('test.total_specials')::int
+  and current_setting('test.total_specials')::int
+      > current_setting('test.expect_specials')::int,
+  'approved admin sees every special, including the expired and unverified ones the public cannot');
+select public.assert(
+  (select count(*) from public.research_queue) = current_setting('test.total_queue')::int
+  and current_setting('test.total_queue')::int > 0,
+  'approved admin reads the whole research queue');
 select public.assert((select count(*) from public.reports) >= 1,
   'approved admin reads reports');
 

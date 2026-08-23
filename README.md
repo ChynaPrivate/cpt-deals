@@ -99,7 +99,14 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY
 NEXT_PUBLIC_SITE_URL        # optional, for canonical and social-sharing URLs
 ```
 
-`SUPABASE_SERVICE_ROLE_KEY` is **not used** and should not be set. Nothing here needs to bypass row-level security.
+Two more are optional, and both are server-side only — they are read inside Netlify Functions and never reach the browser:
+
+```
+SUPABASE_SERVICE_ROLE_KEY   # lets the scheduled jobs write past row-level security
+SEED_SYNC_TOKEN             # required only to trigger a seed sync by hand
+```
+
+Set `SUPABASE_SERVICE_ROLE_KEY` and the site keeps its own database in step: `netlify/functions/sync-seed.mts` runs each morning and upserts everything in `src/lib/data/seed.ts`, so a `git push` is all it takes to publish a new listing. Leave it unset and that job does nothing — you then apply `supabase/seed.sql` by hand in the Supabase SQL editor instead.
 
 ## Licence and attribution
 

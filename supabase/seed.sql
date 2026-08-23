@@ -15,231 +15,472 @@ insert into public.restaurants (id, name, slug, description, categories, street_
   '103 Kloof Street, corner Weltevreden Avenue', 'Gardens', null, null, '+27214241100',
   'https://rickscafe.co.za', 'https://www.dineplan.com/widgetframe/k6Q47NmF', 'https://www.instagram.com/rickscapetown/', null,
   'https://www.google.com/maps/search/?api=1&query=Rick''s%20Caf%C3%A9%20Am%C3%A9ricain%2C%20103%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-20'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000002', 'Hudsons The Burger Joint — Kloof Street', 'hudsons-kloof-street', 'Burger and pizza restaurant on Kloof Street with a fireplace, outdoor seating and live sport.', array['Burgers', 'Pizza', 'Bar']::text[],
   '22 Kloof Street', 'Gardens', null, null, '+27214265974',
   'https://www.theburgerjoint.co.za', 'https://www.dineplan.com/restaurants/hudsons-kloof-street', 'https://www.instagram.com/hudsonsburgers/', null,
   'https://www.google.com/maps/search/?api=1&query=Hudsons%20The%20Burger%20Joint%20Kloof%20Street%2C%2022%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-20'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000003', 'Our Local — Kloof Street', 'our-local-kloof-street', 'All-day neighbourhood café and bakery on Kloof Street, serving breakfast and lunch daily and dinner from Thursday to Saturday.', array['Café', 'Bakery', 'Bistro']::text[],
   '117 Kloof Street', 'Gardens', null, null, '+27646425004',
   'https://ourlocal.co.za', 'https://account.dineplan.com/widgetframe/K1zRjn6V', null, null,
   'https://www.google.com/maps/search/?api=1&query=Our%20Local%20Kloof%20Street%2C%20117%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-20'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000004', 'Maru Korean Steakhouse', 'maru-korean-steakhouse', 'Korean steakhouse on Bree Street, grilling grass-fed and Wagyu beef at the table.', array['Korean', 'Steakhouse', 'Bar']::text[],
   '107 Bree Street', 'Cape Town City Centre', null, null, null,
   'https://www.restaurants.co.za/maru-korean-steakhouse', null, null, null,
   'https://www.google.com/maps/search/?api=1&query=Maru%20Korean%20Steakhouse%2C%20107%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000005', 'Florentin', 'florentin', 'Mediterranean café and bar on Bree Street, open from breakfast through to dinner.', array['Mediterranean', 'Café', 'Bar']::text[],
   'Bree Street', 'Cape Town City Centre', null, null, null,
   'https://www.dineplan.com/restaurants/florentin', 'https://www.dineplan.com/restaurants/florentin', null, null,
   'https://www.google.com/maps/search/?api=1&query=Florentin%2C%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000006', 'The Hussar Grill — Camps Bay', 'hussar-grill-camps-bay', 'Long-standing South African grill house, on the Camps Bay beachfront since 1964.', array['Steakhouse', 'Grill']::text[],
   'Victoria Road', 'Camps Bay', null, null, null,
   'https://hussargrill.co.za/', null, null, null,
   'https://www.google.com/maps/search/?api=1&query=The%20Hussar%20Grill%20Camps%20Bay%2C%20Victoria%20Road%2C%20Camps%20Bay%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000007', 'The Hussar Grill — Mouille Point', 'hussar-grill-mouille-point', 'The Mouille Point branch of the Hussar Grill, a block from the promenade.', array['Steakhouse', 'Grill']::text[],
   'Beach Road', 'Mouille Point', null, null, null,
   'https://hussargrill.co.za/', null, null, null,
   'https://www.google.com/maps/search/?api=1&query=The%20Hussar%20Grill%20Mouille%20Point%2C%20Beach%20Road%2C%20Mouille%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000008', 'The Nines', 'the-nines', 'Sea Point restaurant and bar with a seafood-leaning menu and live jazz Sundays.', array['Restaurant', 'Bar', 'Seafood']::text[],
   'Main Road', 'Sea Point', null, null, null,
   'https://www.restaurants.co.za/the-nines', null, null, null,
   'https://www.google.com/maps/search/?api=1&query=The%20Nines%2C%20Main%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000009', 'Our Local — Sea Point', 'our-local-sea-point', 'The Sea Point branch of the all-day café and bakery, with dinner Thursday to Saturday.', array['Café', 'Bakery', 'Bistro']::text[],
   '295 Main Road', 'Sea Point', null, null, '+27696653996',
   'https://ourlocal.co.za', 'https://account.dineplan.com/widgetframe/5m0YgX1y', null, null,
   'https://www.google.com/maps/search/?api=1&query=Our%20Local%20Sea%20Point%2C%20295%20Main%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000000a', 'Club Kloof', 'club-kloof', 'Bar and grill at the top of Kloof Street, known for steak and frites.', array['Bar', 'Grill']::text[],
   '84 Kloof Street', 'Tamboerskloof', null, null, null,
   'https://www.dineplan.com/restaurants/club-kloof', 'https://www.dineplan.com/restaurants/club-kloof', null, null,
   'https://www.google.com/maps/search/?api=1&query=Club%20Kloof%2C%2084%20Kloof%20Street%2C%20Tamboerskloof%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000000b', 'Café Extrablatt', 'cafe-extrablatt', 'Double-storey German café and bar near the stadium, open from breakfast until late.', array['Café', 'Bar', 'German', 'Pizza']::text[],
   '79 Main Road', 'Green Point', null, null, '+27214343759',
   'https://www.cafe-extrablatt.co.za/', 'https://www.dineplan.com/restaurants/cafe-extrablatt', 'https://www.instagram.com/extrablatt_cpt/', null,
   'https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Extrablatt%2C%2079%20Main%20Road%2C%20Green%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000000c', 'The Woodlands Eatery', 'the-woodlands-eatery', 'Italian pizzeria and trattoria on a quiet Oranjezicht corner, run by two Italian owners since 2017.', array['Italian', 'Pizza', 'Pasta']::text[],
   '8 Breda Street', 'Oranjezicht', null, null, '+27637104742',
   'https://thewoodlandseatery.com/', 'https://www.dineplan.com/restaurants/the-woodlands-eatery', 'https://www.instagram.com/the_woodlands_eatery/', 'https://www.facebook.com/woodlandseatery/',
   'https://www.google.com/maps/search/?api=1&query=The%20Woodlands%20Eatery%2C%208%20Breda%20Street%2C%20Oranjezicht%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000000d', 'Burger & Lobster', 'burger-and-lobster', 'The Cape Town branch of the London burger and lobster house, on Bree Street.', array['Burgers', 'Seafood']::text[],
   '105 Bree Street', 'Cape Town City Centre', null, null, null,
   'https://burgerandlobster.co.za/', null, null, null,
   'https://www.google.com/maps/search/?api=1&query=Burger%20%26%20Lobster%20Cape%20Town%2C%20105%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000000e', 'Flirt Mexican Restaurant', 'flirt-mexican', 'Mexican restaurant and cocktail bar on Church Street, with a DJ at the weekend.', array['Mexican', 'Cocktails', 'Bar']::text[],
   '75 Church Street', 'Cape Town City Centre', null, null, null,
   'https://flirtcpt.co.za/', null, null, null,
   'https://www.google.com/maps/search/?api=1&query=Flirt%20Mexican%20Restaurant%2C%2075%20Church%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000000f', 'fable cocktail bar', 'fable-cocktail-bar', 'Cocktail bar on the corner of Bree and Wale, with a daily happy hour and a daytime sandwich-and-pie menu on the days it opens at noon.', array['Cocktails', 'Bar', 'Small plates']::text[],
   'Corner Bree Street and Wale Street', 'Cape Town City Centre', null, null, '+27660097786',
   'https://fablecocktailbar.capetown/', 'https://www.dineplan.com/restaurants/fable-cocktail-bar', 'https://www.instagram.com/fablecpt/', 'https://www.facebook.com/fablecpt',
   'https://www.google.com/maps/search/?api=1&query=fable%20cocktail%20bar%2C%20Corner%20Bree%20and%20Wale%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000010', 'Amura at Mount Nelson', 'amura-mount-nelson', 'Restaurant at the Mount Nelson Hotel on Orange Street, serving a seasonal four-course menu.', array['Fine dining', 'Hotel restaurant']::text[],
   '76 Orange Street', 'Gardens', null, null, null,
   null, 'https://www.dineplan.com/restaurants/amura', null, null,
   'https://www.google.com/maps/search/?api=1&query=Amura%20at%20Mount%20Nelson%2C%2076%20Orange%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000011', 'Copa Restaurant', 'copa-restaurant', 'Restaurant at the Pepperclub Hotel on Loop Street.', array['Restaurant', 'Hotel restaurant']::text[],
   '167 Loop Street, Pepperclub Hotel', 'Cape Town City Centre', null, null, null,
   null, 'https://www.dineplan.com/restaurants/copa', null, null,
   'https://www.google.com/maps/search/?api=1&query=Copa%20Restaurant%2C%20167%20Loop%20Street%2C%20Pepperclub%20Hotel%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000012', 'FYN Restaurant', 'fyn-restaurant', 'Fine-dining restaurant on Parliament Street pairing South African produce with Japanese technique.', array['Fine dining', 'Japanese', 'Tasting menu']::text[],
   '37 Parliament Street', 'Cape Town City Centre', null, null, null,
   null, 'https://www.dineplan.com/restaurants/fyn', null, null,
   'https://www.google.com/maps/search/?api=1&query=FYN%20Restaurant%2C%2037%20Parliament%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000013', 'Hacienda', 'hacienda-bree', 'Mexican Baja Californian kitchen and bar on Bree Street.', array['Mexican', 'Bar', 'Sharing plates']::text[],
   '92 Bree Street', 'Cape Town City Centre', null, null, null,
   null, 'https://www.dineplan.com/restaurants/hacienda', null, null,
   'https://www.google.com/maps/search/?api=1&query=Hacienda%2C%2092%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000014', 'Iron Steak and Bar', 'iron-steak-and-bar', 'Steakhouse and bar on Bree Street.', array['Steakhouse', 'Bar']::text[],
   '114 Bree Street', 'Cape Town City Centre', null, null, null,
   null, 'https://www.dineplan.com/restaurants/iron-steak-and-bar', null, null,
   'https://www.google.com/maps/search/?api=1&query=Iron%20Steak%20and%20Bar%2C%20114%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000015', 'Mint Restaurant at Taj Cape Town', 'mint-taj-cape-town', 'Restaurant at the Taj hotel on Wale Street, with a menu that changes destination monthly.', array['Restaurant', 'Hotel restaurant']::text[],
   '1 Wale Street', 'Cape Town City Centre', null, null, null,
   null, 'https://www.dineplan.com/restaurants/mint', null, null,
   'https://www.google.com/maps/search/?api=1&query=Mint%20Restaurant%20at%20Taj%20Cape%20Town%2C%201%20Wale%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000016', 'Nikkei Japanese Peruvian', 'nikkei-japanese-peruvian', 'Japanese-Peruvian restaurant on Bree Street.', array['Japanese', 'Peruvian', 'Sushi']::text[],
   '87 Bree Street', 'Cape Town City Centre', null, null, null,
   null, 'https://www.dineplan.com/restaurants/nikkei', null, null,
   'https://www.google.com/maps/search/?api=1&query=Nikkei%20Japanese%20Peruvian%2C%2087%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000017', 'The Waterside', 'the-waterside', 'Five-course tasting restaurant on Shortmarket Street.', array['Fine dining', 'Tasting menu']::text[],
   '55 Shortmarket Street', 'Cape Town City Centre', null, null, null,
   null, 'https://www.dineplan.com/restaurants/the-waterside', null, null,
   'https://www.google.com/maps/search/?api=1&query=The%20Waterside%2C%2055%20Shortmarket%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000018', 'The Wes Bistro and Bar', 'the-wes-bistro-and-bar', 'Bistro and bar on Shortmarket Street.', array['Bistro', 'Bar']::text[],
   '55 Shortmarket Street', 'Cape Town City Centre', null, null, null,
   null, 'https://www.dineplan.com/restaurants/the-wes', null, null,
   'https://www.google.com/maps/search/?api=1&query=The%20Wes%20Bistro%20and%20Bar%2C%2055%20Shortmarket%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000019', 'Yatai Japanese', 'yatai-japanese', 'Japanese restaurant on Bree Street serving a curated sharing menu.', array['Japanese', 'Sharing plates']::text[],
   '87 Bree Street', 'Cape Town City Centre', null, null, null,
   null, 'https://www.dineplan.com/restaurants/yatai', null, null,
   'https://www.google.com/maps/search/?api=1&query=Yatai%20Japanese%2C%2087%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000001a', 'Grand Pavilion', 'grand-pavilion', 'Restaurant on the Sea Point promenade.', array['Restaurant', 'Seaside']::text[],
   '277 Beach Road', 'Sea Point', null, null, null,
   null, 'https://www.dineplan.com/restaurants/grand-pavilion', null, null,
   'https://www.google.com/maps/search/?api=1&query=Grand%20Pavilion%2C%20277%20Beach%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000001b', 'The President Hotel', 'the-president-hotel', 'Hotel restaurant on Alexander Road in Sea Point, running a paired dinner on Thursdays.', array['Hotel restaurant', 'Wine pairing']::text[],
   'S4 Alexander Road', 'Sea Point', null, null, null,
   null, 'https://www.dineplan.com/restaurants/the-president-hotel', null, null,
   'https://www.google.com/maps/search/?api=1&query=The%20President%20Hotel%2C%20S4%20Alexander%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000001c', 'Harry''s Beach', 'harrys-beach', 'Beachfront restaurant on Victoria Road in Camps Bay.', array['Restaurant', 'Seaside']::text[],
   '41 Victoria Road', 'Camps Bay', null, null, null,
   null, 'https://www.dineplan.com/restaurants/harrys-beach', null, null,
   'https://www.google.com/maps/search/?api=1&query=Harry''s%20Beach%2C%2041%20Victoria%20Road%2C%20Camps%20Bay%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000001d', 'Harbour House Camps Bay', 'harbour-house-camps-bay', 'Seafood restaurant on the Camps Bay promenade.', array['Seafood', 'Restaurant']::text[],
   '87 Victoria Road, The Promenade', 'Camps Bay', null, null, null,
   null, 'https://www.dineplan.com/restaurants/harbour-house-camps-bay', null, null,
   'https://www.google.com/maps/search/?api=1&query=Harbour%20House%20Camps%20Bay%2C%2087%20Victoria%20Road%2C%20The%20Promenade%2C%20Camps%20Bay%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000001e', 'Salsify at the Roundhouse', 'salsify-at-the-roundhouse', 'Fine-dining restaurant in the historic Round House above Camps Bay.', array['Fine dining', 'Tasting menu']::text[],
   'Round House Road, Kloof Road', 'Camps Bay', null, null, null,
   null, 'https://www.dineplan.com/restaurants/salsify-at-the-roundhouse', null, null,
   'https://www.google.com/maps/search/?api=1&query=Salsify%20at%20the%20Roundhouse%2C%20Round%20House%20Road%2C%20Kloof%20Road%2C%20Camps%20Bay%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000001f', 'Rita''s Cocktail Club', 'ritas-cocktail-club', 'Rooftop tequila and cocktail bar on Kloof Street, with small plates and a daily social hour.', array['Cocktails', 'Bar', 'Tequila', 'Small plates']::text[],
   '22 Kloof Street', 'Gardens', null, null, '+27213006695',
   'https://www.ritascocktailclub.com/', 'https://account.dineplan.com/widgetframe/lg0VXhdN', 'https://www.instagram.com/ritascocktailclub/', null,
   'https://www.google.com/maps/search/?api=1&query=Rita''s%20Cocktail%20Club%2C%2022%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000020', 'Kloof Street House', 'kloof-street-house', 'Victorian house on Kloof Street with a garden, several dining rooms and live jazz over Sunday lunch.', array['Restaurant', 'Bar', 'Live music']::text[],
   '30 Kloof Street', 'Gardens', null, null, '+27214234413',
   'https://www.kloofstreethouse.co.za/', 'https://www.kloofstreethouse.co.za/reservations/', 'https://www.instagram.com/kloofstreethouse/', null,
   'https://www.google.com/maps/search/?api=1&query=Kloof%20Street%20House%2C%2030%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000021', 'The Village Idiot', 'the-village-idiot', 'Pub and party bar on Loop Street, with DJs midweek and a different food-and-drink offer most nights.', array['Bar', 'Pub', 'Pizza', 'Live DJ']::text[],
   '32 Loop Street', 'Cape Town City Centre', null, null, null,
   null, 'https://www.dineplan.com/restaurants/the-village-idiot', 'https://www.instagram.com/thevillageidiotct/', null,
   'https://www.google.com/maps/search/?api=1&query=The%20Village%20Idiot%2C%2032%20Loop%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000022', 'Clarke''s Bar & Dining Room', 'clarkes-bar-and-dining-room', 'All-day diner and bar on Bree Street, known for sandwiches, breakfast served all day, and a beer deal in the afternoon sun.', array['Diner', 'Bar', 'Breakfast', 'Sandwiches']::text[],
+  '133 Bree Street', 'Cape Town City Centre', null, null, '+27874700165',
+  null, null, 'https://www.instagram.com/clarkescapetown/', null,
+  'https://www.google.com/maps/search/?api=1&query=Clarke''s%20Bar%20%26%20Dining%20Room%2C%20133%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000023', 'Scala Pasta Bar', 'scala-pasta-bar', 'Pasta bar in Heritage Square, off Bree Street.', array['Italian', 'Pasta', 'Restaurant']::text[],
+  '81 Church Street, Heritage Square', 'Cape Town City Centre', null, null, '+27214247204',
+  null, null, null, null,
+  'https://www.google.com/maps/search/?api=1&query=Scala%20Pasta%20Bar%2C%2081%20Church%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000024', 'Mamacita''s on Kloof', 'mamacitas-on-kloof', 'Mexican restaurant and cocktail bar at the bottom of Kloof Street, running a different offer most nights of the week.', array['Mexican', 'Cocktails', 'Bar', 'Tacos']::text[],
+  '8 Kloof Street', 'Cape Town City Centre', null, null, '+27834675799',
+  'https://mamacitas.co.za', 'https://www.dineplan.com/restaurants/mamacitas-on-kloof', 'https://www.instagram.com/mamacitassa/', null,
+  'https://www.google.com/maps/search/?api=1&query=Mamacita''s%20on%20Kloof%2C%208%20Kloof%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000025', 'Quay Four', 'quay-four', 'Long-running waterfront tavern and restaurant on the Pierhead, with a deck over the harbour and live bands most nights.', array['Seafood', 'Pub', 'Bar', 'Grill']::text[],
+  'Quay 4, Dock Road, V&A Waterfront', 'Victoria & Alfred Waterfront', null, null, '+27214192008',
+  'https://quay4.co.za', null, 'https://www.instagram.com/quayfour_/', 'https://www.facebook.com/QuayFour',
+  'https://www.google.com/maps/search/?api=1&query=Quay%20Four%2C%20Dock%20Road%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000026', 'Upper Quay', 'upper-quay', 'The upstairs restaurant above Quay Four, with harbour views and a quieter, more sit-down menu than the tavern below.', array['Seafood', 'Restaurant', 'Bar']::text[],
+  'Quay 4, Dock Road, V&A Waterfront', 'Victoria & Alfred Waterfront', null, null, '+27214192008',
+  'https://quay4.co.za', null, 'https://www.instagram.com/upper_quay/', null,
+  'https://www.google.com/maps/search/?api=1&query=Upper%20Quay%2C%20Dock%20Road%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000027', 'Mitchell''s Scottish Ale House', 'mitchells-scottish-ale-house', 'Scottish-themed ale house on the East Pier, brewing its own beers and open until 2am seven days a week.', array['Pub', 'Beer', 'Bar', 'Burgers']::text[],
+  'East Pier & Dock Road, V&A Waterfront', 'Victoria & Alfred Waterfront', null, null, '+27214195074',
+  'https://mitchellsalehouse.co.za', null, 'https://www.instagram.com/mitchellsalehouse/', 'https://www.facebook.com/MitchellsAleHouse/',
+  'https://www.google.com/maps/search/?api=1&query=Mitchell''s%20Scottish%20Ale%20House%2C%20East%20Pier%2C%20Dock%20Road%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000028', 'Ferryman''s Irish Tavern', 'ferrymans-irish-tavern', 'Irish pub in the old Locomotive Shed, pouring Guinness with a beer garden and live music midweek.', array['Pub', 'Irish', 'Bar', 'Beer']::text[],
+  'Locomotive Shed, Dock Road, V&A Waterfront', 'Victoria & Alfred Waterfront', null, null, '+27214197748',
+  'https://ferrymans.co.za', null, 'https://www.instagram.com/ferrymansirishtavern/', 'https://www.facebook.com/FerrymansPub/',
+  'https://www.google.com/maps/search/?api=1&query=Ferryman''s%20Irish%20Tavern%2C%20Locomotive%20Shed%2C%20Dock%20Road%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000029', 'Harringtons Cocktail Lounge', 'harringtons-cocktail-lounge', 'Cocktail lounge on Harrington Street in the East City, above the Harringtons distillery tasting room.', array['Cocktails', 'Bar', 'Lounge']::text[],
+  '61B Harrington Street, East City', 'Cape Town City Centre', null, null, '+27784599940',
+  'https://harringtons.co.za', null, null, null,
+  'https://www.google.com/maps/search/?api=1&query=Harringtons%20Cocktail%20Lounge%2C%2061B%20Harrington%20Street%2C%20East%20City%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000002a', 'ONOMO Hotel Cape Town — Inn on the Square', 'onomo-inn-on-the-square', 'Hotel bar and terrace on Greenmarket Square, in the middle of the old city, open to non-residents.', array['Hotel bar', 'Bar', 'Beer']::text[],
+  '10 Greenmarket Square', 'Cape Town City Centre', null, null, '+27214221286',
+  'https://www.onomohotels.com/en/etablissement/onomo-hotel-cape-town-inn-on-the-square/', null, null, null,
+  'https://www.google.com/maps/search/?api=1&query=ONOMO%20Hotel%20Cape%20Town%20Inn%20on%20the%20Square%2C%2010%20Greenmarket%20Square%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000002b', 'The Tiki Tomb', 'the-tiki-tomb', 'Basement tiki bar on Bree Street, over-25s only, with karaoke midweek and rum drinks in scorpion bowls.', array['Cocktails', 'Bar', 'Tiki', 'Late night']::text[],
+  '101 Bree Street', 'Cape Town City Centre', null, null, '+27210038114',
+  'https://thefirmct.co.za/tiki-tomb', 'https://www.dineplan.com/restaurants/tiki-tomb', 'https://www.instagram.com/thetikitomb/', 'https://www.facebook.com/thetikitomb/',
+  'https://www.google.com/maps/search/?api=1&query=The%20Tiki%20Tomb%2C%20101%20Bree%20Street%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000002c', 'Judd''s Local', 'judds-local', 'Neighbourhood wine bar and bottle shop at the top of Kloof Street, pouring small-producer South African wine by the glass.', array['Wine bar', 'Bar', 'Bistro']::text[],
+  '141 Kloof Street', 'Gardens', null, null, '+27645271272',
+  'https://juddslocal.co.za', null, 'https://www.instagram.com/juddslocal/', null,
+  'https://www.google.com/maps/search/?api=1&query=Judd''s%20Local%2C%20141%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000002d', 'Den Anker', 'den-anker', 'Belgian restaurant and bar on the Pierhead, thirty years in, known for mussel pots and a long beer list.', array['Belgian', 'Seafood', 'Bar', 'Beer']::text[],
+  'Pierhead, V&A Waterfront', 'Victoria & Alfred Waterfront', null, null, '+27214190249',
+  'https://www.denanker.co.za', null, 'https://www.instagram.com/den_anker/', null,
+  'https://www.google.com/maps/search/?api=1&query=Den%20Anker%2C%20Pierhead%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000002e', 'London Road Bistro', 'london-road-bistro', 'Bistro and bar inside The Hyde Hotel, a block back from the Sea Point promenade.', array['Bistro', 'Bar', 'Burgers']::text[],
+  '13 London Road, The Hyde Hotel', 'Sea Point', null, null, '+27214340205',
+  null, 'https://www.dineplan.com/restaurants/london-road-bistro-at-the-hyde-hotel', 'https://www.instagram.com/london_road_bistro/', null,
+  'https://www.google.com/maps/search/?api=1&query=London%20Road%20Bistro%2C%2013%20London%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000002f', 'Filini', 'filini', 'Italian restaurant and bar in the Radisson Hotel on Heerengracht, at the Foreshore end of the city centre.', array['Italian', 'Pizza', 'Hotel bar', 'Bar']::text[],
+  '29 Heerengracht Street, Foreshore', 'Cape Town City Centre', null, null, '+27214274800',
+  'https://www.radissonhotels.com/en-us/hotels/radisson-cape-town-foreshore/restaurant-bar', null, 'https://www.instagram.com/radissonhotelcapetown/', null,
+  'https://www.google.com/maps/search/?api=1&query=Filini%20Radisson%20Hotel%2C%2029%20Heerengracht%20Street%2C%20Foreshore%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000030', 'Tiger''s Milk — Kloof Street', 'tigers-milk-kloof-street', 'Burger and beer bar halfway up Kloof Street, open to midnight seven days a week.', array['Burgers', 'Bar', 'Beer', 'Pizza']::text[],
+  '55 Kloof Street', 'Gardens', null, null, null,
+  'https://www.tigersmilk.co.za/location/kloof-street/', null, 'https://www.instagram.com/tigersmilkza/', 'https://www.facebook.com/TMKloofStreet/',
+  'https://www.google.com/maps/search/?api=1&query=Tiger''s%20Milk%20Kloof%20Street%2C%2055%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000031', 'Tiger''s Milk — Long Street', 'tigers-milk-long-street', 'The Long Street branch of the burger and beer chain, at the bottom end near the Company''s Garden.', array['Burgers', 'Bar', 'Beer', 'Pizza']::text[],
+  '44 Long Street', 'Cape Town City Centre', null, null, null,
+  'https://www.tigersmilk.co.za/location/long-street/', null, 'https://www.instagram.com/tigersmilkza/', 'https://www.facebook.com/TMLongStreet/',
+  'https://www.google.com/maps/search/?api=1&query=Tiger''s%20Milk%20Long%20Street%2C%2044%20Long%20Street%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000032', 'Duchess of Wisbeach', 'duchess-of-wisbeach', 'Long-standing candlelit dining room on Main Road in Sea Point, dinner only, with a late bar after the kitchen closes.', array['Restaurant', 'Fine dining', 'Bar']::text[],
+  '321 Main Road', 'Sea Point', null, null, '+27712894142',
+  'https://duchessofwisbeach.co.za', 'https://www.dineplan.com/restaurants/duchess-of-wisbeach', 'https://www.instagram.com/duchessofwisbeach/', null,
+  'https://www.google.com/maps/search/?api=1&query=Duchess%20of%20Wisbeach%2C%20321%20Main%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000033', 'Beluga', 'beluga', 'Sushi, dim sum and cocktails above the Cruise Terminal at the Waterfront, with a long-running daily specials board.', array['Sushi', 'Asian', 'Cocktails', 'Bar']::text[],
+  'Alfred Chambers, 1st Floor, Cruise Terminal, Duncan Road', 'Victoria & Alfred Waterfront', null, null, '+27614340813',
+  'https://www.beluga.co.za', null, 'https://www.instagram.com/belugarestaurant/', 'https://www.facebook.com/belugacapetown/',
+  'https://www.google.com/maps/search/?api=1&query=Beluga%2C%20Cruise%20Terminal%2C%20Duncan%20Road%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000034', 'The Power Above', 'the-power-above', 'First-floor café and bar on Kloof Nek Road that runs from breakfast through to late, with a wood-fired pizza oven.', array['Café', 'Bar', 'Pizza']::text[],
+  '13b Kloof Nek Road, 1st floor', 'Gardens', null, null, '+27212131212',
+  null, null, 'https://www.instagram.com/t.h.e.p.o.w.e.r.a.b.o.v.e/', null,
+  'https://www.google.com/maps/search/?api=1&query=The%20Power%20Above%2C%2013b%20Kloof%20Nek%20Road%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000035', 'ELVN11', 'elvn11', 'Rooftop restaurant and bar on the eleventh floor of the Radisson on Heerengracht, looking back over the city.', array['Restaurant', 'Rooftop', 'Bar']::text[],
+  '29 Heerengracht Street, Foreshore', 'Cape Town City Centre', null, null, '+27214274800',
+  null, null, null, null,
+  'https://www.google.com/maps/search/?api=1&query=ELVN11%20Radisson%20Hotel%2C%2029%20Heerengracht%20Street%2C%20Foreshore%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000036', 'East City Grill', 'east-city-grill', 'Open-fire steakhouse on Harrington Street, sharing a building with the Yakiniku grill room upstairs.', array['Steakhouse', 'Grill', 'Japanese']::text[],
+  '84 Harrington Street', 'Cape Town City Centre', null, null, '+27215183366',
+  'https://www.eastcitygrill.co.za', 'https://www.dineplan.com/restaurants/east-city-grill', 'https://www.instagram.com/eastcitygrillct/', null,
+  'https://www.google.com/maps/search/?api=1&query=East%20City%20Grill%2C%2084%20Harrington%20Street%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000037', 'mischu', 'mischu', 'Coffee roastery and all-day café on Regent Road, roasting its own beans on site.', array['Café', 'Coffee', 'Breakfast']::text[],
+  '85A Regent Road', 'Sea Point', null, null, null,
+  'https://www.mischu.co.za', null, null, 'https://www.facebook.com/mischu.coffee/',
+  'https://www.google.com/maps/search/?api=1&query=mischu%2C%2085A%20Regent%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000038', 'Aiko Sushi — Bree Street', 'aiko-sushi-bree-street', 'All-you-can-eat sushi house in the Portside building at the bottom of Bree Street, with a separate vegan menu.', array['Sushi', 'Japanese', 'Asian']::text[],
+  '4 Bree Street, Portside Building', 'Cape Town City Centre', null, null, '+27214180064',
+  'https://www.aikosushi.co.za/aiko-on-bree', 'https://link.withnovel.com/aiko-sushi', 'https://www.instagram.com/aikosushi.sa/', 'https://www.facebook.com/aikosushi.sa/',
+  'https://www.google.com/maps/search/?api=1&query=Aiko%20Sushi%2C%204%20Bree%20Street%2C%20Portside%20Building%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000039', 'Café Manhattan', 'cafe-manhattan', 'De Waterkant institution — bar, kitchen and pavement tables, open every day from eleven until eleven.', array['Bar', 'Bistro', 'Burgers']::text[],
+  '74 Waterkant Street, De Waterkant', 'Cape Town City Centre', null, null, '+27210028867',
+  'https://cafemanhattan.co.za', 'https://www.dineplan.com/restaurants/cafe-manhattan0', null, null,
+  'https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Manhattan%2C%2074%20Waterkant%20Street%2C%20De%20Waterkant%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000003a', 'Van Hunks', 'van-hunks', 'Laid-back bar and restaurant on the Kloof Street corner, running a different deal most nights of the week.', array['Bar', 'Restaurant', 'Mexican', 'Grill']::text[],
+  'Corner Kloof Street and Upper Union Street', 'Gardens', null, null, '+27214225422',
+  'https://vanhunks.co.za', null, 'https://www.instagram.com/vanhunks/', null,
+  'https://www.google.com/maps/search/?api=1&query=Van%20Hunks%2C%20Corner%20Kloof%20Street%20and%20Upper%20Union%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000003b', 'Asoka', 'asoka', 'Long-running Kloof Street bar and lounge built around an olive tree, Asian-leaning tapas, open from six every night.', array['Asian', 'Tapas', 'Cocktails', 'Bar']::text[],
+  '68 Kloof Street', 'Gardens', null, null, '+27214220909',
+  'https://asoka.za.com', null, 'https://www.instagram.com/asokakloofstreet/', null,
+  'https://www.google.com/maps/search/?api=1&query=Asoka%2C%2068%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
 -- ------------------------------------------------------------- specials
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
@@ -251,7 +492,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://rickscafe.co.za/specials', 'official_website'::source_type,
   null, '2026-08-21', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000002', 'a1000000-0000-4000-8000-000000000001', 'Golden Hour',
@@ -262,18 +504,20 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://rickscafe.co.za/specials', 'official_website'::source_type,
   null, '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000003', 'a1000000-0000-4000-8000-000000000001', 'Two-for-one burgers',
   'Buy one burger and get a second free — the deal covers the whole burger menu.',
   null, null, 'food'::special_category, '{}',
   array[2]::smallint[], null, null,
-  null, null, 'Applies to every burger on the menu, all day.', false,
+  null, '2026-09-01', 'Applies to every burger on the menu, all day.', false,
   'unknown'::holiday_status, 'https://rickscafe.co.za/specials', 'official_website'::source_type,
   null, '2026-08-21', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000004', 'a1000000-0000-4000-8000-000000000001', 'Two margaritas for R100',
@@ -284,51 +528,56 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://rickscafe.co.za/specials', 'official_website'::source_type,
   null, '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000005', 'a1000000-0000-4000-8000-000000000001', 'Tajine and wine Thursday',
   'Order any Moroccan tajine and a complimentary carafe of Cederberg Merlot Shiraz blend comes with it.',
   null, null, 'dinner'::special_category, '{}',
   array[4]::smallint[], null, null,
-  null, null, 'The tajine is charged at menu price; the wine carafe is included.', false,
+  null, '2026-08-27', 'The tajine is charged at menu price; the wine carafe is included.', false,
   'unknown'::holiday_status, 'https://rickscafe.co.za/specials', 'official_website'::source_type,
   null, '2026-08-21', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000006', 'a1000000-0000-4000-8000-000000000001', 'Sunday lamb roast',
   'Moroccan-spiced roast leg of lamb served as a Sunday roast.',
   185, null, 'lunch'::special_category, '{}',
   array[7]::smallint[], null, null,
-  null, null, 'Booking essential.', true,
+  null, '2026-09-30', 'Booking essential.', true,
   'unknown'::holiday_status, 'https://www.dineplan.com/restaurants/ricks-cafe-americain', 'booking_page'::source_type,
   null, '2026-08-20', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000007', 'a1000000-0000-4000-8000-000000000001', 'Lazy Sunday afternoon',
   'Order a tapas or mezze platter to share and two glasses of Pierre Jourdan Brut Cap Classique are included.',
   null, null, 'food'::special_category, array['vegetarian']::dietary_tag[],
   array[7]::smallint[], '15:00', '19:00',
-  null, null, 'Platter charged at menu price; two glasses of Cap Classique included.', false,
+  null, null, 'Platter charged at menu price; two glasses of Cap Classique included. Re-confirmed by a write-up of 14 August 2026.', false,
   'unknown'::holiday_status, 'https://rickscafe.co.za/specials', 'official_website'::source_type,
-  null, '2026-08-21', 'verified'::verification_status,
+  null, '2026-08-23', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000008', 'a1000000-0000-4000-8000-000000000001', 'Winter brandy special — two doubles for R90',
   'Two double brandy and Cokes at a set price, all winter, all day long.',
   90, null, 'drinks'::special_category, '{}',
   array[2, 3, 4, 5, 6, 7]::smallint[], null, null,
-  null, null, null, false,
+  null, '2026-08-31', null, false,
   'unknown'::holiday_status, 'https://rickscafe.co.za/specials', 'official_website'::source_type,
   null, '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000009', 'a1000000-0000-4000-8000-000000000001', 'Glühwein for R45',
@@ -339,7 +588,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://rickscafe.co.za/specials', 'official_website'::source_type,
   null, '2026-08-20', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000010', 'a1000000-0000-4000-8000-000000000001', 'Two Aperol Spritz for R175',
@@ -350,7 +600,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://rickscafe.co.za/specials', 'official_website'::source_type,
   null, '2026-08-20', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000011', 'a1000000-0000-4000-8000-000000000002', 'Meat-free Monday',
@@ -361,7 +612,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/restaurants/hudsons-kloof-street', 'booking_page'::source_type,
   null, '2026-08-20', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000012', 'a1000000-0000-4000-8000-000000000002', 'Two-for-one pizzas — Pizza Two''sday',
@@ -372,7 +624,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/restaurants/hudsons-kloof-street', 'booking_page'::source_type,
   null, '2026-08-20', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000013', 'a1000000-0000-4000-8000-000000000002', 'Happy hour — 30% off',
@@ -383,7 +636,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/restaurants/hudsons-kloof-street', 'booking_page'::source_type,
   null, '2026-08-20', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000014', 'a1000000-0000-4000-8000-000000000002', 'Linger Longer — 40% off cocktails',
@@ -394,7 +648,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.theburgerjoint.co.za/specials', 'official_website'::source_type,
   null, '2026-08-20', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000015', 'a1000000-0000-4000-8000-000000000003', 'Winter dinner set menu',
@@ -405,7 +660,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'publication'::source_type,
   '2026-07-23', '2026-08-20', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000016', 'a1000000-0000-4000-8000-000000000004', 'Magic Hour — half-price drinks',
@@ -416,7 +672,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape/cape-town-central', 'publication'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000017', 'a1000000-0000-4000-8000-000000000004', 'Winter set menu',
@@ -427,7 +684,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape/cape-town-central', 'publication'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000018', 'a1000000-0000-4000-8000-000000000004', 'Buckets and Bubbles',
@@ -438,7 +696,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape/cape-town-central', 'publication'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000019', 'a1000000-0000-4000-8000-000000000005', 'Sharing experience for two',
@@ -449,7 +708,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape/cape-town-central', 'publication'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000001a', 'a1000000-0000-4000-8000-000000000005', 'Two Aperol Spritz for R180',
@@ -460,7 +720,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape/cape-town-central', 'publication'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000001b', 'a1000000-0000-4000-8000-000000000006', 'Tuesday date night',
@@ -471,7 +732,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape/camps-bay', 'publication'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000001c', 'a1000000-0000-4000-8000-000000000006', 'Winter two-course menu',
@@ -482,7 +744,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape/camps-bay', 'publication'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000001d', 'a1000000-0000-4000-8000-000000000007', 'Winter two-course menu',
@@ -493,7 +756,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape/mouille-point', 'publication'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000001e', 'a1000000-0000-4000-8000-000000000007', 'Tuesday date night',
@@ -504,7 +768,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape/mouille-point', 'publication'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000001f', 'a1000000-0000-4000-8000-000000000008', 'Sunday lunch with live jazz',
@@ -515,7 +780,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape/sea-point', 'publication'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000020', 'a1000000-0000-4000-8000-000000000009', 'Winter dinner set menu',
@@ -526,7 +792,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'publication'::source_type,
   '2026-07-23', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000021', 'a1000000-0000-4000-8000-00000000000a', 'Sunday steak and frites',
@@ -537,7 +804,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'publication'::source_type,
   '2026-07-23', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000022', 'a1000000-0000-4000-8000-00000000000b', 'Monday Madness — two pizzas for R277',
@@ -548,7 +816,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.cafe-extrablatt.co.za/', 'official_website'::source_type,
   null, '2026-08-21', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000023', 'a1000000-0000-4000-8000-00000000000b', 'R95 weekday lunch',
@@ -559,7 +828,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'not_valid'::holiday_status, 'https://www.cafe-extrablatt.co.za/', 'official_website'::source_type,
   null, '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000024', 'a1000000-0000-4000-8000-00000000000c', 'Pizza Monday — half price',
@@ -570,7 +840,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://thewoodlandseatery.com/', 'in_person'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000025', 'a1000000-0000-4000-8000-00000000000c', 'Sip and Supper Tuesday — a drink on the house',
@@ -581,7 +852,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://thewoodlandseatery.com/', 'in_person'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000026', 'a1000000-0000-4000-8000-00000000000c', 'Pasta Wednesday — half price',
@@ -592,7 +864,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://thewoodlandseatery.com/', 'in_person'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000027', 'a1000000-0000-4000-8000-00000000000c', 'Meaty Thursday — half price',
@@ -603,18 +876,20 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://thewoodlandseatery.com/', 'in_person'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000028', 'a1000000-0000-4000-8000-00000000000d', 'The 99 Smash',
   'An Oklahoma onion smash burger for R99, from midday every Thursday.',
   99, null, 'food'::special_category, '{}',
   array[4]::smallint[], '12:00', '22:00',
-  null, null, 'Limited number each day — when they are gone, they are gone. Photographed on the table card.', false,
+  null, '2026-09-30', 'Limited number each day — when they are gone, they are gone. Photographed on the table card.', false,
   'unknown'::holiday_status, 'https://burgerandlobster.co.za/', 'in_person'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000029', 'a1000000-0000-4000-8000-00000000000e', 'Two pastas for R195',
@@ -625,7 +900,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://flirtcpt.co.za/', 'in_person'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000002a', 'a1000000-0000-4000-8000-00000000000e', 'Two tacos for R180',
@@ -636,7 +912,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://flirtcpt.co.za/', 'in_person'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000002b', 'a1000000-0000-4000-8000-00000000000e', 'Half-price cocktails',
@@ -647,7 +924,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://flirtcpt.co.za/', 'in_person'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000002c', 'a1000000-0000-4000-8000-00000000000e', 'Two burgers for R195, with a DJ',
@@ -658,7 +936,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://flirtcpt.co.za/', 'in_person'::source_type,
   '2026-08-21', '2026-08-21', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000002d', 'a1000000-0000-4000-8000-00000000000f', 'Happy hour',
@@ -669,29 +948,32 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://fablecocktailbar.capetown/', 'official_website'::source_type,
   '2026-07-25', '2026-08-22', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000002e', 'a1000000-0000-4000-8000-00000000000f', 'Women''s Wednesdays',
   'Half price on all classic cocktails for women, mid-evening on Wednesdays.',
   null, null, 'drinks'::special_category, '{}',
   array[3]::smallint[], '19:00', '22:00',
-  null, null, 'The bar states this offer applies to women.', false,
+  null, '2026-08-31', 'The bar states this offer applies to women.', false,
   'unknown'::holiday_status, 'https://fablecocktailbar.capetown/', 'official_website'::source_type,
   '2026-07-25', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000002f', 'a1000000-0000-4000-8000-00000000000f', 'Fable Fix',
   'Any sandwich or pie from the daytime menu, with a daytime drink.',
   150, null, 'lunch'::special_category, '{}',
   array[5, 6]::smallint[], '12:00', '16:00',
-  null, null, 'Advertised for 12pm to 4pm. The bar opens at noon on Friday and Saturday only, so those are the days it can run.', false,
+  null, null, 'Advertised for 12pm to 4pm. The bar opens at noon on Friday and Saturday only, so those are the days it can run — and a write-up of 27 July describes it as the weekend lunch special, which settles it.', false,
   'unknown'::holiday_status, 'https://fablecocktailbar.capetown/', 'official_website'::source_type,
-  '2026-07-25', '2026-08-22', 'verified'::verification_status,
+  '2026-07-25', '2026-08-23', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000030', 'a1000000-0000-4000-8000-00000000000f', 'Winter Warmer',
@@ -700,9 +982,10 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   array[5, 6]::smallint[], '12:00', '16:00',
   null, null, 'Advertised for 12pm to 4pm; the bar opens at noon on Friday and Saturday only. No end date is published - being a winter dish, confirm before relying on it in spring.', false,
   'unknown'::holiday_status, 'https://fablecocktailbar.capetown/', 'official_website'::source_type,
-  '2026-07-25', '2026-08-22', 'verified'::verification_status,
+  '2026-07-25', '2026-08-23', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000031', 'a1000000-0000-4000-8000-000000000010', 'Four-course winter menu',
@@ -713,18 +996,20 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000032', 'a1000000-0000-4000-8000-000000000011', 'Three-course winter menu',
   'Three courses from the winter menu at the Pepperclub.',
   445, null, 'dinner'::special_category, '{}',
   array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
-  null, null, 'R445 per person, from midday daily. Advertised as a winter menu with no end date published.', false,
+  null, '2026-08-31', 'R445 per person, from midday daily. Advertised as a winter menu with no end date published.', false,
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000033', 'a1000000-0000-4000-8000-000000000012', 'Five-course lunch tasting menu',
@@ -735,29 +1020,32 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000034', 'a1000000-0000-4000-8000-000000000013', 'Sharing winter menu',
   'A Baja Californian sharing menu built for the table.',
   349, null, 'food'::special_category, '{}',
   array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
-  null, null, 'R349 per person, all day. Advertised as a winter menu with no end date published.', false,
+  null, '2026-09-30', 'R349 per person, all day. Advertised as a winter menu with no end date published.', false,
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000035', 'a1000000-0000-4000-8000-000000000014', '200g flat iron steak with salad',
   'A 200g flat iron steak served with a salad.',
   265, null, 'dinner'::special_category, '{}',
   array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
-  null, null, 'R265 per person. Advertised as a winter offer with no end date published.', false,
+  null, '2026-09-30', 'R265 per person. Advertised as a winter offer with no end date published.', false,
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000036', 'a1000000-0000-4000-8000-000000000015', 'Three-course menu with a Port',
@@ -768,18 +1056,20 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000037', 'a1000000-0000-4000-8000-000000000016', 'Winter bento box',
   'A bento box from the Japanese-Peruvian menu, served per person rather than to share.',
   349, null, 'food'::special_category, '{}',
   array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
-  null, null, 'R349 per person. Not a sharing menu. Advertised as a winter offer with no end date published.', false,
+  null, '2026-09-30', 'R349 per person. Not a sharing menu. Advertised as a winter offer with no end date published.', false,
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000038', 'a1000000-0000-4000-8000-000000000017', 'Five-course lunch or dinner',
@@ -790,7 +1080,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000039', 'a1000000-0000-4000-8000-000000000018', 'Three-course winter menu',
@@ -801,18 +1092,20 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000003a', 'a1000000-0000-4000-8000-000000000019', 'Sharing tasting menu',
   'A curated tasting menu meant for sharing.',
   349, null, 'food'::special_category, '{}',
   array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
-  null, null, 'R349 per person. Advertised as a winter menu with no end date published.', false,
+  null, '2026-09-30', 'R349 per person. Advertised as a winter menu with no end date published.', false,
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000003b', 'a1000000-0000-4000-8000-00000000001a', 'Two- or three-course winter menu',
@@ -823,7 +1116,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000003c', 'a1000000-0000-4000-8000-00000000001b', 'Three-course paired dinner',
@@ -834,7 +1128,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000003d', 'a1000000-0000-4000-8000-00000000001c', 'Two- or three-course lunch',
@@ -845,7 +1140,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000003e', 'a1000000-0000-4000-8000-00000000001d', 'Weekday set menu',
@@ -856,7 +1152,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-00000000003f', 'a1000000-0000-4000-8000-00000000001e', 'Five-course lunch',
@@ -867,7 +1164,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.dineplan.com/blog/winter-specials-and-set-menus/', 'booking_page'::source_type,
   '2026-07-23', '2026-08-22', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000040', 'a1000000-0000-4000-8000-00000000001f', 'Social Hour — half-price margaritas',
@@ -878,7 +1176,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.ritascocktailclub.com/', 'official_website'::source_type,
   '2026-08-22', '2026-08-23', 'verified'::verification_status,
   true, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000041', 'a1000000-0000-4000-8000-000000000020', 'Winter lunch menu',
@@ -889,7 +1188,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.instagram.com/p/Db0k4EDoNxL/', 'social'::source_type,
   '2026-08-09', '2026-08-23', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000042', 'a1000000-0000-4000-8000-000000000021', 'Happy hour',
@@ -900,7 +1200,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.instagram.com/p/DcJaxFcimTs/', 'social'::source_type,
   '2026-08-17', '2026-08-23', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000043', 'a1000000-0000-4000-8000-000000000021', 'Free frozen cocktail with any pizza',
@@ -911,7 +1212,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.instagram.com/p/DcJaxFcimTs/', 'social'::source_type,
   '2026-08-19', '2026-08-23', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000044', 'a1000000-0000-4000-8000-000000000021', 'Half-price baskets on Thursdays',
@@ -922,7 +1224,8 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.instagram.com/p/DcLq5j0Diwf/', 'social'::source_type,
   '2026-08-20', '2026-08-23', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000045', 'a1000000-0000-4000-8000-000000000021', 'Free jug or bubbly with a party platter',
@@ -933,7 +1236,860 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
   'unknown'::holiday_status, 'https://www.instagram.com/p/DcTZWoFCKyH/', 'social'::source_type,
   '2026-08-21', '2026-08-23', 'verified'::verification_status,
   false, true
-) on conflict (id) do nothing;
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000046', 'a1000000-0000-4000-8000-000000000022', 'R99 beer jugs',
+  'Jugs of Jack Black draught for R99, late afternoon, every day of the week.',
+  99, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], '16:00', '18:00',
+  null, null, 'Advertised as Monday to Sunday, with no end date published.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/DbaxDfIjUc2/', 'social'::source_type,
+  '2026-07-30', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000047', 'a1000000-0000-4000-8000-000000000023', 'Winter set menu',
+  'A chef''s selection set menu for the winter.',
+  null, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', 'restaurants.co.za lists this as running until 30 September 2026 but publishes no price. Confirm the price with the restaurant.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000048', 'a1000000-0000-4000-8000-000000000019', 'NOMIKAI late-night happy hour',
+  'Half price on selected Japanese cocktails, sake carafes, beers and wines, from ten at night.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[5, 6]::smallint[], '22:00', '00:00',
+  null, '2026-10-31', 'Not valid on First Thursdays. No banking or sharing of the discount. Runs from 10pm to midnight, so it carries past the end of the day it starts on.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000049', 'a1000000-0000-4000-8000-000000000019', 'Ramen Rush Monday',
+  'A medium ramen bowl for R119 on Mondays.',
+  119, null, 'food'::special_category, '{}',
+  array[1]::smallint[], null, null,
+  null, '2026-10-01', 'Excludes the truffle, shoyu and wagyu ramen.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000004a', 'a1000000-0000-4000-8000-000000000013', 'Half-price margaritas',
+  'Margaritas at half price, late afternoon, every day.',
+  null, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], '16:00', '17:30',
+  null, '2026-09-30', 'Excludes First Thursdays.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000004b', 'a1000000-0000-4000-8000-000000000013', 'Taco Loco Wednesdays',
+  'Every taco on the menu for R119, all day Wednesday.',
+  119, null, 'food'::special_category, '{}',
+  array[3]::smallint[], null, null,
+  null, '2026-09-30', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000004c', 'a1000000-0000-4000-8000-000000000016', 'Pisco Hour',
+  'Half price on pisco cocktails, late afternoon.',
+  null, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6]::smallint[], '16:00', '17:30',
+  null, '2026-09-30', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000004d', 'a1000000-0000-4000-8000-000000000016', 'Sushi and Sake Sundays',
+  'A 22-piece sushi platter for R199, with half-price sake cocktails and a live DJ.',
+  199, null, 'food'::special_category, '{}',
+  array[7]::smallint[], '12:00', '17:30',
+  null, '2026-09-30', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000004e', 'a1000000-0000-4000-8000-000000000014', 'Half-price social hour',
+  'Half price on drinks, with bar bites at R79.',
+  79, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], '16:00', '17:30',
+  null, '2026-09-30', 'R79 is the bar-bites price; the drinks are half of menu price.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000004f', 'a1000000-0000-4000-8000-000000000014', 'Karoo set menus',
+  'Two Karoo set menus at dinner.',
+  479, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', 'R479 per person for the second menu, R569 for the first.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000050', 'a1000000-0000-4000-8000-000000000023', 'Aperitivo Hour',
+  'Half price on selected drinks, with cicchetti at R79.',
+  79, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], '16:00', '17:30',
+  null, '2026-10-31', 'R79 is the cicchetti price; the drinks are half of menu price.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000051', 'a1000000-0000-4000-8000-000000000023', 'Pranzo Club',
+  'Classic pastas for R119 over lunch on weekdays.',
+  119, null, 'lunch'::special_category, '{}',
+  array[1, 2, 3, 4, 5]::smallint[], '12:00', '16:00',
+  null, '2026-09-25', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000052', 'a1000000-0000-4000-8000-00000000000d', 'Half-price social hour',
+  'Fifty percent off selected wine, beer, bubbly and cocktails, with bar bites at R89.',
+  89, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], '16:00', '17:30',
+  null, '2026-11-30', 'R89 is the bar-bites price; the drinks are half of menu price.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000053', 'a1000000-0000-4000-8000-000000000001', 'Steak Night',
+  'A complimentary 250ml wine carafe and pepper sauce with any steak, on Tuesdays.',
+  null, null, 'dinner'::special_category, '{}',
+  array[2]::smallint[], null, null,
+  null, '2026-08-31', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000054', 'a1000000-0000-4000-8000-000000000011', 'Dinner and a movie',
+  'Pasta or pizza, a glass of wine, and a private cinema screening.',
+  350, null, 'dinner'::special_category, '{}',
+  array[4, 5, 6]::smallint[], '18:00', '19:30',
+  null, '2026-08-31', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000055', 'a1000000-0000-4000-8000-000000000015', 'Indian-Cape afternoon tea',
+  'Afternoon tea on Sundays, with the option of adding a glass of MCC.',
+  345, null, 'food'::special_category, '{}',
+  array[7]::smallint[], null, null,
+  null, '2026-08-31', 'R345 per person, or R395 with a glass of MCC.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000056', 'a1000000-0000-4000-8000-000000000024', 'Happy hour',
+  'Three hours of drinks specials every afternoon — the restaurant calls it Social Hour.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], '15:00', '18:00',
+  null, '2027-02-28', 'The restaurant''s own site calls it Social Hour and gives 3pm to 6pm daily. A third-party listing had it as 4pm to 5pm; the restaurant wins. It also runs at the Harrington Street and Sea Point branches.', false,
+  'unknown'::holiday_status, 'https://mamacitas.co.za', 'official_website'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000057', 'a1000000-0000-4000-8000-000000000024', 'Burger Monday',
+  'Buy a burger and the draught or margarita is on the house.',
+  null, null, 'food'::special_category, '{}',
+  array[1]::smallint[], null, null,
+  null, '2026-08-31', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000058', 'a1000000-0000-4000-8000-000000000024', 'Taco Tuesday',
+  'Tacos at R50 to R60 each, mix and match, all day and night.',
+  50, null, 'food'::special_category, '{}',
+  array[2]::smallint[], null, null,
+  null, '2026-08-25', 'R50 to R60 depending on the taco.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000059', 'a1000000-0000-4000-8000-000000000024', 'Wednesday ribs',
+  'Free upgrade to the 600g rack on Wednesdays.',
+  null, null, 'food'::special_category, '{}',
+  array[3]::smallint[], null, null,
+  null, '2026-08-27', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000005a', 'a1000000-0000-4000-8000-000000000024', 'Kids eat free on Sundays',
+  'One free kids meal for every paying adult.',
+  null, null, 'food'::special_category, '{}',
+  array[7]::smallint[], null, null,
+  null, '2026-09-27', 'Dine-in only. One free kids meal per paying adult, for children twelve and under.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/specials/western-cape', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000005b', 'a1000000-0000-4000-8000-000000000025', 'Two Aperol Spritz for R215',
+  'Women''s Month offer: two Aperol Spritz on the harbour deck for R215.',
+  215, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', 'Runs during normal trading hours, 11am to 11pm.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/quay-four', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000005c', 'a1000000-0000-4000-8000-000000000025', 'Meal and a tank beer from R159',
+  'Burger and a tank beer R159; fish and chips or spatchcock chicken with a beer R199; 200g sirloin with a beer R219.',
+  159, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', 'R159 is the cheapest of the four combos. No day or time restriction is published.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/quay-four', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000005d', 'a1000000-0000-4000-8000-000000000025', 'Six oysters and bubbly for R179',
+  'Half a dozen oysters with a glass of sparkling wine for R179.',
+  179, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/quay-four', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000005e', 'a1000000-0000-4000-8000-000000000025', 'R179 mains',
+  'Fish and chips, calamari, 200g sirloin or spatchcock chicken, each R179.',
+  179, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/quay-four', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000005f', 'a1000000-0000-4000-8000-000000000025', 'Prawns, half kilo R245',
+  'Half a kilo of prawns for R245, or a full kilo for R395.',
+  245, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/quay-four', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000060', 'a1000000-0000-4000-8000-000000000025', 'Pensioners get 20% off',
+  'Twenty per cent off the whole bill for pensioners.',
+  null, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', 'Valid ID required. Excludes public holidays and the December and January peak season.', false,
+  'not_valid'::holiday_status, 'https://www.restaurants.co.za/quay-four', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000061', 'a1000000-0000-4000-8000-000000000026', 'Two Aperol Spritz for R215',
+  'Women''s Month offer upstairs: two Aperol Spritz for R215, with the harbour in front of you.',
+  215, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/upper-quay', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000062', 'a1000000-0000-4000-8000-000000000026', 'R59 breakfast',
+  'Two eggs, two rashers of bacon, grilled tomato and toast for R59.',
+  59, null, 'breakfast'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', 'Kitchen opens at 8am.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/upper-quay', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000063', 'a1000000-0000-4000-8000-000000000026', 'Bayside platter for R249',
+  'Grilled catch of the day, Patagonian baby calamari, mussels and three prawns in lemon butter, R249.',
+  249, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/upper-quay', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000064', 'a1000000-0000-4000-8000-000000000026', 'Date Night Tuesdays',
+  'Two-course winter menu R425 a head, three courses R499, each with a glass of Durbanville Hills sauvignon blanc or merlot.',
+  425, null, 'dinner'::special_category, '{}',
+  array[2]::smallint[], null, null,
+  null, '2026-08-24', null, true,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/upper-quay', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000065', 'a1000000-0000-4000-8000-000000000027', 'Six oysters and bubbly for R179',
+  'Half a dozen oysters with a glass of Durbanville Hills sparkling sauvignon blanc or rosé, R179.',
+  179, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-10-31', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/mitchells-scottish-ale-house', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000066', 'a1000000-0000-4000-8000-000000000027', 'Burger or pizza with a draught from R179',
+  'Saucy burger with a draught R179; any burger or pizza with a house lager R199.',
+  179, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/mitchells-scottish-ale-house', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000067', 'a1000000-0000-4000-8000-000000000028', 'A meal and a Guinness from R169',
+  'Beef or chicken burger with a Guinness R169; chicken wings and chips, shepherd''s pie, or a 200g sirloin and chips with a Guinness R199.',
+  169, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/ferrymans-irish-tavern', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000068', 'a1000000-0000-4000-8000-000000000028', 'Six oysters and bubbly for R179',
+  'Half a dozen oysters with a glass of Durbanville Hills sparkling sauvignon blanc or rosé, R179.',
+  179, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/ferrymans-irish-tavern', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000069', 'a1000000-0000-4000-8000-000000000028', 'R169 specials',
+  'A mussel pot, the Keem Bay or Dingle Bay seafood platter, or the Irish trilogy — each R169.',
+  169, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/ferrymans-irish-tavern', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000006a', 'a1000000-0000-4000-8000-000000000028', 'Pensioners get 20% off',
+  'Twenty per cent off the whole bill for pensioners.',
+  null, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-10-31', 'Valid ID required. Excludes public holidays and the December and January peak season.', false,
+  'not_valid'::holiday_status, 'https://www.restaurants.co.za/ferrymans-irish-tavern', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000006b', 'a1000000-0000-4000-8000-000000000029', '40% off cocktails and house wine',
+  'Forty per cent off cocktails, house wines and the Harrys pouring spirits, early evening on the Harrington Street lounge.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[3, 4, 6]::smallint[], '17:00', '19:00',
+  null, null, 'A write-up of 4 August put this at 4–6pm Wednesday to Saturday. The lounge''s own post of 15 August says 5–7pm on Wednesday, Thursday and Saturday, and from 4pm on Friday, so that is what is shown. No end date is published.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/reel/DcEQ2zYoYxV/', 'social'::source_type,
+  '2026-08-15', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000006c', 'a1000000-0000-4000-8000-00000000002a', 'Two Heinekens for the price of one',
+  'Buy one Heineken on tap on the Greenmarket Square terrace and the second is free.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[5]::smallint[], '16:00', '19:00',
+  null, null, 'Two write-ups give the window as 4–7pm and 4–6pm respectively. The later one is used here; confirm on arrival.', false,
+  'unknown'::holiday_status, 'https://www.food-blog.co.za/ease-into-the-weekend-with-buy-one-get-one-free-heineken-at-onomo-inn-on-the-square/', 'publication'::source_type,
+  '2026-07-16', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000006d', 'a1000000-0000-4000-8000-000000000022', 'Happy hour',
+  'An hour of reduced drinks prices at the bar before dinner service, alongside the bar snacks menu.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], '17:00', '18:00',
+  null, null, 'Clarke''s own post gives the hour but not the prices. A third-party list quotes R35 cocktails; that price is unconfirmed and is not shown here.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/DMg9DYnodqB/', 'social'::source_type,
+  '2026-07-02', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000006e', 'a1000000-0000-4000-8000-00000000002b', 'R60 happy hour',
+  'Sixty rand a drink for an hour: house spirits and mixer, tequila, piña coladas, margaritas and hurricanes.',
+  60, null, 'happy_hour'::special_category, '{}',
+  array[3, 4, 5, 6]::smallint[], '17:00', '18:00',
+  null, null, 'The bar''s own post of 14 August gives the hour as 5–6pm. A May write-up said 3–6pm, Wednesday to Saturday; the days here come from that write-up, the times from the bar.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/DcBPAR-gCOj/', 'social'::source_type,
+  '2026-08-14', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000006f', 'a1000000-0000-4000-8000-00000000002b', 'R60 margaritas on karaoke night',
+  'Tiki-Oke karaoke from 9pm, R60 margaritas, and a free shot if you take the microphone.',
+  60, null, 'drinks'::special_category, '{}',
+  array[3]::smallint[], '21:00', '00:00',
+  null, null, 'The weekly listing shows both R60 and R100 margaritas without saying which is which — R60 is the lower of the two.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/Db2sdYKARlI/', 'social'::source_type,
+  '2026-08-10', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000070', 'a1000000-0000-4000-8000-00000000002c', 'Tasting Tuesdays — wine tasting on the house',
+  'A guided tasting of small-producer South African wine, free to walk-ins, with bottles available to take home afterwards.',
+  0, null, 'drinks'::special_category, '{}',
+  array[2]::smallint[], '18:30', '20:30',
+  null, '2027-02-23', null, false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/judds-local', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000071', 'a1000000-0000-4000-8000-000000000001', 'A glass of Cap Classique for women on Sundays',
+  'Women''s Month: every woman at the table gets a complimentary glass of Pongrácz cap classique with Sunday lunch or dinner.',
+  null, null, 'drinks'::special_category, '{}',
+  array[7]::smallint[], null, null,
+  null, '2026-08-31', 'Tables should be booked. Runs to the end of August 2026.', true,
+  'unknown'::holiday_status, 'https://www.food-blog.co.za/celebrate-womens-month-at-ricks-cafe-americain-in-cape-town-with-r175-aperol-spritz-specials/', 'publication'::source_type,
+  '2026-08-05', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000072', 'a1000000-0000-4000-8000-000000000029', 'Wine & Dine Wednesdays',
+  'An arrival cocktail, a guided tasting of four A.A. Badenhorst wines and three courses, R375 a head.',
+  375, null, 'dinner'::special_category, '{}',
+  array[3]::smallint[], null, null,
+  null, null, 'Book ahead. Arrival cocktail is an elderflower spritz or a negroni; mains include a linguini, a line fish and a ribeye.', true,
+  'unknown'::holiday_status, 'https://www.food-blog.co.za/turn-wednesday-into-date-night-with-three-courses-and-four-a-a-badenhorst-wines-at-harringtons-cocktail-lounge/', 'publication'::source_type,
+  '2026-08-07', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000073', 'a1000000-0000-4000-8000-000000000028', 'Two Aperol Spritz for R215',
+  'The same Women''s Month spritz offer as the neighbouring Pierhead bars.',
+  215, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', null, false,
+  'unknown'::holiday_status, 'https://www.food-blog.co.za/cape-town-specials/', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000074', 'a1000000-0000-4000-8000-00000000002f', 'A free Aperol Spritz with any pizza',
+  'Order any pizza on a Friday and the Aperol Spritz is on the house.',
+  null, null, 'drinks'::special_category, '{}',
+  array[5]::smallint[], '12:00', '22:00',
+  null, '2026-08-31', 'Runs every Friday to the last Friday of August 2026.', false,
+  'unknown'::holiday_status, 'https://www.food-blog.co.za/find-your-friday-pizza-and-aperol-spritz-pairing-at-filini-with-a-complimentary-cocktail-until-the-last-friday-of-august/', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000075', 'a1000000-0000-4000-8000-00000000002e', 'Two burgers for R255',
+  'Any two of the five burgers on the menu for R255.',
+  255, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, null, 'The write-up does not say whether chips are included.', false,
+  'unknown'::holiday_status, 'https://www.food-blog.co.za/get-two-burgers-for-r255-every-day-at-london-road-bistro-in-sea-point/', 'publication'::source_type,
+  '2026-08-19', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000076', 'a1000000-0000-4000-8000-00000000002d', 'Two mussel pots for R500',
+  'Two of the signature Belgian mussel pots with frites and mayonnaise, R500 for the pair.',
+  500, null, 'food'::special_category, '{}',
+  array[2]::smallint[], null, null,
+  null, null, null, false,
+  'unknown'::holiday_status, 'https://www.food-blog.co.za/special-for-two-celebrate-the-return-of-mussel-pots-at-den-anker-with-a-belgian-feast/', 'publication'::source_type,
+  '2026-07-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000077', 'a1000000-0000-4000-8000-000000000029', 'Fiesta Friday — R50 frozen margaritas',
+  'Frozen margaritas at R50 for two hours from four, ahead of the Friday night tequila service.',
+  50, null, 'happy_hour'::special_category, '{}',
+  array[5]::smallint[], '16:00', '18:00',
+  null, null, null, false,
+  'unknown'::holiday_status, 'https://www.instagram.com/reel/Db-_fH8udpZ/', 'social'::source_type,
+  '2026-08-13', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000078', 'a1000000-0000-4000-8000-000000000029', 'Fiesta Friday dinner — R330',
+  'A two-course dinner with two tequila cocktails, R330 a head, with a piñata dropping tequila shots at eleven.',
+  330, null, 'dinner'::special_category, '{}',
+  array[5]::smallint[], null, null,
+  null, null, null, true,
+  'unknown'::holiday_status, 'https://www.instagram.com/reel/Db-_fH8udpZ/', 'social'::source_type,
+  '2026-08-13', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000079', 'a1000000-0000-4000-8000-000000000030', 'R59 burger and chips — one day only',
+  'A Tiger''s Milk burger with chips for R59, on Sunday 30 August only.',
+  59, null, 'food'::special_category, '{}',
+  array[7]::smallint[], null, null,
+  '2026-08-30', '2026-08-30', 'Announced by Tiger''s Milk for the 30th of August without naming branches. Worth a call to this one before you go.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/DcS8ApcjOSd/', 'social'::source_type,
+  '2026-08-21', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000007a', 'a1000000-0000-4000-8000-000000000031', 'R59 burger and chips — one day only',
+  'A Tiger''s Milk burger with chips for R59, on Sunday 30 August only.',
+  59, null, 'food'::special_category, '{}',
+  array[7]::smallint[], null, null,
+  '2026-08-30', '2026-08-30', 'Announced by Tiger''s Milk for the 30th of August without naming branches. Worth a call to this one before you go.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/DcS8ApcjOSd/', 'social'::source_type,
+  '2026-08-21', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000007b', 'a1000000-0000-4000-8000-000000000032', 'Prego Wednesdays — R200 with a spritz',
+  'Karan beef fillet prego with the house peri-peri, triple-fried chips and a Duchess Spritz, R200 all in.',
+  200, null, 'dinner'::special_category, '{}',
+  array[3]::smallint[], '18:30', '22:30',
+  null, null, 'The kitchen only opens at 6:30pm on a Wednesday. A booking deposit applies to reservations.', true,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/DcIv3kYDgy3/', 'social'::source_type,
+  '2026-08-17', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000007c', 'a1000000-0000-4000-8000-00000000002f', 'Happy hour at the bar',
+  'An hour of happy-hour drinks prices in the hotel bar, every day between lunch and dinner service.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], '17:00', '18:00',
+  null, '2026-08-31', 'The venue publishes the hour and the end date but not the prices. Worth asking what is on the happy-hour list before you order.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/filini-restaurant', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000007d', 'a1000000-0000-4000-8000-000000000033', 'Sushi, dim sum and cocktail specials',
+  'The long-running afternoon specials board on sushi, dim sum and cocktails, on weekdays from four.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[1, 2, 3, 4, 5]::smallint[], '16:00', '18:00',
+  null, '2026-10-31', 'The venue publishes the window and the end date but not the prices.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/beluga-restaurant', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000007e', 'a1000000-0000-4000-8000-000000000033', 'Weekend sushi, dim sum and cocktail specials',
+  'The same specials board, running from midday on Saturday and Sunday.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[6, 7]::smallint[], '12:00', '18:00',
+  null, '2026-10-31', 'The venue publishes the window and the end date but not the prices.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/beluga-restaurant', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000007f', 'a1000000-0000-4000-8000-000000000034', 'A free drink with any Sunday pizza',
+  'Order any pizza on a Sunday and a glass of wine or a draught beer comes with it.',
+  null, null, 'drinks'::special_category, '{}',
+  array[7]::smallint[], null, null,
+  null, null, 'The kitchen is open from 8am and the bar runs late; the write-up does not narrow the offer to a window inside that.', false,
+  'unknown'::holiday_status, 'https://www.capetownmagazine.com/new', 'publication'::source_type,
+  '2026-07-29', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000080', 'a1000000-0000-4000-8000-000000000035', 'Winter Warmers — two courses R475',
+  'Two courses for R475 a head on the eleventh floor, or three for R660.',
+  475, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', null, true,
+  'unknown'::holiday_status, 'https://www.capetownmagazine.com/winter-specials', 'publication'::source_type,
+  '2026-08-14', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000081', 'a1000000-0000-4000-8000-000000000035', 'Sharing menu for two, with a bottle of wine',
+  'A sharing menu for two at R1,100 a couple, with a bottle of wine included.',
+  1100, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', 'R1,100 is the price for two people, not per head.', true,
+  'unknown'::holiday_status, 'https://www.capetownmagazine.com/winter-specials', 'publication'::source_type,
+  '2026-08-14', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000082', 'a1000000-0000-4000-8000-000000000036', 'Three-course winter menu — R595',
+  'Wagyu biltong soup, fire-grilled springbok loin and an Asian-leaning dessert, R595 a head.',
+  595, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  '2026-05-19', '2026-08-28', null, true,
+  'unknown'::holiday_status, 'https://www.capetownmagazine.com/winter-specials', 'publication'::source_type,
+  '2026-08-14', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000083', 'a1000000-0000-4000-8000-000000000037', 'Eggs benedict and a cappuccino for R119',
+  'Eggs benedict with a cappuccino made from the house Isabella blend, R119, any day of the week.',
+  119, null, 'breakfast'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], '06:45', '15:00',
+  null, null, null, false,
+  'unknown'::holiday_status, 'https://www.capetownmagazine.com/winter-specials', 'publication'::source_type,
+  '2026-08-14', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000084', 'a1000000-0000-4000-8000-000000000033', 'Soup of the day for R90',
+  'A different soup each day — butternut, chicken and corn chowder, potato and spinach, tomato and vegetable — with a toasted Portuguese roll.',
+  90, null, 'lunch'::special_category, '{}',
+  array[1, 2, 3, 4, 5]::smallint[], '11:00', '15:00',
+  null, '2026-08-31', 'The venue''s own listing gives weekdays, 11am to 3pm; a write-up of 31 July calls it daily. The narrower reading is used here.', false,
+  'unknown'::holiday_status, 'https://www.restaurants.co.za/beluga-restaurant', 'publication'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000085', 'a1000000-0000-4000-8000-000000000038', 'All-you-can-eat sushi for R299',
+  'Ninety minutes of all-you-can-eat sushi from the selected menu, R299 a head, every day of the week.',
+  299, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], '12:00', '21:00',
+  null, null, 'Ninety-minute sitting. No sharing and no takeaways, and R9 a piece for anything left uneaten. Not available on Valentine''s Day.', false,
+  'unknown'::holiday_status, 'https://www.aikosushi.co.za/aiko-on-bree', 'official_website'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000086', 'a1000000-0000-4000-8000-000000000038', 'Vegan all-you-can-eat sushi for R249',
+  'The same ninety-minute deal from an entirely vegan menu, R249 a head, Sunday through Wednesday.',
+  249, null, 'food'::special_category, array['vegan', 'vegetarian']::dietary_tag[],
+  array[7, 1, 2, 3]::smallint[], '12:00', '21:00',
+  null, null, 'Ninety-minute sitting. No sharing and no takeaways, and R9 a piece for anything left uneaten.', false,
+  'unknown'::holiday_status, 'https://www.aikosushi.co.za/aiko-on-bree', 'official_website'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000087', 'a1000000-0000-4000-8000-000000000039', 'Buy one burger, get one free',
+  'Order a burger on a Monday and the second one is free, all day.',
+  null, null, 'food'::special_category, '{}',
+  array[1]::smallint[], null, null,
+  null, null, 'The venue''s own site advertises a Monday burger special; the price comes from a round-up updated 12 August.', false,
+  'unknown'::holiday_status, 'https://thecapetownblog.com/monday-specials/', 'publication'::source_type,
+  '2026-08-12', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000088', 'a1000000-0000-4000-8000-000000000039', 'R20 shots on Thursdays',
+  'Twenty rand a shot, all Thursday evening.',
+  20, null, 'drinks'::special_category, '{}',
+  array[4]::smallint[], null, null,
+  null, null, 'The bar publishes the offer but not the window; it trades until 11pm.', false,
+  'unknown'::holiday_status, 'https://cafemanhattan.co.za', 'official_website'::source_type,
+  '2026-08-23', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000089', 'a1000000-0000-4000-8000-00000000003a', 'R50 margaritas on Mondays',
+  'Fifty rand a margarita, all Monday, alongside the Mexican food deal.',
+  50, null, 'drinks'::special_category, '{}',
+  array[1]::smallint[], null, null,
+  null, null, null, false,
+  'unknown'::holiday_status, 'https://thecapetownblog.com/monday-specials/', 'publication'::source_type,
+  '2026-08-12', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000008a', 'a1000000-0000-4000-8000-00000000003a', 'Monday Mexican — tacos R99, platter R225',
+  'Tacos for R99, or the Mexican sharing platter for R225.',
+  99, null, 'food'::special_category, '{}',
+  array[1]::smallint[], null, null,
+  null, null, null, false,
+  'unknown'::holiday_status, 'https://thecapetownblog.com/monday-specials/', 'publication'::source_type,
+  '2026-08-12', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000008b', 'a1000000-0000-4000-8000-00000000003b', 'Three-course Monday dinner — R295',
+  'Three courses of Asian-leaning tapas for R295, with dessert available for R120 more.',
+  295, null, 'dinner'::special_category, '{}',
+  array[1]::smallint[], null, null,
+  null, null, 'The kitchen opens at 6pm. Book by phone or email — the venue does not take Dineplan reservations.', true,
+  'unknown'::holiday_status, 'https://thecapetownblog.com/monday-specials/', 'publication'::source_type,
+  '2026-08-12', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000008c', 'a1000000-0000-4000-8000-000000000015', 'Butter chicken with a drink on the house — R250',
+  'Butter chicken and naan with a complimentary beer or glass of wine, R250, Mondays.',
+  250, null, 'dinner'::special_category, '{}',
+  array[1]::smallint[], null, null,
+  null, null, null, false,
+  'unknown'::holiday_status, 'https://thecapetownblog.com/monday-specials/', 'publication'::source_type,
+  '2026-08-12', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
 -- ------------------------------------------- research queue (not public)
 insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
@@ -997,6 +2153,118 @@ insert into public.research_queue (id, restaurant_id, proposed_special_data, sou
   '{"restaurant":"The Sanctuary","street_address":"Kloof Street, Gardens","title":"CBC Fridays","note":"FoodBlog Cape Town mentions a Friday CBC beer promotion but publishes no price, no times and no date for the claim."}'::jsonb,
   'https://www.food-blog.co.za/cape-town-specials/', '2026-08-22', 'low'::confidence_level,
   'pending'::review_status, 'Too thin to publish. Needs a price and a time from the venue itself.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000021', null,
+  '{"restaurant":"Cargo","street_address":"158 Kloof Street, Tamboerskloof","title":"R20 happy hour — house wine, beer or a tequila shot, Mon–Thu 4–6pm","note":"Also a R75 breakfast with coffee and juice, Mon–Thu 7–11am."}'::jsonb,
+  'https://www.capetownmagazine.com/happy-hours', '2026-08-23', 'medium'::confidence_level,
+  'needs_more_evidence'::review_status, 'Twenty rand for a drink on Kloof Street would be the best offer on the site — which is exactly why it needs checking. The round-up is from January 2026 and the venue''s own Instagram has not posted since June 2025. One phone call settles it.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000022', null,
+  '{"restaurant":"Harringtons Cocktail Lounge","street_address":"61B Harrington Street, East City","title":"Fiesta Fridays — two courses and two cocktails R330; bottomless frozen margaritas R200; margarita jugs R275","note":"Separate from the 40% off happy hour already published."}'::jsonb,
+  'https://www.food-blog.co.za/cocktail-dinner-date-night-with-bottomless-margaritas-at-harringtons-cocktail-lounge/', '2026-08-23', 'high'::confidence_level,
+  'approved'::review_status, 'Resolved on 23 August. The lounge''s own Instagram post of 13 August gives the R50 frozen margaritas and the R330 dinner first-hand, so both are published. The bottomless margaritas at R200 and the R275 jugs are still unconfirmed and are NOT published.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000023', null,
+  '{"restaurant":"Filini Bar, Radisson Hotel","street_address":"29 Heerengracht Street, Foreshore","title":"Daily happy hour, 5–6pm","note":"No prices published anywhere."}'::jsonb,
+  'https://www.food-blog.co.za/join-the-new-happy-hour-special-at-filini-bar-to-skip-the-traffic/', '2026-08-23', 'medium'::confidence_level,
+  'approved'::review_status, 'Published on 23 August with the hour and the 31 August end date from the venue''s own listing, and a note on the card saying the prices are not published. Getting the actual prices would still improve it.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000024', null,
+  '{"restaurant":"Clarke''s Bar & Dining Room","street_address":"133 Bree Street","title":"R35 cocktails during the 5–6pm happy hour","note":"The hour itself is published and live on the site; only the R35 price is unconfirmed."}'::jsonb,
+  'https://www.vibescout.com/za/city/cape-town/post/happy-hour', '2026-08-23', 'low'::confidence_level,
+  'needs_more_evidence'::review_status, 'The list it comes from carries no date at all and still lists Bombay Bicycle Club, which Cargo replaced. Treat every price on it as unverified.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000025', null,
+  '{"restaurant":"Roast & Co, The Company''s Garden Restaurant, Aces ''n'' Spades, Café Manhattan, The Stack, Café Paradiso, Lola''s, Sidewalk Café","street_address":"City Bowl — Shortmarket, Queen Victoria, Hout, Waterkant, Kloof, Long, Vredehoek","title":"Eight undated City Bowl happy hours","note":"2-for-1 all drinks 4–6pm at Roast & Co and The Company''s Garden; half-price spirits Wed–Fri 4–8pm at Aces ''n'' Spades; R40 cocktails 3–6pm at The Stack; G&T R35 at Lola''s; 2-for-1 at Café Manhattan, Café Paradiso and Sidewalk Café."}'::jsonb,
+  'https://www.vibescout.com/za/city/cape-town/post/happy-hour', '2026-08-23', 'low'::confidence_level,
+  'needs_more_evidence'::review_status, 'One undated page, and it still lists a venue that closed. None of these can be published on it. They are all within walking distance of one another, so an afternoon on foot would confirm or kill the lot.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000026', null,
+  '{"restaurant":"Beluga","street_address":"Alfred Chambers, Cruise Terminal, Duncan Road, V&A Waterfront","title":"Six oysters with Boschendal Brut MCC; Dine & Dance Saturdays with 20% off featured wines; Soul Sunday 13:00–16:00","note":"The oyster offer is listed at both R235 and R425 without saying what separates them."}'::jsonb,
+  'https://www.restaurants.co.za/specials/western-cape/victoria-alfred-waterfront', '2026-08-23', 'medium'::confidence_level,
+  'pending'::review_status, 'Two prices for one offer is a listing error somewhere; confirm which is which. The address question is settled: a 2021 guide puts Beluga at The Foundry in Green Point, but its own current listing gives the Cruise Terminal at the Waterfront, so it has moved. The daily sushi, dim sum and cocktail specials are now published; this entry covers only the oyster offer and the Saturday wine discount.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000027', null,
+  '{"restaurant":"London Road Bistro","street_address":"13 London Road, Sea Point","title":"Happy hour daily 5–7pm — kegtails R90, two house wines R80, buy three draughts get one free","note":"The burger special from the same venue is published; this one is not."}'::jsonb,
+  'https://www.food-blog.co.za/happy-hour-elevated-london-road-bistro-brings-the-vibes-to-sea-point/', '2026-08-23', 'medium'::confidence_level,
+  'needs_more_evidence'::review_status, 'The article is from August 2025, not 2026 — a year old, and prices move. Worth a call; the offer is good enough to be worth confirming.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000028', null,
+  '{"restaurant":"Bellagio","street_address":"Green Point","title":"Dinner date for two, R785 a couple","note":"Focaccia and a set menu."}'::jsonb,
+  'https://www.food-blog.co.za/a-date-night-special-for-two-at-bellagio-in-green-point/', '2026-08-23', 'medium'::confidence_level,
+  'pending'::review_status, 'July 2026, no end date, and the street address is not published. Get both.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000029', null,
+  '{"restaurant":"Pepperclub Hotel","street_address":"Loop Street, Cape Town City Centre","title":"Breakfast buffet R295, daily 07:00–10:30","note":"Described as reduced pricing, but no normal price is given to compare it against."}'::jsonb,
+  'https://www.food-blog.co.za/begin-your-day-with-a-gourmet-buffet-at-pepperclub-hotel/', '2026-08-23', 'low'::confidence_level,
+  'pending'::review_status, 'A price on its own is not a special. Find out what the buffet normally costs before publishing this.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000002a', null,
+  '{"restaurant":"Sessions Cape Town","street_address":"15 Lower Long Street, Cape Town City Centre","title":"Weekday happy hour — two for one on tap beers and cocktails","note":"Eleventh-floor bar with pool tables and a view. Open Wed–Tue 1pm–midnight."}'::jsonb,
+  'https://www.capetownmagazine.com/new', '2026-08-23', 'medium'::confidence_level,
+  'needs_more_evidence'::review_status, 'Good offer, but no times are published anywhere and a happy hour without a window tells a visitor nothing. Get the hours and it goes straight up.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000002b', null,
+  '{"restaurant":"The Duchess Lounge","street_address":"123 Lower Main Road, Observatory","title":"Classic cocktails from R79, happy hour 5–7pm daily","note":"Queer bar with drag and burlesque nights. Open Wed–Thu from 3pm, Fri–Sat from noon, Sun noon–9pm."}'::jsonb,
+  'https://www.capetownmagazine.com/new', '2026-08-23', 'high'::confidence_level,
+  'pending'::review_status, 'Complete and well dated — the only thing stopping it is that Observatory is not in the suburb allowlist. Add the suburb (types.ts and a migration, both) and this can be published as it stands.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000002c', null,
+  '{"restaurant":"Asoka","street_address":"68 Kloof Street, Gardens","title":"Three-course dinner, R295; live jazz on Tuesdays from 8pm","note":"The bar opens at 6pm daily and the kitchen runs to midnight. Tuesday bookings must be made by phone or email, not through Dineplan."}'::jsonb,
+  'https://asoka.za.com/tuesday-nights/', '2026-08-23', 'high'::confidence_level,
+  'approved'::review_status, 'Resolved. The R295 three-course dinner is confirmed by The Cape Town Blog''s Monday round-up, updated 12 August 2026, and published as a Monday listing. The Tuesday jazz night stays out: it is an event with no offer attached to it.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000002d', null,
+  '{"restaurant":"Woodstock Brewery","street_address":"252 Albert Road, Woodstock","title":"A different food special every day, from R62.50","note":"Half-price burgers Monday; curry with a free lager Tuesday; schnitzel Wednesday; rib platters Thursday; steak Saturday; beer-battered hake Sunday. Open daily 11am–10pm. A separate round-up also gives a daily 4–6pm happy hour: two Born Slippy draughts R70, one R35."}'::jsonb,
+  'https://www.capetownmagazine.com/winter-specials', '2026-08-23', 'high'::confidence_level,
+  'pending'::review_status, 'Seven listings from one venue, well priced, and from a page updated 14 August. The only thing stopping them is that Woodstock is not in the suburb allowlist. Adding it would also unlock StarDust on Sir Lowry Road and Cellar Collective on Albert Road — worth deciding as one call rather than venue by venue.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000002e', null,
+  '{"restaurant":"Door 221, Clarke''s, Quaglino''s, Bootlegger Sea Point","street_address":"Bree Street; Bree Street; Mouille Point; Sea Point","title":"Four priced happy hours from an undated article","note":"Door 221: two cocktails R50, Tue–Sat 6–7pm. Clarke''s: double spirits R27 and R26 beer with a free shot, weekdays 5–6pm. Quaglino''s: half-price craft beer and cocktails, weekdays 5–7pm. Bootlegger Sea Point: half-price beer and cocktails 4:30–6:30pm daily, about R30 a cocktail."}'::jsonb,
+  'https://www.eatout.co.za/article/5-great-happy-hour-specials-cape-town/', '2026-08-23', 'medium'::confidence_level,
+  'needs_more_evidence'::review_status, 'The article carries no publication date, so none of it can be published as it stands. The Clarke''s entry matters most: the 5–6pm happy hour is already live without a price, and R27 doubles would complete that card. Door 221 is two doors from Clarke''s — one walk confirms both.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000002f', null,
+  '{"restaurant":"Iron Steak and Bar, Café Extrablatt, Van Hunks, Mai Thai Sushi Gardens","street_address":"114 Bree Street; Green Point; Kloof Street; Gardens","title":"Four Wednesday specials","note":"Iron: Wagyu Wednesday burger R119. Café Extrablatt: buy one burger get one free, all day. Van Hunks: half a peri-peri chicken in a Portuguese roll R125. Mai Thai Sushi Gardens: sushi buffet R249 adults, R179 under-tens."}'::jsonb,
+  'https://restaurants-in-cape-town.co.za/wednesday-specials-in-cape-town/', '2026-08-23', 'medium'::confidence_level,
+  'needs_more_evidence'::review_status, 'The page was last updated 12 June, which is ten weeks old, and Iron''s own Facebook advertised the same Wagyu Wednesday at R99 — so the price has moved at least once. Two of these venues are already on the site, so confirming them is cheap and would add four Wednesday listings.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000030', null,
+  '{"restaurant":"Café Manhattan","street_address":"74 Waterkant Street, De Waterkant","title":"Daily two-for-one happy hour; Tuesday date night","note":"Both are advertised on the venue''s own site with no times and no prices. A 2019 list put the happy hour at 4–6pm and again 9–11pm."}'::jsonb,
+  'https://cafemanhattan.co.za', '2026-08-23', 'medium'::confidence_level,
+  'needs_more_evidence'::review_status, 'First-party, so the offers are real — but a happy hour with no window tells a visitor nothing, which is why Sessions is queued too. One call gets the times and both go up. The Monday burger and the Thursday R20 shots from the same venue are already published.'
 ) on conflict (id) do nothing;
 
 insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
