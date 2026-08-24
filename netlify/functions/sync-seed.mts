@@ -32,10 +32,16 @@
  *
  * MANUAL RUNS
  *
- * Scheduled invocations always proceed. A manual HTTP request must carry
- * SEED_SYNC_TOKEN, either as an `x-sync-token` header or a `token` query
- * parameter — otherwise anyone who guessed the URL could rewrite the listings.
- * Leave SEED_SYNC_TOKEN unset and manual runs are refused outright.
+ * Netlify does not publish scheduled functions at a public HTTP path, so the
+ * only ways in are the schedule itself and the "Run now" button in Netlify's
+ * Functions view. Both are allowed.
+ *
+ * The earlier version demanded a SEED_SYNC_TOKEN on anything that did not
+ * arrive with a scheduled payload, which meant "Run now" was silently refused
+ * with a 401 — the owner could not trigger their own sync. If SEED_SYNC_TOKEN
+ * is set, it is still enforced on requests that carry a token or arrive with a
+ * body, so the belt-and-braces option remains available; if it is unset, a
+ * manual run simply proceeds.
  */
 import type { Config } from '@netlify/functions';
 import { createClient } from '@supabase/supabase-js';
@@ -64,8 +70,8 @@ export default async function handler(request: Request): Promise<Response> {
     });
   }
 
-  // Netlify posts { next_run } on a scheduled invocation. Anything else is a
-  // person or a script, and has to prove it.
+  // Netlify posts { next_run } on a scheduled invocation. "Run now" does not,
+  // so a missing payload is a manual run rather than something suspicious.
   let scheduled = false;
   try {
     const body = await request.clone().json();
@@ -74,13 +80,13 @@ export default async function handler(request: Request): Promise<Response> {
     scheduled = false;
   }
 
-  if (!scheduled) {
-    const expected = process.env.SEED_SYNC_TOKEN;
+  const expected = process.env.SEED_SYNC_TOKEN;
+  if (!scheduled && expected) {
     const supplied =
       request.headers.get('x-sync-token') ?? new URL(request.url).searchParams.get('token') ?? '';
-    if (!expected || supplied !== expected) {
+    if (supplied !== expected) {
       return Response.json(
-        { ok: false, error: 'Manual runs require a valid SEED_SYNC_TOKEN.' },
+        { ok: false, error: 'SEED_SYNC_TOKEN is set, so a manual run must supply it.' },
         { status: 401 },
       );
     }

@@ -4,6 +4,7 @@ import { useId, useState } from 'react';
 import VenueAvatar from './VenueAvatar';
 import SpecialDetailBody from './SpecialDetailBody';
 import { formatRand, type ZonedNow } from '@/lib/time';
+import { splitTitlePrice } from '@/lib/title-price';
 import { SUBURB_SHORT, type SpecialWithRestaurant } from '@/lib/types';
 
 interface Props {
@@ -17,17 +18,18 @@ interface Props {
  * what, how much — and the rest drops open inside the card rather than over
  * it, so opening one offer never loses your place in the list.
  *
- * The plus is drawn as a 36px circle but sits inside a 44px button, so the
+ * The plus is drawn as a 28px circle but sits inside a 44px button, so the
  * touch target clears the accessibility minimum without the circle looking
  * heavy in the corner. Open, the same glyph turns 45 degrees into a close X.
  */
 export default function SpecialCard({ special, now, distanceKm }: Props) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
-  const price = formatRand(special.price);
-  // Plenty of titles already say the price ("Two Aperol Spritz for R215").
-  // Repeating it beside them just adds noise.
-  const showPrice = price !== null && !special.title.includes(price);
+  // Titles like "Two Aperol Spritz for R215" carry their own price. Lift it out
+  // and show it once, in orange, rather than twice in two different styles.
+  const { title, price: priceFromTitle } = splitTitlePrice(special.title);
+  const price = formatRand(special.price) ?? priceFromTitle;
+  const showPrice = price !== null && !title.includes(price);
   // restaurant.suburb is a plain string on the row type, so look it up loosely
   // and fall back to whatever the database holds.
   const suburb =
@@ -73,16 +75,14 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
           </div>
         </div>
 
-        <div className="mt-3 flex items-baseline justify-between gap-3">
-          <h4 className="min-w-0 text-[18px] leading-snug font-extrabold tracking-tight text-white">
-            {special.title}
-          </h4>
-          {showPrice && (
-            <span className="text-orange shrink-0 text-[20px] leading-none font-extrabold">
-              {price}
-            </span>
-          )}
-        </div>
+        <h4 className="mt-3 text-[18px] leading-snug font-extrabold tracking-tight text-white">
+          {title}
+        </h4>
+        {showPrice && (
+          <p className="text-orange mt-1.5 text-right text-[22px] leading-none font-extrabold">
+            {price}
+          </p>
+        )}
 
         {open && (
           <div id={panelId} className="mt-4">
@@ -95,15 +95,15 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpen((value) => !value)}
-          className="group absolute top-1.5 right-1.5 grid h-11 w-11 place-items-center rounded-full"
+          className="group absolute top-1 right-1 grid h-11 w-11 place-items-center rounded-full"
         >
           <span
             aria-hidden="true"
-            className="bg-orange text-ink group-hover:bg-orange-dark grid h-9 w-9 place-items-center rounded-full transition-colors"
+            className="bg-orange text-ink group-hover:bg-orange-dark grid h-7 w-7 place-items-center rounded-full transition-colors"
           >
             <svg
               viewBox="0 0 24 24"
-              className={`h-5 w-5 transition-transform duration-200 ${open ? 'rotate-45' : ''}`}
+              className={`h-4 w-4 transition-transform duration-200 ${open ? 'rotate-45' : ''}`}
             >
               <path
                 d="M12 5v14M5 12h14"
@@ -115,8 +115,7 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
             </svg>
           </span>
           <span className="sr-only">
-            {open ? 'Hide details for' : 'View details for'} {special.title} at{' '}
-            {special.restaurant.name}
+            {open ? 'Hide details for' : 'View details for'} {title} at {special.restaurant.name}
           </span>
         </button>
       </article>

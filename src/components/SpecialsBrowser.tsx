@@ -140,17 +140,6 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
         <h2 id="day-heading" className="sr-only">
           Pick a day
         </h2>
-        {!isToday && (
-          <div className="mb-2 flex justify-end">
-            <button
-              type="button"
-              onClick={() => chooseDay(now.weekday)}
-              className="bg-orange text-ink min-h-[36px] rounded-full px-4 text-[14px] font-bold"
-            >
-              Back to today
-            </button>
-          </div>
-        )}
         <DayPicker
           selected={selectedDay}
           today={now.weekday}
