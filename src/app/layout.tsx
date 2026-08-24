@@ -62,20 +62,49 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to the specials
         </a>
 
-        <header className="border-line bg-surface border-b px-4 pt-6 pb-5">
-          <div className="mx-auto max-w-[720px]">
-            <p className="text-[27px] leading-tight font-extrabold tracking-tight text-white">
-              <Link href="/">
-                CPT <span className="text-orange">Happy Hours</span>
-              </Link>
-            </p>
-            <p className="mt-1 text-[16px] text-white/60">
-              What&rsquo;s on special in Cape Town today?
-            </p>
+        {/* Hero banner. The photograph is decoration, so it carries an empty
+            alt and the name stays real text on top of it — readable to screen
+            readers and to search engines, and legible over the picture thanks
+            to the half-black wash. */}
+        <header className="border-line relative isolate overflow-hidden border-b">
+          {/* Deliberately a plain <img>: the file is already cropped, resized and
+              served at two widths, so next/image would only add an image CDN
+              dependency to a static asset that does not need one. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/hero-1200.jpg"
+            srcSet="/hero-720.jpg 720w, /hero-1200.jpg 1200w"
+            sizes="100vw"
+            alt=""
+            aria-hidden="true"
+            fetchPriority="high"
+            width={1200}
+            height={467}
+            className="absolute inset-0 h-full w-full object-cover object-[center_60%]"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-black/50" />
+          {/* A little extra weight at the foot of the picture, so the subtitle
+              never has to sit on sunlit buildings. */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
+          />
+
+          <div className="relative flex h-[150px] items-end sm:h-[190px]">
+            <div className="mx-auto w-full max-w-[720px] px-4 pb-4">
+              <p className="text-[30px] leading-tight font-extrabold tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] sm:text-[36px]">
+                <Link href="/">
+                  CPT <span className="text-orange">Happy Hours</span>
+                </Link>
+              </p>
+              <p className="mt-0.5 text-[15px] text-white/85 drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                What&rsquo;s on special in Cape Town today?
+              </p>
+            </div>
           </div>
         </header>
 
-        <main id="main" className="mx-auto max-w-[720px] px-4 pt-5 pb-16">
+        <main id="main" className="mx-auto max-w-[720px] px-4 pt-3 pb-16">
           {children}
         </main>
 

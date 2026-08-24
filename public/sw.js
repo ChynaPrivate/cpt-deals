@@ -1,5 +1,5 @@
 /* CPT Happy Hours service worker — small, predictable, no framework. */
-const VERSION = 'gs-v1';
+const VERSION = 'gs-v2';
 const SHELL_CACHE = `${VERSION}-shell`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 const OFFLINE_URL = '/offline';
@@ -12,6 +12,7 @@ const SHELL_ASSETS = [
   '/icons/icon-512.png',
   '/icons/icon.svg',
   '/favicon.ico',
+  '/hero-720.jpg',
 ];
 
 self.addEventListener('install', (event) => {

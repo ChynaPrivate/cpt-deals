@@ -10,17 +10,13 @@ interface Props {
 }
 
 /**
- * The seven weekday buttons, stacked one per row and sized to fill the first
- * screen.
+ * The seven weekday buttons, stacked one per row.
  *
- * Earlier versions packed them into a grid, which left the top of the phone
- * mostly empty and made the day — the thing the whole site turns on — feel
- * incidental. Now the opening screen is the question: which day?
- *
- * The rows share the space with `flex-1`, so seven of them fill the viewport
- * without any per-device height maths. `min-h-[64px]` stops them collapsing
- * below a comfortable touch target on a short screen, at which point the page
- * simply scrolls.
+ * They used to stretch to fill the viewport. Now they share the first screen
+ * with the hero banner and the four filter buttons, so they are sized rather
+ * than stretched: 46px is still a comfortable thumb target, and seven of them
+ * plus the banner and the buttons land inside a normal phone screen without
+ * scrolling.
  *
  * Rendered as a radiogroup so screen readers and arrow keys behave the way
  * people expect from a segmented control.
@@ -42,7 +38,7 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
       role="radiogroup"
       aria-label="Choose a day of the week"
       onKeyDown={handleKeyDown}
-      className="flex min-h-[70svh] flex-col gap-2"
+      className="flex flex-col gap-1.5"
     >
       {WEEKDAYS.map((day) => {
         const isSelected = day === selected;
@@ -57,15 +53,15 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
             tabIndex={isSelected ? 0 : -1}
             onClick={() => onSelect(day)}
             className={[
-              'flex min-h-[64px] flex-1 items-center justify-between gap-3 rounded-2xl border-2',
-              'px-5 text-left transition-colors',
+              'flex min-h-[46px] items-center justify-between gap-3 rounded-2xl border-2 sm:min-h-[56px]',
+              'px-4 text-left transition-colors',
               isSelected
                 ? 'border-orange bg-orange text-ink shadow-[0_6px_20px_-8px_rgba(255,122,26,0.9)]'
                 : 'border-line bg-surface hover:border-orange/50 text-white',
             ].join(' ')}
           >
             <span className="flex items-center gap-3">
-              <span className="text-[20px] font-bold">{WEEKDAY_NAMES[day]}</span>
+              <span className="text-[17px] font-bold sm:text-[19px]">{WEEKDAY_NAMES[day]}</span>
               {isToday && (
                 <span
                   className={`rounded-full px-2 py-0.5 text-[11px] font-bold tracking-wide uppercase ${
@@ -77,7 +73,7 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
               )}
             </span>
             <span
-              className={`text-[15px] tabular-nums ${isSelected ? 'text-ink/75' : 'text-white/60'}`}
+              className={`text-[14px] tabular-nums ${isSelected ? 'text-ink/75' : 'text-white/60'}`}
             >
               {count}
             </span>

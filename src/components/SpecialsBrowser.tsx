@@ -6,7 +6,6 @@ import KindToggle from './KindToggle';
 import ControlBar from './ControlBar';
 import InstallHelp from './InstallHelp';
 import SpecialCard from './SpecialCard';
-import SpecialDetail from './SpecialDetail';
 import {
   applyFilters,
   countsByDay,
@@ -50,7 +49,6 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
   const [sort, setSort] = useState<SortKey>('recommended');
   const [coords, setCoords] = useState<Coords | null>(null);
   const [locationState, setLocationState] = useState<LocationState>('idle');
-  const [openSpecial, setOpenSpecial] = useState<SpecialWithRestaurant | null>(null);
 
   // Re-evaluate the clock after hydration and then once a minute, so "Open now"
   // and the Today highlight stay honest without reloading the page.
@@ -136,32 +134,32 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
         CPT Happy Hours — verified restaurant and bar specials across Cape Town, by day of the week
       </h1>
 
+      {/* The banner subtitle already asks the question, so the old "Pick a day"
+          heading only cost vertical space. It survives for screen readers. */}
       <section aria-labelledby="day-heading">
-        <div className="flex items-baseline justify-between gap-3">
-          <h2 id="day-heading" className="text-[18px] font-bold">
-            Pick a day
-          </h2>
-          {!isToday && (
+        <h2 id="day-heading" className="sr-only">
+          Pick a day
+        </h2>
+        {!isToday && (
+          <div className="mb-2 flex justify-end">
             <button
               type="button"
               onClick={() => chooseDay(now.weekday)}
-              className="bg-orange text-ink min-h-[40px] rounded-full px-4 text-[14px] font-bold"
+              className="bg-orange text-ink min-h-[36px] rounded-full px-4 text-[14px] font-bold"
             >
               Back to today
             </button>
-          )}
-        </div>
-        <div className="mt-3">
-          <DayPicker
-            selected={selectedDay}
-            today={now.weekday}
-            counts={counts}
-            onSelect={chooseDay}
-          />
-        </div>
+          </div>
+        )}
+        <DayPicker
+          selected={selectedDay}
+          today={now.weekday}
+          counts={counts}
+          onSelect={chooseDay}
+        />
       </section>
 
-      <div className="mt-5">
+      <div className="mt-2">
         <KindToggle value={kind} counts={kindCounts} onChange={setKind} />
       </div>
 
@@ -221,7 +219,6 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
                 special={special}
                 now={now}
                 distanceKm={sort === 'nearest' ? distanceForSpecial(special, coords) : null}
-                onOpen={setOpenSpecial}
               />
             ))}
           </ul>
@@ -233,12 +230,6 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
       </p>
 
       <InstallHelp />
-
-      <SpecialDetail
-        special={openSpecial}
-        todayIso={now.date}
-        onClose={() => setOpenSpecial(null)}
-      />
     </>
   );
 }
