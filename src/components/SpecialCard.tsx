@@ -1,10 +1,8 @@
 'use client';
 
 import VenueAvatar from './VenueAvatar';
-import { Pill, VerificationBadge } from './Badges';
-import { formatIsoDate, formatRand, formatTimeRange, isOpenNow, type ZonedNow } from '@/lib/time';
-import { freshnessLabel } from '@/lib/specials';
-import { CATEGORY_LABELS, WEEKDAY_SHORT, type SpecialWithRestaurant } from '@/lib/types';
+import { formatRand, type ZonedNow } from '@/lib/time';
+import { type SpecialWithRestaurant } from '@/lib/types';
 
 interface Props {
   special: SpecialWithRestaurant;
@@ -13,16 +11,16 @@ interface Props {
   onOpen: (special: SpecialWithRestaurant) => void;
 }
 
-export default function SpecialCard({ special, now, distanceKm, onOpen }: Props) {
+/**
+ * Deliberately sparse. The list is for scanning — venue, where, what, how much —
+ * and everything else (times, days, terms, verification, the call and directions
+ * buttons) lives one tap away in the details view.
+ */
+export default function SpecialCard({ special, distanceKm, onOpen }: Props) {
   const price = formatRand(special.price);
-  const wasPrice = formatRand(special.original_price);
-  const freshness = freshnessLabel(special, now.date);
-  const open = isOpenNow(special, now);
-  const validity = special.valid_until
-    ? `Until ${formatIsoDate(special.valid_until)}`
-    : special.valid_from
-      ? `From ${formatIsoDate(special.valid_from)}`
-      : 'No end date published';
+  // Plenty of titles already say the price ("Two Aperol Spritz for R215").
+  // Repeating it beside them just adds noise.
+  const showPrice = price !== null && !special.title.includes(price);
 
   return (
     <li className="border-line bg-surface overflow-hidden rounded-[var(--radius-card)] border">
@@ -32,6 +30,7 @@ export default function SpecialCard({ special, now, distanceKm, onOpen }: Props)
             name={special.restaurant.name}
             categories={special.restaurant.categories}
             imageUrl={special.restaurant.image_url}
+            size={44}
           />
 
           <div className="min-w-0 flex-1">
@@ -53,45 +52,21 @@ export default function SpecialCard({ special, now, distanceKm, onOpen }: Props)
           </div>
         </div>
 
-        <h4 className="mt-4 text-[20px] leading-snug font-extrabold tracking-tight text-white">
-          {special.title}
-        </h4>
-        <p className="mt-1 text-[15px] text-white/75">{special.description}</p>
-
-        <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          {price ? (
-            <span className="text-orange text-[24px] leading-none font-extrabold">{price}</span>
-          ) : (
-            <span className="text-orange text-[16px] font-bold">See offer</span>
-          )}
-          {wasPrice && (
-            <span className="text-[15px] text-white/45 line-through">
-              <span className="sr-only">Usual price </span>
-              {wasPrice}
+        <div className="mt-3 flex items-baseline justify-between gap-3">
+          <h4 className="min-w-0 text-[18px] leading-snug font-extrabold tracking-tight text-white">
+            {special.title}
+          </h4>
+          {showPrice && (
+            <span className="text-orange shrink-0 text-[20px] leading-none font-extrabold">
+              {price}
             </span>
           )}
-          <span className="text-[14px] text-white/60">
-            {formatTimeRange(special.start_time, special.end_time)}
-          </span>
-        </div>
-
-        <div className="mt-3 flex flex-wrap gap-2">
-          {open && <Pill tone="solid">Open now</Pill>}
-          <Pill tone="accent">{special.restaurant.suburb}</Pill>
-          <Pill>{CATEGORY_LABELS[special.category]}</Pill>
-          {special.dietary_tags.includes('vegetarian') && <Pill>Vegetarian</Pill>}
-          <Pill tone="outline">{special.days_of_week.map((d) => WEEKDAY_SHORT[d]).join(', ')}</Pill>
-          <Pill tone="outline">{validity}</Pill>
-          <VerificationBadge
-            state={freshness}
-            lastVerified={formatIsoDate(special.last_verified_at) ?? ''}
-          />
         </div>
 
         <button
           type="button"
           onClick={() => onOpen(special)}
-          className="bg-orange text-ink hover:bg-orange-dark mt-4 min-h-[48px] w-full rounded-xl px-4 text-[16px] font-bold transition-colors"
+          className="bg-orange text-ink hover:bg-orange-dark mt-3 min-h-[44px] w-full rounded-xl px-4 text-[15px] font-bold transition-colors"
         >
           View details
           <span className="sr-only">

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import ServiceWorkerRegistrar from '@/components/ServiceWorkerRegistrar';
 import './globals.css';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://cpt-deals.netlify.app';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thehappyhours.co.za';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

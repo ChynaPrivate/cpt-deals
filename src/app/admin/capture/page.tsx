@@ -81,7 +81,7 @@ export default function CapturePage() {
           photo_path: photo.path,
           captured_by: 'in person',
         },
-        source_url: match?.website_url ?? 'https://cpt-deals.netlify.app/admin/capture',
+        source_url: match?.website_url ?? 'https://thehappyhours.co.za/admin/capture',
         photo_url: photo.url,
         detected_at: zonedNow().date,
         confidence: 'high',

@@ -362,29 +362,29 @@ are committed and queued to push, because the browser connection dropped.
 
 ## Where the listings came from
 
-| Source | Yield | Notes |
-| --- | --- | --- |
-| restaurants.co.za, V&A Waterfront (4 pages) | 5 venues, 19 specials | The only source in Cape Town that publishes an end date on nearly every offer |
-| FoodBlog Cape Town, weekday and happy-hour tags | 7 specials | Dated posts, mostly July–August 2026 |
-| Instagram Business Discovery (Meta Graph API) | 8 specials, 3 corrections | The strongest evidence available: first-party and usually days old |
-| capetownmagazine.com round-ups | 0 published, 8 queued | Undated or stale; see below |
-| Dineplan blog, Women's Day 2026 | 0 | Every offer had already expired on 9 August |
+| Source                                          | Yield                     | Notes                                                                         |
+| ----------------------------------------------- | ------------------------- | ----------------------------------------------------------------------------- |
+| restaurants.co.za, V&A Waterfront (4 pages)     | 5 venues, 19 specials     | The only source in Cape Town that publishes an end date on nearly every offer |
+| FoodBlog Cape Town, weekday and happy-hour tags | 7 specials                | Dated posts, mostly July–August 2026                                          |
+| Instagram Business Discovery (Meta Graph API)   | 8 specials, 3 corrections | The strongest evidence available: first-party and usually days old            |
+| capetownmagazine.com round-ups                  | 0 published, 8 queued     | Undated or stale; see below                                                   |
+| Dineplan blog, Women's Day 2026                 | 0                         | Every offer had already expired on 9 August                                   |
 
 ## Accepted — the drinks
 
-| Venue | Offer | When | Source and date |
-| --- | --- | --- | --- |
-| Judd's Local, 141 Kloof St | Wine tasting, free | Tue 18:30–20:30, to 23 Feb 2027 | restaurants.co.za venue page |
-| Harringtons, 61B Harrington St | 40% off cocktails, house wine, pouring spirits | Wed/Thu/Sat 17:00–19:00 | Own Instagram, 15 Aug 2026 |
-| Harringtons | R50 frozen margaritas | Fri 16:00–18:00 | Own Instagram, 13 Aug 2026 |
-| The Tiki Tomb, 101 Bree St | R60 happy hour | Wed–Sat 17:00–18:00 | Own Instagram, 14 Aug 2026 |
-| The Tiki Tomb | R60 margaritas, karaoke night | Wed from 21:00 | Own Instagram, 10 Aug 2026 |
-| ONOMO, 10 Greenmarket Square | Two Heinekens for one | Fri 16:00–19:00 | FoodBlog, 16 Jul 2026 |
-| Filini, 29 Heerengracht | Free Aperol Spritz with any pizza | Fri 12:00–22:00, to 31 Aug | FoodBlog |
-| Quay Four / Upper Quay / Ferryman's | Two Aperol Spritz, R215 | Daily, to 31 Aug | restaurants.co.za venue pages |
-| Quay Four / Mitchell's / Ferryman's | Six oysters and bubbly, R179 | Daily, to 30 Sep or 31 Oct | restaurants.co.za venue pages |
-| Rick's, 103 Kloof St | Cap classique for women | Sun, to 31 Aug | FoodBlog, 5 Aug 2026 |
-| Clarke's, 133 Bree St | Happy hour | Daily 17:00–18:00 | Own Instagram, 2 Jul 2026 |
+| Venue                               | Offer                                          | When                            | Source and date               |
+| ----------------------------------- | ---------------------------------------------- | ------------------------------- | ----------------------------- |
+| Judd's Local, 141 Kloof St          | Wine tasting, free                             | Tue 18:30–20:30, to 23 Feb 2027 | restaurants.co.za venue page  |
+| Harringtons, 61B Harrington St      | 40% off cocktails, house wine, pouring spirits | Wed/Thu/Sat 17:00–19:00         | Own Instagram, 15 Aug 2026    |
+| Harringtons                         | R50 frozen margaritas                          | Fri 16:00–18:00                 | Own Instagram, 13 Aug 2026    |
+| The Tiki Tomb, 101 Bree St          | R60 happy hour                                 | Wed–Sat 17:00–18:00             | Own Instagram, 14 Aug 2026    |
+| The Tiki Tomb                       | R60 margaritas, karaoke night                  | Wed from 21:00                  | Own Instagram, 10 Aug 2026    |
+| ONOMO, 10 Greenmarket Square        | Two Heinekens for one                          | Fri 16:00–19:00                 | FoodBlog, 16 Jul 2026         |
+| Filini, 29 Heerengracht             | Free Aperol Spritz with any pizza              | Fri 12:00–22:00, to 31 Aug      | FoodBlog                      |
+| Quay Four / Upper Quay / Ferryman's | Two Aperol Spritz, R215                        | Daily, to 31 Aug                | restaurants.co.za venue pages |
+| Quay Four / Mitchell's / Ferryman's | Six oysters and bubbly, R179                   | Daily, to 30 Sep or 31 Oct      | restaurants.co.za venue pages |
+| Rick's, 103 Kloof St                | Cap classique for women                        | Sun, to 31 Aug                  | FoodBlog, 5 Aug 2026          |
+| Clarke's, 133 Bree St               | Happy hour                                     | Daily 17:00–18:00               | Own Instagram, 2 Jul 2026     |
 
 ## One correction, and why it matters
 
@@ -400,17 +400,17 @@ closing time on three days of the week.
 
 ## Rejected or queued, with reasons
 
-| Candidate | Why it is not published |
-| --- | --- |
-| Cargo, 158 Kloof St — R20 happy hour | Would be the best offer on the site. The round-up is from January 2026 and the venue's Instagram has not posted since June 2025. Queued for a phone call. |
-| Eight City Bowl happy hours from vibescout | The page carries no date at all and still lists Bombay Bicycle Club, which Cargo replaced. Nothing on it can be trusted. |
-| SGT Pepper, 194 Long St | Page last updated February 2023. |
-| London Road Bistro happy hour | The article is August **2025**, not 2026. Its burger special, from August 2026, is published. |
-| Filini's daily 5–6pm happy hour | No prices published anywhere. The Friday spritz, which has a clear offer, is published. |
-| Beluga oyster special | Listed at both R235 and R425 without saying what separates them. |
-| Pepperclub breakfast buffet, R295 | Described as reduced, but no normal price is given to compare against. |
-| Bombay Brasserie wine dinner, R785 | A single-night event at full price, not a discount. |
-| Women's Day 2026 specials (Dineplan, 15 venues) | All expired on 9 August. |
+| Candidate                                       | Why it is not published                                                                                                                                   |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cargo, 158 Kloof St — R20 happy hour            | Would be the best offer on the site. The round-up is from January 2026 and the venue's Instagram has not posted since June 2025. Queued for a phone call. |
+| Eight City Bowl happy hours from vibescout      | The page carries no date at all and still lists Bombay Bicycle Club, which Cargo replaced. Nothing on it can be trusted.                                  |
+| SGT Pepper, 194 Long St                         | Page last updated February 2023.                                                                                                                          |
+| London Road Bistro happy hour                   | The article is August **2025**, not 2026. Its burger special, from August 2026, is published.                                                             |
+| Filini's daily 5–6pm happy hour                 | No prices published anywhere. The Friday spritz, which has a clear offer, is published.                                                                   |
+| Beluga oyster special                           | Listed at both R235 and R425 without saying what separates them.                                                                                          |
+| Pepperclub breakfast buffet, R295               | Described as reduced, but no normal price is given to compare against.                                                                                    |
+| Bombay Brasserie wine dinner, R785              | A single-night event at full price, not a discount.                                                                                                       |
+| Women's Day 2026 specials (Dineplan, 15 venues) | All expired on 9 August.                                                                                                                                  |
 
 ## Sources that could not be read
 
@@ -459,15 +459,15 @@ After the tables above were written, a further pass over
 capetownmagazine.com's winter round-up (last updated 14 August 2026) and
 FoodBlog's lunch and Wednesday tags added:
 
-| Venue | Offer | Source date |
-| --- | --- | --- |
-| ELVN11, 29 Heerengracht | Winter Warmers, two courses R475 or three R660, to 31 Aug | 14 Aug 2026 |
-| ELVN11 | Sharing menu for two, R1,100 a couple with a bottle of wine | 14 Aug 2026 |
-| East City Grill, 84 Harrington St | Three-course winter menu R595, to 28 Aug | 14 Aug 2026 |
-| mischu, 85A Regent Rd | Eggs benedict and a cappuccino R119, daily 6:45–15:00 | 14 Aug 2026 |
-| Beluga | Soup of the day R90 with a roll, weekdays 11:00–15:00, to 31 Aug | 31 Jul 2026 |
-| The Power Above, 13b Kloof Nek Rd | A free glass of wine or draught with any Sunday pizza | 29 Jul 2026 |
-| Duchess of Wisbeach, 321 Main Rd | Prego Wednesdays, R200 with a Duchess Spritz | Own Instagram, 17 Aug 2026 |
+| Venue                             | Offer                                                            | Source date                |
+| --------------------------------- | ---------------------------------------------------------------- | -------------------------- |
+| ELVN11, 29 Heerengracht           | Winter Warmers, two courses R475 or three R660, to 31 Aug        | 14 Aug 2026                |
+| ELVN11                            | Sharing menu for two, R1,100 a couple with a bottle of wine      | 14 Aug 2026                |
+| East City Grill, 84 Harrington St | Three-course winter menu R595, to 28 Aug                         | 14 Aug 2026                |
+| mischu, 85A Regent Rd             | Eggs benedict and a cappuccino R119, daily 6:45–15:00            | 14 Aug 2026                |
+| Beluga                            | Soup of the day R90 with a roll, weekdays 11:00–15:00, to 31 Aug | 31 Jul 2026                |
+| The Power Above, 13b Kloof Nek Rd | A free glass of wine or draught with any Sunday pizza            | 29 Jul 2026                |
+| Duchess of Wisbeach, 321 Main Rd  | Prego Wednesdays, R200 with a Duchess Spritz                     | Own Instagram, 17 Aug 2026 |
 
 It also settled an open question: fable's R150 weekend lunch was published as
 Friday and Saturday only, inferred from the bar's opening hours against an
@@ -485,3 +485,77 @@ because they widen what the site claims to cover:
   5–7pm daily — a complete, well-dated listing with nothing else wrong with it.
 
 Both are sitting in the review queue with those notes attached.
+
+---
+
+## Part 5 — Sea Point and Green Point, 24 August 2026
+
+A dedicated pass over the two suburbs with the thinnest coverage. Sea Point
+went from 9 venues to 13, Green Point from 1 to 3.
+
+### Accepted
+
+| Venue                               | Suburb      | Offer                                                                                  | Source            | Confidence                     |
+| ----------------------------------- | ----------- | -------------------------------------------------------------------------------------- | ----------------- | ------------------------------ |
+| The Office, 315 Main Rd             | Sea Point   | Free Meat Monday; two burgers R160 Tue; free bottle of Cult wine with two sirloins Wed | Own website       | First-party, undated live page |
+| Script, 1 Church Rd                 | Sea Point   | Margarita Social R300, Fri 18:00–22:00; After Dark R300, Sat 18:00–21:00               | Kove Collection   | First-party                    |
+| Ariel Modern Italian, 90 Regent Rd  | Sea Point   | Date night, three courses for two R785, Wed 18:00–21:00                                | Own Dineplan page | Venue-confirmed 9 Jun 2026     |
+| KIKI, 85A Regent Rd                 | Sea Point   | Date night R795 Tue; Dinner with Strangers R420 Thu; Souvla Sunday lunch R395          | Own Dineplan page | First-party                    |
+| Hudsons, cnr Main & Upper Portswood | Green Point | The four group-wide specials already listed for Kloof Street                           | Own specials page | First-party                    |
+| Pigalle, 57 Somerset Rd             | Green Point | Winter Indulgence R399 Mon–Thu; weekday lunch set menu                                 | Own Dineplan page | First-party                    |
+
+Five of these carry date ranges printed without a year (Pigalle, KIKI ×3,
+Script's "from 20 June"). Each was read as 2026 because the offer is live on
+the venue's own booking system now, and each says so in its terms.
+
+### Rejected as stale — not published, not queued
+
+Rockpool's much-shared two-for-one on burgers and pizzas ran 3 June to
+26 September **2019**. OKO's Sea Point specials all date from 2022 and the
+premises now trade as Infusion Social Club. The Backyard Grill rib special is
+from 2018, Crumbs & Cream's R20 coffee-and-cookie from 2018, The Industry's
+offer from 2019 and its domain no longer resolves, Taboulet & Co's rewards app
+from 2021, Manga's two-for-one tapas from 2017.
+
+### Queued for a phone call
+
+The Greek Fisherman is the frustrating one: a R220 two-course winter menu,
+confirmed by the venue on its own booking page on 2 June 2026 — but Dineplan
+gives a Sea Point address while several directories place it at the V&A
+Waterfront, and the official site publishes no address on any reachable page.
+One phone call settles it. Also queued: La Boheme's R285 three-tapas deal
+(Inside Guide, April 2025), Harvey's Sunday jazz brunch (undated everywhere),
+Fuego's daily half-price cocktails (2017), Gambas' weekend prawns (2023),
+Sótano's R120 oysters-and-rosé (December 2025, and its trading address is
+unresolved), the Kove Collection winter menus at Sonny and Irene, Bobo's and
+Lily's (no prices published anywhere), and Juno, whose site is entirely
+robots-disallowed and which was therefore never checked at all.
+
+### Corrections found
+
+Butter's own site gives its address as **146** Main Road, not 176. Beluga has
+moved from Prestwich Street to the V&A Waterfront Cruise Terminal. Nonna
+Lina's Sea Point subdomain no longer resolves and its official site lists only
+the Gardens branch.
+
+### What could not be reached
+
+Eat Out returned HTTP 530 for the whole session, so its Sea Point and Green
+Point suburb directories and its weekly-specials article went unread. Inside
+Guide disallows its entire domain in robots.txt, which blocked four specials
+pages for in-scope venues. Dining-Out returned 403. Official sites that could
+not be opened: juno.co.za, sundoo.co.za's branch page, laperla.co.za,
+cocosafar.com, thewinchester.co.za, bootleggercoffee.co.za, cozco.co.za,
+doppio.co.za's venue page, mano.co.za, anatoli.co.za's contact page,
+pigalle.capetown, caffe-neo, and lamouette-restaurant.co.za (expired
+certificate). No Instagram or Facebook page was opened.
+
+**This pass is not exhaustive.** Six Sea Point venues have no website at all —
+Three Wise Monkeys, HeSheng, Fuego, Crumbs & Cream, Taboulet & Co, The Mussel
+Monger — and for those, finding no special means nothing, because social media
+is where a venue like that would post one.
+
+One gap worth naming: **no publishable breakfast special was found in Sea
+Point**, despite Jarryds, Butter, Arthur's, Doppio and Juno all being
+breakfast-led venues. Four of the five were readable and simply publish no
+offer; Juno could not be read.

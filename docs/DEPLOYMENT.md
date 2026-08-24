@@ -17,7 +17,7 @@ Nothing in this document asks you to paste a secret into a source file. Keys go 
 
 Comfortably, on every axis that matters here:
 
-| Free plan gives      | CPT Happy Hours needs                                           |
+| Free plan gives      | CPT Happy Hours needs                                     |
 | -------------------- | --------------------------------------------------------- |
 | 500 MB database      | Well under 1 MB — a few hundred rows of text              |
 | 1 GB file storage    | Photographed boards at ~300 KB each: roughly 3,000 photos |
@@ -136,7 +136,24 @@ Every push to the production branch deploys. Every pull request gets its own pre
 - On an iPhone, Safari → Share → **Add to Home Screen** produces the green icon and opens without browser chrome.
 - `/admin` shows the sign-in form, and your approved account can sign in.
 
-## 9. Connect a custom domain later
+## 9. Custom domain
+
+**Live since 24 August 2026: `thehappyhours.co.za`** (primary), with `www.` redirecting to it.
+The domain is registered at GoDaddy and stays on GoDaddy's nameservers; only two records point it at Netlify:
+
+| Type    | Name  | Value                   |
+| ------- | ----- | ----------------------- |
+| `A`     | `@`   | `75.2.60.5`             |
+| `CNAME` | `www` | `cpt-deals.netlify.app` |
+
+GoDaddy has no ALIAS/ANAME record type, so the apex uses Netlify's load-balancer `A` record rather than
+`apex-loadbalancer.netlify.com`. `NEXT_PUBLIC_SITE_URL` is set to `https://thehappyhours.co.za` in all four
+Netlify deploy contexts, and the same value is the fallback baked into `src/app/layout.tsx`.
+
+**Still outstanding:** Supabase **Authentication → URL Configuration** must list the new origin as the
+_Site URL_ and in _Redirect URLs_, or admin sign-in from `thehappyhours.co.za` will be rejected.
+
+### To add another domain later
 
 1. **Domain management** → **Add a domain** → enter your domain.
 2. Either point your registrar's nameservers at Netlify DNS, or add the `CNAME`/`A` records Netlify shows you.
