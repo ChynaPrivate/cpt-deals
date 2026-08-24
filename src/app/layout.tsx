@@ -35,15 +35,17 @@ export const metadata: Metadata = {
     siteName: 'The Happy Hours',
     title: 'The Happy Hours',
     description: "What's on special in Cape Town today? Verified restaurant and bar deals, by day.",
-    // A wide card, not the square app icon. WhatsApp, Facebook and Slack shrink
-    // a square into a thumbnail beside the text, which left the cocktail glass
-    // too small to recognise. Built by scripts/generate-og-image.mjs.
+    // The site's own header at 1200x630, not the square app icon — a square
+    // gets blown up into a white-bordered block that reads like an app store
+    // listing. JPEG because the card is mostly photograph and the PNG was
+    // 1.2 MB, past the size where WhatsApp stops showing a preview at all.
+    // Built by scripts/generate-og-image.mjs (npm run og).
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        type: 'image/png',
+        type: 'image/jpeg',
         alt: 'The Happy Hours — verified restaurant and bar specials in Cape Town',
       },
     ],
@@ -52,7 +54,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The Happy Hours',
     description: "What's on special in Cape Town today?",
-    images: ['/og-image.png'],
+    images: ['/og-image.jpg'],
   },
   robots: { index: true, follow: true },
 };
