@@ -3,7 +3,7 @@
 import { useId, useState } from 'react';
 import VenueAvatar from './VenueAvatar';
 import SpecialDetailBody from './SpecialDetailBody';
-import { formatRand, type ZonedNow } from '@/lib/time';
+import { formatRand, formatTimeRange, type ZonedNow } from '@/lib/time';
 import { splitTitlePrice } from '@/lib/title-price';
 import { SUBURB_SHORT, type SpecialWithRestaurant } from '@/lib/types';
 
@@ -30,6 +30,7 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
   const { title, price: priceFromTitle } = splitTitlePrice(special.title);
   const price = formatRand(special.price) ?? priceFromTitle;
   const showPrice = price !== null && !title.includes(price);
+  const when = formatTimeRange(special.start_time, special.end_time);
   // restaurant.suburb is a plain string on the row type, so look it up loosely
   // and fall back to whatever the database holds.
   const suburb =
@@ -78,11 +79,17 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
         <h4 className="mt-3 text-[18px] leading-snug font-extrabold tracking-tight text-white">
           {title}
         </h4>
-        {showPrice && (
-          <p className="text-orange mt-1.5 text-right text-[22px] leading-none font-extrabold">
-            {price}
-          </p>
-        )}
+
+        {/* When it runs on the left, what it costs on the right. Everything
+            else waits until the card is opened. */}
+        <div className="mt-2 flex items-center justify-between gap-3">
+          <span className="bg-surface-2 rounded-lg px-2 py-1 text-[12px] font-semibold text-white/70">
+            {when}
+          </span>
+          {showPrice && (
+            <span className="text-orange text-[22px] leading-none font-extrabold">{price}</span>
+          )}
+        </div>
 
         {open && (
           <div id={panelId} className="mt-4">
