@@ -1,4 +1,4 @@
-/* CPT Happy Hours service worker — small, predictable, no framework. */
+/* The Happy Hours service worker — small, predictable, no framework. */
 const VERSION = 'gs-v2';
 const SHELL_CACHE = `${VERSION}-shell`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;

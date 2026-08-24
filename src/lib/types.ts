@@ -1,5 +1,5 @@
 /**
- * Domain types for CPT Happy Hours.
+ * Domain types for The Happy Hours.
  * These mirror the Supabase schema in supabase/migrations exactly, so the
  * same code path works against local seed data or a live Supabase project.
  */
@@ -302,5 +302,5 @@ export type SpecialKind = 'all' | 'food' | 'drinks';
 export const DISCLAIMER =
   'Specials can change without notice. Please confirm with the restaurant before visiting.';
 
-export const SITE_NAME = 'CPT Happy Hours';
+export const SITE_NAME = 'The Happy Hours';
 export const SITE_TAGLINE = 'What’s on special in Cape Town today?';

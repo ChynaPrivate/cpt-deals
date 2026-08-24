@@ -3,7 +3,7 @@ import { DISCLAIMER } from '@/lib/types';
 
 export const metadata: Metadata = {
   title: 'Terms',
-  description: 'Terms of use for CPT Happy Hours.',
+  description: 'Terms of use for The Happy Hours.',
 };
 
 export default function TermsPage() {
@@ -17,7 +17,7 @@ export default function TermsPage() {
 
       <h2 className="mt-5 text-[18px] font-bold">What this site is</h2>
       <p className="mt-2 text-[16px]">
-        CPT Happy Hours is an independent guide to restaurant and bar offers at venues physically located
+        The Happy Hours is an independent guide to restaurant and bar offers at venues physically located
         in the Cape Town City Bowl and the near Atlantic Seaboard — Gardens, Tamboerskloof,
         Oranjezicht, Vredehoek, the City Centre, Sea Point, Green Point, Mouille Point and Camps
         Bay. It is not affiliated with, endorsed by or operated on behalf of any restaurant listed.

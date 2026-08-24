@@ -15,7 +15,8 @@
     "icons": "node scripts/generate-icons.mjs",
     "seed:sql": "tsx scripts/generate-seed-sql.ts",
     "verify": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build",
-    "docs:unresolved": "tsx scripts/generate-unresolved.ts"
+    "docs:unresolved": "tsx scripts/generate-unresolved.ts",
+    "og": "node scripts/generate-og-image.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.4",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@netlify/functions": "^6.0.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

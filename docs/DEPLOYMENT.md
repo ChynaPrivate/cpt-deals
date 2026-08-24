@@ -11,13 +11,13 @@ Nothing in this document asks you to paste a secret into a source file. Keys go 
 1. Sign in at [supabase.com](https://supabase.com) and create a project. Choose a region close to Cape Town — **eu-west-1 (Ireland)** or **eu-central-1 (Frankfurt)** are the usual picks.
 2. Wait for it to finish provisioning.
 
-**Give this project to CPT Happy Hours alone.** The anon key ships inside the browser bundle of a public website, so anyone can read it. That is by design and row-level security is what makes it safe — but it means the key is a published credential for whatever else lives in the same project. Never point this site at a database holding anything you would not publish.
+**Give this project to The Happy Hours alone.** The anon key ships inside the browser bundle of a public website, so anyone can read it. That is by design and row-level security is what makes it safe — but it means the key is a published credential for whatever else lives in the same project. Never point this site at a database holding anything you would not publish.
 
 ### The free plan is enough
 
 Comfortably, on every axis that matters here:
 
-| Free plan gives      | CPT Happy Hours needs                                     |
+| Free plan gives      | The Happy Hours needs                                     |
 | -------------------- | --------------------------------------------------------- |
 | 500 MB database      | Well under 1 MB — a few hundred rows of text              |
 | 1 GB file storage    | Photographed boards at ~300 KB each: roughly 3,000 photos |

@@ -178,7 +178,7 @@ Every published special carries `last_verified_at = 2026-08-20` and shows that d
 **Research date:** 21 August 2026
 **Areas added:** Tamboerskloof, Oranjezicht, Vredehoek, Cape Town City Centre, Sea Point, Green Point, Mouille Point, Camps Bay.
 
-The site was Gardens-only until this sweep. It now covers nine suburbs and is called CPT Happy Hours.
+The site was Gardens-only until this sweep. It now covers nine suburbs and is called The Happy Hours.
 
 ## Summary of the second sweep
 

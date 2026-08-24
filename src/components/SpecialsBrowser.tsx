@@ -131,7 +131,7 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
       {/* The visible site name lives in the shared header; this is the page's
           own heading for screen readers and search engines. */}
       <h1 className="sr-only">
-        CPT Happy Hours — verified restaurant and bar specials across Cape Town, by day of the week
+        The Happy Hours — verified restaurant and bar specials across Cape Town, by day of the week
       </h1>
 
       {/* The banner subtitle already asks the question, so the old "Pick a day"

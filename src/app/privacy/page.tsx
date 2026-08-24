@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy',
-  description: 'What CPT Happy Hours does and does not collect.',
+  description: 'What The Happy Hours does and does not collect.',
 };
 
 export default function PrivacyPage() {
@@ -12,7 +12,7 @@ export default function PrivacyPage() {
 
       <h2 className="mt-5 text-[18px] font-bold">No account, no tracking profile</h2>
       <p className="mt-2 text-[16px]">
-        You do not need an account to browse specials. CPT Happy Hours does not set advertising cookies
+        You do not need an account to browse specials. The Happy Hours does not set advertising cookies
         and does not build a profile of you.
       </p>
 

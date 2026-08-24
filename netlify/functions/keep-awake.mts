@@ -3,7 +3,7 @@
  *
  * Free Supabase projects pause after a week with no database activity, and a
  * paused project takes the site's data with it. A quiet Tuesday in winter is
- * not a reason for CPT Happy Hours to go dark, so this runs every other day and
+ * not a reason for The Happy Hours to go dark, so this runs every other day and
  * makes the cheapest possible query — one row, one column.
  *
  * It uses the public anon key and reads exactly what any visitor may read, so

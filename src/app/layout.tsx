@@ -8,16 +8,16 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thehappyhours.co.za
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'CPT Happy Hours — restaurant and bar specials in Cape Town',
-    template: '%s · CPT Happy Hours',
+    default: 'The Happy Hours — restaurant and bar specials in Cape Town',
+    template: '%s · The Happy Hours',
   },
   description:
     'Verified restaurant and bar specials across the Cape Town City Bowl and Atlantic Seaboard — sorted by day of the week. Tap a day to see what is on today.',
-  applicationName: 'CPT Happy Hours',
+  applicationName: 'The Happy Hours',
   manifest: '/manifest.webmanifest',
   appleWebApp: {
     capable: true,
-    title: 'CPT Happy Hours',
+    title: 'The Happy Hours',
     statusBarStyle: 'default',
   },
   icons: {
@@ -32,16 +32,27 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_ZA',
     url: siteUrl,
-    siteName: 'CPT Happy Hours',
-    title: 'CPT Happy Hours',
+    siteName: 'The Happy Hours',
+    title: 'The Happy Hours',
     description: "What's on special in Cape Town today? Verified restaurant and bar deals, by day.",
-    images: [{ url: '/icons/icon-512.png', width: 512, height: 512, alt: 'CPT Happy Hours' }],
+    // A wide card, not the square app icon. WhatsApp, Facebook and Slack shrink
+    // a square into a thumbnail beside the text, which left the cocktail glass
+    // too small to recognise. Built by scripts/generate-og-image.mjs.
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        type: 'image/png',
+        alt: 'The Happy Hours — verified restaurant and bar specials in Cape Town',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
-    title: 'CPT Happy Hours',
+    card: 'summary_large_image',
+    title: 'The Happy Hours',
     description: "What's on special in Cape Town today?",
-    images: ['/icons/icon-512.png'],
+    images: ['/og-image.png'],
   },
   robots: { index: true, follow: true },
 };
@@ -94,7 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="mx-auto w-full max-w-[720px] px-4 pb-4">
               <p className="text-[30px] leading-tight font-extrabold tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] sm:text-[36px]">
                 <Link href="/">
-                  CPT <span className="text-orange">Happy Hours</span>
+                  The <span className="text-orange">Happy Hours</span>
                 </Link>
               </p>
               <p className="mt-0.5 text-[15px] text-white/85 drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
@@ -120,7 +131,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               Terms
             </Link>
             <span className="w-full pt-2">
-              CPT Happy Hours lists offers at venues in the Cape Town City Bowl and the near
+              The Happy Hours lists offers at venues in the Cape Town City Bowl and the near
               Atlantic Seaboard. Every listing links to the source it was checked against.
             </span>
           </div>

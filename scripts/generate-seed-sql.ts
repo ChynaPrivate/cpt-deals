@@ -45,7 +45,7 @@ const SPECIAL_COLUMNS = [
 
 const lines: string[] = [
   '-- ============================================================================',
-  '-- CPT Happy Hours — verified seed data',
+  '-- The Happy Hours — verified seed data',
   '-- GENERATED FILE. Edit src/lib/data/seed.ts and run `npm run seed:sql`.',
   '--',
   '-- Every special below carries the source URL it was verified against and the',
