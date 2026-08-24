@@ -60,6 +60,32 @@ export type Suburb = (typeof SUBURBS)[number];
  *
  * Add one back here the moment it can carry a few listings on most days.
  */
+/**
+ * Where a suburb without its own button gets counted.
+ *
+ * Mouille Point is the coastal strip of Green Point; Oranjezicht, Vredehoek
+ * and Tamboerskloof all sit on the slopes directly above Gardens. Someone
+ * filtering for Gardens on a Saturday night would walk to any of them, so
+ * grouping them is closer to how people actually use the city than a button
+ * each that reads "0".
+ *
+ * This changes only which button a listing answers to. Every venue keeps its
+ * real suburb in the database and the card still prints the true address, so
+ * tapping Gardens and getting "8 Breda Street, Oranjezicht" tells the reader
+ * exactly where they are going.
+ */
+export const SUBURB_FILTER_GROUP: Partial<Record<Suburb, Suburb>> = {
+  'Mouille Point': 'Green Point',
+  Oranjezicht: 'Gardens',
+  Vredehoek: 'Gardens',
+  Tamboerskloof: 'Gardens',
+};
+
+/** The filter button a suburb answers to — itself, unless it is grouped. */
+export function filterSuburbFor(suburb: string): Suburb {
+  return SUBURB_FILTER_GROUP[suburb as Suburb] ?? (suburb as Suburb);
+}
+
 export const FILTER_SUBURBS: Suburb[] = [
   'Gardens',
   'Cape Town City Centre',

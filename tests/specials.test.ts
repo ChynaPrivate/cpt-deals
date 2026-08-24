@@ -18,6 +18,8 @@ import { joinSeed, RESTAURANTS_SEED, SPECIALS_SEED } from '@/lib/data/seed';
 import {
   FILTER_SUBURBS,
   SUBURBS,
+  SUBURB_FILTER_GROUP,
+  filterSuburbFor,
   type Restaurant,
   type Special,
   type SpecialWithRestaurant,
@@ -412,5 +414,32 @@ describe('FILTER_SUBURBS', () => {
     for (const suburb of seeded) {
       expect(SUBURBS).toContain(suburb);
     }
+  });
+
+  /**
+   * The real guard on grouping: every suburb a venue actually sits in must be
+   * reachable from one of the six buttons. If someone adds a venue in a new
+   * suburb and forgets to group it, this fails rather than the listing quietly
+   * becoming unfilterable.
+   */
+  it('leaves no seeded suburb unreachable from a filter button', () => {
+    for (const restaurant of RESTAURANTS_SEED) {
+      expect(FILTER_SUBURBS).toContain(filterSuburbFor(restaurant.suburb));
+    }
+  });
+
+  it('groups each stray suburb onto a suburb that has a button', () => {
+    for (const [from, to] of Object.entries(SUBURB_FILTER_GROUP)) {
+      expect(SUBURBS).toContain(from);
+      expect(FILTER_SUBURBS).toContain(to);
+      // A group must not point at another grouped suburb, or the chain breaks.
+      expect(SUBURB_FILTER_GROUP).not.toHaveProperty(to as string);
+    }
+  });
+
+  it('leaves an ungrouped suburb as itself', () => {
+    expect(filterSuburbFor('Sea Point')).toBe('Sea Point');
+    expect(filterSuburbFor('Mouille Point')).toBe('Green Point');
+    expect(filterSuburbFor('Oranjezicht')).toBe('Gardens');
   });
 });

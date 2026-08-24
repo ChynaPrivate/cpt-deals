@@ -10,6 +10,7 @@ import {
   runsOnDay,
   type ZonedNow,
 } from './time';
+import { filterSuburbFor } from './types';
 import type {
   FilterKey,
   SortKey,
@@ -46,7 +47,9 @@ export function inSuburbs(
   suburbs: Suburb[],
 ): SpecialWithRestaurant[] {
   if (suburbs.length === 0) return all;
-  return all.filter((special) => suburbs.includes(special.restaurant.suburb as Suburb));
+  // Match on the filter group, so choosing Green Point also brings in Mouille
+  // Point and choosing Gardens brings in the slopes above it.
+  return all.filter((special) => suburbs.includes(filterSuburbFor(special.restaurant.suburb)));
 }
 
 /**
@@ -116,7 +119,7 @@ export function countsBySuburb(
   const counts: Record<string, number> = {};
   for (const special of publishedSpecials(all, isoDate, [], kind)) {
     if (!runsOnDay(special, day)) continue;
-    const suburb = special.restaurant.suburb;
+    const suburb = filterSuburbFor(special.restaurant.suburb);
     counts[suburb] = (counts[suburb] ?? 0) + 1;
   }
   return counts;
