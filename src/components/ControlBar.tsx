@@ -5,7 +5,7 @@ import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 import {
   FILTER_LABELS,
   SORT_LABELS,
-  SUBURBS,
+  FILTER_SUBURBS,
   SUBURB_SHORT,
   type FilterKey,
   type SortKey,
@@ -178,36 +178,54 @@ export default function ControlBar({
       </div>
 
       {suburbOpen && (
-        <div
-          id={suburbPanelId}
-          role="group"
-          aria-label="Choose suburbs"
-          className="mt-3 flex flex-wrap gap-2"
-        >
-          <Chip on={suburbs.length === 0} onClick={onClearSuburbs}>
+        <div id={suburbPanelId} role="group" aria-label="Choose suburbs" className="mt-3">
+          <button
+            type="button"
+            aria-pressed={suburbs.length === 0}
+            onClick={onClearSuburbs}
+            className={[
+              'min-h-[44px] w-full rounded-xl border px-4 text-[14px] font-semibold transition-colors',
+              suburbs.length === 0
+                ? 'border-orange bg-orange text-ink'
+                : 'border-line bg-surface-2 hover:border-orange/50 text-white',
+            ].join(' ')}
+          >
             All suburbs
-          </Chip>
-          {SUBURBS.map((suburb) => {
-            const count = suburbCounts[suburb] ?? 0;
-            const on = suburbs.includes(suburb);
-            return (
-              <Chip
-                key={suburb}
-                on={on}
-                dimmed={count === 0}
-                onClick={() => onToggleSuburb(suburb)}
-              >
-                {SUBURB_SHORT[suburb]}
-                <span className={`ml-1.5 tabular-nums ${on ? 'text-ink/70' : 'text-white/50'}`}>
-                  {count}
-                </span>
-                <span className="sr-only">
-                  {' '}
-                  {count === 1 ? 'special' : 'specials'} on the selected day
-                </span>
-              </Chip>
-            );
-          })}
+          </button>
+
+          {/* Six suburbs, two to a row. Equal widths so the block reads as one
+              shape rather than a ragged wrap. */}
+          <div className="mt-2 grid grid-cols-2 gap-2">
+            {FILTER_SUBURBS.map((suburb) => {
+              const count = suburbCounts[suburb] ?? 0;
+              const on = suburbs.includes(suburb);
+              return (
+                <button
+                  key={suburb}
+                  type="button"
+                  aria-pressed={on}
+                  onClick={() => onToggleSuburb(suburb)}
+                  className={[
+                    'flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl border px-3',
+                    'text-[14px] font-semibold transition-colors',
+                    on
+                      ? 'border-orange bg-orange text-ink'
+                      : 'border-line bg-surface-2 hover:border-orange/50 text-white',
+                    count === 0 && !on ? 'opacity-55' : '',
+                  ].join(' ')}
+                >
+                  {SUBURB_SHORT[suburb]}
+                  <span className={`tabular-nums ${on ? 'text-ink/70' : 'text-white/50'}`}>
+                    {count}
+                  </span>
+                  <span className="sr-only">
+                    {' '}
+                    {count === 1 ? 'special' : 'specials'} on the selected day
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       )}
 

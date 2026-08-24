@@ -16,6 +16,7 @@ import {
 } from '@/lib/specials';
 import { joinSeed, RESTAURANTS_SEED, SPECIALS_SEED } from '@/lib/data/seed';
 import {
+  FILTER_SUBURBS,
   SUBURBS,
   type Restaurant,
   type Special,
@@ -391,5 +392,25 @@ describe('the seed matches what the database will accept', () => {
       (s) => (s.start_time === null) !== (s.end_time === null),
     );
     expect(halfTimed.map((s) => s.title)).toEqual([]);
+  });
+});
+
+describe('FILTER_SUBURBS', () => {
+  it('only offers suburbs the database actually allows', () => {
+    for (const suburb of FILTER_SUBURBS) {
+      expect(SUBURBS).toContain(suburb);
+    }
+  });
+
+  it('is exactly six, so the grid stays two by three', () => {
+    expect(FILTER_SUBURBS).toHaveLength(6);
+    expect(new Set(FILTER_SUBURBS).size).toBe(6);
+  });
+
+  it('hides no listing — every seeded suburb still has venues that show under All suburbs', () => {
+    const seeded = new Set(RESTAURANTS_SEED.map((r) => r.suburb));
+    for (const suburb of seeded) {
+      expect(SUBURBS).toContain(suburb);
+    }
   });
 });

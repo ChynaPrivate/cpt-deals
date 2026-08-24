@@ -49,6 +49,26 @@ export const SUBURBS = [
 
 export type Suburb = (typeof SUBURBS)[number];
 
+/**
+ * The suburbs offered as buttons on the public site.
+ *
+ * SUBURBS above is the full allowlist the database accepts, and every venue
+ * keeps its real suburb. This shorter list is only about the filter panel:
+ * a button that reads "Vredehoek 0" most days is noise, so the four thinnest
+ * suburbs are not offered. Their venues still appear under "All suburbs" —
+ * nothing is hidden, it just has no button of its own.
+ *
+ * Add one back here the moment it can carry a few listings on most days.
+ */
+export const FILTER_SUBURBS: Suburb[] = [
+  'Gardens',
+  'Cape Town City Centre',
+  'Sea Point',
+  'Green Point',
+  'Camps Bay',
+  'Victoria & Alfred Waterfront',
+];
+
 /** Short labels for the suburb filter row, where space is tight. */
 export const SUBURB_SHORT: Record<Suburb, string> = {
   Gardens: 'Gardens',
