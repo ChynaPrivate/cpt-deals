@@ -1422,6 +1422,75 @@ export const RESTAURANTS_SEED: Restaurant[] = [
     created_at: NOW_ISO,
     updated_at: NOW_ISO,
   },
+  {
+    id: 'a1000000-0000-4000-8000-00000000003d',
+    name: 'Chingadas',
+    slug: 'chingadas',
+    description:
+      'Colourful Mexican cantina on Orange Street, tacos and mezcal, open from lunch until late.',
+    categories: ['Mexican', 'Tacos', 'Cocktails', 'Bar'],
+    street_address: '50 Orange Street',
+    suburb: 'Gardens',
+    latitude: null,
+    longitude: null,
+    phone: null,
+    website_url: null,
+    booking_url: 'https://www.dineplan.com/restaurants/chingadas-cantina-cape-town',
+    instagram_url: 'https://www.instagram.com/chingadas_ct/',
+    facebook_url: null,
+    google_maps_url: mapsUrl('Chingadas', '50 Orange Street, Gardens'),
+    image_url: null,
+    active: true,
+    last_checked_at: CHECKED_4,
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'a1000000-0000-4000-8000-00000000003e',
+    name: 'Una Más Mezcalería',
+    slug: 'una-mas-mezcaleria',
+    description:
+      'Mezcal and tequila bar on Regent Road with a short Mexican menu and a long agave list.',
+    categories: ['Mexican', 'Cocktails', 'Bar', 'Tacos'],
+    street_address: '77 Regent Road',
+    suburb: 'Sea Point',
+    latitude: null,
+    longitude: null,
+    phone: null,
+    website_url: 'https://unamas.co.za',
+    booking_url: 'https://www.dineplan.com/restaurants/una-ms-mezcaleria',
+    instagram_url: 'https://www.instagram.com/una_mas_mezcaleria/',
+    facebook_url: null,
+    google_maps_url: mapsUrl('Una Más Mezcalería', '77 Regent Road, Sea Point'),
+    image_url: null,
+    active: true,
+    last_checked_at: CHECKED_4,
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'a1000000-0000-4000-8000-00000000003f',
+    name: 'Hugo Social Club',
+    slug: 'hugo-social-club',
+    description:
+      'Ninth-floor dining room and bar above Kings Road, small plates and a view down the Atlantic seaboard.',
+    categories: ['Restaurant', 'Small plates', 'Rooftop', 'Bar'],
+    street_address: '9th Floor, 2 Kings Road',
+    suburb: 'Sea Point',
+    latitude: null,
+    longitude: null,
+    phone: null,
+    website_url: null,
+    booking_url: 'https://www.dineplan.com/restaurants/hugo-social-club',
+    instagram_url: 'https://www.instagram.com/hugosocialclub/',
+    facebook_url: 'https://www.facebook.com/p/Hugo-Social-Club-61552286497583/',
+    google_maps_url: mapsUrl('Hugo Social Club', '2 Kings Road, Sea Point'),
+    image_url: null,
+    active: true,
+    last_checked_at: CHECKED_4,
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
 ];
 
 const RICKS = RESTAURANTS_SEED[0].id;
@@ -1484,6 +1553,9 @@ const CAFE_MANHATTAN = RESTAURANTS_SEED[56].id;
 const VAN_HUNKS = RESTAURANTS_SEED[57].id;
 const ASOKA = RESTAURANTS_SEED[58].id;
 const ARNOLDS = RESTAURANTS_SEED[59].id;
+const CHINGADAS = RESTAURANTS_SEED[60].id;
+const UNA_MAS = RESTAURANTS_SEED[61].id;
+const HUGO = RESTAURANTS_SEED[62].id;
 
 /** The Cape Town Blog's Monday round-up, last updated 12 August 2026. */
 const CTB_MONDAY = 'https://thecapetownblog.com/monday-specials/';
@@ -3735,6 +3807,58 @@ export const SPECIALS_SEED: Special[] = [
     source_published_at: CHECKED_4,
     featured: true,
   }),
+
+  // ------ found through Instagram Business Discovery, 23 August, first-party
+  special({
+    id: 'b2000000-0000-4000-8000-00000000008e',
+    last_verified_at: CHECKED_4,
+    restaurant_id: CHINGADAS,
+    title: 'Taco Tuesday — two for R76',
+    description: 'Any two tacos for R76, all day. A third is R38 more.',
+    category: 'food',
+    price: 76,
+    days_of_week: [2],
+    terms: 'All day, every Tuesday. Any two tacos on the menu.',
+    source_url: 'https://www.instagram.com/p/DcIqqb0DM-2/',
+    source_type: 'social',
+    source_published_at: '2026-08-17',
+    featured: true,
+  }),
+  special({
+    id: 'b2000000-0000-4000-8000-00000000008f',
+    last_verified_at: CHECKED_4,
+    restaurant_id: UNA_MAS,
+    title: 'R90 margaritas at lunchtime',
+    description: 'Margaritas, shaken or frozen, R90 through the middle of the day.',
+    category: 'drinks',
+    price: 90,
+    days_of_week: [1, 2, 3, 4, 5],
+    start_time: '12:00',
+    end_time: '17:00',
+    source_url: 'https://www.instagram.com/p/Dbph_2-CGiX/',
+    source_type: 'social',
+    source_published_at: '2026-08-05',
+    featured: true,
+  }),
+  special({
+    id: 'b2000000-0000-4000-8000-000000000090',
+    last_verified_at: CHECKED_4,
+    restaurant_id: HUGO,
+    title: 'Pass the Plates — five small plates for R550',
+    description: 'Five small plates to share, R550 a head, from midday on the ninth floor.',
+    category: 'food',
+    price: 550,
+    days_of_week: [3],
+    booking_required: true,
+    // No end_time: the post says "from 12pm onwards" and never says when it
+    // stops. The database requires both times or neither, so it gets neither
+    // and the card says what is actually known.
+    terms:
+      'From midday every Wednesday; the venue does not publish an end time. Worth booking — it is a small room.',
+    source_url: 'https://www.instagram.com/p/DcMEtYjiCfA/',
+    source_type: 'social',
+    source_published_at: '2026-08-18',
+  }),
 ];
 
 /**
@@ -4609,6 +4733,44 @@ export const RESEARCH_QUEUE_SEED: ResearchQueueItem[] = [
     review_status: 'needs_more_evidence',
     reviewer_notes:
       "The article is from April 2025 — sixteen months old. Three of the four venues are already on the site, so these are four phone calls that would each add a listing to a day that needs them. Worth knowing how prices move on this evidence: the same article and a December 2025 round-up both put Iron's Wagyu Wednesday at R99, while a June 2026 page says R119.",
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-000000000034',
+    restaurant_id: null,
+    proposed_special_data: {
+      restaurant: 'Una Más Mezcalería',
+      street_address: '77 Regent Road, Sea Point',
+      title: 'Taco Tuesday — two-for-one on selected tacos, 12pm to 5pm',
+      note: 'Their R90 lunchtime margaritas are published; this is the food half.',
+    },
+    source_url: 'https://www.instagram.com/p/DZFCAHnIvk2/',
+    photo_url: null,
+    detected_at: CHECKED_4,
+    confidence: 'medium',
+    review_status: 'pending',
+    reviewer_notes:
+      'First-party but from 2 June, and posted as "today" rather than as a standing weekly offer — so it may have been a one-off. Their more recent posts do not mention it. Worth one check: Sea Point needs the listings.',
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-000000000035',
+    restaurant_id: null,
+    proposed_special_data: {
+      restaurant: 'Therapy, 5 Park Road, Gardens',
+      street_address: '5 Park Road, Gardens',
+      title: 'Hookah R350, refills R250, every day',
+      note: 'First-party and current — posted 10 August 2026.',
+    },
+    source_url: 'https://www.instagram.com/reel/Db2npe2i-LL/',
+    photo_url: null,
+    detected_at: CHECKED_4,
+    confidence: 'high',
+    review_status: 'pending',
+    reviewer_notes:
+      'Well evidenced, but it is a hookah rather than food or drink, and the site has no category for it. A product decision rather than a research one: either add a nightlife category or leave offers like this out.',
     created_at: NOW_ISO,
     updated_at: NOW_ISO,
   },

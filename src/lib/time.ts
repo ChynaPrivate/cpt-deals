@@ -1,5 +1,5 @@
 /**
- * All day and time logic for CPT Deals runs in Africa/Johannesburg,
+ * All day and time logic for CPT Happy Hours runs in Africa/Johannesburg,
  * regardless of where the visitor's device clock is set.
  */
 import type { Special, Weekday } from './types';

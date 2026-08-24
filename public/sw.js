@@ -1,4 +1,4 @@
-/* CPT Deals service worker — small, predictable, no framework. */
+/* CPT Happy Hours service worker — small, predictable, no framework. */
 const VERSION = 'gs-v1';
 const SHELL_CACHE = `${VERSION}-shell`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;

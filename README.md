@@ -1,4 +1,4 @@
-# CPT Deals
+# CPT Happy Hours
 
 A mobile-first website that answers one question: **what's on special in Cape Town today?**
 

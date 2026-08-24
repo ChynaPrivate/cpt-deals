@@ -8,16 +8,16 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://cpt-deals.netlify.a
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'CPT Deals — restaurant and bar specials in Cape Town',
-    template: '%s · CPT Deals',
+    default: 'CPT Happy Hours — restaurant and bar specials in Cape Town',
+    template: '%s · CPT Happy Hours',
   },
   description:
     'Verified restaurant and bar specials across the Cape Town City Bowl and Atlantic Seaboard — sorted by day of the week. Tap a day to see what is on today.',
-  applicationName: 'CPT Deals',
+  applicationName: 'CPT Happy Hours',
   manifest: '/manifest.webmanifest',
   appleWebApp: {
     capable: true,
-    title: 'CPT Deals',
+    title: 'CPT Happy Hours',
     statusBarStyle: 'default',
   },
   icons: {
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_ZA',
     url: siteUrl,
-    siteName: 'CPT Deals',
-    title: 'CPT Deals',
+    siteName: 'CPT Happy Hours',
+    title: 'CPT Happy Hours',
     description: "What's on special in Cape Town today? Verified restaurant and bar deals, by day.",
-    images: [{ url: '/icons/icon-512.png', width: 512, height: 512, alt: 'CPT Deals' }],
+    images: [{ url: '/icons/icon-512.png', width: 512, height: 512, alt: 'CPT Happy Hours' }],
   },
   twitter: {
     card: 'summary',
-    title: 'CPT Deals',
+    title: 'CPT Happy Hours',
     description: "What's on special in Cape Town today?",
     images: ['/icons/icon-512.png'],
   },
@@ -66,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="mx-auto max-w-[720px]">
             <p className="text-[27px] leading-tight font-extrabold tracking-tight text-white">
               <Link href="/">
-                CPT <span className="text-orange">Deals</span>
+                CPT <span className="text-orange">Happy Hours</span>
               </Link>
             </p>
             <p className="mt-1 text-[16px] text-white/60">
@@ -91,8 +91,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               Terms
             </Link>
             <span className="w-full pt-2">
-              CPT Deals lists offers at venues in the Cape Town City Bowl and the near Atlantic
-              Seaboard. Every listing links to the source it was checked against.
+              CPT Happy Hours lists offers at venues in the Cape Town City Bowl and the near
+              Atlantic Seaboard. Every listing links to the source it was checked against.
             </span>
           </div>
         </footer>

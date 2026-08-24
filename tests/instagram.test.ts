@@ -8,6 +8,8 @@ import {
   scoreCaption,
   type IgMedia,
 } from '@/lib/instagram/discover';
+import { PROSPECTS } from '@/lib/data/prospects';
+import { RESTAURANTS_SEED } from '@/lib/data/seed';
 
 describe('reading a handle out of a URL', () => {
   it('handles the shapes Instagram URLs actually come in', () => {
@@ -141,5 +143,24 @@ describe('the Graph API request', () => {
     expect(decodeURIComponent(url)).toContain('media.limit(5)');
     expect(decodeURIComponent(url)).toContain('caption');
     expect(url).toContain('access_token=token-abc');
+  });
+});
+
+describe('the prospect list', () => {
+  it('has no duplicates and no handles that are already listed venues', () => {
+    const handles = PROSPECTS.map((p) => p.handle.toLowerCase());
+    expect(new Set(handles).size).toBe(handles.length);
+
+    const listed = new Set(
+      RESTAURANTS_SEED.map((r) => handleFromUrl(r.instagram_url)?.toLowerCase()).filter(Boolean),
+    );
+    // A prospect that is already a listed venue would be swept twice and file
+    // the same post into the queue under two names.
+    const overlap = handles.filter((h) => listed.has(h));
+    expect(overlap).toEqual([]);
+  });
+
+  it('gives every prospect a city, so a second city is data and not a rewrite', () => {
+    expect(PROSPECTS.every((p) => p.city.length > 0 && p.suburb.length > 0)).toBe(true);
   });
 });

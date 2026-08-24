@@ -381,3 +381,15 @@ describe('the food / drinks split', () => {
     expect(counts.drinks).toBe(0);
   });
 });
+
+describe('the seed matches what the database will accept', () => {
+  it('gives every special both a start and an end time, or neither', () => {
+    // Postgres enforces this with the specials_times_paired constraint, and it
+    // caught a listing that had a start with no end. Catching it here means
+    // finding out at `npm test` rather than halfway through a push.
+    const halfTimed = SPECIALS_SEED.filter(
+      (s) => (s.start_time === null) !== (s.end_time === null),
+    );
+    expect(halfTimed.map((s) => s.title)).toEqual([]);
+  });
+});

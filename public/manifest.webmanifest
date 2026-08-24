@@ -1,6 +1,6 @@
 {
-  "name": "CPT Deals",
-  "short_name": "CPT Deals",
+  "name": "CPT Happy Hours",
+  "short_name": "Happy Hours",
   "description": "Verified restaurant and bar specials across Cape Town — by day of the week.",
   "id": "/",
   "start_url": "/?source=pwa",

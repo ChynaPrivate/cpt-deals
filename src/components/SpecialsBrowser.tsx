@@ -133,7 +133,7 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
       {/* The visible site name lives in the shared header; this is the page's
           own heading for screen readers and search engines. */}
       <h1 className="sr-only">
-        CPT Deals — verified restaurant and bar specials across Cape Town, by day of the week
+        CPT Happy Hours — verified restaurant and bar specials across Cape Town, by day of the week
       </h1>
 
       <section aria-labelledby="day-heading">

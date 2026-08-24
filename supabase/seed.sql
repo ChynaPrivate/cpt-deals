@@ -490,6 +490,30 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000003d', 'Chingadas', 'chingadas', 'Colourful Mexican cantina on Orange Street, tacos and mezcal, open from lunch until late.', array['Mexican', 'Tacos', 'Cocktails', 'Bar']::text[],
+  '50 Orange Street', 'Gardens', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/chingadas-cantina-cape-town', 'https://www.instagram.com/chingadas_ct/', null,
+  'https://www.google.com/maps/search/?api=1&query=Chingadas%2C%2050%20Orange%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000003e', 'Una Más Mezcalería', 'una-mas-mezcaleria', 'Mezcal and tequila bar on Regent Road with a short Mexican menu and a long agave list.', array['Mexican', 'Cocktails', 'Bar', 'Tacos']::text[],
+  '77 Regent Road', 'Sea Point', null, null, null,
+  'https://unamas.co.za', 'https://www.dineplan.com/restaurants/una-ms-mezcaleria', 'https://www.instagram.com/una_mas_mezcaleria/', null,
+  'https://www.google.com/maps/search/?api=1&query=Una%20M%C3%A1s%20Mezcaler%C3%ADa%2C%2077%20Regent%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000003f', 'Hugo Social Club', 'hugo-social-club', 'Ninth-floor dining room and bar above Kings Road, small plates and a view down the Atlantic seaboard.', array['Restaurant', 'Small plates', 'Rooftop', 'Bar']::text[],
+  '9th Floor, 2 Kings Road', 'Sea Point', null, null, null,
+  null, 'https://www.dineplan.com/restaurants/hugo-social-club', 'https://www.instagram.com/hugosocialclub/', 'https://www.facebook.com/p/Hugo-Social-Club-61552286497583/',
+  'https://www.google.com/maps/search/?api=1&query=Hugo%20Social%20Club%2C%202%20Kings%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
 -- ------------------------------------------------------------- specials
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000001', 'a1000000-0000-4000-8000-000000000001', 'Happy hour',
@@ -2111,6 +2135,42 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
 ) on conflict (id) do update set
   restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000008e', 'a1000000-0000-4000-8000-00000000003d', 'Taco Tuesday — two for R76',
+  'Any two tacos for R76, all day. A third is R38 more.',
+  76, null, 'food'::special_category, '{}',
+  array[2]::smallint[], null, null,
+  null, null, 'All day, every Tuesday. Any two tacos on the menu.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/DcIqqb0DM-2/', 'social'::source_type,
+  '2026-08-17', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-00000000008f', 'a1000000-0000-4000-8000-00000000003e', 'R90 margaritas at lunchtime',
+  'Margaritas, shaken or frozen, R90 through the middle of the day.',
+  90, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5]::smallint[], '12:00', '17:00',
+  null, null, null, false,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/Dbph_2-CGiX/', 'social'::source_type,
+  '2026-08-05', '2026-08-23', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-000000000090', 'a1000000-0000-4000-8000-00000000003f', 'Pass the Plates — five small plates for R550',
+  'Five small plates to share, R550 a head, from midday on the ninth floor.',
+  550, null, 'food'::special_category, '{}',
+  array[3]::smallint[], null, null,
+  null, null, 'From midday every Wednesday; the venue does not publish an end time. Worth booking — it is a small room.', true,
+  'unknown'::holiday_status, 'https://www.instagram.com/p/DcMEtYjiCfA/', 'social'::source_type,
+  '2026-08-18', '2026-08-23', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
 -- ------------------------------------------- research queue (not public)
 insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
   'c3000000-0000-4000-8000-000000000018', null,
@@ -2425,6 +2485,20 @@ insert into public.research_queue (id, restaurant_id, proposed_special_data, sou
   '{"restaurant":"Rita''s Cocktail Club, Clarke''s, Tiger''s Milk, The Wolf House","street_address":"Kloof Street and Bree Street","title":"Four City Bowl two-for-one nights","note":"Rita''s: 50% off tacos on Tuesdays. Clarke''s: two-for-one burgers Tuesday 7–8pm. Tiger''s Milk: two pizzas for the price of one, Tuesday all day, dine-in, selected pizzas. The Wolf House, Kloof Street: burger, wings, cheese balls and chilli fries for R208 on Wednesdays."}'::jsonb,
   'https://www.timeout.com/cape-town/restaurants/best-2-for-1-restaurant-specials-in-cape-town', '2026-08-23', 'medium'::confidence_level,
   'needs_more_evidence'::review_status, 'The article is from April 2025 — sixteen months old. Three of the four venues are already on the site, so these are four phone calls that would each add a listing to a day that needs them. Worth knowing how prices move on this evidence: the same article and a December 2025 round-up both put Iron''s Wagyu Wednesday at R99, while a June 2026 page says R119.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000034', null,
+  '{"restaurant":"Una Más Mezcalería","street_address":"77 Regent Road, Sea Point","title":"Taco Tuesday — two-for-one on selected tacos, 12pm to 5pm","note":"Their R90 lunchtime margaritas are published; this is the food half."}'::jsonb,
+  'https://www.instagram.com/p/DZFCAHnIvk2/', '2026-08-23', 'medium'::confidence_level,
+  'pending'::review_status, 'First-party but from 2 June, and posted as "today" rather than as a standing weekly offer — so it may have been a one-off. Their more recent posts do not mention it. Worth one check: Sea Point needs the listings.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000035', null,
+  '{"restaurant":"Therapy, 5 Park Road, Gardens","street_address":"5 Park Road, Gardens","title":"Hookah R350, refills R250, every day","note":"First-party and current — posted 10 August 2026."}'::jsonb,
+  'https://www.instagram.com/reel/Db2npe2i-LL/', '2026-08-23', 'high'::confidence_level,
+  'pending'::review_status, 'Well evidenced, but it is a hookah rather than food or drink, and the site has no category for it. A product decision rather than a research one: either add a nightlife category or leave offers like this out.'
 ) on conflict (id) do nothing;
 
 commit;

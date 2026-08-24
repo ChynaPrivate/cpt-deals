@@ -27,6 +27,7 @@ import {
   type IgMedia,
   type VenueRef,
 } from '../../src/lib/instagram/discover.js';
+import { PROSPECTS } from '../../src/lib/data/prospects.js';
 
 /** Meta allows 200 calls an hour; this is well inside that and kind to it. */
 const DELAY_BETWEEN_ACCOUNTS_MS = 1_500;
@@ -68,11 +69,22 @@ export default async function handler(): Promise<Response> {
     return Response.json({ ok: false, reason: readError.message }, { status: 500 });
   }
 
-  const venues: VenueRef[] = (restaurants ?? []).flatMap((row) => {
+  const listed: VenueRef[] = (restaurants ?? []).flatMap((row) => {
     const handle = handleFromUrl(row.instagram_url as string | null);
     if (!handle) return [];
     return [{ id: row.id as string, name: row.name as string, handle }];
   });
+
+  // Watch a handful of accounts for venues that are not listed yet. Most of
+  // Kloof Street publishes its specials on Instagram and nowhere else, so
+  // waiting for them to turn up on a review site means never listing them.
+  // A hit files with no restaurant attached and a person types it up.
+  const listedHandles = new Set(listed.map((v) => v.handle.toLowerCase()));
+  const prospects: VenueRef[] = PROSPECTS.filter(
+    (p) => !listedHandles.has(p.handle.toLowerCase()),
+  ).map((p) => ({ id: null, name: `${p.name} (not yet listed — ${p.suburb})`, handle: p.handle }));
+
+  const venues: VenueRef[] = [...listed, ...prospects];
 
   if (venues.length === 0) {
     return Response.json({

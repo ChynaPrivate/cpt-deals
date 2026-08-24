@@ -94,8 +94,8 @@ function Toggle({
       aria-expanded={open}
       aria-controls={controls}
       onClick={onClick}
-      className={`bg-surface inline-flex min-h-[40px] items-center gap-2 rounded-xl border px-3.5 text-[14px] font-semibold text-white ${
-        open ? 'border-orange/50' : 'border-line'
+      className={`bg-surface-2 flex min-h-[52px] w-full items-center justify-center gap-2 rounded-2xl border-2 px-4 text-[17px] font-bold text-white transition-colors ${
+        open ? 'border-orange/50' : 'border-line hover:border-orange/50'
       }`}
     >
       {label}
@@ -139,8 +139,8 @@ export default function ControlBar({
   const filterOpen = filterOverride ?? hasRoom;
 
   return (
-    <section aria-label="Choose suburbs, filter and sort" className="mt-5">
-      <div className="flex flex-wrap items-center gap-3">
+    <section aria-label="Choose suburbs, filter and sort" className="mt-2">
+      <div className="grid grid-cols-2 gap-2">
         <Toggle
           label="Suburbs"
           count={suburbs.length}
@@ -155,7 +155,9 @@ export default function ControlBar({
           controls={filterPanelId}
           onClick={() => setFilterOverride(!filterOpen)}
         />
+      </div>
 
+      <div className="mt-3 flex flex-wrap items-center gap-3">
         <span className="inline-flex items-center gap-2">
           <label htmlFor="sort" className="text-[14px] font-semibold text-white/60">
             Sort by
