@@ -1,5 +1,5 @@
 -- ============================================================================
--- CPT Happy Hours — verified seed data
+-- The Happy Hours — verified seed data
 -- GENERATED FILE. Edit src/lib/data/seed.ts and run `npm run seed:sql`.
 --
 -- Every special below carries the source URL it was verified against and the
@@ -559,6 +559,78 @@ insert into public.restaurants (id, name, slug, description, categories, street_
   'Piccadilly Court, 85A Regent Road', 'Sea Point', null, null, '+27210232667',
   null, 'https://www.dineplan.com/restaurants/kiki', null, null,
   'https://www.google.com/maps/search/?api=1&query=KIKI%20Sea%20Point%2C%2085A%20Regent%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-24'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000046', 'Kapstadt Brauhaus', 'kapstadt-brauhaus', 'German beer hall at the Clock Tower, with a different plate special most nights of the week.', array['German', 'Beer hall', 'Restaurant', 'Bar']::text[],
+  'Shop G13, Clock Tower Retail Centre', 'Victoria & Alfred Waterfront', null, null, '+27214224567',
+  'https://www.kapstadtbrauhaus.co.za', null, null, null,
+  'https://www.google.com/maps/search/?api=1&query=Kapstadt%20Brauhaus%2C%20Clock%20Tower%20Retail%20Centre%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000047', 'Gibson''s Gourmet Burgers & Ribs', 'gibsons-gourmet-burgers', 'Burgers, ribs and steaks on the ground floor of Victoria Wharf.', array['Burgers', 'Ribs', 'Steak', 'Restaurant']::text[],
+  'Shop 157, Victoria Wharf Mall, Ground Level', 'Victoria & Alfred Waterfront', null, null, '+27873573465',
+  'https://www.theburgerjoint.co.za', null, null, null,
+  'https://www.google.com/maps/search/?api=1&query=Gibson''s%20Gourmet%20Burgers%2C%20Victoria%20Wharf%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000048', 'Time Out Market Cape Town', 'time-out-market-cape-town', 'Food hall in the old power station, with kitchens from across the city under one roof.', array['Food hall', 'Restaurant', 'Bar']::text[],
+  'The Old Power Station Building, Marina Centre, Pierhead', 'Victoria & Alfred Waterfront', null, null, '+27214087688',
+  'https://www.timeoutmarket.com/capetown', null, null, null,
+  'https://www.google.com/maps/search/?api=1&query=Time%20Out%20Market%20Cape%20Town%2C%20Old%20Power%20Station%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000049', 'Cause & Effect Cocktail Kitchen', 'cause-and-effect-cocktail-kitchen', 'Gin-led cocktail bar and kitchen in the old Rocket Store on Dock Road.', array['Cocktails', 'Bar', 'Restaurant', 'Gin']::text[],
+  'Rocket Store, 280 Dock Road, Pierhead', 'Victoria & Alfred Waterfront', null, null, '+27218790855',
+  'http://causeandeffect.co.za', null, null, null,
+  'https://www.google.com/maps/search/?api=1&query=Cause%20and%20Effect%20Cocktail%20Kitchen%2C%20280%20Dock%20Road%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000004a', 'Sevruga', 'sevruga', 'Long-running Quays restaurant on the water, sushi alongside a wide à la carte menu.', array['Restaurant', 'Sushi', 'Seafood']::text[],
+  'Shop 4, Victoria Wharf Mall, Ground Level, Quays', 'Victoria & Alfred Waterfront', null, null, '+27214215134',
+  'https://www.sevruga.co.za', null, null, null,
+  'https://www.google.com/maps/search/?api=1&query=Sevruga%2C%20Victoria%20Wharf%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000004b', 'Marble Cape Town', 'marble-cape-town', 'Wood-fire cooking on the upper level of the Union Castle Building.', array['Restaurant', 'Steak', 'Fine dining']::text[],
+  'Shop 7, Union Castle Building, Upper Level, Dry Dock', 'Victoria & Alfred Waterfront', null, null, '+27210028484',
+  'https://marble.restaurant/capetown', null, null, null,
+  'https://www.google.com/maps/search/?api=1&query=Marble%20Cape%20Town%2C%20Union%20Castle%20Building%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000004c', 'Tiger''s Milk — V&A Waterfront', 'tigers-milk-va-waterfront', 'The Waterfront branch of the burger, pizza and beer chain, upstairs in Victoria Wharf.', array['Burgers', 'Pizza', 'Bar', 'Restaurant']::text[],
+  'Shop 261, Victoria Wharf Mall, Upper Level', 'Victoria & Alfred Waterfront', null, null, '+27217456623',
+  'https://www.tigersmilk.co.za/location/va-waterfront/', null, null, null,
+  'https://www.google.com/maps/search/?api=1&query=Tiger''s%20Milk%20V%26A%20Waterfront%2C%20Victoria%20Wharf%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000004d', 'Fisherman''s Choice', 'fishermans-choice', 'Fish and chips counter in the Victoria Wharf food court.', array['Seafood', 'Fish and chips', 'Takeaway']::text[],
+  'Unit FC10, Victoria Wharf Mall, Ground Level', 'Victoria & Alfred Waterfront', null, null, '+27214195865',
+  'https://www.fishermanschoice.co.za', null, null, null,
+  'https://www.google.com/maps/search/?api=1&query=Fisherman''s%20Choice%2C%20Victoria%20Wharf%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-00000000004e', 'The Azure Restaurant', 'azure-twelve-apostles', 'Ocean-facing dining room at the Twelve Apostles, at the Oudekraal end of Victoria Road.', array['Restaurant', 'Fine dining', 'Hotel restaurant', 'Seafood']::text[],
+  'Twelve Apostles Hotel, Victoria Road', 'Camps Bay', null, null, '+27214379029',
+  'https://12apostleshotel.com/dining-and-drinks/the-azure-restaurant', 'https://www.dineplan.com/restaurants/the-azure-restaurant-the-twelve-apostles-hotel-and-spa', null, null,
+  'https://www.google.com/maps/search/?api=1&query=The%20Azure%20Restaurant%20Twelve%20Apostles%2C%20Victoria%20Road%2C%20Camps%20Bay%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
@@ -2399,6 +2471,306 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
 ) on conflict (id) do update set
   restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000a0', 'a1000000-0000-4000-8000-000000000046', 'Weekday happy hour',
+  'Happy hour every weekday afternoon into the early evening.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[1, 2, 3, 4, 5]::smallint[], '15:00', '19:00',
+  null, '2026-08-31', 'The venue does not publish which drinks are discounted. The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/kapstadt-brauhaus', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000a1', 'a1000000-0000-4000-8000-000000000046', 'Schnitzel Monday for R94',
+  'A schnitzel plate at a set Monday price.',
+  94, null, 'food'::special_category, '{}',
+  array[1]::smallint[], null, null,
+  null, '2026-08-31', 'The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/kapstadt-brauhaus', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000a2', 'a1000000-0000-4000-8000-000000000046', 'Burger Tuesday for R94',
+  'A burger at a set Tuesday price.',
+  94, null, 'food'::special_category, '{}',
+  array[2]::smallint[], null, null,
+  null, '2026-08-31', 'The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/kapstadt-brauhaus', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000a3', 'a1000000-0000-4000-8000-000000000046', 'Steak Wednesday for R126',
+  'A steak plate at a set Wednesday price.',
+  126, null, 'food'::special_category, '{}',
+  array[3]::smallint[], null, null,
+  null, '2026-08-31', 'The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/kapstadt-brauhaus', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000a4', 'a1000000-0000-4000-8000-000000000046', 'Pizza Thursday for R98',
+  'A pizza at a set Thursday price.',
+  98, null, 'food'::special_category, '{}',
+  array[4]::smallint[], null, null,
+  null, '2026-08-31', 'The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/kapstadt-brauhaus', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000a5', 'a1000000-0000-4000-8000-000000000046', 'Kids eat free on Sundays',
+  'A child''s meal is free with a qualifying adult meal, every Sunday.',
+  null, null, 'food'::special_category, '{}',
+  array[7]::smallint[], null, null,
+  null, '2026-08-31', 'Requires a qualifying adult meal. The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/kapstadt-brauhaus', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000a6', 'a1000000-0000-4000-8000-000000000047', 'R50 off every pizza',
+  'Fifty rand off any pizza on the menu, Mondays and Tuesdays.',
+  null, null, 'food'::special_category, '{}',
+  array[1, 2]::smallint[], null, null,
+  null, '2026-09-30', 'A discount rather than a set price, so what you pay depends on the pizza.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/gibson-s-gourmet-burgers-ribs', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000a7', 'a1000000-0000-4000-8000-000000000047', 'Giant beef rib for R299',
+  'A 700 to 800 gram beef rib at a set winter price.',
+  299, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', null, false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/gibson-s-gourmet-burgers-ribs', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000a8', 'a1000000-0000-4000-8000-000000000047', 'Winter steak special for R250',
+  'The winter steak plate at a set price.',
+  250, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', null, false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/gibson-s-gourmet-burgers-ribs', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000a9', 'a1000000-0000-4000-8000-000000000047', '300g rib-eye for R300',
+  'A 300 gram rib-eye at a set winter price.',
+  300, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', null, false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/gibson-s-gourmet-burgers-ribs', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000aa', 'a1000000-0000-4000-8000-000000000048', 'Nights for Locals — half price',
+  'Fifty percent off selected dishes across the market, redeemed through the app.',
+  null, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4]::smallint[], '19:00', '21:00',
+  null, '2026-08-31', 'Selected items only, redeemed through the Time Out Market app. The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/time-out-market-cape-town', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  true, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000ab', 'a1000000-0000-4000-8000-000000000048', 'Happy hour — half price drinks',
+  'Fifty percent off selected drinks, Monday to Thursday.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[1, 2, 3, 4]::smallint[], '16:00', '19:00',
+  null, '2026-08-31', 'Selected drinks only. The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/time-out-market-cape-town', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000ac', 'a1000000-0000-4000-8000-000000000048', 'Bottomless mimosas for R100',
+  'Bottomless Boschendal mimosas across weekend late mornings.',
+  100, null, 'drinks'::special_category, '{}',
+  array[6, 7]::smallint[], '11:00', '14:00',
+  null, '2026-08-31', 'The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/time-out-market-cape-town', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000ad', 'a1000000-0000-4000-8000-000000000048', 'Free drink with your Sunday meal',
+  'A drink on the house with any meal on Sunday evenings.',
+  null, null, 'food'::special_category, '{}',
+  array[7]::smallint[], '18:30', '21:30',
+  null, '2026-08-31', 'The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/time-out-market-cape-town', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000ae', 'a1000000-0000-4000-8000-000000000049', 'Cocktail happy hour',
+  'Cocktail specials on weekday late afternoons.',
+  null, null, 'happy_hour'::special_category, '{}',
+  array[1, 2, 3, 4, 5]::smallint[], '16:00', '18:00',
+  null, '2026-08-31', 'The venue does not publish the size of the discount. The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/cause-effect-cocktail-kitchen', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000af', 'a1000000-0000-4000-8000-000000000049', 'Burger and a draught for R125',
+  'A burger with a draught beer alongside it.',
+  125, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', 'The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/cause-effect-cocktail-kitchen', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000b0', 'a1000000-0000-4000-8000-000000000049', 'Breakfast with bottomless mimosas, R149',
+  'Breakfast served with bottomless mimosas, every day.',
+  149, null, 'breakfast'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', 'The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/cause-effect-cocktail-kitchen', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000b1', 'a1000000-0000-4000-8000-00000000004a', 'Winter menu — two courses for R395',
+  'A two-course winter menu, with a three-course option at R495.',
+  395, null, 'dinner'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', 'Per person. Three courses R495. The run is printed as 17 Jun - 31 Aug without a year.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/sevruga', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000b2', 'a1000000-0000-4000-8000-00000000004a', 'Half-price classic sushi',
+  'Fifty percent off a selected range of classic sushi.',
+  null, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', 'Selected classic sushi only. The run is printed as 17 Jun - 31 Aug without a year.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/sevruga', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000b3', 'a1000000-0000-4000-8000-00000000004b', 'Winter lunch — two courses for R395',
+  'A set winter lunch, with a three-course option at R495.',
+  395, null, 'lunch'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', 'Per person. Three courses R495. Lunch service only. The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/marble-cape-town', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000b4', 'a1000000-0000-4000-8000-00000000004c', 'Two-for-one house drinks',
+  'Two for one on selected house beers, wines and cocktails.',
+  null, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-08-31', 'Selected house drinks. The listing gives no days or times, so it reads as whenever the venue is open. The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/tigers-milk', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000b5', 'a1000000-0000-4000-8000-00000000004c', 'Two-for-one pizza on Tuesdays',
+  'Two selected pizzas for the price of one.',
+  null, null, 'food'::special_category, '{}',
+  array[2]::smallint[], null, null,
+  null, '2026-08-31', 'Selected pizzas. The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/tigers-milk', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000b6', 'a1000000-0000-4000-8000-00000000004d', 'Hake, prawns and a side for R95',
+  'Hake and prawns with chips or rice.',
+  95, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], null, null,
+  null, '2026-09-30', 'A food-court counter rather than a sit-down restaurant.', false,
+  'unknown'::holiday_status, 'https://www.waterfront.co.za/eat-and-drink/fishermans-choice-food-court', 'official_website'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000b7', 'a1000000-0000-4000-8000-00000000004e', 'Sunset sundowners — R350',
+  'An hour of cocktails with canapés, facing the Atlantic.',
+  350, null, 'drinks'::special_category, '{}',
+  array[1, 2, 3, 4]::smallint[], '17:00', '18:00',
+  null, '2026-11-30', 'Per person. The run is printed as 14 Jul - 30 Nov without a year.', true,
+  'unknown'::holiday_status, 'https://www.dineplan.com/restaurants/the-azure-restaurant-the-twelve-apostles-hotel-and-spa', 'booking_page'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000b8', 'a1000000-0000-4000-8000-00000000004e', 'Twelve oysters and a bottle of bubbly, R990',
+  'A dozen oysters served with a bottle of Boschendal Brut.',
+  990, null, 'food'::special_category, '{}',
+  array[1, 2, 3, 4, 5, 6, 7]::smallint[], '12:00', '15:00',
+  null, '2026-11-28', 'The run is printed as 28 Apr - 28 Nov without a year.', true,
+  'unknown'::holiday_status, 'https://www.dineplan.com/restaurants/the-azure-restaurant-the-twelve-apostles-hotel-and-spa', 'booking_page'::source_type,
+  null, '2026-08-25', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
 -- ------------------------------------------- research queue (not public)
 insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
   'c3000000-0000-4000-8000-000000000018', null,
@@ -2811,6 +3183,76 @@ insert into public.research_queue (id, restaurant_id, proposed_special_data, sou
   '{"restaurant":"Arthur''s Mini Super — the Mini Bar","street_address":"15 Arthurs Road, Sea Point","title":"Possible early-evening bar offer","note":"No special is published. Flagged because the separate Mini Bar trades Tuesday to Saturday 4pm to 10pm while the day venue closes mid-afternoon — the shape of a place that would run a happy hour."}'::jsonb,
   'http://arthursminisuper.co.za/', '2026-08-24', 'low'::confidence_level,
   'pending'::review_status, 'Speculative. Phone 072 154 3308 and ask whether the Mini Bar runs anything. Reject if not.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000042', null,
+  '{"restaurant":"La Parada — V&A Waterfront","street_address":"Shop 18, Alfred Mall, V&A Waterfront","title":"Two-for-one beer and wine at happy hour, weekdays","note":"The V&A tenant page confirms the offer and the weekdays but prints no times at all, and La Parada''s own site is robots-disallowed. A happy hour with no hours is not a listing."}'::jsonb,
+  'https://www.waterfront.co.za/eat-and-drink/la-parada', '2026-08-25', 'high'::confidence_level,
+  'pending'::review_status, 'Phone 021 141 2987 and ask for the happy-hour window. Everything else is already confirmed, so this is one question away from publishable.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000043', null,
+  '{"restaurant":"COY Restaurant","street_address":"Shop 151, Scherwyn Pavilion, South Arm, V&A Waterfront","title":"The COY EDIT — all-day curated selection","note":"A curated all-day list the venue says is better value than the a la carte, running 12:00-20:30. No price is published on the V&A page and coyrestaurant.com is robots-disallowed."}'::jsonb,
+  'https://www.waterfront.co.za/eat-and-drink/coy-restaurant', '2026-08-25', 'medium'::confidence_level,
+  'pending'::review_status, 'Phone 021 207 3278 for the price. Without one there is nothing to put in the orange.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000044', null,
+  '{"restaurant":"TANG — V&A Waterfront","street_address":"Shop 153, Victoria Wharf, V&A Waterfront","title":"Winter set menu for one or two","note":"Confirmed on the V&A tenant page with a 1 Jun - 31 Aug run, but no price anywhere and tanghospitality.com is robots-disallowed."}'::jsonb,
+  'https://www.waterfront.co.za/eat-and-drink/tang', '2026-08-25', 'medium'::confidence_level,
+  'pending'::review_status, 'Phone 076 652 8972. Expires 31 August, so it may not be worth the call now.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000045', null,
+  '{"restaurant":"Harbour House — V&A Waterfront","street_address":"9 Breakwater Boulevard, V&A Waterfront","title":"Winter Affair, three courses for R600, weekdays","price":600,"note":"FoodBlog Cape Town, dated 14 July 2026, describes a weekday three-course winter menu at R600. Not on the V&A tenant page, and harbourhouse.co.za is robots-disallowed, so there is no first-party confirmation."}'::jsonb,
+  'https://www.food-blog.co.za/where-to-find-the-best-winter-food-drink-specials-at-the-va-waterfront-this-winter-season/', '2026-08-25', 'medium'::confidence_level,
+  'pending'::review_status, 'Phone 021 418 4744. A well-known venue and a real price, but one third-party source is not enough on its own.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000046', null,
+  '{"restaurant":"Cabo Beach Club","street_address":"South Arm Road, V&A Waterfront","title":"Pizza and a Heineken for R215, midweek","price":215,"note":"FoodBlog Cape Town, 14 July 2026. Neither the V&A tenant page nor the venue''s own site mentions it."}'::jsonb,
+  'https://www.food-blog.co.za/where-to-find-the-best-winter-food-drink-specials-at-the-va-waterfront-this-winter-season/', '2026-08-25', 'medium'::confidence_level,
+  'pending'::review_status, 'Phone 021 137 5401. Closed Mondays, so the offer is Tuesday to Thursday if it is real.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000047', null,
+  '{"restaurant":"Ginja at the Victoria & Alfred Hotel","street_address":"Victoria & Alfred Hotel, Pierhead, V&A Waterfront","title":"Sunday brunch, R450 per person, 12:00-16:00","price":450,"note":"FoodBlog Cape Town, 14 July 2026. The V&A tenant page for Ginja lists no offers at all."}'::jsonb,
+  'https://www.food-blog.co.za/where-to-find-the-best-winter-food-drink-specials-at-the-va-waterfront-this-winter-season/', '2026-08-25', 'medium'::confidence_level,
+  'pending'::review_status, 'Phone 021 419 6677. A weekly Sunday fixture would be a good listing if confirmed.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000048', null,
+  '{"restaurant":"Mozambik — V&A Waterfront","street_address":"Shop 8, Victoria Wharf, V&A Waterfront","title":"Wednesday prawns R99, Monday kids eat free, Thursday date night","note":"Three offers on the chain''s V&A promotions page with no dates and no expiry at all. Exactly the pattern the brief warns about: an old recurring offer that may or may not still run."}'::jsonb,
+  'https://www.waterfront.co.za/offers/mozambik-promotions/', '2026-08-25', 'low'::confidence_level,
+  'pending'::review_status, 'Phone 021 023 0345 and confirm all three still run before publishing any of them.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000049', null,
+  '{"restaurant":"Mantra Cafe","street_address":"43 Victoria Road, Camps Bay","title":"Winter set menu, R395 two courses or R450 three, less 20%","price":395,"note":"First-party and current, running to 31 August. Held back on one conflict: the venue''s own page says the set menu is for groups of ten or more, while Dineplan''s winter round-up does not mention any group minimum. A ten-person minimum changes the offer entirely."}'::jsonb,
+  'https://www.mantracafe.co.za/winter-set-menu', '2026-08-25', 'high'::confidence_level,
+  'pending'::review_status, 'Phone 065 823 3901 and ask one question: is there a group minimum. If not, publish immediately.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000004a', null,
+  '{"restaurant":"Dizzy''s Camps Bay","street_address":"41 The Drive, Camps Bay","title":"Daily happy hour, 4pm to 7pm","note":"The venue''s own site states a daily 16:00-19:00 happy hour but never says which drinks or how much off. Cape Town Magazine has pricing but its page is dated March 2018."}'::jsonb,
+  'https://dizzyscampsbay.co.za/', '2026-08-25', 'medium'::confidence_level,
+  'pending'::review_status, 'Phone 021 438 2686 for the actual discount. A daily happy hour in Camps Bay is worth having.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-00000000004b', null,
+  '{"restaurant":"The Waterside and PIER (La Colombe)","street_address":"Pierhead, V&A Waterfront","title":"Winter set menus, R795 and R995","note":"Both confirmed on the V&A tenant pages. Not published because of a data question on our side: we already list a venue called The Waterside at 55 Shortmarket Street in the City Centre, and it is not clear whether that is a different restaurant or our own address error."}'::jsonb,
+  'https://www.waterfront.co.za/eat-and-drink/the-waterside', '2026-08-25', 'high'::confidence_level,
+  'pending'::review_status, 'Resolve the existing The Waterside entry first. If our City Centre address is wrong, correct it rather than adding a second venue.'
 ) on conflict (id) do nothing;
 
 commit;

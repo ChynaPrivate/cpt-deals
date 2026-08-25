@@ -559,3 +559,90 @@ One gap worth naming: **no publishable breakfast special was found in Sea
 Point**, despite Jarryds, Butter, Arthur's, Doppio and Juno all being
 breakfast-led venues. Four of the five were readable and simply publish no
 offer; Juno could not be read.
+
+---
+
+## Part 6 — V&A Waterfront and Camps Bay, 25 August 2026
+
+The Waterfront went from 6 venues to 14 and is now the second-biggest suburb
+on the site. Camps Bay gained one.
+
+### The find that made the difference
+
+`waterfront.co.za` publishes a tenant directory where each restaurant has its
+own page carrying that venue's live promotions, with prices and a validity
+window. It is first-party in the way a landlord's listing is — the V&A is the
+one running the campaign — and it beat every venue website and every
+publication for both coverage and precision. **One directory was worth more
+than twenty individual site visits.** Four of the pages were re-fetched
+directly before publishing rather than taken on the research pass's word.
+
+The equivalent question for the next city is whether the mall or precinct
+landlord publishes tenant promotions. For Joburg that would be Sandton City,
+Melrose Arch and Rosebank; for Durban, Gateway and the Florida Road precinct.
+
+### Accepted
+
+| Venue                          | Offers                                                                                                              | Source            |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| Kapstadt Brauhaus, Clock Tower | Happy hour Mon–Fri 3–7pm; schnitzel Mon R94; burger Tue R94; steak Wed R126; pizza Thu R98; kids eat free Sun       | V&A tenant page   |
+| Gibson's, Victoria Wharf       | R50 off pizzas Mon–Tue; beef rib R299; winter steak R250; rib-eye R300                                              | V&A tenant page   |
+| Time Out Market                | Nights for Locals 50% Mon–Thu 7–9pm; happy hour 50% Mon–Thu 4–7pm; bottomless mimosas R100 weekends; free drink Sun | V&A tenant page   |
+| Cause & Effect, Dock Road      | Cocktail happy hour Mon–Fri 4–6pm; burger and draught R125; breakfast with bottomless mimosas R149                  | V&A tenant page   |
+| Sevruga                        | Winter menu R395 / R495; half-price classic sushi                                                                   | V&A tenant page   |
+| Marble                         | Winter lunch R395 / R495                                                                                            | V&A tenant page   |
+| Tiger's Milk V&A               | Two-for-one house drinks; two-for-one pizza Tuesdays                                                                | V&A tenant page   |
+| Fisherman's Choice             | Hake, prawns and a side R95                                                                                         | V&A tenant page   |
+| The Azure, Twelve Apostles     | Sunset sundowners R350 Mon–Thu; twelve oysters with bubbly R990                                                     | Own Dineplan page |
+
+Every V&A offer above carries a run printed as **1 Jun – 31 Aug with no year**.
+Read as 2026 because the pages are live and the window is in force today; each
+listing says so in its terms.
+
+### Deliberately not published
+
+**Chain fast food and card-gated senior discounts.** Steers' Wacky Wednesday,
+Wimpy's burger and shake, Krispy Kreme, Anat's shawarma combo, and the V&A
+Seniors Card offers at Spur, Karibu and Mozambik are all real and all
+verifiable. They are not what someone opens this site to find, and a page of
+them would change what the site is. A product decision, not a research one —
+easy to reverse if the view changes.
+
+### Rejected as stale
+
+V&A Restaurant Week (October 2025, expired). Harbour House's winter menu on
+Inside Guide (valid to 31 August **2023**). Cape Town Magazine's Waterfront
+round-up (last updated 14 July **2025**, and superseded — Gibson's has moved
+from buy-one-get-one to R50 off, so nothing on that page can be carried over).
+Zenzero's R150 set menu (a validity range beginning **2011**). Dizzy's Tight
+Ass Tuesday pricing (2018). The 41's R180 lunch (2021, and the venue's site
+still carries COVID curfew copy — probably closed).
+
+### Camps Bay was much thinner than expected
+
+Nine venues checked, one publishable. The Bay Hotel's offers page has nothing
+newer than April 2024; Camps Bay Retreat's packages expired in **2020** and the
+page still says the restaurant "might still be hibernating"; Baptiste at the
+POD is closed for winter. Every Kove Collection menu — Zenzero, Bilboa,
+Surfshack, la Belle, The Bungalow — publishes its prices as PDFs or images, so
+five current, confirmed seasonal menus have no readable rand figure between
+them.
+
+Two corrections: **there is no Bantry Bay branch of la Belle** (Camps Bay and
+Constantia only), and **Sótano has no Camps Bay branch** — its Monday sirloin
+and Wednesday burger deals belong to other suburbs and must not be attributed
+here. Bella Vista is a holiday villa, not a restaurant.
+
+### What could not be reached
+
+`tigersmilk.co.za/specials-offerings` is robots-disallowed, which is the single
+biggest gap — Tiger's Milk is a specials-driven brand with three branches on
+the site. Also blocked: belthazar.co.za, harbourhouse.co.za, coyrestaurant.com,
+laparada.co.za, tanghospitality.com, bilboa.co.za, insideguide.co.za,
+hospitalityhedonist.co.za. Instagram and Facebook were not opened.
+
+**This pass is not exhaustive.** The V&A advertises 80+ eateries and the
+directory returned 65. Balducci, Hildebrand, Meloncino, Greek Fisherman,
+Sotano V&A, Col'Cacchio, Cape Town Fish Market, Alba Lounge, The Yard, Rockets,
+Vovo Telo, Truth Silo, Bertha's, Bombay Brasserie, Signal and Zenzero V&A were
+never reached — treat those as unresearched, not as having no specials.
