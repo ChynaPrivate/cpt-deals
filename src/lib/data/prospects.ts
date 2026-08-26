@@ -117,6 +117,21 @@ export const PROSPECTS: Prospect[] = [
     city: 'Cape Town',
   },
 
+  {
+    handle: 'soukcpt',
+    name: 'Souk',
+    suburb: 'Cape Town City Centre',
+    city: 'Cape Town',
+    note: '163 Long Street, above Chicks and Chops. Cocktail bar, Wed-Sun 6pm-2am. Its own menu page rate-limits, so Instagram may be the only readable source for a happy hour.',
+  },
+  {
+    handle: 'gypsyrabbitcpt',
+    name: 'Gypsy Rabbit',
+    suburb: 'Cape Town City Centre',
+    city: 'Cape Town',
+    note: '110 Bree Street. Website is an empty JavaScript shell and there is no Dineplan page, so social is the only channel. Handle unconfirmed \u2014 @gypsyrabbitct also appears in the wild; a sweep error naming the wrong account settles it.',
+  },
+
   // -------------------------------------------------------------- Sea Point
   {
     handle: 'arthursminisuper',

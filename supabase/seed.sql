@@ -698,6 +698,14 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
 
+insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
+  'a1000000-0000-4000-8000-000000000057', 'Chicks and Chops', 'chicks-and-chops', 'Fried chicken and schnitzel counter on Long Street, open from late morning until midnight. Shares 163 Long Street with the bar Souk, which trades in the evening.', array['Chicken', 'Burgers', 'Casual']::text[],
+  '163 Long Street', 'Cape Town City Centre', null, null, null,
+  null, null, 'https://www.instagram.com/chicksandchopsza/', 'https://www.facebook.com/61574533476460/',
+  'https://www.google.com/maps/search/?api=1&query=Chicks%20and%20Chops%2C%20163%20Long%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-26'
+) on conflict (id) do update set
+  name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
+
 -- ------------------------------------------------------------- specials
 insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
   'b2000000-0000-4000-8000-000000000001', 'a1000000-0000-4000-8000-000000000001', 'Happy hour',
@@ -2979,6 +2987,18 @@ insert into public.specials (id, restaurant_id, title, description, price, origi
 ) on conflict (id) do update set
   restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
 
+insert into public.specials (id, restaurant_id, title, description, price, original_price, category, dietary_tags, days_of_week, start_time, end_time, valid_from, valid_until, terms, booking_required, public_holiday_status, source_url, source_type, source_published_at, last_verified_at, verification_status, featured, active) values (
+  'b2000000-0000-4000-8000-0000000000c6', 'a1000000-0000-4000-8000-000000000057', 'Chicken Snitch buy-one-get-one — R140 for two',
+  'Two of the chicken schnitzel burgers for the price of one, every Wednesday.',
+  140, null, 'food'::special_category, '{}',
+  array[3]::smallint[], '11:00', '23:59',
+  null, '2026-09-30', 'R140 for two burgers, Wednesdays. Seen on the venue''s own Instagram story on 26 August 2026 — stories expire after 24 hours, so the link below goes to the account rather than the post, and this needs re-checking rather than being taken as permanent. Uber Eats separately advertises a buy-one-get-one on the same burger at R120, which is a delivery price on a different channel and carries no day restriction. No end date was given for the Wednesday deal; the date here is a prompt to confirm it, not something the venue published.', false,
+  'unknown'::holiday_status, 'https://www.instagram.com/chicksandchopsza/', 'social'::source_type,
+  '2026-08-26', '2026-08-26', 'verified'::verification_status,
+  false, true
+) on conflict (id) do update set
+  restaurant_id = excluded.restaurant_id, title = excluded.title, description = excluded.description, price = excluded.price, original_price = excluded.original_price, category = excluded.category, dietary_tags = excluded.dietary_tags, days_of_week = excluded.days_of_week, start_time = excluded.start_time, end_time = excluded.end_time, valid_from = excluded.valid_from, valid_until = excluded.valid_until, terms = excluded.terms, booking_required = excluded.booking_required, public_holiday_status = excluded.public_holiday_status, source_url = excluded.source_url, source_type = excluded.source_type, source_published_at = excluded.source_published_at, last_verified_at = excluded.last_verified_at, verification_status = excluded.verification_status, featured = excluded.featured, active = excluded.active, updated_at = now();
+
 -- ------------------------------------------- research queue (not public)
 insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
   'c3000000-0000-4000-8000-000000000018', null,
@@ -3496,6 +3516,20 @@ insert into public.research_queue (id, restaurant_id, proposed_special_data, sou
   '{"restaurant":"Scheckter''s RAW, Vagabond Kitchens Sea Point, The Bistro on the Promenade","street_address":"Sea Point","title":"Venue status problems found during the 26 August sweep","note":"Not offers — data hygiene. schecktersraw.com now redirects to an unrelated gambling domain, so never link it. Vagabond Kitchens no longer lists its Sea Point branch on its own site, though the old branch page still resolves. The Bistro on the Promenade has been rebranded KOKO Kitchen by the hotel that runs it."}'::jsonb,
   'https://www.hotelonthepromenade.com/pages/the-bistro/', '2026-08-26', 'high'::confidence_level,
   'pending'::review_status, 'None of the three is currently in our data. Worth keeping on file so a future sweep does not add a dead venue or a hijacked link.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000051', null,
+  '{"restaurant":"Gypsy Rabbit","street_address":"110 Bree Street, Cape Town City Centre","title":"All-day prego special — chicken R140, beef R155, each with a Corona","note":"From a TikTok caption on the venue’s own account. The video id dates it to roughly March 2025, about eighteen months old, and nothing newer confirms it. Cape Town Magazine also mentions boerewors-roll and draught specials, and specials on First Thursdays, but publishes no price, day or time for any of them."}'::jsonb,
+  'https://www.capetownmagazine.com/bree-street', '2026-08-26', 'low'::confidence_level,
+  'pending'::review_status, 'Address is in scope. gypsyrabbit.co.za loads an empty JavaScript shell and there is no Dineplan page, so there is no readable official source at all. Two Instagram handles appear in the wild, @gypsyrabbitcpt and @gypsyrabbitct — settle which is real before adding it to the sweep. Phone 062 882 7593.'
+) on conflict (id) do nothing;
+
+insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
+  'c3000000-0000-4000-8000-000000000052', null,
+  '{"restaurant":"Souk","street_address":"163 Long Street, Cape Town City Centre","title":"Menus never read — possible happy hour unseen","note":"Cocktail-led bar trading Wednesday to Sunday, 6pm to 2am, at the same address as Chicks and Chops. The official site has no specials on the pages that loaded, but soukcpt.com/menu rate-limited on every attempt, and a bar of this kind documents a happy hour on its drinks menu if it has one."}'::jsonb,
+  'https://www.soukcpt.com/visit-us', '2026-08-26', 'medium'::confidence_level,
+  'pending'::review_status, 'Not an offer — an unread source. Re-fetch soukcpt.com/menu once it stops rate-limiting. Phone 060 682 6894 per the official site; an old EatOut listing says 021 422 1300, which is from a 2018 menu update and should be ignored.'
 ) on conflict (id) do nothing;
 
 commit;

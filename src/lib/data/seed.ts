@@ -2017,6 +2017,29 @@ export const RESTAURANTS_SEED: Restaurant[] = [
     created_at: NOW_ISO,
     updated_at: NOW_ISO,
   },
+  {
+    id: 'a1000000-0000-4000-8000-000000000057',
+    name: 'Chicks and Chops',
+    slug: 'chicks-and-chops',
+    description:
+      'Fried chicken and schnitzel counter on Long Street, open from late morning until midnight. Shares 163 Long Street with the bar Souk, which trades in the evening.',
+    categories: ['Chicken', 'Burgers', 'Casual'],
+    street_address: '163 Long Street',
+    suburb: 'Cape Town City Centre',
+    latitude: null,
+    longitude: null,
+    phone: null,
+    website_url: null,
+    booking_url: null,
+    instagram_url: 'https://www.instagram.com/chicksandchopsza/',
+    facebook_url: 'https://www.facebook.com/61574533476460/',
+    google_maps_url: mapsUrl('Chicks and Chops', '163 Long Street, Cape Town City Centre'),
+    image_url: null,
+    active: true,
+    last_checked_at: CHECKED_7,
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
 ];
 
 const RICKS = RESTAURANTS_SEED[0].id;
@@ -2105,6 +2128,7 @@ const HEIRLOOM = RESTAURANTS_SEED[82].id;
 const TERRARIUM = RESTAURANTS_SEED[83].id;
 const TOBAGOS = RESTAURANTS_SEED[84].id;
 const PIER = RESTAURANTS_SEED[85].id;
+const CHICKS_CHOPS = RESTAURANTS_SEED[86].id;
 
 /** The Cape Town Blog's Monday round-up, last updated 12 August 2026. */
 const CTB_MONDAY = 'https://thecapetownblog.com/monday-specials/';
@@ -5298,6 +5322,25 @@ export const SPECIALS_SEED: Special[] = [
       'Per person. From the winter round-up published by Dineplan on 15 July 2026. Dineplan is where the booking is taken, so this sits close to first-party, but the price was not re-checked against the venue itself.',
     last_verified_at: CHECKED_7,
   }),
+  special({
+    id: 'b2000000-0000-4000-8000-0000000000c6',
+    last_verified_at: CHECKED_7,
+    restaurant_id: CHICKS_CHOPS,
+    title: 'Chicken Snitch buy-one-get-one \u2014 R140 for two',
+    description: 'Two of the chicken schnitzel burgers for the price of one, every Wednesday.',
+    price: 140,
+    category: 'food',
+    days_of_week: [3],
+    // The story gave no time window, so this is the venue's trading day.
+    start_time: '11:00',
+    end_time: '23:59',
+    valid_until: '2026-09-30',
+    terms:
+      "R140 for two burgers, Wednesdays. Seen on the venue's own Instagram story on 26 August 2026 \u2014 stories expire after 24 hours, so the link below goes to the account rather than the post, and this needs re-checking rather than being taken as permanent. Uber Eats separately advertises a buy-one-get-one on the same burger at R120, which is a delivery price on a different channel and carries no day restriction. No end date was given for the Wednesday deal; the date here is a prompt to confirm it, not something the venue published.",
+    source_url: 'https://www.instagram.com/chicksandchopsza/',
+    source_type: 'social',
+    source_published_at: '2026-08-26',
+  }),
 ];
 
 /**
@@ -6742,6 +6785,44 @@ export const RESEARCH_QUEUE_SEED: ResearchQueueItem[] = [
     review_status: 'pending',
     reviewer_notes:
       'None of the three is currently in our data. Worth keeping on file so a future sweep does not add a dead venue or a hijacked link.',
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-000000000051',
+    restaurant_id: null,
+    proposed_special_data: {
+      restaurant: 'Gypsy Rabbit',
+      street_address: '110 Bree Street, Cape Town City Centre',
+      title: 'All-day prego special \u2014 chicken R140, beef R155, each with a Corona',
+      note: 'From a TikTok caption on the venue\u2019s own account. The video id dates it to roughly March 2025, about eighteen months old, and nothing newer confirms it. Cape Town Magazine also mentions boerewors-roll and draught specials, and specials on First Thursdays, but publishes no price, day or time for any of them.',
+    },
+    source_url: 'https://www.capetownmagazine.com/bree-street',
+    photo_url: null,
+    detected_at: CHECKED_7,
+    confidence: 'low',
+    review_status: 'pending',
+    reviewer_notes:
+      'Address is in scope. gypsyrabbit.co.za loads an empty JavaScript shell and there is no Dineplan page, so there is no readable official source at all. Two Instagram handles appear in the wild, @gypsyrabbitcpt and @gypsyrabbitct \u2014 settle which is real before adding it to the sweep. Phone 062 882 7593.',
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-000000000052',
+    restaurant_id: null,
+    proposed_special_data: {
+      restaurant: 'Souk',
+      street_address: '163 Long Street, Cape Town City Centre',
+      title: 'Menus never read \u2014 possible happy hour unseen',
+      note: 'Cocktail-led bar trading Wednesday to Sunday, 6pm to 2am, at the same address as Chicks and Chops. The official site has no specials on the pages that loaded, but soukcpt.com/menu rate-limited on every attempt, and a bar of this kind documents a happy hour on its drinks menu if it has one.',
+    },
+    source_url: 'https://www.soukcpt.com/visit-us',
+    photo_url: null,
+    detected_at: CHECKED_7,
+    confidence: 'medium',
+    review_status: 'pending',
+    reviewer_notes:
+      'Not an offer \u2014 an unread source. Re-fetch soukcpt.com/menu once it stops rate-limiting. Phone 060 682 6894 per the official site; an old EatOut listing says 021 422 1300, which is from a 2018 menu update and should be ignored.',
     created_at: NOW_ISO,
     updated_at: NOW_ISO,
   },
