@@ -5326,8 +5326,11 @@ export const SPECIALS_SEED: Special[] = [
     id: 'b2000000-0000-4000-8000-0000000000c6',
     last_verified_at: CHECKED_7,
     restaurant_id: CHICKS_CHOPS,
-    title: 'Chicken Snitch buy-one-get-one \u2014 R140 for two',
-    description: 'Two of the chicken schnitzel burgers for the price of one, every Wednesday.',
+    // The price stays out of the title so the card shows it as the big
+    // orange figure rather than as small text in the middle of a sentence.
+    title: '2 Chicken Sandos',
+    description:
+      'Buy one, get one on the burger the venue calls The Chicken Snitch \u2014 two for R140, every Wednesday. Chicken or beef schnitzel with onion, tomato and lettuce in a creamy pink sauce on a potato bun.',
     price: 140,
     category: 'food',
     days_of_week: [3],
