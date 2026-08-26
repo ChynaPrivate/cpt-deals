@@ -42,6 +42,48 @@ export function isPubliclyVisible(
  * Narrow to the chosen suburbs. An empty selection means "everywhere", which
  * is what a visitor sees when they first arrive.
  */
+/**
+ * Free-text search across the fields someone would actually type.
+ *
+ * Venue name, offer title, description, category and street address, plus the
+ * suburb — so "Kloof", "burger", "Long Street" and "Chicks" all find something.
+ * Every word in the query must match somewhere, in any field and in any order:
+ * "sea point sushi" narrows, rather than returning everything in Sea Point.
+ *
+ * Accents are stripped on both sides, so searching "cafe" finds "Café" and
+ * "mas" finds "Una Más" — a phone keyboard makes accents hard work, and nobody
+ * should have to produce one to find a taqueria.
+ */
+function normalise(text: string): string {
+  return text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
+
+export function searchSpecials(
+  all: SpecialWithRestaurant[],
+  query: string,
+): SpecialWithRestaurant[] {
+  const words = normalise(query).split(/\s+/).filter(Boolean);
+  if (words.length === 0) return all;
+
+  return all.filter((special) => {
+    const haystack = normalise(
+      [
+        special.restaurant.name,
+        special.restaurant.street_address,
+        special.restaurant.suburb,
+        special.restaurant.categories.join(' '),
+        special.title,
+        special.description,
+        special.category,
+      ].join(' '),
+    );
+    return words.every((word) => haystack.includes(word));
+  });
+}
+
 export function inSuburbs(
   all: SpecialWithRestaurant[],
   suburbs: Suburb[],

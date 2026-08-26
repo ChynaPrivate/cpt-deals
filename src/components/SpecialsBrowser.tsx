@@ -4,10 +4,12 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import DayPicker from './DayPicker';
 import KindToggle from './KindToggle';
 import ControlBar from './ControlBar';
+import SearchBox from './SearchBox';
 import InstallHelp from './InstallHelp';
 import SpecialCard from './SpecialCard';
 import {
   applyFilters,
+  searchSpecials,
   countsByDay,
   countsByKind,
   countsBySuburb,
@@ -46,6 +48,7 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
   const [kind, setKind] = useState<SpecialKind>('all');
   // Empty means every suburb — how the site opens.
   const [suburbs, setSuburbs] = useState<Suburb[]>([]);
+  const [query, setQuery] = useState('');
   const [sort, setSort] = useState<SortKey>('recommended');
   const [coords, setCoords] = useState<Coords | null>(null);
   const [locationState, setLocationState] = useState<LocationState>('idle');
@@ -90,8 +93,11 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
   const visible = useMemo(() => {
     const forDay = specialsForDay(specials, selectedDay, now.date, suburbs, kind);
     const filtered = applyFilters(forDay, filters, now);
-    return sortSpecials(filtered, sort, now, coords);
-  }, [specials, selectedDay, now, filters, sort, coords, suburbs, kind]);
+    // Search narrows whatever the chips already chose, rather than replacing
+    // it — so a suburb plus a word behaves the way you would expect.
+    const found = searchSpecials(filtered, query);
+    return sortSpecials(found, sort, now, coords);
+  }, [specials, selectedDay, now, filters, sort, coords, suburbs, kind, query]);
 
   const requestLocation = useCallback(() => {
     if (!('geolocation' in navigator)) {
@@ -171,6 +177,8 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
         onClearFilters={() => setFilters([])}
       />
 
+      <SearchBox value={query} resultCount={visible.length} onChange={setQuery} />
+
       <section aria-labelledby="results-heading" className="mt-6">
         <h2 id="results-heading" className="text-[18px] font-bold">
           {WEEKDAY_NAMES[selectedDay]}
@@ -180,25 +188,43 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
           {visible.length} {visible.length === 1 ? 'special' : 'specials'}
           {suburbs.length > 0 ? ` in ${suburbs.join(', ')}` : ' across all suburbs'}
           {filters.length > 0 ? ', matching your filters' : ''}
+          {query.trim() ? ` matching “${query.trim()}”` : ''}
         </p>
 
         {visible.length === 0 ? (
           <div className="border-line bg-surface mt-4 rounded-[var(--radius-card)] border p-6 text-center">
-            <p className="text-[17px] font-bold">No verified specials found for this day yet.</p>
-            <p className="mt-2 text-[15px] text-white/60">
-              {filters.length > 0 || suburbs.length > 0
-                ? 'Try widening the suburbs or clearing the filters, or have a look at another day.'
-                : 'Try another day — Tuesday and Sunday usually have the most on offer.'}
+            <p className="text-[17px] font-bold">
+              {query.trim()
+                ? `Nothing matches “${query.trim()}” on this day.`
+                : 'No verified specials found for this day yet.'}
             </p>
-            {filters.length > 0 && (
-              <button
-                type="button"
-                onClick={() => setFilters([])}
-                className="bg-orange text-ink mt-3 min-h-[44px] rounded-xl px-4 text-[15px] font-bold"
-              >
-                Clear filters
-              </button>
-            )}
+            <p className="mt-2 text-[15px] text-white/60">
+              {query.trim()
+                ? 'Try a shorter word, another day, or clear the search to see everything.'
+                : filters.length > 0 || suburbs.length > 0
+                  ? 'Try widening the suburbs or clearing the filters, or have a look at another day.'
+                  : 'Try another day — Tuesday and Sunday usually have the most on offer.'}
+            </p>
+            <div className="mt-3 flex flex-wrap justify-center gap-2">
+              {query.trim() && (
+                <button
+                  type="button"
+                  onClick={() => setQuery('')}
+                  className="bg-orange text-ink min-h-[44px] rounded-xl px-4 text-[15px] font-bold"
+                >
+                  Clear search
+                </button>
+              )}
+              {filters.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setFilters([])}
+                  className="border-line min-h-[44px] rounded-xl border-2 px-4 text-[15px] font-bold text-white"
+                >
+                  Clear filters
+                </button>
+              )}
+            </div>
           </div>
         ) : (
           <ul className="mt-4 space-y-3">

@@ -7,6 +7,7 @@ import {
   inKind,
   kindOf,
   inSuburbs,
+  searchSpecials,
   distanceKm,
   freshnessLabel,
   isPubliclyVisible,
@@ -441,5 +442,76 @@ describe('FILTER_SUBURBS', () => {
     expect(filterSuburbFor('Sea Point')).toBe('Sea Point');
     expect(filterSuburbFor('Mouille Point')).toBe('Green Point');
     expect(filterSuburbFor('Oranjezicht')).toBe('Gardens');
+  });
+});
+
+describe('search', () => {
+  const kloof: SpecialWithRestaurant = {
+    ...make({ title: 'Two-for-one burgers', description: 'Buy one, get one.' }),
+    restaurant: {
+      ...venue,
+      id: 'v-kloof',
+      name: 'Una M\u00e1s Mezcaler\u00eda',
+      street_address: '117 Kloof Street',
+      suburb: 'Gardens',
+      categories: ['Mexican', 'Cocktails'],
+    },
+  };
+  const long: SpecialWithRestaurant = {
+    ...make({ title: '2 Chicken Sandos', description: 'Schnitzel burgers, two for R140.' }),
+    restaurant: {
+      ...venue,
+      id: 'v-long',
+      name: 'Chicks and Chops',
+      street_address: '163 Long Street',
+      suburb: 'Cape Town City Centre',
+      categories: ['Chicken', 'Burgers'],
+    },
+  };
+  const all = [kloof, long];
+  const titles = (q: string) => searchSpecials(all, q).map((s) => s.title);
+
+  it('returns everything for an empty or whitespace query', () => {
+    expect(searchSpecials(all, '')).toHaveLength(2);
+    expect(searchSpecials(all, '   ')).toHaveLength(2);
+  });
+
+  it('finds a venue by name', () => {
+    expect(titles('chicks')).toEqual(['2 Chicken Sandos']);
+  });
+
+  it('finds a venue by street, which is how people describe a place', () => {
+    expect(titles('kloof')).toEqual(['Two-for-one burgers']);
+    expect(titles('long street')).toEqual(['2 Chicken Sandos']);
+  });
+
+  it('searches the offer text and the category, not just the venue', () => {
+    expect(titles('sandos')).toEqual(['2 Chicken Sandos']);
+    expect(titles('schnitzel')).toEqual(['2 Chicken Sandos']);
+    expect(titles('mexican')).toEqual(['Two-for-one burgers']);
+  });
+
+  it('ignores accents, because a phone keyboard makes them hard work', () => {
+    expect(titles('una mas')).toEqual(['Two-for-one burgers']);
+    expect(titles('mezcaleria')).toEqual(['Two-for-one burgers']);
+  });
+
+  it('requires every word, so extra words narrow rather than widen', () => {
+    expect(titles('chicken sandos')).toEqual(['2 Chicken Sandos']);
+    // "burgers" matches both; adding "chicks" should leave only one.
+    expect(titles('burgers')).toHaveLength(2);
+    expect(titles('burgers chicks')).toEqual(['2 Chicken Sandos']);
+  });
+
+  it('matches words in any order', () => {
+    expect(titles('sandos chicken')).toEqual(titles('chicken sandos'));
+  });
+
+  it('is case-insensitive', () => {
+    expect(titles('CHICKS')).toEqual(titles('chicks'));
+  });
+
+  it('returns nothing when nothing matches, rather than everything', () => {
+    expect(searchSpecials(all, 'sushi')).toEqual([]);
   });
 });
