@@ -73,6 +73,60 @@ It is used in `netlify/functions/instagram-sweep.mts` and nowhere else. Netlify 
 - **Text baked into an image** with an empty caption. A poster JPEG with no words in the caption reads as nothing. This is the real weakness, and it is why photographing boards still matters.
 - **Venues not on the site yet.** The sweep reads venues you have already added. For discovery, use the by-hand checklist in `city-bowl-instagram-sweep.html`.
 
+## Reading the log
+
+Every run prints one line to the Netlify function log:
+
+```
+instagram-sweep {"venues":81,"checked":54,"added":6,"problems":27}
+```
+
+- **venues** — accounts on the list, after collapsing branches that share one account
+- **checked** — accounts Business Discovery actually returned posts for
+- **added** — new candidates filed
+- **problems** — accounts that could not be read, each printed on its own line below
+
+A gap between `venues` and `checked` is normal: personal (non-Professional)
+accounts cannot be read at all, and each one is counted as a problem.
+
+This line exists because it did not, once. On 26 August 2026 the log panel was
+empty for a function that had been running perfectly for three days — it simply
+never printed anything — and that sent us looking for a broken access token
+that was fine. An invisible healthy run is indistinguishable from a dead one.
+
+## One post, one candidate
+
+Found on 26 August 2026: the queue held 111 Instagram-sourced rows but only 72
+distinct post permalinks. A third of the queue was the same posts over again,
+and whoever sat down to review it would have read them twice.
+
+Three things now prevent it:
+
+1. **One sweep per account.** Several venues share an Instagram account —
+   Hudsons across two branches, Tiger's Milk across three — and the sweep used
+   to read the account once per branch. `dedupeByHandle` collapses them, which
+   also spends fewer Meta calls. Where a listed venue and a prospect watch the
+   same account, the listed one wins, so the candidate files against a
+   restaurant rather than landing with nothing attached.
+2. **The permalink is claimed before the insert is awaited.** Candidates for a
+   venue are filtered against `seen` as it stood when that venue started, so
+   the claim has to happen at the moment of use, not after the write returns.
+3. **A unique index in the database.** Migration
+   `20260826080000_dedupe_instagram_candidates.sql` removes the existing
+   duplicates and stops any future one.
+
+The index is deliberately **partial** — it covers Instagram post and reel
+permalinks only. A post identifies one offer at one venue, so it is a safe
+identity. A `source_url` in general is not: six seeded candidates cite the same
+Cape Town happy-hour round-up, one per venue it covers, and that is correct
+data. A blanket unique constraint would reject five of them. `isInstagramPermalink`
+in `src/lib/instagram/discover.ts` draws the same line in code, and a test
+asserts that no shared article URL in the seed ever looks like a permalink.
+
+`sync-seed` follows the same rule: if the sweep has already filed a post that a
+seeded candidate cites, the sweep's row wins — it carries the caption and the
+posting date — and the seeded copy is skipped.
+
 ## Tuning what gets flagged
 
 The keyword list and scoring live in `src/lib/instagram/discover.ts`. The threshold is deliberately generous — a false positive costs one glance in the queue, a false negative costs a listing.

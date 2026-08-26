@@ -29,7 +29,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000003', 'Our Local — Kloof Street', 'our-local-kloof-street', 'All-day neighbourhood café and bakery on Kloof Street, serving breakfast and lunch daily and dinner from Thursday to Saturday.', array['Café', 'Bakery', 'Bistro']::text[],
   '117 Kloof Street', 'Gardens', null, null, '+27646425004',
-  'https://ourlocal.co.za', 'https://account.dineplan.com/widgetframe/K1zRjn6V', null, null,
+  'https://ourlocal.co.za', 'https://account.dineplan.com/widgetframe/K1zRjn6V', 'https://www.instagram.com/our_local/', null,
   'https://www.google.com/maps/search/?api=1&query=Our%20Local%20Kloof%20Street%2C%20117%20Kloof%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-20'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -37,7 +37,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000004', 'Maru Korean Steakhouse', 'maru-korean-steakhouse', 'Korean steakhouse on Bree Street, grilling grass-fed and Wagyu beef at the table.', array['Korean', 'Steakhouse', 'Bar']::text[],
   '107 Bree Street', 'Cape Town City Centre', null, null, null,
-  'https://www.restaurants.co.za/maru-korean-steakhouse', null, null, null,
+  'https://www.restaurants.co.za/maru-korean-steakhouse', null, 'https://www.instagram.com/maru__za/', null,
   'https://www.google.com/maps/search/?api=1&query=Maru%20Korean%20Steakhouse%2C%20107%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -45,7 +45,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000005', 'Florentin', 'florentin', 'Mediterranean café and bar on Bree Street, open from breakfast through to dinner.', array['Mediterranean', 'Café', 'Bar']::text[],
   'Bree Street', 'Cape Town City Centre', null, null, null,
-  'https://www.dineplan.com/restaurants/florentin', 'https://www.dineplan.com/restaurants/florentin', null, null,
+  'https://www.dineplan.com/restaurants/florentin', 'https://www.dineplan.com/restaurants/florentin', 'https://www.instagram.com/florentin_cpt/', null,
   'https://www.google.com/maps/search/?api=1&query=Florentin%2C%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -53,7 +53,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000006', 'The Hussar Grill — Camps Bay', 'hussar-grill-camps-bay', 'Long-standing South African grill house, on the Camps Bay beachfront since 1964.', array['Steakhouse', 'Grill']::text[],
   'Victoria Road', 'Camps Bay', null, null, null,
-  'https://hussargrill.co.za/', null, null, null,
+  'https://hussargrill.co.za/', null, 'https://www.instagram.com/hussargrillcampsbay/', null,
   'https://www.google.com/maps/search/?api=1&query=The%20Hussar%20Grill%20Camps%20Bay%2C%20Victoria%20Road%2C%20Camps%20Bay%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -61,7 +61,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000007', 'The Hussar Grill — Mouille Point', 'hussar-grill-mouille-point', 'The Mouille Point branch of the Hussar Grill, a block from the promenade.', array['Steakhouse', 'Grill']::text[],
   'Beach Road', 'Mouille Point', null, null, null,
-  'https://hussargrill.co.za/', null, null, null,
+  'https://hussargrill.co.za/', null, 'https://www.instagram.com/hussargrillmouillepoint/', null,
   'https://www.google.com/maps/search/?api=1&query=The%20Hussar%20Grill%20Mouille%20Point%2C%20Beach%20Road%2C%20Mouille%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -69,7 +69,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000008', 'The Nines', 'the-nines', 'Sea Point restaurant and bar with a seafood-leaning menu and live jazz Sundays.', array['Restaurant', 'Bar', 'Seafood']::text[],
   'Main Road', 'Sea Point', null, null, null,
-  'https://www.restaurants.co.za/the-nines', null, null, null,
+  'https://www.restaurants.co.za/the-nines', null, 'https://www.instagram.com/thenines/', null,
   'https://www.google.com/maps/search/?api=1&query=The%20Nines%2C%20Main%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -77,7 +77,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000009', 'Our Local — Sea Point', 'our-local-sea-point', 'The Sea Point branch of the all-day café and bakery, with dinner Thursday to Saturday.', array['Café', 'Bakery', 'Bistro']::text[],
   '295 Main Road', 'Sea Point', null, null, '+27696653996',
-  'https://ourlocal.co.za', 'https://account.dineplan.com/widgetframe/5m0YgX1y', null, null,
+  'https://ourlocal.co.za', 'https://account.dineplan.com/widgetframe/5m0YgX1y', 'https://www.instagram.com/our_local/', null,
   'https://www.google.com/maps/search/?api=1&query=Our%20Local%20Sea%20Point%2C%20295%20Main%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -85,7 +85,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000000a', 'Club Kloof', 'club-kloof', 'Bar and grill at the top of Kloof Street, known for steak and frites.', array['Bar', 'Grill']::text[],
   '84 Kloof Street', 'Tamboerskloof', null, null, null,
-  'https://www.dineplan.com/restaurants/club-kloof', 'https://www.dineplan.com/restaurants/club-kloof', null, null,
+  'https://www.dineplan.com/restaurants/club-kloof', 'https://www.dineplan.com/restaurants/club-kloof', 'https://www.instagram.com/clubkloof_/', null,
   'https://www.google.com/maps/search/?api=1&query=Club%20Kloof%2C%2084%20Kloof%20Street%2C%20Tamboerskloof%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -109,7 +109,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000000d', 'Burger & Lobster', 'burger-and-lobster', 'The Cape Town branch of the London burger and lobster house, on Bree Street.', array['Burgers', 'Seafood']::text[],
   '105 Bree Street', 'Cape Town City Centre', null, null, null,
-  'https://burgerandlobster.co.za/', null, null, null,
+  'https://burgerandlobster.co.za/', null, 'https://www.instagram.com/burgerlobstersa/', null,
   'https://www.google.com/maps/search/?api=1&query=Burger%20%26%20Lobster%20Cape%20Town%2C%20105%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -117,7 +117,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000000e', 'Flirt Mexican Restaurant', 'flirt-mexican', 'Mexican restaurant and cocktail bar on Church Street, with a DJ at the weekend.', array['Mexican', 'Cocktails', 'Bar']::text[],
   '75 Church Street', 'Cape Town City Centre', null, null, null,
-  'https://flirtcpt.co.za/', null, null, null,
+  'https://flirtcpt.co.za/', null, 'https://www.instagram.com/flirt_cpt/', null,
   'https://www.google.com/maps/search/?api=1&query=Flirt%20Mexican%20Restaurant%2C%2075%20Church%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-21'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -133,7 +133,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000010', 'Amura at Mount Nelson', 'amura-mount-nelson', 'Restaurant at the Mount Nelson Hotel on Orange Street, serving a seasonal four-course menu.', array['Fine dining', 'Hotel restaurant']::text[],
   '76 Orange Street', 'Gardens', null, null, null,
-  null, 'https://www.dineplan.com/restaurants/amura', null, null,
+  null, 'https://www.dineplan.com/restaurants/amura', 'https://www.instagram.com/amuracapetown/', null,
   'https://www.google.com/maps/search/?api=1&query=Amura%20at%20Mount%20Nelson%2C%2076%20Orange%20Street%2C%20Gardens%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -149,7 +149,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000012', 'FYN Restaurant', 'fyn-restaurant', 'Fine-dining restaurant on Parliament Street pairing South African produce with Japanese technique.', array['Fine dining', 'Japanese', 'Tasting menu']::text[],
   '37 Parliament Street', 'Cape Town City Centre', null, null, null,
-  null, 'https://www.dineplan.com/restaurants/fyn', null, null,
+  'https://www.fynrestaurant.com', 'https://www.dineplan.com/restaurants/fyn', 'https://www.instagram.com/fynrestaurantcpt/', null,
   'https://www.google.com/maps/search/?api=1&query=FYN%20Restaurant%2C%2037%20Parliament%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -157,7 +157,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000013', 'Hacienda', 'hacienda-bree', 'Mexican Baja Californian kitchen and bar on Bree Street.', array['Mexican', 'Bar', 'Sharing plates']::text[],
   '92 Bree Street', 'Cape Town City Centre', null, null, null,
-  null, 'https://www.dineplan.com/restaurants/hacienda', null, null,
+  null, 'https://www.dineplan.com/restaurants/hacienda', 'https://www.instagram.com/hacienda_sa/', null,
   'https://www.google.com/maps/search/?api=1&query=Hacienda%2C%2092%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -165,7 +165,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000014', 'Iron Steak and Bar', 'iron-steak-and-bar', 'Steakhouse and bar on Bree Street.', array['Steakhouse', 'Bar']::text[],
   '114 Bree Street', 'Cape Town City Centre', null, null, null,
-  null, 'https://www.dineplan.com/restaurants/iron-steak-and-bar', null, null,
+  null, 'https://www.dineplan.com/restaurants/iron-steak-and-bar', 'https://www.instagram.com/ironsteaksa/', null,
   'https://www.google.com/maps/search/?api=1&query=Iron%20Steak%20and%20Bar%2C%20114%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -181,7 +181,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000016', 'Nikkei Japanese Peruvian', 'nikkei-japanese-peruvian', 'Japanese-Peruvian restaurant on Bree Street.', array['Japanese', 'Peruvian', 'Sushi']::text[],
   '87 Bree Street', 'Cape Town City Centre', null, null, null,
-  null, 'https://www.dineplan.com/restaurants/nikkei', null, null,
+  null, 'https://www.dineplan.com/restaurants/nikkei', 'https://www.instagram.com/nikkei_za/', null,
   'https://www.google.com/maps/search/?api=1&query=Nikkei%20Japanese%20Peruvian%2C%2087%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -189,7 +189,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000017', 'The Waterside', 'the-waterside', 'Five-course tasting restaurant on Shortmarket Street.', array['Fine dining', 'Tasting menu']::text[],
   '55 Shortmarket Street', 'Cape Town City Centre', null, null, null,
-  null, 'https://www.dineplan.com/restaurants/the-waterside', null, null,
+  null, 'https://www.dineplan.com/restaurants/the-waterside', 'https://www.instagram.com/thewatersidect/', null,
   'https://www.google.com/maps/search/?api=1&query=The%20Waterside%2C%2055%20Shortmarket%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -205,7 +205,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000019', 'Yatai Japanese', 'yatai-japanese', 'Japanese restaurant on Bree Street serving a curated sharing menu.', array['Japanese', 'Sharing plates']::text[],
   '87 Bree Street', 'Cape Town City Centre', null, null, null,
-  null, 'https://www.dineplan.com/restaurants/yatai', null, null,
+  null, 'https://www.dineplan.com/restaurants/yatai', 'https://www.instagram.com/yatai_za/', null,
   'https://www.google.com/maps/search/?api=1&query=Yatai%20Japanese%2C%2087%20Bree%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -213,7 +213,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000001a', 'Grand Pavilion', 'grand-pavilion', 'Restaurant on the Sea Point promenade.', array['Restaurant', 'Seaside']::text[],
   '277 Beach Road', 'Sea Point', null, null, null,
-  null, 'https://www.dineplan.com/restaurants/grand-pavilion', null, null,
+  null, 'https://www.dineplan.com/restaurants/grand-pavilion', 'https://www.instagram.com/grand_pavilion/', null,
   'https://www.google.com/maps/search/?api=1&query=Grand%20Pavilion%2C%20277%20Beach%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -221,7 +221,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000001b', 'The President Hotel', 'the-president-hotel', 'Hotel on Alexander Road with three public venues — The Restaurant, Botany Cafe and the Senate Bar. The hotel''s own site calls the address Bantry Bay and its booking page calls it Sea Point; Alexander Road is the boundary between the two, and it is a short walk from the Sea Point promenade either way.', array['Hotel restaurant', 'Wine pairing', 'Sunday lunch']::text[],
   '4 Alexander Road', 'Sea Point', null, null, '+27214348111',
-  'https://www.presidenthotel.co.za', 'https://www.dineplan.com/restaurants/the-president-hotel', null, null,
+  'https://www.presidenthotel.co.za', 'https://www.dineplan.com/restaurants/the-president-hotel', 'https://www.instagram.com/thepresidentct/', null,
   'https://www.google.com/maps/search/?api=1&query=The%20President%20Hotel%2C%204%20Alexander%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-26'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -229,7 +229,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000001c', 'Harry''s Beach', 'harrys-beach', 'Beachfront restaurant on Victoria Road in Camps Bay.', array['Restaurant', 'Seaside']::text[],
   '41 Victoria Road', 'Camps Bay', null, null, null,
-  null, 'https://www.dineplan.com/restaurants/harrys-beach', null, null,
+  null, 'https://www.dineplan.com/restaurants/harrys-beach', 'https://www.instagram.com/harrysbeach_/', null,
   'https://www.google.com/maps/search/?api=1&query=Harry''s%20Beach%2C%2041%20Victoria%20Road%2C%20Camps%20Bay%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -237,7 +237,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000001d', 'Harbour House Camps Bay', 'harbour-house-camps-bay', 'Seafood restaurant on the Camps Bay promenade.', array['Seafood', 'Restaurant']::text[],
   '87 Victoria Road, The Promenade', 'Camps Bay', null, null, null,
-  null, 'https://www.dineplan.com/restaurants/harbour-house-camps-bay', null, null,
+  null, 'https://www.dineplan.com/restaurants/harbour-house-camps-bay', 'https://www.instagram.com/harbourhouseza/', null,
   'https://www.google.com/maps/search/?api=1&query=Harbour%20House%20Camps%20Bay%2C%2087%20Victoria%20Road%2C%20The%20Promenade%2C%20Camps%20Bay%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -245,7 +245,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000001e', 'Salsify at the Roundhouse', 'salsify-at-the-roundhouse', 'Fine-dining restaurant in the historic Round House above Camps Bay.', array['Fine dining', 'Tasting menu']::text[],
   'Round House Road, Kloof Road', 'Camps Bay', null, null, null,
-  null, 'https://www.dineplan.com/restaurants/salsify-at-the-roundhouse', null, null,
+  null, 'https://www.dineplan.com/restaurants/salsify-at-the-roundhouse', 'https://www.instagram.com/salsify_at_the_roundhouse/', null,
   'https://www.google.com/maps/search/?api=1&query=Salsify%20at%20the%20Roundhouse%2C%20Round%20House%20Road%2C%20Kloof%20Road%2C%20Camps%20Bay%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-22'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -285,7 +285,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000023', 'Scala Pasta Bar', 'scala-pasta-bar', 'Pasta bar in Heritage Square, off Bree Street.', array['Italian', 'Pasta', 'Restaurant']::text[],
   '81 Church Street, Heritage Square', 'Cape Town City Centre', null, null, '+27214247204',
-  null, null, null, null,
+  null, null, 'https://www.instagram.com/scalapasta/', null,
   'https://www.google.com/maps/search/?api=1&query=Scala%20Pasta%20Bar%2C%2081%20Church%20Street%2C%20Cape%20Town%20City%20Centre%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -333,7 +333,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000029', 'Harringtons Cocktail Lounge', 'harringtons-cocktail-lounge', 'Cocktail lounge on Harrington Street in the East City, above the Harringtons distillery tasting room.', array['Cocktails', 'Bar', 'Lounge']::text[],
   '61B Harrington Street, East City', 'Cape Town City Centre', null, null, '+27784599940',
-  'https://harringtons.co.za', null, null, null,
+  'https://harringtons.co.za', null, 'https://www.instagram.com/harringtonsct/', null,
   'https://www.google.com/maps/search/?api=1&query=Harringtons%20Cocktail%20Lounge%2C%2061B%20Harrington%20Street%2C%20East%20City%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -341,7 +341,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000002a', 'ONOMO Hotel Cape Town — Inn on the Square', 'onomo-inn-on-the-square', 'Hotel bar and terrace on Greenmarket Square, in the middle of the old city, open to non-residents.', array['Hotel bar', 'Bar', 'Beer']::text[],
   '10 Greenmarket Square', 'Cape Town City Centre', null, null, '+27214221286',
-  'https://www.onomohotels.com/en/etablissement/onomo-hotel-cape-town-inn-on-the-square/', null, null, null,
+  'https://www.onomohotels.com/en/etablissement/onomo-hotel-cape-town-inn-on-the-square/', null, 'https://www.instagram.com/onomoinnonthesquare/', null,
   'https://www.google.com/maps/search/?api=1&query=ONOMO%20Hotel%20Cape%20Town%20Inn%20on%20the%20Square%2C%2010%20Greenmarket%20Square%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -429,7 +429,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000035', 'ELVN11', 'elvn11', 'Rooftop restaurant and bar on the eleventh floor of the Radisson on Heerengracht, looking back over the city.', array['Restaurant', 'Rooftop', 'Bar']::text[],
   '29 Heerengracht Street, Foreshore', 'Cape Town City Centre', null, null, '+27214274800',
-  null, null, null, null,
+  null, null, 'https://www.instagram.com/elvn11_capetown/', null,
   'https://www.google.com/maps/search/?api=1&query=ELVN11%20Radisson%20Hotel%2C%2029%20Heerengracht%20Street%2C%20Foreshore%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -445,7 +445,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000037', 'mischu', 'mischu', 'Coffee roastery and all-day café on Regent Road, roasting its own beans on site.', array['Café', 'Coffee', 'Breakfast']::text[],
   '85A Regent Road', 'Sea Point', null, null, '+27214393944',
-  'https://www.mischu.co.za', null, null, 'https://www.facebook.com/mischu.coffee/',
+  'https://www.mischu.co.za', null, 'https://www.instagram.com/mischucoffee/', 'https://www.facebook.com/mischu.coffee/',
   'https://www.google.com/maps/search/?api=1&query=mischu%2C%2085A%20Regent%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -461,7 +461,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000039', 'Café Manhattan', 'cafe-manhattan', 'De Waterkant institution — bar, kitchen and pavement tables, open every day from eleven until eleven.', array['Bar', 'Bistro', 'Burgers']::text[],
   '74 Waterkant Street, De Waterkant', 'Cape Town City Centre', null, null, '+27210028867',
-  'https://cafemanhattan.co.za', 'https://www.dineplan.com/restaurants/cafe-manhattan0', null, null,
+  'https://cafemanhattan.co.za', 'https://www.dineplan.com/restaurants/cafe-manhattan0', 'https://www.instagram.com/cafemanhattans/', null,
   'https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Manhattan%2C%2074%20Waterkant%20Street%2C%20De%20Waterkant%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-23'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -525,7 +525,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000041', 'Pigalle', 'pigalle', 'Long-running Green Point supper club — seafood, steak and a live band most nights.', array['Restaurant', 'Seafood', 'Steak', 'Live music']::text[],
   'Somerset Square, 57 Somerset Road', 'Green Point', null, null, '+27214214848',
-  'https://pigalle.capetown', 'https://www.dineplan.com/restaurants/pigalle-cape-town', null, null,
+  'https://pigalle.capetown', 'https://www.dineplan.com/restaurants/pigalle-cape-town', 'https://www.instagram.com/pigallect/', null,
   'https://www.google.com/maps/search/?api=1&query=Pigalle%2C%2057%20Somerset%20Road%2C%20Green%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-24'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -541,7 +541,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000043', 'Script', 'script', 'Lobby cocktail bar and jazz room at The Cole hotel, off the Sea Point end of Church Road.', array['Bar', 'Cocktails', 'Live music']::text[],
   '1 Church Road, The Cole', 'Sea Point', null, null, '+27210138999',
-  'https://www.kovecollection.co.za/script/', 'https://calendar.dineplan.com/85PkQ6Sp?source=Web', null, null,
+  'https://www.kovecollection.co.za/script/', 'https://calendar.dineplan.com/85PkQ6Sp?source=Web', 'https://www.instagram.com/script_thecole/', null,
   'https://www.google.com/maps/search/?api=1&query=Script%20The%20Cole%2C%201%20Church%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-24'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -549,7 +549,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000044', 'Ariel Modern Italian', 'ariel-modern-italian', 'Modern Italian dining room on Regent Road, above the Jarryds building.', array['Italian', 'Restaurant', 'Pasta']::text[],
   '90 Regent Road', 'Sea Point', null, null, '+27210233643',
-  'https://www.nonamehg.com/arielmodernitalian', 'https://www.dineplan.com/restaurants/ariel-modern-italian', null, null,
+  'https://www.nonamehg.com/arielmodernitalian', 'https://www.dineplan.com/restaurants/ariel-modern-italian', 'https://www.instagram.com/ariel_capetown/', null,
   'https://www.google.com/maps/search/?api=1&query=Ariel%20Modern%20Italian%2C%2090%20Regent%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-24'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -557,7 +557,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000045', 'KIKI', 'kiki-sea-point', 'Greek kitchen in Piccadilly Court on Regent Road, built around sharing plates.', array['Greek', 'Restaurant', 'Small plates']::text[],
   'Piccadilly Court, 85A Regent Road', 'Sea Point', null, null, '+27210232667',
-  null, 'https://www.dineplan.com/restaurants/kiki', null, null,
+  null, 'https://www.dineplan.com/restaurants/kiki', 'https://www.instagram.com/kiki.cpt/', null,
   'https://www.google.com/maps/search/?api=1&query=KIKI%20Sea%20Point%2C%2085A%20Regent%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-24'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -565,7 +565,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000046', 'Kapstadt Brauhaus', 'kapstadt-brauhaus', 'German beer hall at the Clock Tower, with a different plate special most nights of the week.', array['German', 'Beer hall', 'Restaurant', 'Bar']::text[],
   'Shop G13, Clock Tower Retail Centre', 'Victoria & Alfred Waterfront', null, null, '+27214224567',
-  'https://www.kapstadtbrauhaus.co.za', null, null, null,
+  'https://www.kapstadtbrauhaus.co.za', null, 'https://www.instagram.com/kapstadtbrauhaus/', null,
   'https://www.google.com/maps/search/?api=1&query=Kapstadt%20Brauhaus%2C%20Clock%20Tower%20Retail%20Centre%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -573,7 +573,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000047', 'Gibson''s Gourmet Burgers & Ribs', 'gibsons-gourmet-burgers', 'Burgers, ribs and steaks on the ground floor of Victoria Wharf.', array['Burgers', 'Ribs', 'Steak', 'Restaurant']::text[],
   'Shop 157, Victoria Wharf Mall, Ground Level', 'Victoria & Alfred Waterfront', null, null, '+27873573465',
-  'https://www.theburgerjoint.co.za', null, null, null,
+  'https://www.gibsonsburgers.co.za', null, 'https://www.instagram.com/gibsons_capetown/', null,
   'https://www.google.com/maps/search/?api=1&query=Gibson''s%20Gourmet%20Burgers%2C%20Victoria%20Wharf%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -581,7 +581,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000048', 'Time Out Market Cape Town', 'time-out-market-cape-town', 'Food hall in the old power station, with kitchens from across the city under one roof.', array['Food hall', 'Restaurant', 'Bar']::text[],
   'The Old Power Station Building, Marina Centre, Pierhead', 'Victoria & Alfred Waterfront', null, null, '+27214087688',
-  'https://www.timeoutmarket.com/capetown', null, null, null,
+  'https://www.timeoutmarket.com/capetown', null, 'https://www.instagram.com/timeoutmarketcapetown/', null,
   'https://www.google.com/maps/search/?api=1&query=Time%20Out%20Market%20Cape%20Town%2C%20Old%20Power%20Station%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -589,7 +589,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000049', 'Cause & Effect Cocktail Kitchen', 'cause-and-effect-cocktail-kitchen', 'Gin-led cocktail bar and kitchen in the old Rocket Store on Dock Road.', array['Cocktails', 'Bar', 'Restaurant', 'Gin']::text[],
   'Rocket Store, 280 Dock Road, Pierhead', 'Victoria & Alfred Waterfront', null, null, '+27218790855',
-  'http://causeandeffect.co.za', null, null, null,
+  'http://causeandeffect.co.za', null, 'https://www.instagram.com/causeeffectbar/', null,
   'https://www.google.com/maps/search/?api=1&query=Cause%20and%20Effect%20Cocktail%20Kitchen%2C%20280%20Dock%20Road%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -597,7 +597,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000004a', 'Sevruga', 'sevruga', 'Long-running Quays restaurant on the water, sushi alongside a wide à la carte menu.', array['Restaurant', 'Sushi', 'Seafood']::text[],
   'Shop 4, Victoria Wharf Mall, Ground Level, Quays', 'Victoria & Alfred Waterfront', null, null, '+27214215134',
-  'https://www.sevruga.co.za', null, null, null,
+  'https://www.sevruga.co.za', null, 'https://www.instagram.com/sevruga_restaurant/', null,
   'https://www.google.com/maps/search/?api=1&query=Sevruga%2C%20Victoria%20Wharf%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -605,7 +605,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000004b', 'Marble Cape Town', 'marble-cape-town', 'Wood-fire cooking on the upper level of the Union Castle Building.', array['Restaurant', 'Steak', 'Fine dining']::text[],
   'Shop 7, Union Castle Building, Upper Level, Dry Dock', 'Victoria & Alfred Waterfront', null, null, '+27210028484',
-  'https://marble.restaurant/capetown', null, null, null,
+  'https://marble.restaurant/capetown', null, 'https://www.instagram.com/marble_capetown/', null,
   'https://www.google.com/maps/search/?api=1&query=Marble%20Cape%20Town%2C%20Union%20Castle%20Building%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -613,7 +613,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000004c', 'Tiger''s Milk — V&A Waterfront', 'tigers-milk-va-waterfront', 'The Waterfront branch of the burger, pizza and beer chain, upstairs in Victoria Wharf.', array['Burgers', 'Pizza', 'Bar', 'Restaurant']::text[],
   'Shop 261, Victoria Wharf Mall, Upper Level', 'Victoria & Alfred Waterfront', null, null, '+27217456623',
-  'https://www.tigersmilk.co.za/location/va-waterfront/', null, null, null,
+  'https://www.tigersmilk.co.za/location/va-waterfront/', null, 'https://www.instagram.com/tigersmilkza/', null,
   'https://www.google.com/maps/search/?api=1&query=Tiger''s%20Milk%20V%26A%20Waterfront%2C%20Victoria%20Wharf%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -621,7 +621,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000004d', 'Fisherman''s Choice', 'fishermans-choice', 'Fish and chips counter in the Victoria Wharf food court.', array['Seafood', 'Fish and chips', 'Takeaway']::text[],
   'Unit FC10, Victoria Wharf Mall, Ground Level', 'Victoria & Alfred Waterfront', null, null, '+27214195865',
-  'https://www.fishermanschoice.co.za', null, null, null,
+  'https://www.fishermanschoice.co.za', null, 'https://www.instagram.com/fishermans_choice/', null,
   'https://www.google.com/maps/search/?api=1&query=Fisherman''s%20Choice%2C%20Victoria%20Wharf%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-25'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -637,7 +637,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-00000000004f', 'The Greek Fisherman', 'the-greek-fisherman', 'Greek seafood taverna on Regent Road, trading straight through from late morning.', array['Greek', 'Seafood', 'Restaurant']::text[],
   '78 Regent Road', 'Sea Point', null, null, '+27214185411',
-  'http://www.greekfisherman.co.za', 'https://www.dineplan.com/restaurants/greek-fisherman', null, null,
+  'http://www.greekfisherman.co.za', 'https://www.dineplan.com/restaurants/greek-fisherman', 'https://www.instagram.com/greekfisherman/', null,
   'https://www.google.com/maps/search/?api=1&query=The%20Greek%20Fisherman%2C%2078%20Regent%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-26'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -645,7 +645,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000050', 'Arlecchino', 'arlecchino', 'Italian dining room on Regent Road, from the Tashas group.', array['Italian', 'Restaurant']::text[],
   '16 Regent Road', 'Sea Point', null, null, '+27218791133',
-  null, 'https://www.dineplan.com/restaurants/arlecchino', null, null,
+  null, 'https://www.dineplan.com/restaurants/arlecchino', 'https://www.instagram.com/arlecchino_sa/', null,
   'https://www.google.com/maps/search/?api=1&query=Arlecchino%2C%2016%20Regent%20Road%2C%20Sea%20Point%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-26'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -653,7 +653,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000051', 'The Red Room by Chefs Warehouse', 'the-red-room', 'Chefs Warehouse dining room in Gardens, tasting-menu led.', array['Restaurant', 'Fine dining', 'Tasting menu']::text[],
   'Gardens', 'Gardens', null, null, null,
-  'https://www.chefswarehouse.co.za', null, null, null,
+  'https://www.chefswarehouse.co.za', null, 'https://www.instagram.com/the_red_room_cw/', null,
   'https://www.google.com/maps/search/?api=1&query=The%20Red%20Room%20by%20Chefs%20Warehouse%2C%20Gardens%2C%20Cape%20Town%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-26'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -661,7 +661,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000052', 'Belly of the Beast', 'belly-of-the-beast', 'Small Harrington Street kitchen serving a chef-chosen menu with no à la carte.', array['Restaurant', 'Tasting menu', 'Fine dining']::text[],
   '108 Harrington Street', 'Cape Town City Centre', null, null, null,
-  'https://www.bellyofthebeast.co.za', null, null, null,
+  'https://www.bellyofthebeast.co.za', null, 'https://www.instagram.com/bellyofthebeast_ct/', null,
   'https://www.google.com/maps/search/?api=1&query=Belly%20of%20the%20Beast%2C%20108%20Harrington%20Street%2C%20Cape%20Town%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-26'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -669,7 +669,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000053', 'Heirloom at Cape Grace', 'heirloom-cape-grace', 'Hotel dining room at the Cape Grace, on the Waterfront quay.', array['Restaurant', 'Hotel restaurant', 'Fine dining']::text[],
   'Cape Grace Hotel, West Quay Road', 'Victoria & Alfred Waterfront', null, null, null,
-  'https://www.capegrace.com', null, null, null,
+  'https://www.capegrace.com', null, 'https://www.instagram.com/heirloom_atcapegrace/', null,
   'https://www.google.com/maps/search/?api=1&query=Heirloom%20at%20Cape%20Grace%2C%20West%20Quay%20Road%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-26'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -693,7 +693,7 @@ insert into public.restaurants (id, name, slug, description, categories, street_
 insert into public.restaurants (id, name, slug, description, categories, street_address, suburb, latitude, longitude, phone, website_url, booking_url, instagram_url, facebook_url, google_maps_url, image_url, active, last_checked_at) values (
   'a1000000-0000-4000-8000-000000000056', 'PIER', 'pier-waterfront', 'La Colombe group''s tasting-menu restaurant at the Pierhead.', array['Restaurant', 'Fine dining', 'Tasting menu', 'Seafood']::text[],
   'Pierhead, V&A Waterfront', 'Victoria & Alfred Waterfront', null, null, null,
-  'https://www.pierrestaurant.co.za', null, null, null,
+  'https://www.lacolombe.restaurant/pier', null, 'https://www.instagram.com/pier_capetown/', null,
   'https://www.google.com/maps/search/?api=1&query=PIER%20Restaurant%2C%20Pierhead%2C%20V%26A%20Waterfront%2C%20Cape%20Town%2C%20South%20Africa', null, true, '2026-08-26'
 ) on conflict (id) do update set
   name = excluded.name, slug = excluded.slug, description = excluded.description, categories = excluded.categories, street_address = excluded.street_address, suburb = excluded.suburb, latitude = excluded.latitude, longitude = excluded.longitude, phone = excluded.phone, website_url = excluded.website_url, booking_url = excluded.booking_url, instagram_url = excluded.instagram_url, facebook_url = excluded.facebook_url, google_maps_url = excluded.google_maps_url, image_url = excluded.image_url, active = excluded.active, last_checked_at = excluded.last_checked_at, updated_at = now();
@@ -3234,7 +3234,7 @@ insert into public.research_queue (id, restaurant_id, proposed_special_data, sou
 
 insert into public.research_queue (id, restaurant_id, proposed_special_data, source_url, detected_at, confidence, review_status, reviewer_notes) values (
   'c3000000-0000-4000-8000-000000000012', null,
-  '{"restaurant":"The Nines","street_address":"Main Road, Sea Point","title":"Fridays Come Alive, Aperitivo, and the winter set menu","days_of_week":[5],"start_time":"18:00","end_time":"22:00","note":"Three further offers listed with end dates but no prices at all."}'::jsonb,
+  '{"restaurant":"The Nines","street_address":"9th Floor, Station House, 19 Kloof Road","title":"Fridays Come Alive, Aperitivo, and the winter set menu","days_of_week":[5],"start_time":"18:00","end_time":"22:00","note":"Three further offers listed with end dates but no prices at all."}'::jsonb,
   'https://www.restaurants.co.za/specials/western-cape/sea-point', '2026-08-21', 'medium'::confidence_level,
   'pending'::review_status, 'Get prices before publishing. The Sunday lunch from the same venue is already live.'
 ) on conflict (id) do nothing;

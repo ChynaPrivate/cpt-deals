@@ -3,13 +3,15 @@ import {
   businessDiscoveryUrl,
   candidatesFrom,
   confidenceFor,
+  dedupeByHandle,
   handleFromUrl,
+  isInstagramPermalink,
   isRecent,
   scoreCaption,
   type IgMedia,
 } from '@/lib/instagram/discover';
 import { PROSPECTS } from '@/lib/data/prospects';
-import { RESTAURANTS_SEED } from '@/lib/data/seed';
+import { RESEARCH_QUEUE_SEED, RESTAURANTS_SEED } from '@/lib/data/seed';
 
 describe('reading a handle out of a URL', () => {
   it('handles the shapes Instagram URLs actually come in', () => {
@@ -162,5 +164,71 @@ describe('the prospect list', () => {
 
   it('gives every prospect a city, so a second city is data and not a rewrite', () => {
     expect(PROSPECTS.every((p) => p.city.length > 0 && p.suburb.length > 0)).toBe(true);
+  });
+});
+
+describe('sweeping each account once', () => {
+  const venue = (id: string | null, name: string, handle: string) => ({ id, name, handle });
+
+  it('keeps one entry per handle, whatever the branch is called', () => {
+    const kept = dedupeByHandle([
+      venue('a', 'Hudsons — Kloof Street', 'hudsonsburgers'),
+      venue('b', 'Hudsons — Green Point', 'hudsonsburgers'),
+      venue('c', "Tiger's Milk — Long Street", 'tigersmilkza'),
+      venue('d', "Tiger's Milk — V&A", 'tigersmilkza'),
+      venue('e', 'Arlecchino', 'arlecchino_sa'),
+    ]);
+    expect(kept.map((v) => v.handle)).toEqual(['hudsonsburgers', 'tigersmilkza', 'arlecchino_sa']);
+  });
+
+  it('is case-insensitive, so one stray capital cannot double a sweep', () => {
+    const kept = dedupeByHandle([venue('a', 'A', 'TheNines'), venue('b', 'B', 'thenines')]);
+    expect(kept).toHaveLength(1);
+  });
+
+  it('keeps the listed venue over a prospect watching the same account', () => {
+    // The listed one carries a restaurant id, so the candidate files against
+    // the restaurant instead of landing with nothing attached.
+    const kept = dedupeByHandle([
+      venue('rest-1', 'Arlecchino', 'arlecchino_sa'),
+      venue(null, 'Arlecchino (not yet listed — Sea Point)', 'arlecchino_sa'),
+    ]);
+    expect(kept).toHaveLength(1);
+    expect(kept[0].id).toBe('rest-1');
+  });
+});
+
+describe('telling a post apart from an article', () => {
+  it('recognises the permalink shapes Instagram actually uses', () => {
+    expect(isInstagramPermalink('https://www.instagram.com/p/DZFCAHnIvk2/')).toBe(true);
+    expect(isInstagramPermalink('https://www.instagram.com/reel/Db2npe2i-LL/')).toBe(true);
+    expect(isInstagramPermalink('https://instagram.com/tv/AbC123/')).toBe(true);
+  });
+
+  it('does not mistake a profile or a round-up for a post', () => {
+    expect(isInstagramPermalink('https://www.instagram.com/thenines/')).toBe(false);
+    expect(
+      isInstagramPermalink('https://secretcapetown.co.za/happy-hour-specials-in-cape-town/'),
+    ).toBe(false);
+    expect(isInstagramPermalink(null)).toBe(false);
+    expect(isInstagramPermalink(undefined)).toBe(false);
+  });
+
+  it('leaves shared article URLs in the seed queue alone', () => {
+    // Several candidates cite one round-up, one per venue it covers. That is
+    // correct data, and the unique index must not touch it — so none of those
+    // shared URLs may look like a post permalink.
+    const counts = new Map<string, number>();
+    for (const row of RESEARCH_QUEUE_SEED) {
+      counts.set(row.source_url, (counts.get(row.source_url) ?? 0) + 1);
+    }
+    const shared = [...counts.entries()].filter(([, n]) => n > 1).map(([url]) => url);
+    expect(shared.length).toBeGreaterThan(0);
+    expect(shared.filter(isInstagramPermalink)).toEqual([]);
+  });
+
+  it('never seeds the same Instagram post twice', () => {
+    const permalinks = RESEARCH_QUEUE_SEED.map((r) => r.source_url).filter(isInstagramPermalink);
+    expect(new Set(permalinks).size).toBe(permalinks.length);
   });
 });

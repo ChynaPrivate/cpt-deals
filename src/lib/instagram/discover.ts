@@ -141,6 +141,41 @@ export interface VenueRef {
 }
 
 /** Turn one account's recent posts into review-queue candidates. */
+/**
+ * One entry per Instagram account.
+ *
+ * Several listed venues share an account: Hudsons runs one for both branches,
+ * Tiger's Milk one for three. Sweeping the account once per branch reads the
+ * same twelve posts several times, spends Meta calls we do not need to spend,
+ * and leans on the run's dedup guard to undo the damage afterwards. Better to
+ * not do it twice.
+ *
+ * The first entry wins, so a real listed venue beats a prospect watching the
+ * same handle — the candidate then files against the restaurant rather than
+ * with no restaurant attached.
+ */
+/**
+ * True for a link to one Instagram post or reel, as opposed to a profile.
+ *
+ * A post permalink identifies exactly one offer at one venue, so it is safe to
+ * treat as an identity. A round-up article is not — several of our candidates
+ * legitimately cite the same happy-hour listicle.
+ */
+export function isInstagramPermalink(url: string | null | undefined): boolean {
+  if (!url) return false;
+  return /instagram\.com\/(p|reel|reels|tv)\//i.test(url);
+}
+
+export function dedupeByHandle(venues: VenueRef[]): VenueRef[] {
+  const seen = new Set<string>();
+  return venues.filter((venue) => {
+    const key = venue.handle.toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 export function candidatesFrom(
   venue: VenueRef,
   media: IgMedia[],

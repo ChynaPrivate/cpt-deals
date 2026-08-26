@@ -23,6 +23,7 @@ import {
   businessDiscoveryUrl,
   candidatesFrom,
   confidenceFor,
+  dedupeByHandle,
   handleFromUrl,
   type IgMedia,
   type VenueRef,
@@ -84,7 +85,11 @@ export default async function handler(): Promise<Response> {
     (p) => !listedHandles.has(p.handle.toLowerCase()),
   ).map((p) => ({ id: null, name: `${p.name} (not yet listed — ${p.suburb})`, handle: p.handle }));
 
-  const venues: VenueRef[] = [...listed, ...prospects];
+  // One account, one sweep. Several venues legitimately share an Instagram
+  // account — Hudsons has two branches on it, Tiger's Milk three — and reading
+  // the same account once per branch wastes Meta calls and gives the dedup
+  // guard below more work to do than it should have.
+  const venues: VenueRef[] = dedupeByHandle([...listed, ...prospects]);
 
   if (venues.length === 0) {
     return Response.json({
@@ -122,6 +127,12 @@ export default async function handler(): Promise<Response> {
       const candidates = candidatesFrom(venue, media, now, seen);
 
       for (const candidate of candidates) {
+        // Claim the permalink BEFORE the insert is awaited. candidatesFrom
+        // filtered against `seen` as it was when this venue started, so two
+        // posts in one batch could otherwise race to the same row.
+        if (seen.has(candidate.permalink)) continue;
+        seen.add(candidate.permalink);
+
         const { error: insertError } = await supabase.from('research_queue').insert({
           restaurant_id: candidate.restaurantId,
           proposed_special_data: {
@@ -140,9 +151,10 @@ export default async function handler(): Promise<Response> {
             'Found automatically on Instagram. Nothing here is published until you type it up and mark it verified.',
         });
         if (insertError) {
+          // Leave the permalink claimed. A failed insert wrote nothing, and
+          // retrying it inside the same run would fail the same way.
           problems.push(`${venue.handle}: ${insertError.message}`);
         } else {
-          seen.add(candidate.permalink);
           added += 1;
         }
       }
@@ -153,7 +165,14 @@ export default async function handler(): Promise<Response> {
     await sleep(DELAY_BETWEEN_ACCOUNTS_MS);
   }
 
-  return Response.json({ ok: true, venues: venues.length, checked, added, problems });
+  // Netlify's function log shows whatever the run prints. Without this a
+  // healthy run leaves no trace at all, which reads exactly like a dead
+  // function — and sent us looking for a broken token that was fine.
+  const summary = { venues: venues.length, checked, added, problems: problems.length };
+  console.log('instagram-sweep', JSON.stringify(summary));
+  for (const problem of problems) console.log('instagram-sweep problem:', problem);
+
+  return Response.json({ ok: true, ...summary, problems });
 }
 
 /** Once a day, early morning Cape Town time (04:30 UTC is 06:30 SAST). */

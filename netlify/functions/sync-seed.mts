@@ -47,6 +47,7 @@ import type { Config } from '@netlify/functions';
 import { createClient } from '@supabase/supabase-js';
 
 import { RESEARCH_QUEUE_SEED, RESTAURANTS_SEED, SPECIALS_SEED } from '../../src/lib/data/seed';
+import { isInstagramPermalink } from '../../src/lib/instagram/discover.js';
 
 /** Postgres rejects an oversized statement, so send the rows in batches. */
 const BATCH = 50;
@@ -106,7 +107,18 @@ export default async function handler(request: Request): Promise<Response> {
   }
 
   // Insert only. A reviewed candidate keeps whatever an administrator decided.
-  for (const rows of chunk(RESEARCH_QUEUE_SEED, BATCH)) {
+  //
+  // Two of the seeded candidates cite an Instagram post, and the nightly sweep
+  // can reach the same post first. Its row is the better one — it carries the
+  // caption and the posting date — so drop ours rather than filing the post
+  // twice under two ids.
+  const { data: existingQueue } = await supabase.from('research_queue').select('source_url');
+  const claimed = new Set((existingQueue ?? []).map((row) => row.source_url as string));
+  const queueRows = RESEARCH_QUEUE_SEED.filter(
+    (row) => !(isInstagramPermalink(row.source_url) && claimed.has(row.source_url)),
+  );
+
+  for (const rows of chunk(queueRows, BATCH)) {
     const { error } = await supabase
       .from('research_queue')
       .upsert(rows, { onConflict: 'id', ignoreDuplicates: true });
@@ -116,7 +128,7 @@ export default async function handler(request: Request): Promise<Response> {
   const counts = {
     restaurants: RESTAURANTS_SEED.length,
     specials: SPECIALS_SEED.length,
-    research_queue: RESEARCH_QUEUE_SEED.length,
+    research_queue: queueRows.length,
   };
 
   if (errors.length) {

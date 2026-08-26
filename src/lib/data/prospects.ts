@@ -139,13 +139,6 @@ export const PROSPECTS: Prospect[] = [
     note: 'Breakfast and deli.',
   },
   {
-    handle: 'arlecchino_sa',
-    name: 'Arlecchino',
-    suburb: 'Sea Point',
-    city: 'Cape Town',
-    note: '16 Regent Road. Opened 2026, posts most days.',
-  },
-  {
     handle: 'bootleggercoffeecompany',
     name: 'Bootlegger Coffee Company',
     suburb: 'Sea Point',
