@@ -16,6 +16,8 @@
   --color-surface: #202225;
   --color-surface-2: #292c30;
   --color-line: #35383d;
+  /* One step up from --color-line, for the hover edge on a tappable card. */
+  --color-line-bright: #4a4e55;
 
   --color-orange: #ff7a1a;
   --color-orange-dark: #e2680b;
