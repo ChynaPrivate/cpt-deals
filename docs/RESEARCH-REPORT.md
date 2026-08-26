@@ -646,3 +646,126 @@ directory returned 65. Balducci, Hildebrand, Meloncino, Greek Fisherman,
 Sotano V&A, Col'Cacchio, Cape Town Fish Market, Alba Lounge, The Yard, Rockets,
 Vovo Telo, Truth Silo, Bertha's, Bombay Brasserie, Signal and Zenzero V&A were
 never reached — treat those as unresearched, not as having no specials.
+
+---
+
+## Sweep seven — Sea Point, third pass (26 August 2026)
+
+Run because Sea Point _looks_ under-represented next to its restaurant count.
+Six parallel researchers covered roughly seventy venues by four different
+routes: venue-by-venue official sites, a discovery pass that built a fresh
+list of everything eating or drinking on Regent, Main, Beach and Kloof Roads,
+a systematic sweep of Dineplan's Sea Point booking pages, and a re-read of the
+2026 Cape Town round-ups.
+
+**Result: three new published specials, six new research candidates, and one
+price correction. Every other offer the sweep turned up was already in the
+data.** That is the finding, not a shortfall — Sea Point's open web is now
+genuinely worked out.
+
+### Published
+
+| Venue                                 | Offer                                                                                     | Source                                                                                                                                      | Why it passed                                                       |
+| ------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| The President Hotel, 4 Alexander Road | Date Night Under The Stars — three courses R495 with pairing, R395 without, Thursdays 6pm | [presidenthotel.co.za blog](https://www.presidenthotel.co.za/blog/date-night-under-the-stars-at-the-president-hotel), published 2 June 2026 | First-party and newer than the Dineplan round-up we had been citing |
+| The President Hotel                   | Sunday Harvest Lunch — R425 adult, R225 child, Sundays 1–3pm, 12 Jul to 26 Sep            | [Dineplan venue page](https://www.dineplan.com/restaurants/the-president-hotel), last confirmed there 12 July 2026                          | Dated confirmation on the venue's own booking page                  |
+| The President Hotel                   | Heritage Day braai — R595 adult, R295 child, Thursday 24 September, 1–4pm                 | Same                                                                                                                                        | Confirmed on 24 August 2026, two days before this sweep             |
+
+### Corrected
+
+**The President Hotel's Thursday dinner was published at R750.** That figure
+came from Dineplan's July winter round-up. The hotel's own post — three weeks
+older as a publication but first-party, and describing the current offer —
+prices it at R495 with the drinks pairing and R395 without. The brief says the
+newest official source wins over a third-party article, so the listing now
+carries R495, an 18:00–21:00 window, a booking requirement, and terms that name
+the discrepancy rather than hiding it: the hotel lists set Thursdays from July
+to December, its Dineplan page still shows a window ending 27 August.
+
+The hotel's street address was also wrong (`S4 Alexander Road`, no phone, no
+website). It is 4 Alexander Road. The hotel's own site calls that Bantry Bay
+and its booking page calls it Sea Point — Alexander Road is the boundary. The
+record keeps Sea Point, which is what the booking page says and where the
+walk-up traffic comes from, and the description states the ambiguity outright.
+
+### Added to the queue, not published
+
+| Venue                          | Offer                                      | Why it is held                                                                                                                                                                                                                  |
+| ------------------------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| La Boheme, 341 Main Road       | Three tapas, R305, Mon–Sat                 | Dineplan's window carries no year and was last confirmed **21 September 2025**. Inside Guide advertises the same offer at R285. Two prices, no current confirmation                                                             |
+| Zest, 94 Regent Road           | Four-course winter warmer lunch            | On the venue's own menu page, but with no price, no days, no times and no end date                                                                                                                                              |
+| The Press, 299 Main Road       | Friday buffet, Wednesday speciality burger | Named on the official menu page with no price or time; the site says promotions go out on Instagram                                                                                                                             |
+| Sonny and Irene, 19 Kloof Road | Chef's winter specialities to 30 September | Official and current, but the Kove Collection page publishes no prices at all                                                                                                                                                   |
+| Three venues                   | Status problems, not offers                | `schecktersraw.com` now redirects to an unrelated gambling domain and must never be linked; Vagabond Kitchens no longer lists its Sea Point branch on its own site; The Bistro on the Promenade has been rebranded KOKO Kitchen |
+
+### Checked and carrying nothing new
+
+Everything Dineplan showed for KIKI (three offers), Ariel, Hugo Social Club,
+Arlecchino, Grand Pavilion, Our Local Sea Point, Hussar Grill Mouille Point,
+Pigalle and Hudsons Green Point was **already in the data from the 24 August
+sweep** — a useful confirmation that the earlier pass did not miss them.
+
+Dineplan pages exist with no specials block at all for: Zest, Our Local Sea
+Point, Luuma by Pavel, Shoreditch, Strolla, Figo, Script Lobby Bar, Jack@SKYE,
+Mykonos Taverna, Cozco, The Nines, Una Más, Doppio Caffe, BABY, Brad's Grill,
+Sótano, Newport Deli, The Butcher Shop & Grill, Bobo's, Lily's, Cape Town Hotel
+School, Lievita, Tiger's Milk Green Point, GOLD, Don Armando, Dawn and Il Leone.
+
+No special found on any accessible source for: La Perla, Posticino, Kleinsky's,
+Harvey's Bar, NV-80, La Mouette, Jarryds, Bootlegger, Mojo Market, Vagabond,
+The Mussel Monger, Three Wise Monkeys, Sundoo, Kanéla, Son of a Butcher,
+Scheckter's RAW, Goloso, Cpoint, Avron's Place, Goldies, Brian's Pub, Paddy
+Malone's, Cube Sports Bar, Lava Lounge, Heartache and Vine, Johnny Shawarma,
+Brash Burgers, Craft Burger Bar, Rockpool, Mykonos, Stud, Butter, KOKO Kitchen,
+Maggy Lou's, Paris Cape Town, Bandits & Burgers, Coco Safar, HeSheng and
+Arthur's Mini Super.
+
+### Rejected as stale
+
+SKYE Rooftop's buy-one-get-one burger and R95 pizza (food-blog, **August
+2021** — the Hyde Hotel's own offers page carries room and wine vouchers only).
+Goloso's two-for-one Monday pasta (EatOut, menu updated **2018**). Rockpool's
+two-for-one burgers and pizzas (Inside Guide, validity stated as **3 June to 26
+September 2019**). Taboulet's rewards-app specials (**November 2021**).
+Strolla's Friday and Saturday music (page last updated **May 2023**, and events
+rather than offers). Sótano's Monday sirloin and Wednesday burger (Cape Town
+Magazine, **2022**). Every offer under food-blog's Sea Point tag — OKO, Feines,
+Gambas, Coco Safar, Craft Burger, The Industry — dates from **2017 to 2022**.
+
+### Venues that are not in Sea Point
+
+Worth recording so a future sweep does not re-litigate them: Café Extrablatt
+(79 Main Road, **Green Point**), Sótano's permanent site (121 Beach Road,
+**Mouille Point** — the 315 Main Road address on its own site is labelled a
+pop-up), Nourish'd (**no Sea Point branch**), Pesce Azzurro (**Woodstock**),
+Golden Dish (**Gatesville**), Bihari (**Newlands**), Grand Africa Café
+(**Granger Bay**), Sidecar (**12A Dickson Road, Woodstock**), and Col'Cacchio,
+which has **no Sea Point branch at all** — its two-for-one cocktail and Tasty
+Tuesday promotions are real but no qualifying branch runs them.
+
+Three address conflicts left unresolved: Butter (its own site says 146 Main
+Road, Google and Inside Guide say 176), Brad's Grill (39 versus 57 Regent
+Road), and Cpoint (Radisson says 20 London Road, Cape Town Magazine says 14).
+
+### What could not be reached
+
+`laperla.co.za`, `insideguide.co.za`, `hospitalityhedonist.co.za`,
+`sundoo.co.za` and `goloso.co.za/menu` all failed on a robots.txt fetch
+timeout. `lamouette-restaurant.co.za` has an **expired SSL certificate**.
+`juno.co.za`, `la vie.co.za`, `cocosafar.com` and Rockpool's menu page are
+robots-disallowed. `newkingshotel.co.za` and `hungryforhalaal.co.za` return
+520; `eatout.co.za` returns intermittent 530s; `dining-out.co.za` returns 403.
+`kimchirestaurant.co.za` and `sonofabutcher.co.za` do not resolve.
+NV-80's Winter Menu is linked from its own navigation but 404s.
+
+**Instagram and Facebook were not opened** — sign-in walled, and out of bounds
+under the brief. Several of these venues (The Press, Bandits & Burgers, Maggy
+Lou's, Zeetan, Taboulet, Cozco) have no website at all and announce offers only
+there. That is now the single largest known gap in Sea Point coverage, and no
+amount of further open-web sweeping will close it.
+
+**This pass is not exhaustive.** Two of the six researchers exhausted their
+search budget before finishing; Istanbul Kebab, COOKED, Bismillah, Xiang Yuan,
+Craft Burger Bar, Brash Burgers and Johnny Shawarma are effectively
+unresearched. Mojo Market's roughly thirty-five stalls are unenumerated — the
+site is client-rendered and returned only metadata.
