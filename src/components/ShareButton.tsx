@@ -7,6 +7,8 @@ interface Props {
   text: string;
   /** What to say in the share sheet's title slot. */
   title: string;
+  /** Site-relative path the link should open, e.g. "/s/<id>". */
+  path: string;
 }
 
 type State = 'idle' | 'copied' | 'failed';
@@ -25,7 +27,7 @@ type State = 'idle' | 'copied' | 'failed';
  * Cancelling the sheet throws AbortError. That is a person changing their mind,
  * not a failure, so it is swallowed silently.
  */
-export default function ShareButton({ text, title }: Props) {
+export default function ShareButton({ text, title, path }: Props) {
   const [state, setState] = useState<State>('idle');
   const timer = useRef<number | null>(null);
 
@@ -41,11 +43,10 @@ export default function ShareButton({ text, title }: Props) {
     // The whole card summary is a toggle; this must not open it as well.
     event.stopPropagation();
 
-    // Built here rather than passed in, because on a phone this is the address
-    // people actually have — and it keeps the component honest on a preview
-    // deploy, where hard-coding the production domain would send them elsewhere.
-    const url = window.location.origin;
-    const message = `${text}\n\nFound on The Happy Hours — what's on special in Cape Town today:`;
+    // Origin is read at click time rather than passed in, so a preview deploy
+    // shares its own address instead of pointing people at production.
+    const url = `${window.location.origin}${path}`;
+    const message = `${text}\n\nFound on The Happy Hours:`;
 
     if (navigator.share) {
       try {

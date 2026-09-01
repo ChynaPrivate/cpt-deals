@@ -118,6 +118,7 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
           <ShareButton
             title={`${title} at ${special.restaurant.name}`}
             text={shareMessage(special)}
+            path={`/s/${special.id}`}
           />
 
           {/* Visual cue only — the overlay button above is the real control. */}

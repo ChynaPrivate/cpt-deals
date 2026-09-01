@@ -61,6 +61,37 @@ export async function getPublicSpecials(): Promise<SpecialWithRestaurant[]> {
     .filter((row): row is SpecialWithRestaurant => row !== null);
 }
 
+/**
+ * One special, by id, for its own shareable page.
+ *
+ * Applies the same active/verified gate as the list, so a link to a special
+ * that has since been archived stops working rather than quietly outliving the
+ * rules — a shared WhatsApp message can be opened weeks later, and an expired
+ * offer presented as current is exactly what this site exists not to do.
+ *
+ * Returns null rather than throwing when nothing matches, so the page can
+ * render a proper 404.
+ */
+export async function getPublicSpecialById(id: string): Promise<SpecialWithRestaurant | null> {
+  const supabase = await createServerSupabase();
+  if (!supabase) return joinSeed().find((special) => special.id === id) ?? null;
+
+  const { data, error } = await supabase
+    .from('specials')
+    .select(SPECIAL_COLUMNS)
+    .eq('id', id)
+    .eq('active', true)
+    .eq('verification_status', 'verified')
+    .maybeSingle();
+
+  if (error) {
+    throw new Error(`Could not load that special: ${error.message}`);
+  }
+  if (!data) return null;
+
+  return normaliseRow(data as unknown as SpecialRow);
+}
+
 export async function getRestaurants(): Promise<Restaurant[]> {
   const supabase = await createServerSupabase();
   if (!supabase) return RESTAURANTS_SEED;
