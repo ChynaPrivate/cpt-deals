@@ -3,6 +3,8 @@
  * Kept free of React so it can be unit-tested directly.
  */
 import {
+  formatRand,
+  formatTimeRange,
   isExpiringSoon,
   isOpenNow,
   isWithinValidity,
@@ -10,7 +12,7 @@ import {
   runsOnDay,
   type ZonedNow,
 } from './time';
-import { filterSuburbFor } from './types';
+import { filterSuburbFor, WEEKDAY_NAMES } from './types';
 import type {
   FilterKey,
   SortKey,
@@ -42,6 +44,35 @@ export function isPubliclyVisible(
  * Narrow to the chosen suburbs. An empty selection means "everywhere", which
  * is what a visitor sees when they first arrive.
  */
+/**
+ * The message that goes into a WhatsApp thread when someone shares a special.
+ *
+ * Written to survive being read on its own, with no card around it: what the
+ * offer is, where, when, and what it costs. Plain text with newlines, because
+ * that is all a share sheet carries — no markdown, no formatting.
+ *
+ * The link is added by the share button rather than here, so this stays a pure
+ * function and the tests do not need a browser.
+ */
+export function shareMessage(special: SpecialWithRestaurant): string {
+  const price = formatRand(special.price);
+  const when = formatTimeRange(special.start_time, special.end_time);
+  const days = special.days_of_week
+    .slice()
+    .sort((a, b) => a - b)
+    .map((day) => WEEKDAY_NAMES[day])
+    .join(', ');
+
+  const headline = price ? `${special.title} — ${price}` : special.title;
+  const lines = [
+    `${headline} at ${special.restaurant.name}`,
+    special.restaurant.street_address,
+    // "Every day" reads better than listing all seven.
+    special.days_of_week.length === 7 ? `Every day, ${when}` : `${days} — ${when}`,
+  ];
+  return lines.join('\n');
+}
+
 /**
  * Free-text search across the fields someone would actually type.
  *

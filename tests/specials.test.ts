@@ -8,6 +8,7 @@ import {
   kindOf,
   inSuburbs,
   searchSpecials,
+  shareMessage,
   distanceKm,
   freshnessLabel,
   isPubliclyVisible,
@@ -513,5 +514,67 @@ describe('search', () => {
 
   it('returns nothing when nothing matches, rather than everything', () => {
     expect(searchSpecials(all, 'sushi')).toEqual([]);
+  });
+});
+
+describe('the share message', () => {
+  const base = {
+    ...venue,
+    id: 'v-share',
+    name: 'Chicks and Chops',
+    street_address: '163 Long Street',
+    suburb: 'Cape Town City Centre' as const,
+  };
+
+  it('reads on its own, with no card around it', () => {
+    const special: SpecialWithRestaurant = {
+      ...make({
+        title: '2 Chicken Sandos',
+        price: 140,
+        days_of_week: [3],
+        start_time: '11:00',
+        end_time: '23:59',
+      }),
+      restaurant: base,
+    };
+    expect(shareMessage(special)).toBe(
+      '2 Chicken Sandos \u2014 R140 at Chicks and Chops\n' +
+        '163 Long Street\n' +
+        'Wednesday \u2014 11:00am \u2013 11:59pm',
+    );
+  });
+
+  it('leaves the dash out when there is no price', () => {
+    const special: SpecialWithRestaurant = {
+      ...make({ title: 'Happy hour', price: null, days_of_week: [5] }),
+      restaurant: base,
+    };
+    expect(shareMessage(special)).toContain('Happy hour at Chicks and Chops');
+    expect(shareMessage(special)).not.toContain('\u2014 null');
+  });
+
+  it('says "Every day" rather than listing all seven', () => {
+    const special: SpecialWithRestaurant = {
+      ...make({ title: 'All week', days_of_week: [1, 2, 3, 4, 5, 6, 7] }),
+      restaurant: base,
+    };
+    expect(shareMessage(special)).toContain('Every day');
+    expect(shareMessage(special)).not.toContain('Monday, Tuesday');
+  });
+
+  it('lists several days in weekday order, however they were stored', () => {
+    const special: SpecialWithRestaurant = {
+      ...make({ title: 'Weekend', days_of_week: [7, 5, 6] }),
+      restaurant: base,
+    };
+    expect(shareMessage(special)).toContain('Friday, Saturday, Sunday');
+  });
+
+  it('falls back to "All day" when no times are set', () => {
+    const special: SpecialWithRestaurant = {
+      ...make({ title: 'Any time', days_of_week: [2], start_time: null, end_time: null }),
+      restaurant: base,
+    };
+    expect(shareMessage(special)).toContain('Tuesday \u2014 All day');
   });
 });

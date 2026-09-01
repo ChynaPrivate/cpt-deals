@@ -3,8 +3,10 @@
 import { useId, useState } from 'react';
 import VenueAvatar from './VenueAvatar';
 import SpecialDetailBody from './SpecialDetailBody';
+import ShareButton from './ShareButton';
 import { formatRand, formatTimeRange, type ZonedNow } from '@/lib/time';
 import { splitTitlePrice } from '@/lib/title-price';
+import { shareMessage } from '@/lib/specials';
 import { SUBURB_SHORT, type SpecialWithRestaurant } from '@/lib/types';
 
 interface Props {
@@ -111,6 +113,13 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
               <span className="text-orange text-[22px] leading-none font-extrabold">{price}</span>
             )}
           </div>
+          {/* Sits above the summary overlay (z-20 vs z-10) so a tap here shares
+              rather than opening the card. */}
+          <ShareButton
+            title={`${title} at ${special.restaurant.name}`}
+            text={shareMessage(special)}
+          />
+
           {/* Visual cue only — the overlay button above is the real control. */}
           <span
             aria-hidden="true"
