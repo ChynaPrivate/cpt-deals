@@ -6,9 +6,9 @@ const TONES: Record<PillTone, string> = {
   // Quiet chip on the card surface.
   neutral: 'cutout text-ink',
   // Filled orange — reserved for the verification badge.
-  solid: 'bg-orange text-ink',
+  solid: 'sunset-fill shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]',
   // Orange copy on a dim orange ground, for the urgent state.
-  accent: 'bg-orange-dim text-accent',
+  accent: 'text-accent border border-white/60 bg-white/45',
   outline: 'border border-line text-ink/70',
 };
 

@@ -11,14 +11,14 @@ export default function TermsPage() {
     <article>
       <h1 className="text-accent text-[24px] font-extrabold">Terms</h1>
 
-      <p className="bg-orange-dim mt-4 rounded-xl px-4 py-3 text-[16px] font-semibold">
+      <p className="mt-4 rounded-xl border border-white/60 bg-white/45 px-4 py-3 text-[16px] font-semibold">
         {DISCLAIMER}
       </p>
 
       <h2 className="mt-5 text-[18px] font-bold">What this site is</h2>
       <p className="mt-2 text-[16px]">
-        The Happy Hours is an independent guide to restaurant and bar offers at venues physically located
-        in the Cape Town City Bowl and the near Atlantic Seaboard — Gardens, Tamboerskloof,
+        The Happy Hours is an independent guide to restaurant and bar offers at venues physically
+        located in the Cape Town City Bowl and the near Atlantic Seaboard — Gardens, Tamboerskloof,
         Oranjezicht, Vredehoek, the City Centre, Sea Point, Green Point, Mouille Point and Camps
         Bay. It is not affiliated with, endorsed by or operated on behalf of any restaurant listed.
       </p>

@@ -154,7 +154,10 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
         />
       </section>
 
-      <div className="mt-2">
+      {/* Twice the gap the other controls use. The week and the filters are two
+          different decisions, and running them together at the same spacing
+          made the toggle look like an eighth day. */}
+      <div className="mt-4">
         <KindToggle value={kind} counts={kindCounts} onChange={setKind} />
       </div>
 

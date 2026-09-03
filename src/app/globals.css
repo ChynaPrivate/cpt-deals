@@ -65,7 +65,15 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  background-color: var(--color-bg);
+  /*
+    The foot of the gradient, not the middle of it.
+
+    Where the fixed layer cannot reach — Safari's bottom bar, and the rubber
+    band when you overscroll — the browser paints this instead. A mid-peach
+    there read as the gradient starting over at the bottom of the screen.
+    Yellow continues it.
+  */
+  background-color: var(--sunset-foot);
 }
 
 body {

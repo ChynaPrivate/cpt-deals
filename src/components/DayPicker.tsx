@@ -53,28 +53,42 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
             tabIndex={isSelected ? 0 : -1}
             onClick={() => onSelect(day)}
             className={[
-              'flex min-h-[46px] items-center justify-between gap-3 rounded-2xl border-2 sm:min-h-[56px]',
-              'px-4 text-left transition-colors',
-              isSelected ? 'sunset-selected' : 'glass hover:border-line-bright text-ink',
+              // 52px, matching the Suburbs and Filters buttons below, so the
+              // whole control stack reads as one set of the same thing rather
+              // than three different button sizes stacked up.
+              'flex min-h-[52px] items-center justify-between gap-3 rounded-2xl',
+              'px-4 text-left transition-all duration-150',
+              isSelected
+                ? 'sunset-selected scale-[1.015]'
+                : 'glass text-ink hover:border-line-bright',
             ].join(' ')}
           >
-            <span className="flex items-center gap-3">
-              <span className="text-[17px] font-bold sm:text-[19px]">{WEEKDAY_NAMES[day]}</span>
+            <span className="flex items-baseline gap-2.5">
+              <span
+                className={`text-[17px] tracking-tight sm:text-[18px] ${
+                  isSelected ? 'font-extrabold' : 'font-semibold'
+                }`}
+              >
+                {WEEKDAY_NAMES[day]}
+              </span>
               {isToday && (
-                <span
-                  className={`rounded-full px-2 py-0.5 text-[11px] font-bold tracking-wide uppercase ${
-                    isSelected ? 'cutout text-accent' : 'text-accent bg-white/45'
-                  }`}
-                >
+                <span className="text-accent text-[11px] font-bold tracking-[0.08em] uppercase">
                   Today
                 </span>
               )}
             </span>
+
+            {/* The count in a well rather than floating as a bare number. It
+                gives the right-hand edge something to line up on, so the column
+                of sevens reads as a column instead of ragged digits. */}
             <span
-              className={`text-[14px] tabular-nums ${isSelected ? 'text-ink/75' : 'text-ink/70'}`}
+              className={`min-w-[34px] rounded-lg px-2 py-0.5 text-center text-[13px] font-semibold tabular-nums ${
+                isSelected ? 'cutout text-ink/80' : 'text-ink/70 bg-white/45'
+              }`}
             >
               {count}
             </span>
+
             <span className="sr-only">
               {WEEKDAY_NAMES[day]}
               {isToday ? ', today' : ''}, {count} verified {count === 1 ? 'special' : 'specials'}

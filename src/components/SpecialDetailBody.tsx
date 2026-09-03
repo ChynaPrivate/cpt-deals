@@ -111,7 +111,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
         {restaurant.phone && (
           <a
             href={`tel:${restaurant.phone}`}
-            className="bg-orange text-ink hover:bg-orange-dark flex min-h-[48px] items-center justify-center rounded-xl px-3 text-[15px] font-bold transition-colors"
+            className="sunset-fill flex min-h-[48px] items-center justify-center rounded-xl px-3 text-[15px] font-bold shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_4px_12px_-6px_rgba(180,90,40,0.6)] transition-shadow hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_16px_-6px_rgba(180,90,40,0.75)]"
           >
             Call
           </a>
@@ -120,7 +120,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-orange text-ink hover:bg-orange-dark flex min-h-[48px] items-center justify-center rounded-xl px-3 text-[15px] font-bold transition-colors"
+          className="sunset-fill flex min-h-[48px] items-center justify-center rounded-xl px-3 text-[15px] font-bold shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_4px_12px_-6px_rgba(180,90,40,0.6)] transition-shadow hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_16px_-6px_rgba(180,90,40,0.75)]"
         >
           Directions
         </a>

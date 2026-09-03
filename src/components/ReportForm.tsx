@@ -46,7 +46,7 @@ export default function ReportForm({
 
   if (state === 'sent') {
     return (
-      <div role="status" className="bg-orange-dim mt-4 rounded-xl px-4 py-4">
+      <div role="status" className="mt-4 rounded-xl border border-white/60 bg-white/45 px-4 py-4">
         <p className="text-accent text-[15px] font-semibold">
           Thank you — the report has been sent for review.
         </p>
@@ -122,7 +122,7 @@ export default function ReportForm({
         <button
           type="submit"
           disabled={state === 'sending'}
-          className="bg-orange text-ink min-h-[48px] flex-1 rounded-xl px-4 text-[16px] font-bold disabled:opacity-60"
+          className="sunset-fill min-h-[48px] flex-1 rounded-xl px-4 text-[16px] font-bold shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] disabled:opacity-60"
         >
           {state === 'sending' ? 'Sending…' : 'Send report'}
         </button>

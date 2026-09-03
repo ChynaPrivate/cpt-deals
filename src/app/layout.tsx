@@ -60,8 +60,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#17181A',
-  colorScheme: 'dark',
+  /*
+    The strip behind the clock and Wi-Fi is browser chrome, not the page —
+    iOS tints it from theme-color, and this was still the old dark slate. Pink
+    is the colour the gradient starts on, so the status bar now runs into the
+    top of the page instead of sitting on a bar of its own.
+  */
+  themeColor: '#F9A5A0',
+  colorScheme: 'light',
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
