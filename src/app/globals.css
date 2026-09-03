@@ -105,18 +105,31 @@ body::before,
 body::after {
   content: '';
   position: fixed;
-  inset: 0;
-  height: 100lvh;
+  left: 0;
+  right: 0;
+  /* Deliberately taller than the window and starting above it.
+     `viewport-fit: cover` puts the page under the notch and the home
+     indicator, and a layer pinned exactly to the viewport leaves a hairline of
+     bare canvas in those insets — which reads as the gradient repeating at the
+     bottom of the screen. Overshooting by 8% at each end means there is no
+     edge to find, on any phone, at any address-bar state. */
+  top: -8lvh;
+  height: 116lvh;
   pointer-events: none;
 }
 
 body::before {
   z-index: -2;
+  /* The stops are pulled in to match the overshoot, so the sweep still reads
+     pink-to-yellow across the part you can actually see. The flat runs at each
+     end are the bleed into the insets. */
   background-image: linear-gradient(
     180deg,
     var(--sunset-top) 0%,
-    var(--sunset-upper) 32%,
-    var(--sunset-lower) 68%,
+    var(--sunset-top) 7%,
+    var(--sunset-upper) 34%,
+    var(--sunset-lower) 66%,
+    var(--sunset-foot) 93%,
     var(--sunset-foot) 100%
   );
 }
@@ -188,10 +201,14 @@ body::after {
 .sunset-selected {
   background-image: linear-gradient(135deg, var(--sunset-top) 0%, #fdc98e 48%, #fff08f 100%);
   color: var(--color-ink);
-  border-color: var(--color-orange-deep) !important;
+  /* No outline. The fill is warm and saturated where the unselected chips are
+     pale glass, and that difference carries it on its own — an earlier draft
+     ringed this in burnt orange and the row looked like a form validation
+     error. A soft warm lift and a white top edge instead. */
+  border-color: transparent !important;
   box-shadow:
-    inset 0 0 0 1px var(--color-orange-deep),
-    0 6px 18px -8px rgb(191 61 9 / 0.7);
+    inset 0 1px 0 rgb(255 255 255 / 0.6),
+    0 8px 20px -10px rgb(180 90 40 / 0.55);
 }
 
 /*

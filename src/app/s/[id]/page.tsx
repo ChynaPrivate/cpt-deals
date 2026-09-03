@@ -134,7 +134,7 @@ export default async function SpecialPage({ params }: Props) {
 
       <Link
         href="/"
-        className="sunset-fill border-orange-deep/35 mt-4 flex min-h-[52px] w-full items-center justify-center rounded-2xl border px-4 text-[16px] font-bold"
+        className="sunset-fill mt-4 flex min-h-[52px] w-full items-center justify-center rounded-2xl px-4 text-[16px] font-bold shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_16px_-8px_rgba(180,90,40,0.6)]"
       >
         See everything on special today
       </Link>

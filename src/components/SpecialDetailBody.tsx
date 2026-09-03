@@ -129,7 +129,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
             href={restaurant.booking_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="border-orange-deep/45 text-accent flex min-h-[48px] items-center justify-center rounded-xl border-2 bg-white/45 px-3 text-[15px] font-bold transition-colors hover:bg-white/70"
+            className="text-accent flex min-h-[48px] items-center justify-center rounded-xl border border-white/70 bg-white/55 px-3 text-[15px] font-bold transition-colors hover:bg-white/80"
           >
             Book a table
           </a>
@@ -138,13 +138,13 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
           href={special.source_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="border-orange-deep/45 text-accent flex min-h-[48px] items-center justify-center rounded-xl border-2 bg-white/45 px-3 text-center text-[14px] font-bold transition-colors hover:bg-white/70"
+          className="text-accent flex min-h-[48px] items-center justify-center rounded-xl border border-white/70 bg-white/55 px-3 text-center text-[14px] font-bold transition-colors hover:bg-white/80"
         >
           Original source
         </a>
       </div>
 
-      <p className="border-orange/25 bg-orange-dim text-ink/85 mt-3 rounded-xl border px-4 py-3 text-[14px]">
+      <p className="text-ink/85 mt-3 rounded-xl border border-white/60 bg-white/40 px-4 py-3 text-[14px]">
         {DISCLAIMER}
       </p>
 
