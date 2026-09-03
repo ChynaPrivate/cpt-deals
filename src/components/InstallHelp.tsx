@@ -60,7 +60,7 @@ export default function InstallHelp() {
         <button
           type="button"
           onClick={dismiss}
-          className="glass-2 min-h-[40px] min-w-[40px] shrink-0 rounded-full text-[18px] font-bold"
+          className="btn min-h-[40px] min-w-[40px] shrink-0 rounded-full text-[18px] font-bold"
         >
           <span aria-hidden="true">×</span>
           <span className="sr-only">Dismiss the home-screen help</span>

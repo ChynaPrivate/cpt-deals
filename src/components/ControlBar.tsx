@@ -98,7 +98,7 @@ function Toggle({
     >
       {label}
       {count > 0 && (
-        <span className="btn-on grid h-5 min-w-5 place-items-center rounded-full px-1.5 text-[12px] font-bold">
+        <span className="text-ink grid h-5 min-w-5 place-items-center rounded-full border border-white/70 bg-white/60 px-1.5 text-[12px] font-bold">
           {count}
           <span className="sr-only"> selected</span>
         </span>

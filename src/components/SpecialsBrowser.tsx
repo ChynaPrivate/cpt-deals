@@ -213,7 +213,7 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
                 <button
                   type="button"
                   onClick={() => setQuery('')}
-                  className="sunset-fill min-h-[44px] rounded-xl px-4 text-[15px] font-bold shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_16px_-8px_rgba(180,90,40,0.6)]"
+                  className="btn-on min-h-[44px] rounded-xl px-4 text-[15px] font-bold"
                 >
                   Clear search
                 </button>

@@ -95,7 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Link href="/" aria-label="The Happy Hours — home" className="block">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo.svg"
+              src="/logo-3.svg"
               alt="The Happy Hours"
               width={1580}
               height={1128}

@@ -111,7 +111,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
         {restaurant.phone && (
           <a
             href={`tel:${restaurant.phone}`}
-            className="btn-on flex min-h-[48px] items-center justify-center rounded-xl px-3 text-[15px] font-bold"
+            className="btn flex min-h-[48px] items-center justify-center rounded-xl px-3 text-[15px] font-bold"
           >
             Call
           </a>
@@ -120,7 +120,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-on flex min-h-[48px] items-center justify-center rounded-xl px-3 text-[15px] font-bold"
+          className="btn flex min-h-[48px] items-center justify-center rounded-xl px-3 text-[15px] font-bold"
         >
           Directions
         </a>
@@ -129,7 +129,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
             href={restaurant.booking_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn text-accent flex min-h-[48px] items-center justify-center rounded-xl px-3 text-[15px] font-bold"
+            className="btn text-ink flex min-h-[48px] items-center justify-center rounded-xl px-3 text-[15px] font-bold"
           >
             Book a table
           </a>
@@ -138,7 +138,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
           href={special.source_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn text-accent flex min-h-[48px] items-center justify-center rounded-xl px-3 text-center text-[14px] font-bold"
+          className="btn text-ink flex min-h-[48px] items-center justify-center rounded-xl px-3 text-center text-[14px] font-bold"
         >
           Original source
         </a>
@@ -154,7 +154,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
         <button
           type="button"
           onClick={() => setReporting(true)}
-          className="btn text-accent mt-3 min-h-[44px] w-full rounded-xl px-4 text-[14px] font-semibold"
+          className="btn text-ink mt-3 min-h-[44px] w-full rounded-xl px-4 text-[14px] font-semibold"
         >
           Report outdated information
         </button>

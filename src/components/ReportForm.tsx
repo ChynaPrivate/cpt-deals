@@ -122,7 +122,7 @@ export default function ReportForm({
         <button
           type="submit"
           disabled={state === 'sending'}
-          className="sunset-fill min-h-[48px] flex-1 rounded-xl px-4 text-[16px] font-bold shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] disabled:opacity-60"
+          className="btn-on min-h-[48px] flex-1 rounded-xl px-4 text-[16px] font-bold disabled:opacity-60"
         >
           {state === 'sending' ? 'Sending…' : 'Send report'}
         </button>

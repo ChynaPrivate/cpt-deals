@@ -61,6 +61,19 @@
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
+# Brand art. A day, not a week: these are swapped by hand at the same filename,
+# and a long cache means a logo change reaches nobody who has already visited.
+# The filename carries a version anyway, which is the real safety net.
+[[headers]]
+  for = "/logo-3.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/squiggles.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
 # Content-hashed build output is safe to cache forever.
 [[headers]]
   for = "/_next/static/*"

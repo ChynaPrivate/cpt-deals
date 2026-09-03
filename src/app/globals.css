@@ -179,53 +179,49 @@ body::after {
   border: 1px solid rgb(255 255 255 / 0.6);
 }
 
-/* Controls only. The listing cards keep the frosted treatment — solid controls
-   over frosted content is the hierarchy, and flattening both would lose it. */
+/* Containers that are pressable but not "the action" — an unchosen day, the
+   slider track, the filter panels. Same frosted treatment as the cards. */
 .glass-btn {
-  background-color: var(--btn);
-  border: 1px solid rgb(255 255 255 / 0.65);
-  box-shadow: 0 2px 6px rgb(150 60 40 / 0.1);
+  background-color: rgb(255 255 255 / 0.55);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 1px 2px rgb(150 60 40 / 0.06);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass-btn {
+    background-color: var(--color-surface);
+    -webkit-backdrop-filter: blur(10px) saturate(1.35);
+    backdrop-filter: blur(10px) saturate(1.35);
+  }
 }
 
 /*
   Buttons.
 
-  One flat pale yellow for everything you can press, and a step up to amber for
-  the one that is chosen. The gradient fills these used to carry belonged to
-  the sunset ground and read as a leftover once that went flat.
+  One colour, and only for things you press: the chosen day, the slider thumb,
+  the plus and share circles, and every action inside a listing. Containers —
+  the unchosen days, the slider track, the filter panels, the search field —
+  stay clear like the cards, so the yellow always means "this does something".
 
-  Ink measures 12.9:1 on the pale and 10.4:1 on the amber, so labels are safe
-  on both without thinking about it.
+  An earlier pass painted the containers too, which turned the whole first
+  screen yellow and lost that distinction entirely.
+
+  Ink on it measures 12.9:1.
 */
-.btn {
+.btn,
+.btn-on,
+.sunset-fill,
+.sunset-selected {
   background-color: var(--btn);
-  color: var(--color-ink);
-  border: 1px solid rgb(255 255 255 / 0.65);
-  box-shadow: 0 2px 6px rgb(150 60 40 / 0.1);
-}
-
-.btn-on {
-  background-color: var(--btn-on);
   color: var(--color-ink);
   border: 1px solid rgb(255 255 255 / 0.7);
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 0.55),
-    0 4px 12px -4px rgb(150 60 40 / 0.4);
-}
-
-/* Kept under the old names so nothing had to be renamed in fifteen files. */
-.sunset-fill {
-  background-color: var(--btn);
-  color: var(--color-ink);
+    0 3px 10px -3px rgb(150 60 40 / 0.35);
 }
 
 .sunset-selected {
-  background-color: var(--btn-on);
-  color: var(--color-ink);
-  border-color: transparent !important;
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.55),
-    0 4px 12px -4px rgb(150 60 40 / 0.4);
+  border-color: rgb(255 255 255 / 0.8) !important;
 }
 
 /*
