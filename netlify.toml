@@ -69,11 +69,6 @@
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
-[[headers]]
-  for = "/squiggles.svg"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
-
 # Content-hashed build output is safe to cache forever.
 [[headers]]
   for = "/_next/static/*"

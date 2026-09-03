@@ -3,13 +3,11 @@
 /*
   The Happy Hours design tokens — flat coral.
 
-  One flat coral ground with scattered squiggles on it, and the same frosted
-  cards over the top. Copy is a deep warm brown rather than black, which sits
-  better on coral than a cold neutral would.
-
-  The ground and the squiggle colours come from the brand illustration; the
-  squiggle shapes are drawn from scratch in public/squiggles.svg rather than
-  lifted from the reference artwork.
+  One flat coral ground, taken straight from the brand artwork, with flat
+  translucent cards over the top. No texture, no gradient, no outlines and no
+  backdrop blur — the drop shadows do all the work of separating a card from
+  the ground. Copy is a deep warm brown rather than black, which sits better on
+  coral than a cold neutral would.
 
   Two accents, and the difference matters:
     --color-orange   bright, for FILLS only (buttons, the plus, chips)
@@ -59,18 +57,14 @@
 :root {
   color-scheme: light;
 
-  /* The ground, and the three accents the squiggles are drawn in — the brand
-     illustration's own palette. */
+  /* The ground — the flat colour straight from the brand artwork. */
   --ground: #f89f99;
-  --squiggle-amber: #ffc43a;
 
   /* Buttons. Pale yellow is the resting state; the amber one step up is what
      "chosen" looks like. Both come out of the logo's own palette, and ink on
      either clears 10:1. */
   --btn: #fff9ae;
   --btn-on: #ffc43a;
-  --squiggle-teal: #00a782;
-  --squiggle-pink: #f05877;
 
   /* Kept for the button fills, which still read as a warm sweep. */
   --sunset-top: #f9a5a0;
@@ -101,19 +95,17 @@ body {
 }
 
 /*
-  The ground and the squiggles.
+  The ground.
 
-  Both are position:fixed layers rather than backgrounds on the body, for the
-  same reason as before: `background-attachment: fixed` is ignored by iOS
-  Safari, which would stretch the squiggle sheet over the whole hundred-card
-  document instead of the window.
+  A position:fixed layer rather than a background on the body:
+  `background-attachment: fixed` is ignored by iOS Safari, which would stretch
+  the fill over the whole hundred-card document instead of the window.
 
   Overshooting the viewport at each end covers the notch and the home
   indicator, where `viewport-fit: cover` puts the page under the browser's own
   chrome and a layer pinned exactly to the viewport leaves a hairline.
 */
-body::before,
-body::after {
+body::before {
   content: '';
   position: fixed;
   left: 0;
@@ -125,53 +117,36 @@ body::after {
 
 body::before {
   z-index: -2;
+  /* Flat, exactly the colour from the brand artwork and nothing over it. The
+     grain that used to sit here darkened the ground to about #EFA29C, which no
+     longer matched the theme-color the phone paints its status bar with — so
+     the strip at the top of the screen read as a different pink to the page
+     underneath it. One flat fill makes them the same colour by construction. */
   background-color: var(--ground);
-  /* Grain, so a large flat field does not band on a cheap phone panel. */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E");
-}
-
-/*
-  The squiggles sit in their own layer above the ground but below everything
-  else. They are weighted towards the top of the sheet on purpose: on a phone
-  the cards run nearly edge to edge, so the header is most of the ground anyone
-  ever sees.
-
-  `cover` rather than `contain` — a letterboxed sheet would put a squiggle-free
-  band down one side on a wide screen.
-*/
-body::after {
-  z-index: -1;
-  background-image: url('/squiggles.svg');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
 }
 
 /*
   Panels.
 
-  Flat translucent white with a soft drop shadow and no outline at all. The
-  earlier version drew a white hairline around every surface, which is what
-  made things read as "glass"; without it the same fill reads as a plain card
-  floating on the coral, which is what was wanted.
+  Flat translucent white, a soft drop shadow, and nothing else — no border, no
+  backdrop blur.
 
-  The shadow is doing all the edge definition now, so it is very slightly
-  stronger than it was — with no border to help, too light a shadow and a pale
-  card dissolves into a pale patch of ground.
+  Both of those had to go to kill the white rim. The border was the obvious
+  half. The blur was the subtle half: `backdrop-filter` samples the pixels
+  behind the element and, at the element's own edges, pulls in the lighter
+  blurred average from just outside it. That reads as a pale hairline tracing
+  every card even with the border already removed, which is the outline that
+  survived the first pass.
+
+  The fill stays translucent and the shadow does all the edge definition on its
+  own.
+
 */
 .glass {
   background-color: rgb(255 255 255 / 0.62);
   box-shadow:
     0 1px 2px rgb(120 55 20 / 0.07),
     0 6px 20px rgb(120 55 20 / 0.11);
-}
-
-@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
-  .glass {
-    background-color: var(--color-surface);
-    -webkit-backdrop-filter: blur(10px) saturate(1.35);
-    backdrop-filter: blur(10px) saturate(1.35);
-  }
 }
 
 /* A second, denser tier for controls that sit ON a panel — chips inside a
@@ -182,20 +157,13 @@ body::after {
 }
 
 /* Containers that are pressable but not "the action" — an unchosen day, the
-   slider track, the filter panels. Same flat treatment as the cards. */
+   slider track, the filter panels. Same flat treatment as the cards, and the
+   same reason for no backdrop blur. */
 .glass-btn {
   background-color: rgb(255 255 255 / 0.55);
   box-shadow:
     0 1px 2px rgb(120 55 20 / 0.07),
     0 4px 14px rgb(120 55 20 / 0.09);
-}
-
-@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
-  .glass-btn {
-    background-color: var(--color-surface);
-    -webkit-backdrop-filter: blur(10px) saturate(1.35);
-    backdrop-filter: blur(10px) saturate(1.35);
-  }
 }
 
 /*
@@ -232,10 +200,10 @@ body::after {
   just an inner shadow at the top edge and a highlight at the bottom, which is
   how a real recess catches light.
 
-  Worth being straight about the physics: this is not a hole through to the
-  gradient. A child cannot undo its parent's backdrop-filter, so a true cut-out
-  would mean masking the card itself, and the mask would have to know where
-  every chip landed. This reads as depth, which is the part that matters.
+  Not a hole through to the ground — it is a tint plus the suggestion of a
+  recess. A real cut-out would mean masking the card itself, and the mask would
+  have to know where every chip landed. This reads as depth, which is the part
+  that matters.
 */
 .cutout {
   background-color: rgb(120 55 20 / 0.07);

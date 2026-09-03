@@ -187,7 +187,7 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
           {WEEKDAY_NAMES[selectedDay]}
           {isToday && <span className="text-accent"> — today</span>}
         </h2>
-        <p aria-live="polite" className="text-ink/70 mt-1 text-[15px]">
+        <p aria-live="polite" className="text-ink/90 mt-1 text-[15px]">
           {visible.length} {visible.length === 1 ? 'special' : 'specials'}
           {suburbs.length > 0 ? ` in ${suburbs.join(', ')}` : ' across all suburbs'}
           {filters.length > 0 ? ', matching your filters' : ''}
@@ -201,7 +201,7 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
                 ? `Nothing matches “${query.trim()}” on this day.`
                 : 'No verified specials found for this day yet.'}
             </p>
-            <p className="text-ink/70 mt-2 text-[15px]">
+            <p className="text-ink/90 mt-2 text-[15px]">
               {query.trim()
                 ? 'Try a shorter word, another day, or clear the search to see everything.'
                 : filters.length > 0 || suburbs.length > 0

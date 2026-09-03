@@ -155,7 +155,7 @@ export default function ControlBar({
 
       <div className="mt-3 flex flex-wrap items-center gap-3">
         <span className="inline-flex items-center gap-2">
-          <label htmlFor="sort" className="text-ink/70 text-[14px] font-semibold">
+          <label htmlFor="sort" className="text-ink/90 text-[14px] font-semibold">
             Sort by
           </label>
           <select
@@ -207,9 +207,7 @@ export default function ControlBar({
                   ].join(' ')}
                 >
                   {SUBURB_SHORT[suburb]}
-                  <span className={`tabular-nums ${on ? 'text-ink/70' : 'text-ink/65'}`}>
-                    {count}
-                  </span>
+                  <span className="text-ink/80 tabular-nums">{count}</span>
                   <span className="sr-only">
                     {' '}
                     {count === 1 ? 'special' : 'specials'} on the selected day
@@ -246,7 +244,7 @@ export default function ControlBar({
       )}
 
       {sort === 'nearest' && locationState !== 'granted' && (
-        <p role="status" className="text-ink/70 mt-2 text-[14px]">
+        <p role="status" className="text-ink/90 mt-2 text-[14px]">
           {locationState === 'asking' && 'Asking your browser for your location…'}
           {locationState === 'denied' &&
             'Location was declined, so specials stay in their usual order. Everything else still works.'}
