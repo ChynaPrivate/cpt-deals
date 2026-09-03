@@ -182,9 +182,9 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
       <section aria-labelledby="results-heading" className="mt-6">
         <h2 id="results-heading" className="text-[18px] font-bold">
           {WEEKDAY_NAMES[selectedDay]}
-          {isToday && <span className="text-orange"> — today</span>}
+          {isToday && <span className="text-accent"> — today</span>}
         </h2>
-        <p aria-live="polite" className="mt-1 text-[15px] text-white/60">
+        <p aria-live="polite" className="text-ink/70 mt-1 text-[15px]">
           {visible.length} {visible.length === 1 ? 'special' : 'specials'}
           {suburbs.length > 0 ? ` in ${suburbs.join(', ')}` : ' across all suburbs'}
           {filters.length > 0 ? ', matching your filters' : ''}
@@ -192,13 +192,13 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
         </p>
 
         {visible.length === 0 ? (
-          <div className="border-line bg-surface mt-4 rounded-[var(--radius-card)] border p-6 text-center">
+          <div className="glass mt-4 rounded-[var(--radius-card)] p-6 text-center">
             <p className="text-[17px] font-bold">
               {query.trim()
                 ? `Nothing matches “${query.trim()}” on this day.`
                 : 'No verified specials found for this day yet.'}
             </p>
-            <p className="mt-2 text-[15px] text-white/60">
+            <p className="text-ink/70 mt-2 text-[15px]">
               {query.trim()
                 ? 'Try a shorter word, another day, or clear the search to see everything.'
                 : filters.length > 0 || suburbs.length > 0
@@ -219,7 +219,7 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
                 <button
                   type="button"
                   onClick={() => setFilters([])}
-                  className="border-line min-h-[44px] rounded-xl border-2 px-4 text-[15px] font-bold text-white"
+                  className="border-line text-ink min-h-[44px] rounded-xl border-2 px-4 text-[15px] font-bold"
                 >
                   Clear filters
                 </button>
@@ -240,7 +240,7 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
         )}
       </section>
 
-      <p className="border-orange/25 bg-orange-dim mt-6 rounded-xl border px-4 py-3 text-[14px] text-white/85">
+      <p className="border-orange/25 bg-orange-dim text-ink/85 mt-6 rounded-xl border px-4 py-3 text-[14px]">
         {DISCLAIMER}
       </p>
 

@@ -43,7 +43,7 @@ export default function SearchBox({ value, resultCount, onChange }: Props) {
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 left-4 grid place-items-center"
         >
-          <svg viewBox="0 0 24 24" className="h-5 w-5 text-white/40">
+          <svg viewBox="0 0 24 24" className="text-ink/70 h-5 w-5">
             <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" strokeWidth="2.2" />
             <path
               d="M16.5 16.5 21 21"
@@ -63,15 +63,15 @@ export default function SearchBox({ value, resultCount, onChange }: Props) {
           autoComplete="off"
           value={value}
           onChange={(event) => onChange(event.target.value)}
-          placeholder="Search a restaurant, dish or street"
-          className="border-line bg-surface focus:border-orange w-full rounded-2xl border-2 py-3 pr-12 pl-12 text-[16px] font-semibold text-white transition-colors outline-none placeholder:font-normal placeholder:text-white/40 [&::-webkit-search-cancel-button]:hidden"
+          placeholder="Search a restaurant or dish"
+          className="glass focus:border-orange-deep text-ink placeholder:text-ink/70 w-full rounded-2xl py-3 pr-12 pl-12 text-[16px] font-semibold transition-colors outline-none placeholder:font-normal [&::-webkit-search-cancel-button]:hidden"
         />
 
         {has && (
           <button
             type="button"
             onClick={() => onChange('')}
-            className="absolute inset-y-0 right-0 grid w-12 place-items-center rounded-r-2xl text-white/50 hover:text-white"
+            className="text-ink/65 hover:text-ink absolute inset-y-0 right-0 grid w-12 place-items-center rounded-r-2xl"
           >
             <span className="sr-only">Clear the search</span>
             <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
@@ -90,7 +90,7 @@ export default function SearchBox({ value, resultCount, onChange }: Props) {
       {/* Announced to screen readers as the count changes, so someone who
           cannot see the list still knows whether the query narrowed it. */}
       {has && (
-        <p aria-live="polite" className="mt-1.5 px-1 text-[13px] text-white/50">
+        <p aria-live="polite" className="text-ink/65 mt-1.5 px-1 text-[13px]">
           {resultCount === 0
             ? 'Nothing matches that.'
             : `${resultCount} ${resultCount === 1 ? 'match' : 'matches'} for “${value.trim()}”`}

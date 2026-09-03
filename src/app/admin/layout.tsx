@@ -19,7 +19,18 @@ const NAV = [
   { href: '/admin/import', label: 'CSV import' },
 ];
 
+/**
+ * The dashboard keeps the dark palette the public site used to have.
+ *
+ * A sunset gradient behind a table of research candidates helps nobody, and
+ * this is a private tool. `theme-admin` re-points the same token names at the
+ * old dark values, so none of the admin screens needed touching.
+ */
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  return <div className="theme-admin">{<AdminShell>{children}</AdminShell>}</div>;
+}
+
+function AdminShell({ children }: { children: React.ReactNode }) {
   const state = useAdminSession();
   const pathname = usePathname();
 

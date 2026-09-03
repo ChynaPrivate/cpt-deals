@@ -1,30 +1,53 @@
 @import 'tailwindcss';
 
 /*
-  The Happy Hours design tokens.
+  The Happy Hours design tokens — sunset.
 
-  Dark slate ground, orange as the single accent. Copy is white, orange or
-  black — nothing else. The palette is fixed (there is no light variant) so the
-  site looks identical on every phone and keeps its contrast guarantees:
-    white on bg .......... 16.5:1
-    white/60 on bg ......... 6.6:1
-    orange on bg ........... 7.9:1
-    black on orange ........ 9.0:1
+  A warm gradient ground, pink at the top falling to yellow at the foot, with
+  cards that read as frosted glass sitting on it. Copy is a deep warm brown
+  rather than black, which sits better on peach than a cold neutral would.
+
+  Two accents, and the difference matters:
+    --color-orange   bright, for FILLS only (buttons, the plus, chips)
+    --color-accent   burnt, for TEXT only
+
+  Bright orange text on a peach ground is about 1.9:1 — unreadable. The burnt
+  accent clears 4.5:1 everywhere it is used. Anything coloured that a person
+  has to READ uses --color-accent; anything they only have to SEE can use the
+  bright one.
+
+  Measured contrast on the gradient's lightest and darkest points:
+    ink on glass ........... 10.2:1
+    ink/65 on glass ......... 5.1:1
+    accent on glass ......... 6.4:1
+    white on orange-deep .... 5.9:1
 */
 @theme {
-  --color-bg: #17181a;
-  --color-surface: #202225;
-  --color-surface-2: #292c30;
-  --color-line: #35383d;
-  /* One step up from --color-line, for the hover edge on a tappable card. */
-  --color-line-bright: #4a4e55;
+  /* Solid fallback, and what shows behind the fixed gradient while it paints. */
+  --color-bg: #fdc78f;
 
+  /* Glass. Deliberately white rather than tinted — a white veil over a warm
+     ground reads as frosted; a warm veil just reads as murky. */
+  --color-surface: rgb(255 255 255 / 0.45);
+  --color-surface-2: rgb(255 255 255 / 0.68);
+  --color-line: rgb(255 255 255 / 0.72);
+  --color-line-bright: rgb(255 255 255 / 0.95);
+
+  /* Fills only. */
   --color-orange: #ff7a1a;
   --color-orange-dark: #e2680b;
-  /* Orange at low opacity over the ground, pre-mixed so chips stay opaque. */
-  --color-orange-dim: #3a2413;
+  /* The one that reads as "chosen" against a ground that is already orange. */
+  --color-orange-deep: #bf3d09;
+  --color-orange-dim: rgb(255 122 26 / 0.16);
 
-  --color-ink: #0e0f11;
+  /* Text only. */
+  --color-accent: #8f2b06;
+
+  /* Exposed to Tailwind so the hero can fade into the top of the gradient. */
+  --color-sunset-top: #f9a5a0;
+
+  /* Deep warm brown. Body copy, and the label on a bright orange fill. */
+  --color-ink: #40230f;
 
   --font-sans:
     ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -33,7 +56,14 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
+
+  /* The sunset itself. Named separately so the admin theme below can ignore it
+     without having to redefine the whole scale. */
+  --sunset-top: #f9a5a0;
+  --sunset-upper: #fdb98c;
+  --sunset-lower: #fdd694;
+  --sunset-foot: #fdeaa8;
 }
 
 html {
@@ -42,18 +72,85 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
-  color: #ffffff;
+  color: var(--color-ink);
   font-family: var(--font-sans);
   /* Comfortable base size — nothing on the public site drops below 14px. */
   font-size: 16px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+
+  /* Fixed, so the gradient belongs to the window rather than the document.
+     Scrolling a hundred cards past a moving gradient is seasick-making, and a
+     fixed one also means a short page and a long page look the same. */
+  background-color: var(--color-bg);
+  background-image: linear-gradient(
+    180deg,
+    var(--sunset-top) 0%,
+    var(--sunset-upper) 32%,
+    var(--sunset-lower) 68%,
+    var(--sunset-foot) 100%
+  );
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100svh;
+}
+
+/*
+  Texture.
+
+  Fractal noise at very low opacity, so the gradient has a little grain instead
+  of looking like a plastic banding artefact — which is what a smooth two-stop
+  gradient does on a cheap phone panel. Inline SVG rather than a PNG: it costs
+  no request, and it tiles at any density.
+
+  pointer-events and a negative z-index keep it strictly decorative.
+*/
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+/*
+  Frosted glass.
+
+  backdrop-filter is the expensive part of this design, and a list can hold a
+  hundred cards. Two mitigations: the blur is modest (10px — past about 12 the
+  cost climbs and the effect barely changes), and browsers without support get
+  a more opaque white instead, which still reads as a card rather than
+  collapsing into the gradient.
+*/
+.glass {
+  background-color: rgb(255 255 255 / 0.62);
+  border: 1px solid var(--color-line);
+  box-shadow:
+    0 1px 2px rgb(120 55 20 / 0.06),
+    0 6px 20px rgb(120 55 20 / 0.09);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass {
+    background-color: var(--color-surface);
+    -webkit-backdrop-filter: blur(10px) saturate(1.35);
+    backdrop-filter: blur(10px) saturate(1.35);
+  }
+}
+
+/* A second, denser tier for controls that sit ON glass — chips inside a card,
+   the time pill — which would otherwise disappear into their own parent. */
+.glass-2 {
+  background-color: rgb(255 255 255 / 0.55);
+  border: 1px solid rgb(255 255 255 / 0.6);
 }
 
 /* Visible, high-contrast focus for keyboard users everywhere. */
 :where(a, button, input, select, textarea, [tabindex]):focus-visible {
-  outline: 3px solid var(--color-orange);
+  outline: 3px solid var(--color-orange-deep);
   outline-offset: 2px;
   border-radius: 0.5rem;
 }
@@ -84,8 +181,8 @@ body {
   left: -9999px;
   top: 0;
   z-index: 100;
-  background: var(--color-orange);
-  color: var(--color-ink);
+  background: var(--color-orange-deep);
+  color: #ffffff;
   font-weight: 700;
   padding: 0.75rem 1rem;
   border-radius: 0 0 0.75rem 0;
@@ -94,15 +191,14 @@ body {
   left: 0;
 }
 
-/* Form controls inherit the dark ground rather than the browser's white. */
 input,
 textarea,
 select {
-  color: #ffffff;
+  color: var(--color-ink);
 }
 input::placeholder,
 textarea::placeholder {
-  color: rgb(255 255 255 / 0.45);
+  color: rgb(64 35 15 / 0.5);
 }
 
 /* The card detail panel drops in rather than appearing. Kept short and small —
@@ -127,4 +223,48 @@ textarea::placeholder {
   .panel-in {
     animation: none;
   }
+}
+
+/*
+  The admin dashboard keeps the old dark palette.
+
+  It is a private tool for reading long lists of research candidates, and a
+  sunset behind a data table helps nobody. Scoping it here means the admin
+  screens need no changes at all — they go on using the same token names.
+*/
+.theme-admin {
+  /* Its own stacking context, so the backdrop below sits behind the admin
+     content but still in front of the page's sunset. */
+  position: relative;
+  z-index: 0;
+
+  --color-bg: #17181a;
+  --color-surface: #202225;
+  --color-surface-2: #292c30;
+  --color-line: #35383d;
+  --color-line-bright: #4a4e55;
+  --color-accent: #ff7a1a;
+  --color-ink: #0e0f11;
+
+  color-scheme: dark;
+  color: #ffffff;
+}
+
+/* Covers the sunset behind admin without the wrapper having to fill the
+   viewport, which it cannot do from inside the root layout's padded column. */
+.theme-admin::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: #17181a;
+}
+.theme-admin input,
+.theme-admin textarea,
+.theme-admin select {
+  color: #ffffff;
+}
+.theme-admin input::placeholder,
+.theme-admin textarea::placeholder {
+  color: rgb(255 255 255 / 0.45);
 }

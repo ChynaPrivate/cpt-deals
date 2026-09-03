@@ -47,13 +47,13 @@ export default function ReportForm({
   if (state === 'sent') {
     return (
       <div role="status" className="bg-orange-dim mt-4 rounded-xl px-4 py-4">
-        <p className="text-orange text-[15px] font-semibold">
+        <p className="text-accent text-[15px] font-semibold">
           Thank you — the report has been sent for review.
         </p>
         <button
           type="button"
           onClick={onDone}
-          className="text-orange mt-2 text-[15px] font-semibold underline"
+          className="text-accent mt-2 text-[15px] font-semibold underline"
         >
           Close
         </button>
@@ -62,7 +62,7 @@ export default function ReportForm({
   }
 
   return (
-    <form onSubmit={submit} className="border-line bg-surface mt-4 rounded-xl border p-4">
+    <form onSubmit={submit} className="glass-2 mt-4 rounded-xl p-4">
       <fieldset>
         <legend className="text-[16px] font-bold">What is wrong with this listing?</legend>
         <div className="mt-2 space-y-1">
@@ -83,7 +83,7 @@ export default function ReportForm({
       </fieldset>
 
       <label htmlFor={`${groupId}-comment`} className="mt-3 block text-[15px] font-semibold">
-        Anything to add? <span className="font-normal text-white/60">(optional)</span>
+        Anything to add? <span className="text-ink/70 font-normal">(optional)</span>
       </label>
       <textarea
         id={`${groupId}-comment`}
@@ -94,7 +94,7 @@ export default function ReportForm({
         className="border-line bg-bg mt-1 w-full rounded-xl border px-3 py-2 text-[15px]"
         placeholder="For example: the price went up to R210 last week."
       />
-      <p className="mt-1 text-[13px] text-white/60">
+      <p className="text-ink/70 mt-1 text-[13px]">
         {comment.length}/{MAX_COMMENT} characters. Please don’t include personal details — reports
         are stored without any information about who sent them.
       </p>
@@ -113,7 +113,7 @@ export default function ReportForm({
       </div>
 
       {state === 'error' && (
-        <p role="alert" className="text-orange mt-2 text-[15px] font-semibold">
+        <p role="alert" className="text-accent mt-2 text-[15px] font-semibold">
           {error}
         </p>
       )}

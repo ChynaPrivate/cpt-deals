@@ -79,7 +79,7 @@ export default function ShareButton({ text, title, path }: Props) {
         className={`grid h-7 w-7 place-items-center rounded-full transition-colors ${
           state === 'copied'
             ? 'bg-orange text-ink'
-            : 'bg-surface-2 group-hover/share:bg-line text-white/70 group-hover/share:text-white'
+            : 'glass-2 text-ink/75 group-hover/share:text-ink group-hover/share:bg-white/80'
         }`}
       >
         {state === 'copied' ? (

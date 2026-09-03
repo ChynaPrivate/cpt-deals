@@ -51,23 +51,23 @@ export default function InstallHelp() {
   return (
     <aside
       aria-labelledby="install-help-title"
-      className="border-line bg-surface mt-6 rounded-[var(--radius-card)] border p-4"
+      className="glass mt-6 rounded-[var(--radius-card)] p-4"
     >
       <div className="flex items-start justify-between gap-3">
-        <h2 id="install-help-title" className="text-orange text-[16px] font-bold">
+        <h2 id="install-help-title" className="text-accent text-[16px] font-bold">
           Add this website to your home screen
         </h2>
         <button
           type="button"
           onClick={dismiss}
-          className="bg-surface-2 min-h-[40px] min-w-[40px] shrink-0 rounded-full text-[18px] font-bold"
+          className="glass-2 min-h-[40px] min-w-[40px] shrink-0 rounded-full text-[18px] font-bold"
         >
           <span aria-hidden="true">×</span>
           <span className="sr-only">Dismiss the home-screen help</span>
         </button>
       </div>
 
-      <div className="mt-2 space-y-2 text-[15px] text-white/85">
+      <div className="text-ink/85 mt-2 space-y-2 text-[15px]">
         {platform !== 'android' && (
           <p>
             <strong>iPhone:</strong> open this page in Safari, tap the Share button, scroll down and

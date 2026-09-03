@@ -5,7 +5,12 @@ import { Pill, VerificationBadge } from './Badges';
 import ReportForm from './ReportForm';
 import { formatIsoDate, formatRand, formatTimeRange } from '@/lib/time';
 import { freshnessLabel } from '@/lib/specials';
-import { CATEGORY_LABELS, DISCLAIMER, WEEKDAY_NAMES, type SpecialWithRestaurant } from '@/lib/types';
+import {
+  CATEGORY_LABELS,
+  DISCLAIMER,
+  WEEKDAY_NAMES,
+  type SpecialWithRestaurant,
+} from '@/lib/types';
 
 interface Props {
   special: SpecialWithRestaurant;
@@ -15,8 +20,8 @@ interface Props {
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="border-line border-b py-3 last:border-b-0">
-      <dt className="text-[13px] font-semibold tracking-wide text-white/60 uppercase">{label}</dt>
-      <dd className="mt-1 text-[16px] text-white">{children}</dd>
+      <dt className="text-ink/70 text-[13px] font-semibold tracking-wide uppercase">{label}</dt>
+      <dd className="text-ink mt-1 text-[16px]">{children}</dd>
     </div>
   );
 }
@@ -46,7 +51,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
 
   return (
     <div className="panel-in">
-      <p className="text-[15px] text-white/85">{special.description}</p>
+      <p className="text-ink/85 text-[15px]">{special.description}</p>
 
       <div className="mt-3 flex flex-wrap gap-2">
         <Pill>{CATEGORY_LABELS[special.category]}</Pill>
@@ -59,15 +64,15 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
         />
       </div>
 
-      <dl className="border-line bg-surface-2 mt-3 rounded-2xl border px-4">
+      <dl className="glass-2 mt-3 rounded-2xl px-4">
         <Row label="Price">
           {price ? (
-            <span className="text-orange text-[20px] font-extrabold">{price}</span>
+            <span className="text-accent text-[20px] font-extrabold">{price}</span>
           ) : (
             'Discount offer — see the description above'
           )}
           {special.original_price !== null && (
-            <span className="ml-2 text-white/60 line-through">
+            <span className="text-ink/70 ml-2 line-through">
               {formatRand(special.original_price)}
             </span>
           )}
@@ -94,7 +99,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
         </Row>
         {restaurant.phone && (
           <Row label="Phone">
-            <a className="text-orange font-semibold underline" href={`tel:${restaurant.phone}`}>
+            <a className="text-accent font-semibold underline" href={`tel:${restaurant.phone}`}>
               {restaurant.phone}
             </a>
           </Row>
@@ -124,7 +129,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
             href={restaurant.booking_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="border-orange text-orange hover:bg-orange-dim flex min-h-[48px] items-center justify-center rounded-xl border-2 px-3 text-[15px] font-bold transition-colors"
+            className="border-orange text-accent hover:bg-orange-dim flex min-h-[48px] items-center justify-center rounded-xl border-2 px-3 text-[15px] font-bold transition-colors"
           >
             Book a table
           </a>
@@ -133,13 +138,13 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
           href={special.source_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="border-orange text-orange hover:bg-orange-dim flex min-h-[48px] items-center justify-center rounded-xl border-2 px-3 text-center text-[14px] font-bold transition-colors"
+          className="border-orange text-accent hover:bg-orange-dim flex min-h-[48px] items-center justify-center rounded-xl border-2 px-3 text-center text-[14px] font-bold transition-colors"
         >
           Original source
         </a>
       </div>
 
-      <p className="border-orange/25 bg-orange-dim mt-3 rounded-xl border px-4 py-3 text-[14px] text-white/85">
+      <p className="border-orange/25 bg-orange-dim text-ink/85 mt-3 rounded-xl border px-4 py-3 text-[14px]">
         {DISCLAIMER}
       </p>
 
@@ -149,7 +154,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
         <button
           type="button"
           onClick={() => setReporting(true)}
-          className="border-line bg-surface-2 text-orange mt-3 min-h-[44px] w-full rounded-xl border px-4 text-[14px] font-semibold"
+          className="glass-2 text-accent mt-3 min-h-[44px] w-full rounded-xl border px-4 text-[14px] font-semibold"
         >
           Report outdated information
         </button>

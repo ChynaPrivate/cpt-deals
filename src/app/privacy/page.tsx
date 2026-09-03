@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <article className="prose-gs">
-      <h1 className="text-orange text-[24px] font-extrabold">Privacy</h1>
+      <h1 className="text-accent text-[24px] font-extrabold">Privacy</h1>
 
       <h2 className="mt-5 text-[18px] font-bold">No account, no tracking profile</h2>
       <p className="mt-2 text-[16px]">

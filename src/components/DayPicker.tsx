@@ -56,8 +56,8 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
               'flex min-h-[46px] items-center justify-between gap-3 rounded-2xl border-2 sm:min-h-[56px]',
               'px-4 text-left transition-colors',
               isSelected
-                ? 'border-orange bg-orange text-ink shadow-[0_6px_20px_-8px_rgba(255,122,26,0.9)]'
-                : 'border-line bg-surface hover:border-orange/50 text-white',
+                ? 'bg-orange-deep border-orange-deep text-white shadow-[0_8px_22px_-10px_rgba(191,61,9,0.95)]'
+                : 'glass hover:border-line-bright text-ink',
             ].join(' ')}
           >
             <span className="flex items-center gap-3">
@@ -65,7 +65,7 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
               {isToday && (
                 <span
                   className={`rounded-full px-2 py-0.5 text-[11px] font-bold tracking-wide uppercase ${
-                    isSelected ? 'bg-ink/15 text-ink' : 'bg-orange-dim text-orange'
+                    isSelected ? 'bg-white/25 text-white' : 'text-accent bg-white/45'
                   }`}
                 >
                   Today
@@ -73,7 +73,7 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
               )}
             </span>
             <span
-              className={`text-[14px] tabular-nums ${isSelected ? 'text-ink/75' : 'text-white/60'}`}
+              className={`text-[14px] tabular-nums ${isSelected ? 'text-ink/75' : 'text-ink/70'}`}
             >
               {count}
             </span>

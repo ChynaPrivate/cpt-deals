@@ -23,9 +23,9 @@ export default async function HomePage() {
 
   if (loadError) {
     return (
-      <div role="alert" className="border-line bg-surface rounded-[var(--radius-card)] border p-6">
+      <div role="alert" className="glass rounded-[var(--radius-card)] p-6">
         <h2 className="text-[18px] font-bold">The specials could not be loaded</h2>
-        <p className="mt-2 text-[15px] text-white/60">
+        <p className="text-ink/70 mt-2 text-[15px]">
           Something went wrong reaching the database. Please try again in a moment.
         </p>
       </div>

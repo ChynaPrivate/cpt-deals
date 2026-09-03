@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             alt and the name stays real text on top of it — readable to screen
             readers and to search engines, and legible over the picture thanks
             to the half-black wash. */}
-        <header className="border-line relative isolate overflow-hidden border-b">
+        <header className="relative isolate overflow-hidden">
           {/* Deliberately a plain <img>: the file is already cropped, resized and
               served at two widths, so next/image would only add an image CDN
               dependency to a static asset that does not need one. */}
@@ -95,22 +95,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             height={467}
             className="absolute inset-0 h-full w-full object-cover object-[center_60%]"
           />
-          <div aria-hidden="true" className="absolute inset-0 bg-black/50" />
-          {/* A little extra weight at the foot of the picture, so the subtitle
-              never has to sit on sunlit buildings. */}
+          {/* Lighter than it was. The photograph used to sit on a dark page and
+              needed a heavy wash to carry white type; on the sunset it only
+              needs enough to keep the words legible, and a warm tint so the
+              picture belongs to the gradient rather than interrupting it. */}
+          <div aria-hidden="true" className="absolute inset-0 bg-black/38" />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-[#bf3d09]/55 via-[#bf3d09]/10 to-transparent mix-blend-multiply"
+          />
+          {/* Melts the foot of the photo into the gradient, so there is no hard
+              line between the header and the page. */}
+          <div
+            aria-hidden="true"
+            className="from-sunset-top/85 absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t to-transparent"
           />
 
           <div className="relative flex h-[150px] items-end sm:h-[190px]">
             <div className="mx-auto w-full max-w-[720px] px-4 pb-4">
-              <p className="text-[30px] leading-tight font-extrabold tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] sm:text-[36px]">
+              <p className="text-[30px] leading-tight font-extrabold tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-[36px]">
                 <Link href="/">
                   The <span className="text-orange">Happy Hours</span>
                 </Link>
               </p>
-              <p className="mt-0.5 text-[15px] text-white/85 drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+              <p className="mt-0.5 text-[15px] text-white/90 drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]">
                 What&rsquo;s on special in Cape Town today?
               </p>
             </div>
@@ -122,14 +130,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
 
         <footer className="border-line bg-surface border-t px-4 py-8">
-          <div className="mx-auto flex max-w-[720px] flex-wrap gap-x-5 gap-y-2 text-[14px] text-white/60">
-            <Link className="text-orange font-semibold underline" href="/">
+          <div className="text-ink/70 mx-auto flex max-w-[720px] flex-wrap gap-x-5 gap-y-2 text-[14px]">
+            <Link className="text-accent font-semibold underline" href="/">
               Today&rsquo;s specials
             </Link>
-            <Link className="text-orange font-semibold underline" href="/privacy">
+            <Link className="text-accent font-semibold underline" href="/privacy">
               Privacy
             </Link>
-            <Link className="text-orange font-semibold underline" href="/terms">
+            <Link className="text-accent font-semibold underline" href="/terms">
               Terms
             </Link>
             <span className="w-full pt-2">

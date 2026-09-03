@@ -65,8 +65,8 @@ function Chip({
       className={[
         'min-h-[40px] shrink-0 rounded-full border px-3.5 text-[14px] font-semibold transition-colors',
         on
-          ? 'border-orange bg-orange text-ink'
-          : 'border-line bg-surface hover:border-orange/50 text-white',
+          ? 'bg-orange-deep border-orange-deep text-white'
+          : 'glass hover:border-orange-deep/50 text-ink',
         dimmed && !on ? 'opacity-55' : '',
       ].join(' ')}
     >
@@ -94,18 +94,18 @@ function Toggle({
       aria-expanded={open}
       aria-controls={controls}
       onClick={onClick}
-      className={`bg-surface-2 flex min-h-[52px] w-full items-center justify-center gap-2 rounded-2xl border-2 px-4 text-[17px] font-bold text-white transition-colors ${
+      className={`glass text-ink flex min-h-[52px] w-full items-center justify-center gap-2 rounded-2xl border-2 px-4 text-[17px] font-bold transition-colors ${
         open ? 'border-orange/50' : 'border-line hover:border-orange/50'
       }`}
     >
       {label}
       {count > 0 && (
-        <span className="bg-orange text-ink grid h-5 min-w-5 place-items-center rounded-full px-1.5 text-[12px] font-bold">
+        <span className="bg-orange-deep grid h-5 min-w-5 place-items-center rounded-full px-1.5 text-[12px] font-bold text-white">
           {count}
           <span className="sr-only"> selected</span>
         </span>
       )}
-      <span aria-hidden="true" className="text-[11px] text-white/60">
+      <span aria-hidden="true" className="text-ink/70 text-[11px]">
         {open ? '▴' : '▾'}
       </span>
     </button>
@@ -159,14 +159,14 @@ export default function ControlBar({
 
       <div className="mt-3 flex flex-wrap items-center gap-3">
         <span className="inline-flex items-center gap-2">
-          <label htmlFor="sort" className="text-[14px] font-semibold text-white/60">
+          <label htmlFor="sort" className="text-ink/70 text-[14px] font-semibold">
             Sort by
           </label>
           <select
             id="sort"
             value={sort}
             onChange={(event) => onSort(event.target.value as SortKey)}
-            className="border-line bg-surface min-h-[40px] rounded-xl border px-3 text-[14px] font-semibold text-white"
+            className="glass-2 text-ink min-h-[40px] rounded-xl px-3 text-[14px] font-semibold"
           >
             {SORT_ORDER.map((key) => (
               <option key={key} value={key}>
@@ -186,8 +186,8 @@ export default function ControlBar({
             className={[
               'min-h-[44px] w-full rounded-xl border px-4 text-[14px] font-semibold transition-colors',
               suburbs.length === 0
-                ? 'border-orange bg-orange text-ink'
-                : 'border-line bg-surface-2 hover:border-orange/50 text-white',
+                ? 'bg-orange-deep border-orange-deep text-white'
+                : 'glass-2 hover:border-orange-deep/50 text-ink',
             ].join(' ')}
           >
             All suburbs
@@ -209,13 +209,13 @@ export default function ControlBar({
                     'flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl border px-3',
                     'text-[14px] font-semibold transition-colors',
                     on
-                      ? 'border-orange bg-orange text-ink'
-                      : 'border-line bg-surface-2 hover:border-orange/50 text-white',
+                      ? 'bg-orange-deep border-orange-deep text-white'
+                      : 'glass-2 hover:border-orange-deep/50 text-ink',
                     count === 0 && !on ? 'opacity-55' : '',
                   ].join(' ')}
                 >
                   {SUBURB_SHORT[suburb]}
-                  <span className={`tabular-nums ${on ? 'text-ink/70' : 'text-white/50'}`}>
+                  <span className={`tabular-nums ${on ? 'text-ink/70' : 'text-ink/65'}`}>
                     {count}
                   </span>
                   <span className="sr-only">
@@ -245,7 +245,7 @@ export default function ControlBar({
             <button
               type="button"
               onClick={onClearFilters}
-              className="text-orange min-h-[40px] rounded-xl px-3 text-[14px] font-semibold underline underline-offset-2"
+              className="text-accent min-h-[40px] rounded-xl px-3 text-[14px] font-semibold underline underline-offset-2"
             >
               Clear filters
             </button>
@@ -254,7 +254,7 @@ export default function ControlBar({
       )}
 
       {sort === 'nearest' && locationState !== 'granted' && (
-        <p role="status" className="mt-2 text-[14px] text-white/60">
+        <p role="status" className="text-ink/70 mt-2 text-[14px]">
           {locationState === 'asking' && 'Asking your browser for your location…'}
           {locationState === 'denied' &&
             'Location was declined, so specials stay in their usual order. Everything else still works.'}

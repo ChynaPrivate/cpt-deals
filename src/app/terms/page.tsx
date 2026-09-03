@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <article>
-      <h1 className="text-orange text-[24px] font-extrabold">Terms</h1>
+      <h1 className="text-accent text-[24px] font-extrabold">Terms</h1>
 
       <p className="bg-orange-dim mt-4 rounded-xl px-4 py-3 text-[16px] font-semibold">
         {DISCLAIMER}

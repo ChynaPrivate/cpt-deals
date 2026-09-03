@@ -107,13 +107,13 @@ export default function KindToggle({ value, counts, onChange }: Props) {
       onPointerMove={handlePointerMove}
       onPointerUp={endDrag}
       onPointerCancel={endDrag}
-      className="border-line bg-surface relative grid touch-pan-y grid-cols-3 rounded-2xl border-2 p-1 select-none"
+      className="glass relative grid touch-pan-y grid-cols-3 rounded-2xl p-1 select-none"
     >
       {/* The thumb. A third of the inner width, moved by whole multiples of
           itself — so it lands exactly on each stop at any screen size. */}
       <span
         aria-hidden="true"
-        className={`bg-orange absolute inset-y-1 left-1 w-[calc((100%-0.5rem)/3)] rounded-xl ${
+        className={`bg-orange-deep absolute inset-y-1 left-1 w-[calc((100%-0.5rem)/3)] rounded-xl ${
           dragging ? '' : 'transition-transform duration-200 ease-out motion-reduce:transition-none'
         }`}
         style={{ transform: `translateX(${position * 100}%)` }}
@@ -130,11 +130,11 @@ export default function KindToggle({ value, counts, onChange }: Props) {
             tabIndex={on ? 0 : -1}
             onClick={() => onChange(kind)}
             className={`relative z-10 flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl text-[16px] font-bold transition-colors ${
-              on ? 'text-ink' : 'text-white'
+              on ? 'text-white' : 'text-ink'
             }`}
           >
             {label}
-            <span className={`tabular-nums ${on ? 'text-ink/70' : 'text-white/50'}`}>{count}</span>
+            <span className={`tabular-nums ${on ? 'text-white/75' : 'text-ink/70'}`}>{count}</span>
           </button>
         );
       })}

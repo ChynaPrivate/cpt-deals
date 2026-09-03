@@ -96,7 +96,7 @@ export default async function SpecialPage({ params }: Props) {
 
   return (
     <div className="pb-6">
-      <article className="border-line bg-surface rounded-[var(--radius-card)] border p-4">
+      <article className="glass rounded-[var(--radius-card)] p-4">
         <div className="flex items-center gap-3">
           <VenueAvatar
             name={special.restaurant.name}
@@ -105,23 +105,23 @@ export default async function SpecialPage({ params }: Props) {
             size={44}
           />
           <div className="min-w-0 flex-1">
-            <h1 className="text-[16px] leading-tight font-bold text-white">
+            <h1 className="text-ink text-[16px] leading-tight font-bold">
               {special.restaurant.name}
             </h1>
-            <p className="mt-0.5 text-[13px] text-white/55">{where}</p>
+            <p className="text-ink/70 mt-0.5 text-[13px]">{where}</p>
           </div>
         </div>
 
-        <h2 className="mt-3 text-[20px] leading-snug font-extrabold tracking-tight text-white">
+        <h2 className="text-ink mt-3 text-[20px] leading-snug font-extrabold tracking-tight">
           {title}
         </h2>
 
         <div className="mt-2 flex items-center justify-between gap-3">
-          <span className="bg-surface-2 rounded-lg px-2 py-1 text-[12px] font-semibold text-white/70">
+          <span className="glass-2 text-ink/70 rounded-lg px-2 py-1 text-[12px] font-semibold">
             {formatTimeRange(special.start_time, special.end_time)}
           </span>
           {showPrice && (
-            <span className="text-orange text-[22px] leading-none font-extrabold">{price}</span>
+            <span className="text-accent text-[22px] leading-none font-extrabold">{price}</span>
           )}
         </div>
 

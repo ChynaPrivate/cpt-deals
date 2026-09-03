@@ -53,7 +53,7 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
     : `${address}, ${suburb}`;
 
   return (
-    <li className="border-line bg-surface hover:border-line-bright relative overflow-hidden rounded-[var(--radius-card)] border transition-colors">
+    <li className="glass hover:border-line-bright relative overflow-hidden rounded-[var(--radius-card)] transition-colors">
       <article className="group p-4">
         {/* Everything down to the price row is one control. */}
         <div className="relative">
@@ -78,13 +78,13 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
             />
 
             <div className="min-w-0 flex-1">
-              <h3 className="text-[16px] leading-tight font-bold text-white">
+              <h3 className="text-ink text-[16px] leading-tight font-bold">
                 {special.restaurant.name}
               </h3>
               {/* Short suburb name here: several street addresses already end in
                   the suburb, and "…V&A Waterfront, Victoria & Alfred Waterfront"
                   reads like a bug. Two lines is the ceiling. */}
-              <p className="mt-0.5 line-clamp-2 text-[13px] text-white/55">
+              <p className="text-ink/70 mt-0.5 line-clamp-2 text-[13px]">
                 {where}
                 {distanceKm !== null && (
                   <span>
@@ -99,18 +99,18 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
             </div>
           </div>
 
-          <h4 className="mt-3 text-[18px] leading-snug font-extrabold tracking-tight text-white">
+          <h4 className="text-ink mt-3 text-[18px] leading-snug font-extrabold tracking-tight">
             {title}
           </h4>
 
           {/* When it runs on the left, what it costs on the right. Everything
               else waits until the card is opened. */}
           <div className="mt-2 flex items-center justify-between gap-3">
-            <span className="bg-surface-2 rounded-lg px-2 py-1 text-[12px] font-semibold text-white/70">
+            <span className="glass-2 text-ink/70 rounded-lg px-2 py-1 text-[12px] font-semibold">
               {when}
             </span>
             {showPrice && (
-              <span className="text-orange text-[22px] leading-none font-extrabold">{price}</span>
+              <span className="text-accent text-[22px] leading-none font-extrabold">{price}</span>
             )}
           </div>
           {/* Sits above the summary overlay (z-20 vs z-10) so a tap here shares
