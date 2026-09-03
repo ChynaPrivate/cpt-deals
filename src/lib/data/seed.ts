@@ -26,6 +26,14 @@ const CHECKED_5 = '2026-08-24';
 const CHECKED_6 = '2026-08-25';
 /** The second Sea Point sweep, worked through Dineplan rather than venue sites. */
 const CHECKED_7 = '2026-08-26';
+/**
+ * The September re-verification sweep. Winter menus ran to 31 August, so a
+ * third of the catalogue lapsed at once; every offer below carrying this date
+ * was re-checked against the venue's own current page on 3 September 2026,
+ * and anything that could not be re-confirmed there was archived rather than
+ * carried over.
+ */
+const CHECKED_8 = '2026-09-03';
 const NOW_ISO = '2026-08-20T00:00:00Z';
 
 function mapsUrl(name: string, address: string): string {
@@ -2158,6 +2166,11 @@ const HUDSONS_DINEPLAN = 'https://www.dineplan.com/restaurants/hudsons-kloof-str
 
 /** fable's own site, showing an updated date of 25 July 2026. */
 const FABLE_SOURCE = 'https://fablecocktailbar.capetown/';
+/* --- September 2026 re-verification sweep --- */
+const MAMACITA_SOURCE = 'https://www.mamacitas.co.za/menus/';
+const COPA_SPRING_SOURCE = 'https://www.pepperclub.co.za/special-offers/';
+const WATERFRONT_PROMOS = 'https://www.waterfront.co.za/promotions';
+const FERRYMANS_PROMO = 'https://www.waterfront.co.za/eat-and-drink/ferrymans-tavern';
 
 function special(
   input: Partial<Special> &
@@ -2200,7 +2213,7 @@ export const SPECIALS_SEED: Special[] = [
   // ---------------------------------------------------------------- Rick's
   special({
     id: 'b2000000-0000-4000-8000-000000000001',
-    last_verified_at: CHECKED_2,
+    last_verified_at: CHECKED_8,
     restaurant_id: RICKS,
     title: 'Happy hour',
     description:
@@ -2216,7 +2229,7 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000002',
-    last_verified_at: CHECKED_2,
+    last_verified_at: CHECKED_8,
     restaurant_id: RICKS,
     title: 'Golden Hour',
     description:
@@ -2230,21 +2243,21 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000003',
-    valid_until: '2026-09-01',
-    last_verified_at: CHECKED_2,
+    last_verified_at: CHECKED_8,
     restaurant_id: RICKS,
     title: 'Two-for-one burgers',
     description: 'Buy one burger and get a second free — the deal covers the whole burger menu.',
     category: 'food',
-    days_of_week: [2],
+    days_of_week: [1],
     source_url: RICKS_SOURCE,
     source_type: 'official_website',
-    terms: 'Applies to every burger on the menu, all day.',
     featured: true,
+    terms:
+      'Applies to every burger on the menu, all day. The specials page lists this as a Monday offer, while the opening-hours page lists trading as Tuesday to Sunday — worth a call before making the trip on a Monday.',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000004',
-    last_verified_at: CHECKED_2,
+    last_verified_at: CHECKED_8,
     restaurant_id: RICKS,
     title: 'Two margaritas for R100',
     description: 'A pair of margaritas made with El Jimador Blanco tequila, all day Wednesday.',
@@ -2256,22 +2269,21 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000005',
-    valid_until: '2026-08-27',
-    last_verified_at: CHECKED_2,
+    last_verified_at: CHECKED_8,
     restaurant_id: RICKS,
-    title: 'Tajine and wine Thursday',
+    title: 'Tajine and wine Tuesday',
     description:
       'Order any Moroccan tajine and a complimentary carafe of Cederberg Merlot Shiraz blend comes with it.',
     category: 'dinner',
-    days_of_week: [4],
+    days_of_week: [2],
     source_url: RICKS_SOURCE,
     source_type: 'official_website',
     terms: 'The tajine is charged at menu price; the wine carafe is included.',
     featured: true,
   }),
   special({
+    last_verified_at: CHECKED_8,
     id: 'b2000000-0000-4000-8000-000000000006',
-    valid_until: '2026-09-30',
     restaurant_id: RICKS,
     title: 'Sunday lamb roast',
     description: 'Moroccan-spiced roast leg of lamb served as a Sunday roast.',
@@ -2285,7 +2297,7 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000007',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: RICKS,
     title: 'Lazy Sunday afternoon',
     description:
@@ -2302,10 +2314,9 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000008',
-    valid_until: '2026-08-31',
-    last_verified_at: CHECKED_2,
+    last_verified_at: CHECKED_8,
     restaurant_id: RICKS,
-    title: 'Winter brandy special — two doubles for R90',
+    title: 'Two double brandy and Cokes for R90',
     description: 'Two double brandy and Cokes at a set price, all winter, all day long.',
     price: 90,
     category: 'drinks',
@@ -2313,6 +2324,7 @@ export const SPECIALS_SEED: Special[] = [
     source_url: RICKS_SOURCE,
     source_type: 'official_website',
   }),
+  // Archived 2026-09-03: a winter drink, gone from the specials page now that the page has been changed over for spring.
   special({
     id: 'b2000000-0000-4000-8000-000000000009',
     restaurant_id: RICKS,
@@ -2324,8 +2336,11 @@ export const SPECIALS_SEED: Special[] = [
     source_url: RICKS_SOURCE,
     source_type: 'official_website',
     terms: 'Listed as a winter offer; confirm availability once the season turns.',
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
+    last_verified_at: CHECKED_8,
     id: 'b2000000-0000-4000-8000-000000000010',
     restaurant_id: RICKS,
     title: 'Two Aperol Spritz for R175',
@@ -2333,7 +2348,6 @@ export const SPECIALS_SEED: Special[] = [
     price: 175,
     category: 'drinks',
     days_of_week: [2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     source_url: RICKS_SOURCE,
     source_type: 'official_website',
     terms: "Advertised as a Women's Month promotion for August 2026.",
@@ -2465,6 +2479,7 @@ export const SPECIALS_SEED: Special[] = [
     source_published_at: '2026-08-21',
     last_verified_at: CHECKED_2,
   }),
+  // Archived 2026-09-03: a winter sharing menu that ended in August; nothing current replaces it on the venue's own channels.
   special({
     id: 'b2000000-0000-4000-8000-000000000019',
     restaurant_id: FLORENTIN,
@@ -2475,13 +2490,15 @@ export const SPECIALS_SEED: Special[] = [
     days_of_week: [2, 3, 4],
     start_time: '17:30',
     end_time: '21:00',
-    valid_until: '2026-08-28',
     terms: 'R580 for two people.',
     source_url: `${LISTINGS}/cape-town-central`,
     source_type: 'publication',
     source_published_at: '2026-08-21',
-    last_verified_at: CHECKED_2,
+    last_verified_at: CHECKED_8,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
+  // Archived 2026-09-03: an August Aperol promotion with no current source.
   special({
     id: 'b2000000-0000-4000-8000-00000000001a',
     restaurant_id: FLORENTIN,
@@ -2490,12 +2507,13 @@ export const SPECIALS_SEED: Special[] = [
     price: 180,
     category: 'drinks',
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-30',
     terms: 'Times vary by day: Monday to 3pm, Tuesday to Saturday to 9pm, Sunday to 2.30pm.',
     source_url: `${LISTINGS}/cape-town-central`,
     source_type: 'publication',
     source_published_at: '2026-08-21',
-    last_verified_at: CHECKED_2,
+    last_verified_at: CHECKED_8,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
 
   // ------------------------------------------------------------- Camps Bay
@@ -2508,15 +2526,16 @@ export const SPECIALS_SEED: Special[] = [
     price: 499,
     category: 'dinner',
     days_of_week: [2],
-    valid_until: '2026-08-31',
-    terms: 'R499 for two courses or R599 for three — priced per couple, evenings only.',
     booking_required: true,
     source_url: `${LISTINGS}/camps-bay`,
     source_type: 'publication',
     source_published_at: '2026-08-21',
-    last_verified_at: CHECKED_2,
+    last_verified_at: CHECKED_8,
     featured: true,
+    terms:
+      'R499 per couple for two courses, R599 for three, with a bottle of house wine or two soft drinks. Eat-in only.',
   }),
+  // Archived 2026-09-03: the winter two-course menu ended on 31 August and no spring replacement is published for this branch.
   special({
     id: 'b2000000-0000-4000-8000-00000000001c',
     restaurant_id: HUSSAR_CB,
@@ -2525,15 +2544,17 @@ export const SPECIALS_SEED: Special[] = [
     price: 349,
     category: 'dinner',
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     terms: 'Priced per person. A premium red blend is offered at R60 a glass or R180 a bottle.',
     source_url: `${LISTINGS}/camps-bay`,
     source_type: 'publication',
     source_published_at: '2026-08-21',
-    last_verified_at: CHECKED_2,
+    last_verified_at: CHECKED_8,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
 
   // ---------------------------------------------------------- Mouille Point
+  // Archived 2026-09-03: the Dineplan listing states the menu ran 20 July to 31 August only.
   special({
     id: 'b2000000-0000-4000-8000-00000000001d',
     restaurant_id: HUSSAR_MP,
@@ -2542,13 +2563,15 @@ export const SPECIALS_SEED: Special[] = [
     price: 349,
     category: 'dinner',
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     terms: 'Priced per person. A premium red blend is offered at R60 a glass or R180 a bottle.',
     source_url: `${LISTINGS}/mouille-point`,
     source_type: 'publication',
     source_published_at: '2026-08-21',
-    last_verified_at: CHECKED_2,
+    last_verified_at: CHECKED_8,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
+  // Archived 2026-09-03: date night is confirmed at Camps Bay but not at this branch; Hussar Grill is a franchise and branches differ, so it is not assumed.
   special({
     id: 'b2000000-0000-4000-8000-00000000001e',
     restaurant_id: HUSSAR_MP,
@@ -2558,13 +2581,14 @@ export const SPECIALS_SEED: Special[] = [
     price: 499,
     category: 'dinner',
     days_of_week: [2],
-    valid_until: '2026-08-31',
     terms: 'R499 for two courses or R599 for three — priced per couple, evenings only.',
     booking_required: true,
     source_url: `${LISTINGS}/mouille-point`,
     source_type: 'publication',
     source_published_at: '2026-08-21',
-    last_verified_at: CHECKED_2,
+    last_verified_at: CHECKED_8,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
 
   // -------------------------------------------------------------- Sea Point
@@ -2804,7 +2828,7 @@ export const SPECIALS_SEED: Special[] = [
   // noon-to-four specials below are listed for Friday and Saturday only.
   special({
     id: 'b2000000-0000-4000-8000-00000000002d',
-    last_verified_at: CHECKED_3,
+    last_verified_at: CHECKED_8,
     restaurant_id: FABLE,
     title: 'Happy hour',
     description:
@@ -2822,8 +2846,7 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-00000000002e',
-    valid_until: '2026-08-31',
-    last_verified_at: CHECKED_3,
+    last_verified_at: CHECKED_8,
     restaurant_id: FABLE,
     title: "Women's Wednesdays",
     description: 'Half price on all classic cocktails for women, mid-evening on Wednesdays.',
@@ -2838,13 +2861,13 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-00000000002f',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: FABLE,
     title: 'Fable Fix',
     description: 'Any sandwich or pie from the daytime menu, with a daytime drink.',
     price: 150,
     category: 'lunch',
-    days_of_week: [5, 6],
+    days_of_week: [2, 3, 4, 5, 6, 7],
     start_time: '12:00',
     end_time: '16:00',
     terms:
@@ -2853,9 +2876,10 @@ export const SPECIALS_SEED: Special[] = [
     source_type: 'official_website',
     source_published_at: '2026-07-25',
   }),
+  // Archived 2026-09-03: still on the venue's page but titled 'Winter Warmer' — reads as copy that has not been changed over for spring, so it is held back pending confirmation.
   special({
     id: 'b2000000-0000-4000-8000-000000000030',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: FABLE,
     title: 'Winter Warmer',
     description: 'Creamy roasted tomato soup with a four-cheese toastie.',
@@ -2869,6 +2893,8 @@ export const SPECIALS_SEED: Special[] = [
     source_url: FABLE_SOURCE,
     source_type: 'official_website',
     source_published_at: '2026-07-25',
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   // ------------------------------------- Dineplan winter guide 2026
   // Source: dineplan.com/blog/winter-specials-and-set-menus, published
@@ -2894,10 +2920,10 @@ export const SPECIALS_SEED: Special[] = [
     source_type: 'booking_page',
     source_published_at: '2026-07-23',
   }),
+  // Archived 2026-09-03: the winter menu page now returns 404; it has been replaced by the spring menu below.
   special({
     id: 'b2000000-0000-4000-8000-000000000032',
-    valid_until: '2026-08-31',
-    last_verified_at: CHECKED_3,
+    last_verified_at: CHECKED_8,
     restaurant_id: COPA,
     title: 'Three-course winter menu',
     description: 'Three courses from the winter menu at the Pepperclub.',
@@ -2909,6 +2935,8 @@ export const SPECIALS_SEED: Special[] = [
     source_url: DINEPLAN_WINTER,
     source_type: 'booking_page',
     source_published_at: '2026-07-23',
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000033',
@@ -2955,9 +2983,10 @@ export const SPECIALS_SEED: Special[] = [
     source_type: 'booking_page',
     source_published_at: '2026-07-23',
   }),
+  // Archived 2026-09-03: a winter menu that ended on 31 August, with no spring replacement published.
   special({
     id: 'b2000000-0000-4000-8000-000000000036',
-    last_verified_at: CHECKED_3,
+    last_verified_at: CHECKED_8,
     restaurant_id: MINT,
     title: 'Three-course menu with a Port',
     description:
@@ -2965,11 +2994,12 @@ export const SPECIALS_SEED: Special[] = [
     price: 595,
     category: 'dinner',
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     terms: 'R595 per person, from midday daily. Dineplan lists this as running through August.',
     source_url: DINEPLAN_WINTER,
     source_type: 'booking_page',
     source_published_at: '2026-07-23',
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000037',
@@ -3470,53 +3500,58 @@ export const SPECIALS_SEED: Special[] = [
     source_type: 'publication',
     source_published_at: '2026-08-23',
   }),
+  // Archived 2026-09-03: not on the venue's specials page when it was re-read on 3 September, and no other official source carries it.
   special({
     id: 'b2000000-0000-4000-8000-000000000053',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: RICKS,
     title: 'Steak Night',
     description: 'A complimentary 250ml wine carafe and pepper sauce with any steak, on Tuesdays.',
     category: 'dinner',
     days_of_week: [2],
-    valid_until: '2026-08-31',
     source_url: LISTINGS,
     source_type: 'publication',
     source_published_at: '2026-08-23',
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000054',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: COPA,
     title: 'Dinner and a movie',
     description: 'Pasta or pizza, a glass of wine, and a private cinema screening.',
-    price: 350,
+    price: null,
     category: 'dinner',
     days_of_week: [4, 5, 6],
     start_time: '18:00',
     end_time: '19:30',
-    valid_until: '2026-08-31',
     source_url: LISTINGS,
     source_type: 'publication',
     source_published_at: '2026-08-23',
+    terms:
+      'The cinema page and the hotel offers page quote different figures for this one (R295 and R350), so no price is shown here until the restaurant confirms which is current. Booked through Dineplan.',
   }),
+  // Archived 2026-09-03: no current source; the afternoon-tea promotion ended with the winter menu.
   special({
     id: 'b2000000-0000-4000-8000-000000000055',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: MINT,
     title: 'Indian-Cape afternoon tea',
     description: 'Afternoon tea on Sundays, with the option of adding a glass of MCC.',
     price: 345,
     category: 'food',
     days_of_week: [7],
-    valid_until: '2026-08-31',
     terms: 'R345 per person, or R395 with a glass of MCC.',
     source_url: LISTINGS,
     source_type: 'publication',
     source_published_at: '2026-08-23',
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000056',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: MAMACITA,
     title: 'Happy hour',
     description:
@@ -3534,54 +3569,51 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000057',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: MAMACITA,
     title: 'Burger Monday',
     description: 'Buy a burger and the draught or margarita is on the house.',
     category: 'food',
     days_of_week: [1],
-    valid_until: '2026-08-31',
     source_url: LISTINGS,
     source_type: 'publication',
     source_published_at: '2026-08-23',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000058',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: MAMACITA,
     title: 'Taco Tuesday',
     description: 'Tacos at R50 to R60 each, mix and match, all day and night.',
-    price: 50,
+    price: null,
     category: 'food',
     days_of_week: [2],
-    valid_until: '2026-08-25',
-    terms: 'R50 to R60 depending on the taco.',
     source_url: LISTINGS,
     source_type: 'publication',
     source_published_at: '2026-08-23',
+    terms:
+      'The venue publishes the day but not a price for this one, so no price is shown here rather than carrying over an old figure.',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000059',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: MAMACITA,
     title: 'Wednesday ribs',
     description: 'Free upgrade to the 600g rack on Wednesdays.',
     category: 'food',
     days_of_week: [3],
-    valid_until: '2026-08-27',
     source_url: LISTINGS,
     source_type: 'publication',
     source_published_at: '2026-08-23',
   }),
   special({
     id: 'b2000000-0000-4000-8000-00000000005a',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: MAMACITA,
     title: 'Kids eat free on Sundays',
     description: 'One free kids meal for every paying adult.',
     category: 'food',
     days_of_week: [7],
-    valid_until: '2026-09-27',
     terms: 'Dine-in only. One free kids meal per paying adult, for children twelve and under.',
     source_url: LISTINGS,
     source_type: 'publication',
@@ -3593,36 +3625,38 @@ export const SPECIALS_SEED: Special[] = [
   // with explicit end dates, which their own sites do not. Days and times are
   // left open where the source states none — inventing them would be worse
   // than a card that says "check with the venue".
+  // Archived 2026-09-03: an August Women's Month promotion, absent from the venue's current specials page.
   special({
     id: 'b2000000-0000-4000-8000-00000000005b',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: QUAY_FOUR,
     title: 'Two Aperol Spritz for R215',
     description: "Women's Month offer: two Aperol Spritz on the harbour deck for R215.",
     category: 'drinks',
     price: 215,
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     terms: 'Runs during normal trading hours, 11am to 11pm.',
     source_url: 'https://www.restaurants.co.za/quay-four',
     source_type: 'publication',
     source_published_at: CHECKED_4,
     featured: true,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-00000000005c',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: QUAY_FOUR,
-    title: 'Meal and a tank beer from R159',
+    title: 'Fish and chips with a tank beer for R199',
     description:
       'Burger and a tank beer R159; fish and chips or spatchcock chicken with a beer R199; 200g sirloin with a beer R219.',
     category: 'food',
-    price: 159,
+    price: 199,
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
     valid_until: '2026-09-30',
     terms: 'R159 is the cheapest of the four combos. No day or time restriction is published.',
-    source_url: 'https://www.restaurants.co.za/quay-four',
-    source_type: 'publication',
+    source_url: WATERFRONT_PROMOS,
+    source_type: 'official_website',
     source_published_at: CHECKED_4,
   }),
   special({
@@ -3669,7 +3703,7 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000060',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: QUAY_FOUR,
     title: 'Pensioners get 20% off',
     description: 'Twenty per cent off the whole bill for pensioners.',
@@ -3682,9 +3716,10 @@ export const SPECIALS_SEED: Special[] = [
     source_type: 'publication',
     source_published_at: CHECKED_4,
   }),
+  // Archived 2026-09-03: an August Women's Month promotion, absent from the venue's current specials page.
   special({
     id: 'b2000000-0000-4000-8000-000000000061',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: UPPER_QUAY,
     title: 'Two Aperol Spritz for R215',
     description:
@@ -3692,11 +3727,12 @@ export const SPECIALS_SEED: Special[] = [
     category: 'drinks',
     price: 215,
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     source_url: 'https://www.restaurants.co.za/upper-quay',
     source_type: 'publication',
     source_published_at: CHECKED_4,
     featured: true,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000062',
@@ -3715,22 +3751,24 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000063',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: UPPER_QUAY,
     title: 'Bayside platter for R249',
     description:
       'Grilled catch of the day, Patagonian baby calamari, mussels and three prawns in lemon butter, R249.',
     category: 'food',
-    price: 249,
+    price: null,
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     source_url: 'https://www.restaurants.co.za/upper-quay',
     source_type: 'publication',
     source_published_at: CHECKED_4,
+    terms:
+      'The platter is still on the group specials page but no price is published there now, so the old figure has been removed rather than carried over.',
   }),
+  // Archived 2026-09-03: not on the venue's own specials page; the only source is an undated article.
   special({
     id: 'b2000000-0000-4000-8000-000000000064',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: UPPER_QUAY,
     title: 'Date Night Tuesdays',
     description:
@@ -3738,11 +3776,12 @@ export const SPECIALS_SEED: Special[] = [
     category: 'dinner',
     price: 425,
     days_of_week: [2],
-    valid_until: '2026-08-24',
     booking_required: true,
     source_url: 'https://www.restaurants.co.za/upper-quay',
     source_type: 'publication',
     source_published_at: CHECKED_4,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000065',
@@ -3775,17 +3814,17 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000067',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: FERRYMANS,
-    title: 'A meal and a Guinness from R169',
+    title: 'Sirloin steak and a Guinness draught',
     description:
       "Beef or chicken burger with a Guinness R169; chicken wings and chips, shepherd's pie, or a 200g sirloin and chips with a Guinness R199.",
     category: 'food',
-    price: 169,
+    price: 179,
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
     valid_until: '2026-09-30',
-    source_url: 'https://www.restaurants.co.za/ferrymans-irish-tavern',
-    source_type: 'publication',
+    source_url: FERRYMANS_PROMO,
+    source_type: 'official_website',
     source_published_at: CHECKED_4,
   }),
   special({
@@ -3803,9 +3842,10 @@ export const SPECIALS_SEED: Special[] = [
     source_type: 'publication',
     source_published_at: CHECKED_4,
   }),
+  // Archived 2026-09-03: a vaguer duplicate of the sirloin-and-Guinness special, which carries the specific price and dates.
   special({
     id: 'b2000000-0000-4000-8000-000000000069',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: FERRYMANS,
     title: 'R169 specials',
     description:
@@ -3813,14 +3853,15 @@ export const SPECIALS_SEED: Special[] = [
     category: 'food',
     price: 169,
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     source_url: 'https://www.restaurants.co.za/ferrymans-irish-tavern',
     source_type: 'publication',
     source_published_at: CHECKED_4,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-00000000006a',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: FERRYMANS,
     title: 'Pensioners get 20% off',
     description: 'Twenty per cent off the whole bill for pensioners.',
@@ -3951,22 +3992,24 @@ export const SPECIALS_SEED: Special[] = [
     source_published_at: CHECKED_4,
     featured: true,
   }),
+  // Archived 2026-09-03: the Sunday offer on the current specials page has no women-only framing; it is now covered by the Lazy Sunday afternoon listing.
   special({
     id: 'b2000000-0000-4000-8000-000000000071',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: RICKS,
     title: 'A glass of Cap Classique for women on Sundays',
     description:
       "Women's Month: every woman at the table gets a complimentary glass of Pongrácz cap classique with Sunday lunch or dinner.",
     category: 'drinks',
     days_of_week: [7],
-    valid_until: '2026-08-31',
     booking_required: true,
     terms: 'Tables should be booked. Runs to the end of August 2026.',
     source_url:
       'https://www.food-blog.co.za/celebrate-womens-month-at-ricks-cafe-americain-in-cape-town-with-r175-aperol-spritz-specials/',
     source_type: 'publication',
     source_published_at: '2026-08-05',
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000072',
@@ -3986,23 +4029,26 @@ export const SPECIALS_SEED: Special[] = [
     source_type: 'publication',
     source_published_at: '2026-08-07',
   }),
+  // Archived 2026-09-03: an August Women's Month promotion; gone from the venue's page and from the Waterfront's promotions listing.
   special({
     id: 'b2000000-0000-4000-8000-000000000073',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: FERRYMANS,
     title: 'Two Aperol Spritz for R215',
     description: "The same Women's Month spritz offer as the neighbouring Pierhead bars.",
     category: 'drinks',
     price: 215,
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     source_url: 'https://www.food-blog.co.za/cape-town-specials/',
     source_type: 'publication',
     source_published_at: '2026-08-23',
+    active: false,
+    verification_status: 'needs_recheck',
   }),
+  // Archived 2026-09-03: the source article states the offer ran until the last Friday of August.
   special({
     id: 'b2000000-0000-4000-8000-000000000074',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: FILINI,
     title: 'A free Aperol Spritz with any pizza',
     description: 'Order any pizza on a Friday and the Aperol Spritz is on the house.',
@@ -4010,13 +4056,14 @@ export const SPECIALS_SEED: Special[] = [
     days_of_week: [5],
     start_time: '12:00',
     end_time: '22:00',
-    valid_until: '2026-08-31',
     terms: 'Runs every Friday to the last Friday of August 2026.',
     source_url:
       'https://www.food-blog.co.za/find-your-friday-pizza-and-aperol-spritz-pairing-at-filini-with-a-complimentary-cocktail-until-the-last-friday-of-august/',
     source_type: 'publication',
     source_published_at: '2026-08-23',
     featured: true,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000075',
@@ -4137,9 +4184,10 @@ export const SPECIALS_SEED: Special[] = [
     featured: true,
   }),
 
+  // Archived 2026-09-03: no current source for the bar happy hour.
   special({
     id: 'b2000000-0000-4000-8000-00000000007c',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: FILINI,
     title: 'Happy hour at the bar',
     description:
@@ -4148,12 +4196,13 @@ export const SPECIALS_SEED: Special[] = [
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
     start_time: '17:00',
     end_time: '18:00',
-    valid_until: '2026-08-31',
     terms:
       'The venue publishes the hour and the end date but not the prices. Worth asking what is on the happy-hour list before you order.',
     source_url: 'https://www.restaurants.co.za/filini-restaurant',
     source_type: 'publication',
     source_published_at: CHECKED_4,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
 
   // Beluga runs one offer across two windows, so it is two cards — the app has
@@ -4209,40 +4258,45 @@ export const SPECIALS_SEED: Special[] = [
     featured: true,
   }),
 
+  // Archived 2026-09-03: the Winter Warmers menu ended on 31 August and no replacement is published.
   special({
     id: 'b2000000-0000-4000-8000-000000000080',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: ELVN11,
     title: 'Winter Warmers — two courses R475',
     description: 'Two courses for R475 a head on the eleventh floor, or three for R660.',
     category: 'dinner',
     price: 475,
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     booking_required: true,
     source_url: CTM_WINTER,
     source_type: 'publication',
     source_published_at: '2026-08-14',
+    active: false,
+    verification_status: 'needs_recheck',
   }),
+  // Archived 2026-09-03: no current source for this sharing menu after the winter promotion ended.
   special({
     id: 'b2000000-0000-4000-8000-000000000081',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: ELVN11,
     title: 'Sharing menu for two, with a bottle of wine',
     description: 'A sharing menu for two at R1,100 a couple, with a bottle of wine included.',
     category: 'dinner',
     price: 1100,
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     booking_required: true,
     terms: 'R1,100 is the price for two people, not per head.',
     source_url: CTM_WINTER,
     source_type: 'publication',
     source_published_at: '2026-08-14',
+    active: false,
+    verification_status: 'needs_recheck',
   }),
+  // Archived 2026-09-03: a winter menu that ended in August; the venue publishes nothing current in its place.
   special({
     id: 'b2000000-0000-4000-8000-000000000082',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: EAST_CITY_GRILL,
     title: 'Three-course winter menu — R595',
     description:
@@ -4251,11 +4305,12 @@ export const SPECIALS_SEED: Special[] = [
     price: 595,
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
     valid_from: '2026-05-19',
-    valid_until: '2026-08-28',
     booking_required: true,
     source_url: CTM_WINTER,
     source_type: 'publication',
     source_published_at: '2026-08-14',
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000083',
@@ -4274,9 +4329,10 @@ export const SPECIALS_SEED: Special[] = [
     source_published_at: '2026-08-14',
   }),
 
+  // Archived 2026-09-03: a winter soup special, absent from both the venue's site and the Waterfront's listing.
   special({
     id: 'b2000000-0000-4000-8000-000000000084',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_8,
     restaurant_id: BELUGA,
     title: 'Soup of the day for R90',
     description:
@@ -4286,12 +4342,13 @@ export const SPECIALS_SEED: Special[] = [
     days_of_week: [1, 2, 3, 4, 5],
     start_time: '11:00',
     end_time: '15:00',
-    valid_until: '2026-08-31',
     terms:
       "The venue's own listing gives weekdays, 11am to 3pm; a write-up of 31 July calls it daily. The narrower reading is used here.",
     source_url: 'https://www.restaurants.co.za/beluga-restaurant',
     source_type: 'publication',
     source_published_at: CHECKED_4,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
 
   // ------------------------------------ Monday, the thinnest day on the site
@@ -4551,6 +4608,7 @@ export const SPECIALS_SEED: Special[] = [
   }),
 
   // -------------------------------------------------------------- Pigalle
+  // Archived 2026-09-03: no longer published anywhere current; the winter promotion has ended.
   special({
     id: 'b2000000-0000-4000-8000-000000000095',
     restaurant_id: PIGALLE,
@@ -4562,13 +4620,14 @@ export const SPECIALS_SEED: Special[] = [
     days_of_week: [1, 2, 3, 4],
     start_time: '12:00',
     end_time: '21:30',
-    valid_until: '2026-08-31',
     booking_required: true,
     source_url: 'https://www.dineplan.com/restaurants/pigalle-cape-town',
     source_type: 'booking_page',
     terms:
       'Per person. The booking page prints the run as 16 Jul - 31 Aug without a year; read as 2026 because the offer is live now. Worth confirming by phone before travelling.',
-    last_verified_at: CHECKED_5,
+    last_verified_at: CHECKED_8,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000096',
@@ -4586,7 +4645,7 @@ export const SPECIALS_SEED: Special[] = [
     source_type: 'booking_page',
     terms:
       'For groups under ten. No price is published — ask when booking. The run is printed as 16 Feb - 30 Sep without a year.',
-    last_verified_at: CHECKED_5,
+    last_verified_at: CHECKED_8,
   }),
 
   // ----------------------------------------------------------- The Office
@@ -4668,6 +4727,7 @@ export const SPECIALS_SEED: Special[] = [
   }),
 
   // ---------------------------------------------------------------- Ariel
+  // Archived 2026-09-03: no current source; the date-night promotion ended with winter.
   special({
     id: 'b2000000-0000-4000-8000-00000000009c',
     restaurant_id: ARIEL,
@@ -4678,12 +4738,13 @@ export const SPECIALS_SEED: Special[] = [
     days_of_week: [3],
     start_time: '18:00',
     end_time: '21:00',
-    valid_until: '2026-08-31',
     booking_required: true,
     source_url: 'https://www.dineplan.com/restaurants/ariel-modern-italian',
     source_type: 'booking_page',
     terms: 'Per couple, food only. Tables of two to twelve.',
-    last_verified_at: CHECKED_5,
+    last_verified_at: CHECKED_8,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
 
   // ----------------------------------------------------------------- KIKI
@@ -5006,6 +5067,7 @@ export const SPECIALS_SEED: Special[] = [
   }),
 
   // -------------------------------------------------------------- Sevruga
+  // Archived 2026-09-03: the winter menu's own stated window was 17 June to 31 August.
   special({
     id: 'b2000000-0000-4000-8000-0000000000b1',
     restaurant_id: SEVRUGA,
@@ -5014,12 +5076,14 @@ export const SPECIALS_SEED: Special[] = [
     category: 'dinner',
     price: 395,
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     source_url: 'https://www.waterfront.co.za/eat-and-drink/sevruga',
     source_type: 'official_website',
     terms: 'Per person. Three courses R495. The run is printed as 17 Jun - 31 Aug without a year.',
-    last_verified_at: CHECKED_6,
+    last_verified_at: CHECKED_8,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
+  // Archived 2026-09-03: listed alongside the winter menu with the same 17 June to 31 August window.
   special({
     id: 'b2000000-0000-4000-8000-0000000000b2',
     restaurant_id: SEVRUGA,
@@ -5027,14 +5091,16 @@ export const SPECIALS_SEED: Special[] = [
     description: 'Fifty percent off a selected range of classic sushi.',
     category: 'food',
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     source_url: 'https://www.waterfront.co.za/eat-and-drink/sevruga',
     source_type: 'official_website',
     terms: 'Selected classic sushi only. The run is printed as 17 Jun - 31 Aug without a year.',
-    last_verified_at: CHECKED_6,
+    last_verified_at: CHECKED_8,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
 
   // --------------------------------------------------------------- Marble
+  // Archived 2026-09-03: the Waterfront listing states the menu ran 1 June to 31 August.
   special({
     id: 'b2000000-0000-4000-8000-0000000000b3',
     restaurant_id: MARBLE,
@@ -5043,12 +5109,13 @@ export const SPECIALS_SEED: Special[] = [
     category: 'lunch',
     price: 395,
     days_of_week: [1, 2, 3, 4, 5, 6, 7],
-    valid_until: '2026-08-31',
     source_url: 'https://www.waterfront.co.za/eat-and-drink/marble-cape-town',
     source_type: 'official_website',
     terms:
       'Per person. Three courses R495. Lunch service only. The V&A prints its winter run as 1 Jun - 31 Aug without a year; read as 2026 because the page is live and the window is in force now.',
-    last_verified_at: CHECKED_6,
+    last_verified_at: CHECKED_8,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
 
   // ------------------------------------------------- Tiger's Milk — V&A
@@ -5344,12 +5411,62 @@ export const SPECIALS_SEED: Special[] = [
     source_type: 'social',
     source_published_at: '2026-08-26',
   }),
+
+  // ------------------------------------------- September 2026 sweep additions
+  // Everything below was read off the venue's own current page on 3 September,
+  // when the winter menus lapsed and a third of the catalogue went with them.
+  special({
+    id: 'b2000000-0000-4000-8000-0000000000c7',
+    last_verified_at: CHECKED_8,
+    restaurant_id: MAMACITA,
+    title: 'Two margaritas for R179',
+    description: 'A pair of margaritas on the nights the DJs play.',
+    price: 179,
+    category: 'drinks',
+    days_of_week: [5, 6],
+    source_url: MAMACITA_SOURCE,
+    source_type: 'official_website',
+  }),
+  special({
+    id: 'b2000000-0000-4000-8000-0000000000c8',
+    last_verified_at: CHECKED_8,
+    restaurant_id: MAMACITA,
+    title: 'Date night',
+    description: 'The kitchen runs a date-night offer every Thursday.',
+    category: 'dinner',
+    days_of_week: [4],
+    source_url: MAMACITA_SOURCE,
+    source_type: 'official_website',
+    terms:
+      'Listed by day on the menus page without a price or a description of what it includes — worth calling to check before booking.',
+  }),
+  special({
+    id: 'b2000000-0000-4000-8000-0000000000c9',
+    last_verified_at: CHECKED_8,
+    restaurant_id: COPA,
+    title: 'Savour the Season — spring menu',
+    description:
+      'A three-course spring menu at the Pepperclub, replacing the winter one that ran until the end of August.',
+    price: 545,
+    category: 'dinner',
+    days_of_week: [1, 2, 3, 4, 5, 6, 7],
+    start_time: '12:00',
+    end_time: '22:00',
+    valid_from: '2026-09-03',
+    valid_until: '2026-11-30',
+    source_url: COPA_SPRING_SOURCE,
+    source_type: 'official_website',
+    terms: 'R545 per person.',
+    booking_required: true,
+    featured: true,
+  }),
 ];
 
 /**
  * Candidates that are NOT published. Each needs an administrator to confirm
  * it against a current official source before it can go live.
  */
+
 export const RESEARCH_QUEUE_SEED: ResearchQueueItem[] = [
   {
     id: 'c3000000-0000-4000-8000-000000000018',

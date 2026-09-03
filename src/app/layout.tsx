@@ -117,7 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
 
-        <footer className="border-line bg-surface border-t px-4 py-8">
+        <footer className="bg-surface px-4 py-8">
           <div className="text-ink/70 mx-auto flex max-w-[720px] flex-wrap gap-x-5 gap-y-2 text-[14px]">
             <Link className="text-accent font-semibold underline" href="/">
               Today&rsquo;s specials

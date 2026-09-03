@@ -222,7 +222,7 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
                 <button
                   type="button"
                   onClick={() => setFilters([])}
-                  className="border-line text-ink min-h-[44px] rounded-xl border-2 px-4 text-[15px] font-bold"
+                  className="glass-btn text-ink min-h-[44px] rounded-xl px-4 text-[15px] font-bold"
                 >
                   Clear filters
                 </button>
@@ -243,9 +243,7 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
         )}
       </section>
 
-      <p className="text-ink/85 mt-6 rounded-xl border border-white/60 bg-white/40 px-4 py-3 text-[14px]">
-        {DISCLAIMER}
-      </p>
+      <p className="text-ink/85 mt-6 rounded-xl bg-white/45 px-4 py-3 text-[14px]">{DISCLAIMER}</p>
 
       <InstallHelp />
     </>

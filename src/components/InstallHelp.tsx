@@ -85,7 +85,7 @@ export default function InstallHelp() {
       <button
         type="button"
         onClick={dismiss}
-        className="border-line mt-3 min-h-[44px] rounded-xl border px-4 text-[15px] font-semibold"
+        className="glass-btn mt-3 min-h-[44px] rounded-xl px-4 text-[15px] font-semibold"
       >
         Got it
       </button>

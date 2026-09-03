@@ -53,7 +53,7 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
     : `${address}, ${suburb}`;
 
   return (
-    <li className="glass hover:border-line-bright relative overflow-hidden rounded-[var(--radius-card)] transition-colors">
+    <li className="glass relative overflow-hidden rounded-[var(--radius-card)] transition-colors">
       <article className="group p-4">
         {/* Everything down to the price row is one control. */}
         <div className="relative">

@@ -19,7 +19,7 @@ interface Props {
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="border-line border-b py-3 last:border-b-0">
+    <div className="border-b border-[rgb(120_55_20_/_0.10)] py-3 last:border-b-0">
       <dt className="text-ink/70 text-[13px] font-semibold tracking-wide uppercase">{label}</dt>
       <dd className="text-ink mt-1 text-[16px]">{children}</dd>
     </div>
@@ -144,9 +144,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
         </a>
       </div>
 
-      <p className="text-ink/85 mt-3 rounded-xl border border-white/60 bg-white/40 px-4 py-3 text-[14px]">
-        {DISCLAIMER}
-      </p>
+      <p className="text-ink/85 mt-3 rounded-xl bg-white/45 px-4 py-3 text-[14px]">{DISCLAIMER}</p>
 
       {reporting ? (
         <ReportForm specialId={special.id} onDone={() => setReporting(false)} />

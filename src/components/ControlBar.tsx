@@ -63,7 +63,7 @@ function Chip({
       aria-pressed={on}
       onClick={onClick}
       className={[
-        'min-h-[40px] shrink-0 rounded-full border px-3.5 text-[14px] font-semibold transition-colors',
+        'min-h-[40px] shrink-0 rounded-full px-3.5 text-[14px] font-semibold transition-colors',
         on ? 'sunset-selected' : 'glass-btn text-ink',
         dimmed && !on ? 'opacity-55' : '',
       ].join(' ')}
@@ -92,13 +92,11 @@ function Toggle({
       aria-expanded={open}
       aria-controls={controls}
       onClick={onClick}
-      className={`glass-btn text-ink flex min-h-[52px] w-full items-center justify-center gap-2 rounded-2xl border-2 px-4 text-[17px] font-bold transition-colors ${
-        open ? 'border-line-bright' : 'border-line hover:border-line-bright'
-      }`}
+      className="glass-btn text-ink flex min-h-[52px] w-full items-center justify-center gap-2 rounded-2xl px-4 text-[17px] font-bold transition-colors"
     >
       {label}
       {count > 0 && (
-        <span className="text-ink grid h-5 min-w-5 place-items-center rounded-full border border-white/70 bg-white/60 px-1.5 text-[12px] font-bold">
+        <span className="text-ink grid h-5 min-w-5 place-items-center rounded-full bg-white/65 px-1.5 text-[12px] font-bold">
           {count}
           <span className="sr-only"> selected</span>
         </span>
@@ -182,7 +180,7 @@ export default function ControlBar({
             aria-pressed={suburbs.length === 0}
             onClick={onClearSuburbs}
             className={[
-              'min-h-[44px] w-full rounded-xl border px-4 text-[14px] font-semibold transition-colors',
+              'min-h-[44px] w-full rounded-xl px-4 text-[14px] font-semibold transition-colors',
               suburbs.length === 0 ? 'sunset-selected' : 'glass-btn text-ink',
             ].join(' ')}
           >
@@ -202,7 +200,7 @@ export default function ControlBar({
                   aria-pressed={on}
                   onClick={() => onToggleSuburb(suburb)}
                   className={[
-                    'flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl border px-3',
+                    'flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl px-3',
                     'text-[14px] font-semibold transition-colors',
                     on ? 'sunset-selected' : 'glass-btn text-ink',
                     count === 0 && !on ? 'opacity-55' : '',

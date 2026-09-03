@@ -46,7 +46,7 @@ export default function ReportForm({
 
   if (state === 'sent') {
     return (
-      <div role="status" className="mt-4 rounded-xl border border-white/60 bg-white/45 px-4 py-4">
+      <div role="status" className="mt-4 rounded-xl bg-white/50 px-4 py-4">
         <p className="text-accent text-[15px] font-semibold">
           Thank you — the report has been sent for review.
         </p>
@@ -91,7 +91,7 @@ export default function ReportForm({
         maxLength={MAX_COMMENT}
         rows={3}
         onChange={(event) => setComment(event.target.value)}
-        className="border-line bg-bg mt-1 w-full rounded-xl border px-3 py-2 text-[15px]"
+        className="glass-btn mt-1 w-full rounded-xl px-3 py-2 text-[15px]"
         placeholder="For example: the price went up to R210 last week."
       />
       <p className="text-ink/70 mt-1 text-[13px]">
@@ -129,7 +129,7 @@ export default function ReportForm({
         <button
           type="button"
           onClick={onDone}
-          className="border-line min-h-[48px] rounded-xl border px-4 text-[16px] font-semibold"
+          className="glass-btn min-h-[48px] rounded-xl px-4 text-[16px] font-semibold"
         >
           Cancel
         </button>

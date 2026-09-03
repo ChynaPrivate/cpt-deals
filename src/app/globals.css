@@ -148,20 +148,22 @@ body::after {
 }
 
 /*
-  Frosted glass.
+  Panels.
 
-  backdrop-filter is the expensive part of this design, and a list can hold a
-  hundred cards. Two mitigations: the blur is modest (10px — past about 12 the
-  cost climbs and the effect barely changes), and browsers without support get
-  a more opaque white instead, which still reads as a card rather than
-  collapsing into the gradient.
+  Flat translucent white with a soft drop shadow and no outline at all. The
+  earlier version drew a white hairline around every surface, which is what
+  made things read as "glass"; without it the same fill reads as a plain card
+  floating on the coral, which is what was wanted.
+
+  The shadow is doing all the edge definition now, so it is very slightly
+  stronger than it was — with no border to help, too light a shadow and a pale
+  card dissolves into a pale patch of ground.
 */
 .glass {
   background-color: rgb(255 255 255 / 0.62);
-  border: 1px solid var(--color-line);
   box-shadow:
-    0 1px 2px rgb(120 55 20 / 0.06),
-    0 6px 20px rgb(120 55 20 / 0.09);
+    0 1px 2px rgb(120 55 20 / 0.07),
+    0 6px 20px rgb(120 55 20 / 0.11);
 }
 
 @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
@@ -172,19 +174,20 @@ body::after {
   }
 }
 
-/* A second, denser tier for controls that sit ON glass — chips inside a card,
-   the time pill — which would otherwise disappear into their own parent. */
+/* A second, denser tier for controls that sit ON a panel — chips inside a
+   card, the time pill — which would otherwise disappear into their own
+   parent. Density alone separates them now; no outline. */
 .glass-2 {
-  background-color: rgb(255 255 255 / 0.55);
-  border: 1px solid rgb(255 255 255 / 0.6);
+  background-color: rgb(255 255 255 / 0.6);
 }
 
 /* Containers that are pressable but not "the action" — an unchosen day, the
-   slider track, the filter panels. Same frosted treatment as the cards. */
+   slider track, the filter panels. Same flat treatment as the cards. */
 .glass-btn {
   background-color: rgb(255 255 255 / 0.55);
-  border: 1px solid var(--color-line);
-  box-shadow: 0 1px 2px rgb(150 60 40 / 0.06);
+  box-shadow:
+    0 1px 2px rgb(120 55 20 / 0.07),
+    0 4px 14px rgb(120 55 20 / 0.09);
 }
 
 @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
@@ -206,6 +209,10 @@ body::after {
   An earlier pass painted the containers too, which turned the whole first
   screen yellow and lost that distinction entirely.
 
+  Flat fill, no outline and no inset highlight — the inset white line along the
+  top edge was the other half of the glass effect. What is left is a solid
+  colour and a shadow.
+
   Ink on it measures 12.9:1.
 */
 .btn,
@@ -214,14 +221,7 @@ body::after {
 .sunset-selected {
   background-color: var(--btn);
   color: var(--color-ink);
-  border: 1px solid rgb(255 255 255 / 0.7);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.55),
-    0 3px 10px -3px rgb(150 60 40 / 0.35);
-}
-
-.sunset-selected {
-  border-color: rgb(255 255 255 / 0.8) !important;
+  box-shadow: 0 3px 10px -3px rgb(150 60 40 / 0.4);
 }
 
 /*
@@ -238,10 +238,7 @@ body::after {
   every chip landed. This reads as depth, which is the part that matters.
 */
 .cutout {
-  background-color: rgb(120 55 20 / 0.05);
-  box-shadow:
-    inset 0 1px 2px rgb(120 55 20 / 0.22),
-    inset 0 -1px 0 rgb(255 255 255 / 0.55);
+  background-color: rgb(120 55 20 / 0.07);
 }
 
 /* Visible, high-contrast focus for keyboard users everywhere. */

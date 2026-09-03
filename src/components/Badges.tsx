@@ -6,10 +6,10 @@ const TONES: Record<PillTone, string> = {
   // Quiet chip on the card surface.
   neutral: 'cutout text-ink',
   // Filled orange — reserved for the verification badge.
-  solid: 'text-ink border border-white/70 bg-white/60',
+  solid: 'text-ink bg-white/60',
   // Orange copy on a dim orange ground, for the urgent state.
-  accent: 'text-accent border border-white/60 bg-white/45',
-  outline: 'border border-line text-ink/70',
+  accent: 'text-accent bg-white/50',
+  outline: 'text-ink/70 bg-white/35',
 };
 
 export function Pill({ children, tone = 'neutral' }: { children: ReactNode; tone?: PillTone }) {

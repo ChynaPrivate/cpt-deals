@@ -769,3 +769,103 @@ search budget before finishing; Istanbul Kebab, COOKED, Bismillah, Xiang Yuan,
 Craft Burger Bar, Brash Burgers and Johnny Shawarma are effectively
 unresearched. Mojo Market's roughly thirty-five stalls are unenumerated — the
 site is client-rendered and returned only metadata.
+
+---
+
+## September 2026 re-verification sweep — 3 September 2026
+
+Winter menus across Cape Town carried a stated end date of 31 August, and 55
+of the 191 published offers (29% of the catalogue) lapsed on the same day.
+This sweep re-checked every one of them against the venue's own current page
+rather than assuming any of them carried over into spring.
+
+### Method
+
+Each venue was checked in this order: its own website and specials or menu
+page, then its Google Business information, then its Dineplan venue page, then
+the V&A Waterfront's official promotions listing for tenants there. Reputable
+Cape Town dining publications were used to find leads, never as proof that an
+offer is running today. Nothing behind a sign-in wall, a CAPTCHA or a
+robots.txt restriction was accessed.
+
+### Renewed against a current official source
+
+| Venue                        | Offer                                      | What changed                                                                               | Source                            |
+| ---------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ | --------------------------------- |
+| Rick's Café Américain        | Two-for-one burgers                        | Moved from Tuesday to **Monday** — the venue's own specials page says Monday               | rickscafe.co.za/specials          |
+| Rick's Café Américain        | Tajine and wine                            | Moved from Thursday to **Tuesday**                                                         | rickscafe.co.za/specials          |
+| Rick's Café Américain        | Two double brandy and Cokes, R90           | Dropped the "winter" framing; the page carries it with no season and no end date           | rickscafe.co.za/specials          |
+| Rick's Café Américain        | Two Aperol Spritz, R175                    | Page now heads it as a spring offer                                                        | rickscafe.co.za/specials          |
+| Rick's Café Américain        | Sunday lamb roast, R185                    | End date removed; still published                                                          | rickscafe.co.za/specials          |
+| Mamacita's on Kloof          | Burger Monday, Taco Tuesday, Rib Wednesday | Renewed; **the Taco Tuesday price was removed** — the venue publishes the day but no price | mamacitas.co.za/menus             |
+| fable cocktail bar           | Women's Wednesdays                         | Renewed, 19:00–22:00                                                                       | fablecocktailbar.capetown         |
+| fable cocktail bar           | Fable Fix, R150                            | Widened from Fri–Sat to Tue–Sun                                                            | fablecocktailbar.capetown         |
+| The Hussar Grill — Camps Bay | Date night                                 | Renewed at R499 for two courses, R599 for three                                            | hussargrill.co.za/menu/date-night |
+| Ferryman's Irish Tavern      | Sirloin steak and a Guinness draught       | Retitled and **repriced R169 → R179**; stated window 1 Jun – 30 Sep                        | waterfront.co.za                  |
+| Quay Four                    | Fish and chips with a tank beer            | Retitled and **repriced R159 → R199**                                                      | waterfront.co.za/promotions       |
+| Pigalle                      | Weekday lunch set menu                     | Renewed; stated window runs to 30 September                                                | Dineplan                          |
+
+### New offers added
+
+| Venue               | Offer                           | Price         | Days                               | Source                |
+| ------------------- | ------------------------------- | ------------- | ---------------------------------- | --------------------- |
+| Copa Restaurant     | Savour the Season — spring menu | R545 pp       | Daily, 12:00–22:00, 3 Sep – 30 Nov | pepperclub.co.za      |
+| Mamacita's on Kloof | Two margaritas                  | R179          | Fri, Sat                           | mamacitas.co.za/menus |
+| Mamacita's on Kloof | Date night                      | not published | Thu                                | mamacitas.co.za/menus |
+
+### Archived — checked and not carried over
+
+Twenty-seven offers were taken out of public results. In each case the reason
+is recorded as a comment on the row in `src/lib/data/seed.ts`.
+
+- **Stated end date passed, no replacement published:** Sevruga (winter menu,
+  half-price sushi — stated 17 Jun – 31 Aug), Marble Cape Town (winter lunch —
+  stated 1 Jun – 31 Aug), The Hussar Grill Mouille Point (winter two-course —
+  stated 20 Jul – 31 Aug), The Hussar Grill Camps Bay (winter two-course),
+  ELVN11 (Winter Warmers, sharing menu), Mint at Taj (winter menu, afternoon
+  tea), East City Grill (winter menu), Florentin (sharing menu), Pigalle
+  (Winter Indulgence), Copa (winter menu — the page now returns 404).
+- **August Women's Month promotions, absent from every current source:** the
+  R215 two-Aperol-Spritz offers at Quay Four, Upper Quay and Ferryman's;
+  Florentin's R180 version; Ariel Modern Italian's date night.
+- **Not on the venue's current page:** Rick's Steak Night and its women-only
+  Cap Classique Sunday offer (the current Sunday offer has no gender
+  restriction and is already listed separately), Rick's Glühwein, Filini's
+  Aperol-with-pizza offer (the source article states it ran to the last Friday
+  of August) and its bar happy hour, Beluga's R90 soup, Upper Quay's date
+  night.
+- **Held back as probably stale:** fable's "Winter Warmer" is still on the
+  venue's live page, but it is named for a season that has ended, which reads
+  as copy that has not been changed over. It is out of public results pending
+  confirmation rather than published on the strength of an undated page.
+
+### Corrections worth calling out
+
+Three published figures were wrong and are now fixed: Rick's two-for-one
+burgers ran on the wrong day, and both Ferryman's and Quay Four were carrying
+prices below what the venues currently charge. A listing that sends someone in
+expecting R159 and charges R199 is worse than no listing, which is why the
+sweep prioritised re-reading prices over adding new venues.
+
+### Could not be verified — inaccessible sources
+
+These venues' offers stay out of public results. This is a tooling limit, not
+evidence that the offers have ended.
+
+- **Kapstadt Brauhaus** (6 offers), **Time Out Market Cape Town** (4) and
+  **Cause & Effect Cocktail Kitchen** (3): all three sites render their
+  specials with JavaScript, so the pages fetch as empty shells. Their
+  Instagram and Facebook pages are disallowed by robots.txt and were not
+  accessed.
+- **food-blog.co.za**: disallowed by robots.txt. Several offers are
+  referenced only in article titles visible in search results, which is not
+  enough to publish on.
+- **marble.restaurant**, **sevruga.co.za**, **quay4.co.za** sub-pages: robots
+  fetch timed out or was disallowed. The V&A Waterfront's own tenant pages
+  were used instead where they exist.
+- Google Business profiles are not separately crawlable, so they could not be
+  read directly for any venue in this sweep.
+
+This research is not exhaustive. The gap is unchanged from previous sweeps and
+has widened: venues that publish only to Instagram, and venues whose own sites
+are client-rendered, cannot be confirmed with the tools available here.
