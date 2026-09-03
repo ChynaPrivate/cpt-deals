@@ -117,7 +117,7 @@ export default async function SpecialPage({ params }: Props) {
         </h2>
 
         <div className="mt-2 flex items-center justify-between gap-3">
-          <span className="glass-2 text-ink/70 rounded-lg px-2 py-1 text-[12px] font-semibold">
+          <span className="cutout text-ink/75 rounded-lg px-2.5 py-1 text-[12px] font-semibold">
             {formatTimeRange(special.start_time, special.end_time)}
           </span>
           {showPrice && (
@@ -134,7 +134,7 @@ export default async function SpecialPage({ params }: Props) {
 
       <Link
         href="/"
-        className="bg-orange text-ink mt-4 flex min-h-[52px] w-full items-center justify-center rounded-2xl px-4 text-[16px] font-bold"
+        className="sunset-fill border-orange-deep/35 mt-4 flex min-h-[52px] w-full items-center justify-center rounded-2xl border px-4 text-[16px] font-bold"
       >
         See everything on special today
       </Link>

@@ -64,7 +64,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
         />
       </div>
 
-      <dl className="glass-2 mt-3 rounded-2xl px-4">
+      <dl className="cutout mt-3 rounded-2xl px-4">
         <Row label="Price">
           {price ? (
             <span className="text-accent text-[20px] font-extrabold">{price}</span>
@@ -129,7 +129,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
             href={restaurant.booking_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="border-orange text-accent hover:bg-orange-dim flex min-h-[48px] items-center justify-center rounded-xl border-2 px-3 text-[15px] font-bold transition-colors"
+            className="border-orange-deep/45 text-accent flex min-h-[48px] items-center justify-center rounded-xl border-2 bg-white/45 px-3 text-[15px] font-bold transition-colors hover:bg-white/70"
           >
             Book a table
           </a>
@@ -138,7 +138,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
           href={special.source_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="border-orange text-accent hover:bg-orange-dim flex min-h-[48px] items-center justify-center rounded-xl border-2 px-3 text-center text-[14px] font-bold transition-colors"
+          className="border-orange-deep/45 text-accent flex min-h-[48px] items-center justify-center rounded-xl border-2 bg-white/45 px-3 text-center text-[14px] font-bold transition-colors hover:bg-white/70"
         >
           Original source
         </a>
@@ -154,7 +154,7 @@ export default function SpecialDetailBody({ special, todayIso }: Props) {
         <button
           type="button"
           onClick={() => setReporting(true)}
-          className="glass-2 text-accent mt-3 min-h-[44px] w-full rounded-xl border px-4 text-[14px] font-semibold"
+          className="cutout text-accent mt-3 min-h-[44px] w-full rounded-xl px-4 text-[14px] font-semibold"
         >
           Report outdated information
         </button>

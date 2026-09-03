@@ -64,9 +64,7 @@ function Chip({
       onClick={onClick}
       className={[
         'min-h-[40px] shrink-0 rounded-full border px-3.5 text-[14px] font-semibold transition-colors',
-        on
-          ? 'bg-orange-deep border-orange-deep text-white'
-          : 'glass hover:border-orange-deep/50 text-ink',
+        on ? 'sunset-selected' : 'glass hover:border-orange-deep/50 text-ink',
         dimmed && !on ? 'opacity-55' : '',
       ].join(' ')}
     >
@@ -100,7 +98,7 @@ function Toggle({
     >
       {label}
       {count > 0 && (
-        <span className="bg-orange-deep grid h-5 min-w-5 place-items-center rounded-full px-1.5 text-[12px] font-bold text-white">
+        <span className="sunset-fill border-orange-deep grid h-5 min-w-5 place-items-center rounded-full border px-1.5 text-[12px] font-bold">
           {count}
           <span className="sr-only"> selected</span>
         </span>
@@ -186,7 +184,7 @@ export default function ControlBar({
             className={[
               'min-h-[44px] w-full rounded-xl border px-4 text-[14px] font-semibold transition-colors',
               suburbs.length === 0
-                ? 'bg-orange-deep border-orange-deep text-white'
+                ? 'sunset-selected'
                 : 'glass-2 hover:border-orange-deep/50 text-ink',
             ].join(' ')}
           >
@@ -208,9 +206,7 @@ export default function ControlBar({
                   className={[
                     'flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl border px-3',
                     'text-[14px] font-semibold transition-colors',
-                    on
-                      ? 'bg-orange-deep border-orange-deep text-white'
-                      : 'glass-2 hover:border-orange-deep/50 text-ink',
+                    on ? 'sunset-selected' : 'glass-2 hover:border-orange-deep/50 text-ink',
                     count === 0 && !on ? 'opacity-55' : '',
                   ].join(' ')}
                 >

@@ -4,7 +4,7 @@ export type PillTone = 'neutral' | 'solid' | 'accent' | 'outline';
 
 const TONES: Record<PillTone, string> = {
   // Quiet chip on the card surface.
-  neutral: 'glass-2 text-ink',
+  neutral: 'cutout text-ink',
   // Filled orange — reserved for the verification badge.
   solid: 'bg-orange text-ink',
   // Orange copy on a dim orange ground, for the urgent state.

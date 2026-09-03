@@ -120,7 +120,7 @@ export default function VenueAvatar({ name, categories, imageUrl, size = 52 }: P
     <div
       aria-hidden="true"
       title={name}
-      className="bg-orange-dim text-accent flex shrink-0 items-center justify-center rounded-xl"
+      className="text-accent flex shrink-0 items-center justify-center rounded-xl bg-[#FBF6EC] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.8)]"
       style={{ width: size, height: size }}
     >
       <svg

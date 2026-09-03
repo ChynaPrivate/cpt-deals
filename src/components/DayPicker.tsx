@@ -13,7 +13,7 @@ interface Props {
  * The seven weekday buttons, stacked one per row.
  *
  * They used to stretch to fill the viewport. Now they share the first screen
- * with the hero banner and the four filter buttons, so they are sized rather
+ * with the logo and the four filter buttons, so they are sized rather
  * than stretched: 46px is still a comfortable thumb target, and seven of them
  * plus the banner and the buttons land inside a normal phone screen without
  * scrolling.
@@ -55,9 +55,7 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
             className={[
               'flex min-h-[46px] items-center justify-between gap-3 rounded-2xl border-2 sm:min-h-[56px]',
               'px-4 text-left transition-colors',
-              isSelected
-                ? 'bg-orange-deep border-orange-deep text-white shadow-[0_8px_22px_-10px_rgba(191,61,9,0.95)]'
-                : 'glass hover:border-line-bright text-ink',
+              isSelected ? 'sunset-selected' : 'glass hover:border-line-bright text-ink',
             ].join(' ')}
           >
             <span className="flex items-center gap-3">
@@ -65,7 +63,7 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
               {isToday && (
                 <span
                   className={`rounded-full px-2 py-0.5 text-[11px] font-bold tracking-wide uppercase ${
-                    isSelected ? 'bg-white/25 text-white' : 'text-accent bg-white/45'
+                    isSelected ? 'cutout text-accent' : 'text-accent bg-white/45'
                   }`}
                 >
                   Today

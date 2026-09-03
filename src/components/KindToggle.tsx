@@ -113,7 +113,7 @@ export default function KindToggle({ value, counts, onChange }: Props) {
           itself — so it lands exactly on each stop at any screen size. */}
       <span
         aria-hidden="true"
-        className={`bg-orange-deep absolute inset-y-1 left-1 w-[calc((100%-0.5rem)/3)] rounded-xl ${
+        className={`sunset-selected absolute inset-y-1 left-1 w-[calc((100%-0.5rem)/3)] rounded-xl ${
           dragging ? '' : 'transition-transform duration-200 ease-out motion-reduce:transition-none'
         }`}
         style={{ transform: `translateX(${position * 100}%)` }}
@@ -130,11 +130,11 @@ export default function KindToggle({ value, counts, onChange }: Props) {
             tabIndex={on ? 0 : -1}
             onClick={() => onChange(kind)}
             className={`relative z-10 flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl text-[16px] font-bold transition-colors ${
-              on ? 'text-white' : 'text-ink'
+              on ? 'text-ink' : 'text-ink/75'
             }`}
           >
             {label}
-            <span className={`tabular-nums ${on ? 'text-white/75' : 'text-ink/70'}`}>{count}</span>
+            <span className={`tabular-nums ${on ? 'text-ink/70' : 'text-ink/60'}`}>{count}</span>
           </button>
         );
       })}

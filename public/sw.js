@@ -1,5 +1,8 @@
 /* The Happy Hours service worker — small, predictable, no framework. */
-const VERSION = 'gs-v2';
+// Bumped for the sunset theme: the old shell cache still holds the retired
+// hero photograph and the previous stylesheet, and a stale shell would serve
+// half the old design offline.
+const VERSION = 'gs-v3';
 const SHELL_CACHE = `${VERSION}-shell`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 const OFFLINE_URL = '/offline';
@@ -12,7 +15,7 @@ const SHELL_ASSETS = [
   '/icons/icon-512.png',
   '/icons/icon.svg',
   '/favicon.ico',
-  '/hero-720.jpg',
+  '/logo.svg',
 ];
 
 self.addEventListener('install', (event) => {

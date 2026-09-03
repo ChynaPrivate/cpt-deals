@@ -43,9 +43,6 @@
   /* Text only. */
   --color-accent: #8f2b06;
 
-  /* Exposed to Tailwind so the hero can fade into the top of the gradient. */
-  --color-sunset-top: #f9a5a0;
-
   /* Deep warm brown. Body copy, and the label on a bright orange fill. */
   --color-ink: #40230f;
 
@@ -165,6 +162,56 @@ body::after {
 .glass-2 {
   background-color: rgb(255 255 255 / 0.55);
   border: 1px solid rgb(255 255 255 / 0.6);
+}
+
+/*
+  Sunset fill — the same pink-to-yellow as the ground, on a diagonal.
+
+  Every solid orange button became this. Ink on it measures 6.8:1 at the pink
+  end and 11:1 at the yellow, so the label is safe anywhere across the sweep.
+
+  135deg rather than straight down: a vertical gradient on a short wide button
+  reads as a flat colour, because you only ever see a thin horizontal band of
+  it. On the diagonal the whole sweep is visible in one control.
+*/
+.sunset-fill {
+  background-image: linear-gradient(135deg, var(--sunset-top) 0%, #fdc98e 48%, #fff08f 100%);
+  color: var(--color-ink);
+}
+
+/*
+  A selected chip is a sunset fill too, which on a sunset page is not by itself
+  enough to say "chosen" — the unselected ones are pale glass, and pale next to
+  pale is a guess. The dark ring is what does the work; the fill just makes it
+  warm.
+*/
+.sunset-selected {
+  background-image: linear-gradient(135deg, var(--sunset-top) 0%, #fdc98e 48%, #fff08f 100%);
+  color: var(--color-ink);
+  border-color: var(--color-orange-deep) !important;
+  box-shadow:
+    inset 0 0 0 1px var(--color-orange-deep),
+    0 6px 18px -8px rgb(191 61 9 / 0.7);
+}
+
+/*
+  Cut-outs.
+
+  Where a grey chip used to sit inside a card there is now a well pressed into
+  the frosted panel, with the label floating in it. No fill and no border —
+  just an inner shadow at the top edge and a highlight at the bottom, which is
+  how a real recess catches light.
+
+  Worth being straight about the physics: this is not a hole through to the
+  gradient. A child cannot undo its parent's backdrop-filter, so a true cut-out
+  would mean masking the card itself, and the mask would have to know where
+  every chip landed. This reads as depth, which is the part that matters.
+*/
+.cutout {
+  background-color: rgb(120 55 20 / 0.05);
+  box-shadow:
+    inset 0 1px 2px rgb(120 55 20 / 0.22),
+    inset 0 -1px 0 rgb(255 255 255 / 0.55);
 }
 
 /* Visible, high-contrast focus for keyboard users everywhere. */

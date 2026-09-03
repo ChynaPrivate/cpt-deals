@@ -99,14 +99,17 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
             </div>
           </div>
 
-          <h4 className="text-ink mt-3 text-[18px] leading-snug font-extrabold tracking-tight">
+          {/* pr-12 clears the button stack. The header row above reserves its
+              own space, but with a single-line venue name the share button
+              drops level with this line instead. */}
+          <h4 className="text-ink mt-3 pr-12 text-[18px] leading-snug font-extrabold tracking-tight">
             {title}
           </h4>
 
           {/* When it runs on the left, what it costs on the right. Everything
               else waits until the card is opened. */}
           <div className="mt-2 flex items-center justify-between gap-3">
-            <span className="glass-2 text-ink/70 rounded-lg px-2 py-1 text-[12px] font-semibold">
+            <span className="cutout text-ink/75 rounded-lg px-2.5 py-1 text-[12px] font-semibold">
               {when}
             </span>
             {showPrice && (
@@ -126,7 +129,7 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
             aria-hidden="true"
             className="pointer-events-none absolute top-0 right-0 grid h-11 w-11 place-items-center rounded-full"
           >
-            <span className="bg-orange text-ink group-hover:bg-orange-dark grid h-7 w-7 place-items-center rounded-full transition-colors">
+            <span className="sunset-fill ring-orange-deep/45 grid h-7 w-7 place-items-center rounded-full ring-1 transition-shadow group-hover:ring-2">
               <svg
                 viewBox="0 0 24 24"
                 className={`h-4 w-4 transition-transform duration-200 ${open ? 'rotate-45' : ''}`}
