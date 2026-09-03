@@ -1,11 +1,15 @@
 @import 'tailwindcss';
 
 /*
-  The Happy Hours design tokens — sunset.
+  The Happy Hours design tokens — flat coral.
 
-  A warm gradient ground, pink at the top falling to yellow at the foot, with
-  cards that read as frosted glass sitting on it. Copy is a deep warm brown
-  rather than black, which sits better on peach than a cold neutral would.
+  One flat coral ground with scattered squiggles on it, and the same frosted
+  cards over the top. Copy is a deep warm brown rather than black, which sits
+  better on coral than a cold neutral would.
+
+  The ground and the squiggle colours come from the brand illustration; the
+  squiggle shapes are drawn from scratch in public/squiggles.svg rather than
+  lifted from the reference artwork.
 
   Two accents, and the difference matters:
     --color-orange   bright, for FILLS only (buttons, the plus, chips)
@@ -23,8 +27,8 @@
     white on orange-deep .... 5.9:1
 */
 @theme {
-  /* Solid fallback, and what shows behind the fixed gradient while it paints. */
-  --color-bg: #fdc78f;
+  /* The ground. Flat, no gradient. */
+  --color-bg: #f89f99;
 
   /* Glass. Deliberately white rather than tinted — a white veil over a warm
      ground reads as frosted; a warm veil just reads as murky. */
@@ -55,25 +59,29 @@
 :root {
   color-scheme: light;
 
-  /* The sunset itself. Named separately so the admin theme below can ignore it
-     without having to redefine the whole scale. */
+  /* The ground, and the three accents the squiggles are drawn in — the brand
+     illustration's own palette. */
+  --ground: #f89f99;
+  --squiggle-amber: #ffc43a;
+
+  /* Buttons. Pale yellow is the resting state; the amber one step up is what
+     "chosen" looks like. Both come out of the logo's own palette, and ink on
+     either clears 10:1. */
+  --btn: #fff9ae;
+  --btn-on: #ffc43a;
+  --squiggle-teal: #00a782;
+  --squiggle-pink: #f05877;
+
+  /* Kept for the button fills, which still read as a warm sweep. */
   --sunset-top: #f9a5a0;
-  --sunset-upper: #fdb98c;
-  --sunset-lower: #fdd694;
   --sunset-foot: #fdeaa8;
 }
 
 html {
   -webkit-text-size-adjust: 100%;
-  /*
-    The foot of the gradient, not the middle of it.
-
-    Where the fixed layer cannot reach — Safari's bottom bar, and the rubber
-    band when you overscroll — the browser paints this instead. A mid-peach
-    there read as the gradient starting over at the bottom of the screen.
-    Yellow continues it.
-  */
-  background-color: var(--sunset-foot);
+  /* Everything is one colour now, so the browser chrome, the overscroll and
+     the page all agree without any special handling. */
+  background-color: var(--ground);
 }
 
 body {
@@ -93,21 +101,16 @@ body {
 }
 
 /*
-  The sunset, and the grain over it.
+  The ground and the squiggles.
 
-  Both are position:fixed layers rather than backgrounds on the body, and that
-  is deliberate. `background-attachment: fixed` is the obvious way to do this
-  and it does not work: iOS Safari ignores it, which stretches the gradient
-  over the whole hundred-card document instead of the window — so every screen
-  shows a thin slice of it and you have to scroll for a minute to get from pink
-  to yellow. A fixed element is honoured everywhere.
+  Both are position:fixed layers rather than backgrounds on the body, for the
+  same reason as before: `background-attachment: fixed` is ignored by iOS
+  Safari, which would stretch the squiggle sheet over the whole hundred-card
+  document instead of the window.
 
-  The effect is one sunset the height of the screen, with the list sliding past
-  it. Pink at the top of the window, yellow at the foot, whatever the scroll
-  position and however long the day's list happens to be.
-
-  100lvh, not 100vh or 100svh: the layer must still cover the window when a
-  mobile browser's address bar retracts and the viewport grows.
+  Overshooting the viewport at each end covers the notch and the home
+  indicator, where `viewport-fit: cover` puts the page under the browser's own
+  chrome and a layer pinned exactly to the viewport leaves a hairline.
 */
 body::before,
 body::after {
@@ -115,12 +118,6 @@ body::after {
   position: fixed;
   left: 0;
   right: 0;
-  /* Deliberately taller than the window and starting above it.
-     `viewport-fit: cover` puts the page under the notch and the home
-     indicator, and a layer pinned exactly to the viewport leaves a hairline of
-     bare canvas in those insets — which reads as the gradient repeating at the
-     bottom of the screen. Overshooting by 8% at each end means there is no
-     edge to find, on any phone, at any address-bar state. */
   top: -8lvh;
   height: 116lvh;
   pointer-events: none;
@@ -128,29 +125,26 @@ body::after {
 
 body::before {
   z-index: -2;
-  /* The stops are pulled in to match the overshoot, so the sweep still reads
-     pink-to-yellow across the part you can actually see. The flat runs at each
-     end are the bleed into the insets. */
-  background-image: linear-gradient(
-    180deg,
-    var(--sunset-top) 0%,
-    var(--sunset-top) 7%,
-    var(--sunset-upper) 34%,
-    var(--sunset-lower) 66%,
-    var(--sunset-foot) 93%,
-    var(--sunset-foot) 100%
-  );
+  background-color: var(--ground);
+  /* Grain, so a large flat field does not band on a cheap phone panel. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E");
 }
 
-/* Fractal noise at very low opacity, so the gradient has a little grain
-   instead of looking like a plastic banding artefact — which is what a smooth
-   gradient does on a cheap phone panel. Inline SVG rather than a PNG: no extra
-   request, and it tiles at any density. */
+/*
+  The squiggles sit in their own layer above the ground but below everything
+  else. They are weighted towards the top of the sheet on purpose: on a phone
+  the cards run nearly edge to edge, so the header is most of the ground anyone
+  ever sees.
+
+  `cover` rather than `contain` — a letterboxed sheet would put a squiggle-free
+  band down one side on a wide screen.
+*/
 body::after {
   z-index: -1;
-  opacity: 0.5;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
-  mix-blend-mode: soft-light;
+  background-image: url('/squiggles.svg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 
 /*
@@ -185,38 +179,53 @@ body::after {
   border: 1px solid rgb(255 255 255 / 0.6);
 }
 
-/*
-  Sunset fill — the same pink-to-yellow as the ground, on a diagonal.
-
-  Every solid orange button became this. Ink on it measures 6.8:1 at the pink
-  end and 11:1 at the yellow, so the label is safe anywhere across the sweep.
-
-  135deg rather than straight down: a vertical gradient on a short wide button
-  reads as a flat colour, because you only ever see a thin horizontal band of
-  it. On the diagonal the whole sweep is visible in one control.
-*/
-.sunset-fill {
-  background-image: linear-gradient(135deg, var(--sunset-top) 0%, #fdc98e 48%, #fff08f 100%);
-  color: var(--color-ink);
+/* Controls only. The listing cards keep the frosted treatment — solid controls
+   over frosted content is the hierarchy, and flattening both would lose it. */
+.glass-btn {
+  background-color: var(--btn);
+  border: 1px solid rgb(255 255 255 / 0.65);
+  box-shadow: 0 2px 6px rgb(150 60 40 / 0.1);
 }
 
 /*
-  A selected chip is a sunset fill too, which on a sunset page is not by itself
-  enough to say "chosen" — the unselected ones are pale glass, and pale next to
-  pale is a guess. The dark ring is what does the work; the fill just makes it
-  warm.
+  Buttons.
+
+  One flat pale yellow for everything you can press, and a step up to amber for
+  the one that is chosen. The gradient fills these used to carry belonged to
+  the sunset ground and read as a leftover once that went flat.
+
+  Ink measures 12.9:1 on the pale and 10.4:1 on the amber, so labels are safe
+  on both without thinking about it.
 */
-.sunset-selected {
-  background-image: linear-gradient(135deg, var(--sunset-top) 0%, #fdc98e 48%, #fff08f 100%);
+.btn {
+  background-color: var(--btn);
   color: var(--color-ink);
-  /* No outline. The fill is warm and saturated where the unselected chips are
-     pale glass, and that difference carries it on its own — an earlier draft
-     ringed this in burnt orange and the row looked like a form validation
-     error. A soft warm lift and a white top edge instead. */
+  border: 1px solid rgb(255 255 255 / 0.65);
+  box-shadow: 0 2px 6px rgb(150 60 40 / 0.1);
+}
+
+.btn-on {
+  background-color: var(--btn-on);
+  color: var(--color-ink);
+  border: 1px solid rgb(255 255 255 / 0.7);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.55),
+    0 4px 12px -4px rgb(150 60 40 / 0.4);
+}
+
+/* Kept under the old names so nothing had to be renamed in fifteen files. */
+.sunset-fill {
+  background-color: var(--btn);
+  color: var(--color-ink);
+}
+
+.sunset-selected {
+  background-color: var(--btn-on);
+  color: var(--color-ink);
   border-color: transparent !important;
   box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.6),
-    0 8px 20px -10px rgb(180 90 40 / 0.55);
+    inset 0 1px 0 rgb(255 255 255 / 0.55),
+    0 4px 12px -4px rgb(150 60 40 / 0.4);
 }
 
 /*

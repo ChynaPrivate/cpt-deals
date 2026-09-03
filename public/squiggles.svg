@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1400" width="800" height="1400" fill="none">
+  <path d="M40 95 q 15 -15 30 0 q 15 15 30 0 q 15 -15 30 0 q 15 15 30 0 q 15 -15 30 0 q 15 15 30 0 q 15 -15 30 0 q 15 15 30 0" fill="none" stroke="#FFC43A" stroke-width="9" stroke-linecap="round" opacity="0.6" transform="rotate(-6 40 95)"/>
+  <path d="M560 60 q 14 -12 28 0 q 14 12 28 0 q 14 -12 28 0 q 14 12 28 0 q 14 -12 28 0 q 14 12 28 0" fill="none" stroke="#F05877" stroke-width="8" stroke-linecap="round" opacity="0.55" transform="rotate(5 560 60)"/>
+  <path d="M600 300 q 15 -14 30 0 q 15 14 30 0 q 15 -14 30 0 q 15 14 30 0 q 15 -14 30 0 q 15 14 30 0" fill="none" stroke="#00A782" stroke-width="9" stroke-linecap="round" opacity="0.5" transform="rotate(-8 600 300)"/>
+  <path d="M60 360 q 14 -12 28 0 q 14 12 28 0 q 14 -12 28 0 q 14 12 28 0 q 14 -12 28 0 q 14 12 28 0" fill="none" stroke="#F05877" stroke-width="8" stroke-linecap="round" opacity="0.45" transform="rotate(7 60 360)"/>
+  <path d="M590 690 q 14 -13 28 0 q 14 13 28 0 q 14 -13 28 0 q 14 13 28 0 q 14 -13 28 0 q 14 13 28 0" fill="none" stroke="#FFC43A" stroke-width="8" stroke-linecap="round" opacity="0.42" transform="rotate(8 590 690)"/>
+  <path d="M50 780 q 15 -13 30 0 q 15 13 30 0 q 15 -13 30 0 q 15 13 30 0 q 15 -13 30 0 q 15 13 30 0" fill="none" stroke="#00A782" stroke-width="9" stroke-linecap="round" opacity="0.38" transform="rotate(-5 50 780)"/>
+  <path d="M580 1080 q 14 -12 28 0 q 14 12 28 0 q 14 -12 28 0 q 14 12 28 0 q 14 -12 28 0 q 14 12 28 0" fill="none" stroke="#F05877" stroke-width="8" stroke-linecap="round" opacity="0.38" transform="rotate(-7 580 1080)"/>
+  <path d="M55 1220 q 14 -14 28 0 q 14 14 28 0 q 14 -14 28 0 q 14 14 28 0 q 14 -14 28 0 q 14 14 28 0 q 14 -14 28 0 q 14 14 28 0" fill="none" stroke="#FFC43A" stroke-width="9" stroke-linecap="round" opacity="0.38" transform="rotate(6 55 1220)"/>
+</svg>

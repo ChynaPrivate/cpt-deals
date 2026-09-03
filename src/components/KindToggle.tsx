@@ -107,7 +107,7 @@ export default function KindToggle({ value, counts, onChange }: Props) {
       onPointerMove={handlePointerMove}
       onPointerUp={endDrag}
       onPointerCancel={endDrag}
-      className="glass relative grid touch-pan-y grid-cols-3 rounded-2xl p-1 select-none"
+      className="glass-btn relative grid touch-pan-y grid-cols-3 rounded-2xl p-1 select-none"
     >
       {/* The thumb. A third of the inner width, moved by whole multiples of
           itself — so it lands exactly on each stop at any screen size. */}

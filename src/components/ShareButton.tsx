@@ -77,9 +77,7 @@ export default function ShareButton({ text, title, path }: Props) {
       <span
         aria-hidden="true"
         className={`grid h-7 w-7 place-items-center rounded-full transition-colors ${
-          state === 'copied'
-            ? 'sunset-fill'
-            : 'glass-2 text-ink/75 group-hover/share:text-ink group-hover/share:bg-white/80'
+          state === 'copied' ? 'btn-on' : 'btn text-ink/80 group-hover/share:text-ink'
         }`}
       >
         {state === 'copied' ? (

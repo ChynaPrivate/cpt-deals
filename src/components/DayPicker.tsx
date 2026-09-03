@@ -58,9 +58,7 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
               // than three different button sizes stacked up.
               'flex min-h-[52px] items-center justify-between gap-3 rounded-2xl',
               'px-4 text-left transition-all duration-150',
-              isSelected
-                ? 'sunset-selected scale-[1.015]'
-                : 'glass text-ink hover:border-line-bright',
+              isSelected ? 'sunset-selected scale-[1.015]' : 'glass-btn text-ink',
             ].join(' ')}
           >
             <span className="flex items-baseline gap-2.5">
@@ -83,7 +81,7 @@ export default function DayPicker({ selected, today, counts, onSelect }: Props) 
                 of sevens reads as a column instead of ragged digits. */}
             <span
               className={`min-w-[34px] rounded-lg px-2 py-0.5 text-center text-[13px] font-semibold tabular-nums ${
-                isSelected ? 'cutout text-ink/80' : 'text-ink/70 bg-white/45'
+                isSelected ? 'cutout text-ink/80' : 'text-ink/70 bg-white/55'
               }`}
             >
               {count}

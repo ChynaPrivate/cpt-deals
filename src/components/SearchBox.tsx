@@ -64,7 +64,7 @@ export default function SearchBox({ value, resultCount, onChange }: Props) {
           value={value}
           onChange={(event) => onChange(event.target.value)}
           placeholder="Search a restaurant or dish"
-          className="glass focus:border-line-bright text-ink placeholder:text-ink/70 w-full rounded-2xl py-3 pr-12 pl-12 text-[16px] font-semibold transition-colors outline-none placeholder:font-normal [&::-webkit-search-cancel-button]:hidden"
+          className="glass-btn focus:border-line-bright text-ink placeholder:text-ink/70 w-full rounded-2xl py-3 pr-12 pl-12 text-[16px] font-semibold transition-colors outline-none placeholder:font-normal [&::-webkit-search-cancel-button]:hidden"
         />
 
         {has && (

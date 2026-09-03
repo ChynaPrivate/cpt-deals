@@ -61,12 +61,11 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   /*
-    The strip behind the clock and Wi-Fi is browser chrome, not the page —
-    iOS tints it from theme-color, and this was still the old dark slate. Pink
-    is the colour the gradient starts on, so the status bar now runs into the
-    top of the page instead of sitting on a bar of its own.
+    The strip behind the clock and Wi-Fi is browser chrome, not the page — iOS
+    tints it from theme-color. Matching the ground exactly means the status bar
+    disappears into the top of the page.
   */
-  themeColor: '#F9A5A0',
+  themeColor: '#F89F99',
   colorScheme: 'light',
   width: 'device-width',
   initialScale: 1,
@@ -98,11 +97,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <img
               src="/logo.svg"
               alt="The Happy Hours"
-              width={333}
-              height={150}
+              width={1580}
+              height={1128}
               fetchPriority="high"
-              className="h-[92px] w-auto drop-shadow-[0_2px_10px_rgba(150,60,30,0.28)] sm:h-[112px]"
+              // Sized by width, not height: the mark now carries the cocktail
+              // under the wordmark, so a height cap made it far too narrow.
+              className="w-[230px] max-w-full sm:w-[280px]"
             />
+            {/* Deep brown rather than the logo's white: white on coral is about
+                2.2:1, and this is real text rather than part of the mark, so it
+                has to actually be readable. */}
+            <p className="text-ink/85 mt-1.5 text-center text-[12px] font-bold tracking-[0.32em] uppercase">
+              Cape Town
+            </p>
           </Link>
         </header>
 

@@ -64,7 +64,7 @@ function Chip({
       onClick={onClick}
       className={[
         'min-h-[40px] shrink-0 rounded-full border px-3.5 text-[14px] font-semibold transition-colors',
-        on ? 'sunset-selected' : 'glass hover:border-line-bright text-ink',
+        on ? 'sunset-selected' : 'glass-btn text-ink',
         dimmed && !on ? 'opacity-55' : '',
       ].join(' ')}
     >
@@ -92,13 +92,13 @@ function Toggle({
       aria-expanded={open}
       aria-controls={controls}
       onClick={onClick}
-      className={`glass text-ink flex min-h-[52px] w-full items-center justify-center gap-2 rounded-2xl border-2 px-4 text-[17px] font-bold transition-colors ${
+      className={`glass-btn text-ink flex min-h-[52px] w-full items-center justify-center gap-2 rounded-2xl border-2 px-4 text-[17px] font-bold transition-colors ${
         open ? 'border-line-bright' : 'border-line hover:border-line-bright'
       }`}
     >
       {label}
       {count > 0 && (
-        <span className="sunset-fill grid h-5 min-w-5 place-items-center rounded-full px-1.5 text-[12px] font-bold shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
+        <span className="btn-on grid h-5 min-w-5 place-items-center rounded-full px-1.5 text-[12px] font-bold">
           {count}
           <span className="sr-only"> selected</span>
         </span>
@@ -164,7 +164,7 @@ export default function ControlBar({
             id="sort"
             value={sort}
             onChange={(event) => onSort(event.target.value as SortKey)}
-            className="glass-2 text-ink min-h-[40px] rounded-xl px-3 text-[14px] font-semibold"
+            className="glass-btn text-ink min-h-[40px] rounded-xl px-3 text-[14px] font-semibold"
           >
             {SORT_ORDER.map((key) => (
               <option key={key} value={key}>
@@ -183,9 +183,7 @@ export default function ControlBar({
             onClick={onClearSuburbs}
             className={[
               'min-h-[44px] w-full rounded-xl border px-4 text-[14px] font-semibold transition-colors',
-              suburbs.length === 0
-                ? 'sunset-selected'
-                : 'glass-2 hover:border-line-bright text-ink',
+              suburbs.length === 0 ? 'sunset-selected' : 'glass-btn text-ink',
             ].join(' ')}
           >
             All suburbs
@@ -206,7 +204,7 @@ export default function ControlBar({
                   className={[
                     'flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl border px-3',
                     'text-[14px] font-semibold transition-colors',
-                    on ? 'sunset-selected' : 'glass-2 hover:border-line-bright text-ink',
+                    on ? 'sunset-selected' : 'glass-btn text-ink',
                     count === 0 && !on ? 'opacity-55' : '',
                   ].join(' ')}
                 >

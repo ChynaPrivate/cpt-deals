@@ -129,7 +129,7 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
             aria-hidden="true"
             className="pointer-events-none absolute top-0 right-0 grid h-11 w-11 place-items-center rounded-full"
           >
-            <span className="sunset-fill grid h-7 w-7 place-items-center rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.65),0_2px_8px_-3px_rgba(180,90,40,0.55)] transition-shadow group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.65),0_4px_12px_-3px_rgba(180,90,40,0.7)]">
+            <span className="btn-on grid h-7 w-7 place-items-center rounded-full transition-shadow group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_5px_14px_-4px_rgba(150,60,40,0.6)]">
               <svg
                 viewBox="0 0 24 24"
                 className={`h-4 w-4 transition-transform duration-200 ${open ? 'rotate-45' : ''}`}
