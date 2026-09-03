@@ -79,10 +79,42 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 
-  /* Fixed, so the gradient belongs to the window rather than the document.
-     Scrolling a hundred cards past a moving gradient is seasick-making, and a
-     fixed one also means a short page and a long page look the same. */
-  background-color: var(--color-bg);
+  /* NO background-color here, deliberately. body does not create a stacking
+     context, so the negative-z-index gradient layer below joins the root one
+     and paints BEHIND body's own background — set one and it hides the sunset
+     completely. The fallback colour lives on <html>, which paints to the
+     canvas underneath everything. */
+  min-height: 100svh;
+}
+
+/*
+  The sunset, and the grain over it.
+
+  Both are position:fixed layers rather than backgrounds on the body, and that
+  is deliberate. `background-attachment: fixed` is the obvious way to do this
+  and it does not work: iOS Safari ignores it, which stretches the gradient
+  over the whole hundred-card document instead of the window — so every screen
+  shows a thin slice of it and you have to scroll for a minute to get from pink
+  to yellow. A fixed element is honoured everywhere.
+
+  The effect is one sunset the height of the screen, with the list sliding past
+  it. Pink at the top of the window, yellow at the foot, whatever the scroll
+  position and however long the day's list happens to be.
+
+  100lvh, not 100vh or 100svh: the layer must still cover the window when a
+  mobile browser's address bar retracts and the viewport grows.
+*/
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  height: 100lvh;
+  pointer-events: none;
+}
+
+body::before {
+  z-index: -2;
   background-image: linear-gradient(
     180deg,
     var(--sunset-top) 0%,
@@ -90,27 +122,14 @@ body {
     var(--sunset-lower) 68%,
     var(--sunset-foot) 100%
   );
-  background-attachment: fixed;
-  background-size: cover;
-  min-height: 100svh;
 }
 
-/*
-  Texture.
-
-  Fractal noise at very low opacity, so the gradient has a little grain instead
-  of looking like a plastic banding artefact — which is what a smooth two-stop
-  gradient does on a cheap phone panel. Inline SVG rather than a PNG: it costs
-  no request, and it tiles at any density.
-
-  pointer-events and a negative z-index keep it strictly decorative.
-*/
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
+/* Fractal noise at very low opacity, so the gradient has a little grain
+   instead of looking like a plastic banding artefact — which is what a smooth
+   gradient does on a cheap phone panel. Inline SVG rather than a PNG: no extra
+   request, and it tiles at any density. */
+body::after {
   z-index: -1;
-  pointer-events: none;
   opacity: 0.5;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
   mix-blend-mode: soft-light;
@@ -256,6 +275,7 @@ textarea::placeholder {
   content: '';
   position: fixed;
   inset: 0;
+  height: 100lvh;
   z-index: -1;
   background-color: #17181a;
 }

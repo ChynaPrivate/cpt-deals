@@ -70,7 +70,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-ZA">
-      <body className="bg-bg min-h-dvh">
+      {/* No background utility here. body does not create a stacking context,
+          so the fixed gradient layer in globals.css joins the root one and
+          paints BEHIND body's own background — a colour here hides the sunset
+          entirely. The fallback lives on <html>. */}
+      <body className="min-h-dvh">
         <a className="skip-link" href="#main">
           Skip to the specials
         </a>
