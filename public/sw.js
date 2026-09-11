@@ -1,7 +1,7 @@
 /* The Happy Hours service worker — small, predictable, no framework. */
 // Bumped whenever the shell's look changes. A stale cache would serve half of
 // the previous design offline — the old logo against the new ground.
-const VERSION = 'gs-v6';
+const VERSION = 'gs-v7';
 const SHELL_CACHE = `${VERSION}-shell`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 const OFFLINE_URL = '/offline';

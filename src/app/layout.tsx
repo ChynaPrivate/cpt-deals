@@ -35,11 +35,11 @@ export const metadata: Metadata = {
     siteName: 'The Happy Hours',
     title: 'The Happy Hours',
     description: "What's on special in Cape Town today? Verified restaurant and bar deals, by day.",
-    // The site's own header at 1200x630, not the square app icon — a square
-    // gets blown up into a white-bordered block that reads like an app store
-    // listing. JPEG because the card is mostly photograph and the PNG was
-    // 1.2 MB, past the size where WhatsApp stops showing a preview at all.
-    // Built by scripts/generate-og-image.mjs (npm run og).
+    // The logo on the brand pink at 1200x630 — the same picture as the top of
+    // the site, so tapping through from a group chat lands somewhere that
+    // looks like where you came from. Not the square app icon: a square gets
+    // blown up into a white-bordered block that reads like an app store
+    // listing. Built by scripts/generate-og-image.mjs (npm run og).
     images: [
       {
         url: '/og-image.jpg',
