@@ -34,6 +34,16 @@ const CHECKED_7 = '2026-08-26';
  * carried over.
  */
 const CHECKED_8 = '2026-09-03';
+/**
+ * The Vredehoek sweep. Vredehoek was in the suburb allowlist from the start but
+ * had never actually been researched — nought venues out of eighty-seven — so
+ * a whole neighbourhood's specials were invisible. Found after a reader pointed
+ * out a Monday burger special at Carlyle's on Derry that had never been looked
+ * at, because the venue had never been looked at.
+ */
+const CHECKED_9 = '2026-09-14';
+/** The Harrington Street sweep — the East City strip, read venue by venue. */
+const CHECKED_10 = '2026-09-14';
 const NOW_ISO = '2026-08-20T00:00:00Z';
 
 function mapsUrl(name: string, address: string): string {
@@ -1921,7 +1931,7 @@ export const RESTAURANTS_SEED: Restaurant[] = [
     slug: 'belly-of-the-beast',
     description: 'Small Harrington Street kitchen serving a chef-chosen menu with no à la carte.',
     categories: ['Restaurant', 'Tasting menu', 'Fine dining'],
-    street_address: '108 Harrington Street',
+    street_address: '110 Harrington Street',
     suburb: 'Cape Town City Centre',
     latitude: null,
     longitude: null,
@@ -1930,7 +1940,7 @@ export const RESTAURANTS_SEED: Restaurant[] = [
     booking_url: null,
     instagram_url: 'https://www.instagram.com/bellyofthebeast_ct/',
     facebook_url: null,
-    google_maps_url: mapsUrl('Belly of the Beast', '108 Harrington Street, Cape Town'),
+    google_maps_url: mapsUrl('Belly of the Beast', '110 Harrington Street, Cape Town'),
     image_url: null,
     active: true,
     last_checked_at: CHECKED_7,
@@ -2048,6 +2058,104 @@ export const RESTAURANTS_SEED: Restaurant[] = [
     created_at: NOW_ISO,
     updated_at: NOW_ISO,
   },
+  // -------------------------------------------------------------- Vredehoek
+  // Added 14 September 2026. The suburb had been in SUBURBS from the first
+  // migration but no venue in it was ever researched.
+  {
+    id: 'a1000000-0000-4000-8000-000000000058',
+    name: "Carlyle's on Derry",
+    slug: 'carlyles-on-derry',
+    description:
+      'Family-run neighbourhood restaurant and bar on Derry Street, known for thin-based pizzas, handmade pasta and burgers, with sport on the screens.',
+    categories: ['Restaurant', 'Bar', 'Pizza', 'Italian', 'Burgers'],
+    street_address: '17 Derry Street',
+    suburb: 'Vredehoek',
+    latitude: null,
+    longitude: null,
+    phone: '+27214618786',
+    website_url: 'https://www.carlyles.co.za',
+    booking_url: 'https://www.dineplan.com/restaurants/carlyles',
+    instagram_url: 'https://www.instagram.com/carlylesonderry/',
+    facebook_url: 'https://www.facebook.com/carlylesonderry/',
+    google_maps_url: mapsUrl("Carlyle's on Derry", '17 Derry Street, Vredehoek'),
+    image_url: null,
+    active: true,
+    last_checked_at: CHECKED_9,
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'a1000000-0000-4000-8000-00000000005b',
+    name: 'Galjoen',
+    slug: 'galjoen',
+    description:
+      'Seafood tasting-menu restaurant on Harrington Street in the East City, with a single seating at lunch and at dinner.',
+    categories: ['Restaurant', 'Seafood', 'Tasting menu'],
+    street_address: '99 Harrington Street',
+    suburb: 'Cape Town City Centre',
+    latitude: null,
+    longitude: null,
+    phone: null,
+    website_url: 'https://www.galjoencpt.co.za',
+    booking_url: 'https://www.galjoencpt.co.za/collections/book-a-table',
+    instagram_url: null,
+    facebook_url: null,
+    google_maps_url: mapsUrl('Galjoen', '99 Harrington Street, Cape Town'),
+    image_url: null,
+    active: true,
+    last_checked_at: CHECKED_10,
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'a1000000-0000-4000-8000-000000000059',
+    name: 'Red Sofa Café & Deli',
+    slug: 'red-sofa-cafe-deli',
+    description:
+      'Neighbourhood café and deli a few doors up Derry Street, with a printed specials board covering breakfast through supper.',
+    categories: ['Cafe', 'Deli', 'Breakfast'],
+    street_address: '21 Derry Street',
+    suburb: 'Vredehoek',
+    latitude: null,
+    longitude: null,
+    phone: null,
+    website_url: 'https://redsofa.co.za',
+    booking_url: null,
+    instagram_url: null,
+    facebook_url: null,
+    google_maps_url: mapsUrl('Red Sofa Cafe & Deli', '21 Derry Street, Vredehoek'),
+    image_url: null,
+    active: true,
+    last_checked_at: CHECKED_9,
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'a1000000-0000-4000-8000-00000000005a',
+    name: 'Villa Portuguese Restaurant & Pizzeria',
+    slug: 'villa-portuguese',
+    description:
+      'Portuguese restaurant and pizzeria on Upper Buitenkant Street, with a bar that runs a happy hour every day.',
+    categories: ['Restaurant', 'Portuguese', 'Pizza', 'Bar'],
+    street_address: '176 Upper Buitenkant Street',
+    suburb: 'Vredehoek',
+    latitude: null,
+    longitude: null,
+    phone: '+27214654100',
+    website_url: 'https://www.villaportugueserestaurant.com',
+    booking_url: null,
+    instagram_url: null,
+    facebook_url: null,
+    google_maps_url: mapsUrl(
+      'Villa Portuguese Restaurant',
+      '176 Upper Buitenkant Street, Vredehoek',
+    ),
+    image_url: null,
+    active: true,
+    last_checked_at: CHECKED_9,
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
 ];
 
 const RICKS = RESTAURANTS_SEED[0].id;
@@ -2065,6 +2173,10 @@ const WOODLANDS = RESTAURANTS_SEED[11].id;
 const BURGER_LOBSTER = RESTAURANTS_SEED[12].id;
 const FLIRT = RESTAURANTS_SEED[13].id;
 const FABLE = RESTAURANTS_SEED[14].id;
+const CARLYLES = RESTAURANTS_SEED[87].id;
+const RED_SOFA = RESTAURANTS_SEED[89].id;
+const VILLA_PORTUGUESE = RESTAURANTS_SEED[90].id;
+const GALJOEN = RESTAURANTS_SEED[88].id;
 const AMURA = RESTAURANTS_SEED[15].id;
 const COPA = RESTAURANTS_SEED[16].id;
 const FYN = RESTAURANTS_SEED[17].id;
@@ -2166,6 +2278,12 @@ const HUDSONS_DINEPLAN = 'https://www.dineplan.com/restaurants/hudsons-kloof-str
 
 /** fable's own site, showing an updated date of 25 July 2026. */
 const FABLE_SOURCE = 'https://fablecocktailbar.capetown/';
+/* --- Vredehoek, September 2026 --- */
+const RED_SOFA_SOURCE = 'https://redsofa.co.za/cafe-specials/';
+/* --- Harrington Street, September 2026 --- */
+const HARRINGTONS_DINEPLAN = 'https://www.dineplan.com/restaurants/harringtons-cocktail-lounge';
+const GALJOEN_SOURCE = 'https://www.galjoencpt.co.za/';
+const VILLA_PORTUGUESE_SOURCE = 'https://www.villaportugueserestaurant.com/';
 /* --- September 2026 re-verification sweep --- */
 const MAMACITA_SOURCE = 'https://www.mamacitas.co.za/menus/';
 const COPA_SPRING_SOURCE = 'https://www.pepperclub.co.za/special-offers/';
@@ -3878,21 +3996,22 @@ export const SPECIALS_SEED: Special[] = [
   // ------------------------------------------------------ East City and CBD
   special({
     id: 'b2000000-0000-4000-8000-00000000006b',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_10,
     restaurant_id: HARRINGTONS,
-    title: '40% off cocktails and house wine',
+    title: '40% off tapas and classic cocktails',
     description:
-      'Forty per cent off cocktails, house wines and the Harrys pouring spirits, early evening on the Harrington Street lounge.',
+      'Forty per cent off the tapas plates and the classic cocktail list, early evening on the Harrington Street lounge.',
     category: 'happy_hour',
-    // Wednesday, Thursday and Saturday. Friday runs earlier and is a separate card.
+    // Friday starts an hour earlier and is listed separately so the card shows
+    // the right time on the day someone is actually looking at.
     days_of_week: [3, 4, 6],
     start_time: '17:00',
     end_time: '19:00',
-    source_url: 'https://www.instagram.com/reel/DcEQ2zYoYxV/',
-    source_type: 'social',
-    source_published_at: '2026-08-15',
+    valid_until: '2026-12-30',
+    source_url: HARRINGTONS_DINEPLAN,
+    source_type: 'booking_page',
     terms:
-      "A write-up of 4 August put this at 4–6pm Wednesday to Saturday. The lounge's own post of 15 August says 5–7pm on Wednesday, Thursday and Saturday, and from 4pm on Friday, so that is what is shown. No end date is published.",
+      "Applies to tapas and classic cocktails. An August Instagram post had this as cocktails, house wines and pouring spirits; the venue's own booking listing, checked 14 September, says tapas and classic cocktails, and that is what is shown here.",
     featured: true,
   }),
   special({
@@ -4013,21 +4132,21 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000072',
-    last_verified_at: CHECKED_4,
+    last_verified_at: CHECKED_10,
     restaurant_id: HARRINGTONS,
     title: 'Wine & Dine Wednesdays',
     description:
-      'An arrival cocktail, a guided tasting of four A.A. Badenhorst wines and three courses, R375 a head.',
+      'An arrival cocktail, a guided tasting of four wines and three courses, R375 a head.',
     category: 'dinner',
     price: 375,
     days_of_week: [3],
+    start_time: '18:00',
+    end_time: '21:00',
+    valid_until: '2026-09-30',
     booking_required: true,
-    terms:
-      'Book ahead. Arrival cocktail is an elderflower spritz or a negroni; mains include a linguini, a line fish and a ribeye.',
-    source_url:
-      'https://www.food-blog.co.za/turn-wednesday-into-date-night-with-three-courses-and-four-a-a-badenhorst-wines-at-harringtons-cocktail-lounge/',
-    source_type: 'publication',
-    source_published_at: '2026-08-07',
+    terms: 'Per person. A deposit is needed to hold the table.',
+    source_url: HARRINGTONS_DINEPLAN,
+    source_type: 'booking_page',
   }),
   // Archived 2026-09-03: an August Women's Month promotion; gone from the venue's page and from the Waterfront's promotions listing.
   special({
@@ -4096,9 +4215,10 @@ export const SPECIALS_SEED: Special[] = [
     source_published_at: '2026-07-23',
   }),
 
+  // Archived 2026-09-14: the lounge's own events page lists Fiesta Fridays under offers that have finished, and its booking listing — which does carry three current specials — does not mention margaritas at all.
   special({
+    last_verified_at: CHECKED_10,
     id: 'b2000000-0000-4000-8000-000000000077',
-    last_verified_at: CHECKED_4,
     restaurant_id: HARRINGTONS,
     title: 'Fiesta Friday — R50 frozen margaritas',
     description:
@@ -4112,10 +4232,13 @@ export const SPECIALS_SEED: Special[] = [
     source_type: 'social',
     source_published_at: '2026-08-13',
     featured: true,
+    active: false,
+    verification_status: 'needs_recheck',
   }),
+  // Archived 2026-09-14: same as the margarita offer above: the venue files Fiesta Fridays as past, and the Thursday supper session appears to have taken its place.
   special({
+    last_verified_at: CHECKED_10,
     id: 'b2000000-0000-4000-8000-000000000078',
-    last_verified_at: CHECKED_4,
     restaurant_id: HARRINGTONS,
     title: 'Fiesta Friday dinner — R330',
     description:
@@ -4127,6 +4250,8 @@ export const SPECIALS_SEED: Special[] = [
     source_url: 'https://www.instagram.com/reel/Db-_fH8udpZ/',
     source_type: 'social',
     source_published_at: '2026-08-13',
+    active: false,
+    verification_status: 'needs_recheck',
   }),
   special({
     id: 'b2000000-0000-4000-8000-000000000079',
@@ -5300,20 +5425,19 @@ export const SPECIALS_SEED: Special[] = [
   }),
   special({
     id: 'b2000000-0000-4000-8000-0000000000bf',
+    last_verified_at: CHECKED_10,
     restaurant_id: BELLY,
     title: 'Winter lunch — R650',
-    description: 'A chef-chosen winter lunch; there is no à la carte.',
+    description: 'A chef-chosen lunch; there is no à la carte at any time of year.',
     category: 'lunch',
     price: 650,
     days_of_week: [2, 3, 4, 5, 6],
-    booking_required: true,
     valid_until: '2026-09-30',
-    source_url: 'https://www.dineplan.com/blog/winter-specials-and-set-menus/',
-    source_type: 'publication',
-    source_published_at: '2026-07-15',
+    booking_required: true,
+    source_url: 'https://bellyofthebeast.co.za/',
+    source_type: 'official_website',
     terms:
-      'Per person, one 12.30pm sitting. From the winter round-up published by Dineplan on 15 July 2026. Dineplan is where the booking is taken, so this sits close to first-party, but the price was not re-checked against the venue itself.',
-    last_verified_at: CHECKED_7,
+      "Per person. One sitting at 12.30pm, deposit required. The standard price is R850, so this is a real saving rather than a renamed menu — but it is the same single lunch seating the venue runs year round, priced down for the season. Confirmed on the venue's own site on 14 September.",
   }),
   special({
     id: 'b2000000-0000-4000-8000-0000000000c0',
@@ -5460,6 +5584,136 @@ export const SPECIALS_SEED: Special[] = [
     booking_required: true,
     featured: true,
   }),
+
+  // ---------------------------------------------------- Vredehoek, 14 Sep 2026
+  // Both venues below publish these on their own websites. Carlyle's, the venue
+  // that exposed the gap, is NOT here — see RESEARCH_QUEUE_SEED. Its offers are
+  // real enough to be worth chasing but nothing first-party states their terms.
+  special({
+    id: 'b2000000-0000-4000-8000-0000000000ca',
+    last_verified_at: CHECKED_9,
+    restaurant_id: RED_SOFA,
+    title: 'Burger and a beer',
+    description: 'A cheeseburger with a pint, on the late-afternoon specials board.',
+    price: 180,
+    category: 'food',
+    days_of_week: [1, 2, 3, 4, 5, 6, 7],
+    start_time: '16:00',
+    end_time: '18:00',
+    source_url: RED_SOFA_SOURCE,
+    source_type: 'official_website',
+  }),
+  special({
+    id: 'b2000000-0000-4000-8000-0000000000cb',
+    last_verified_at: CHECKED_9,
+    restaurant_id: RED_SOFA,
+    title: 'Breakfast toastie',
+    description: 'A one-hour breakfast price, first thing in the morning.',
+    price: 79,
+    category: 'breakfast',
+    days_of_week: [1, 2, 3, 4, 5, 6, 7],
+    start_time: '08:00',
+    end_time: '09:00',
+    source_url: RED_SOFA_SOURCE,
+    source_type: 'official_website',
+    terms: 'The venue prints this as an 8am to 9am price only.',
+  }),
+  special({
+    id: 'b2000000-0000-4000-8000-0000000000cc',
+    last_verified_at: CHECKED_9,
+    restaurant_id: VILLA_PORTUGUESE,
+    title: 'Happy hour',
+    description: 'Drinks specials at the bar every evening.',
+    category: 'happy_hour',
+    days_of_week: [2, 3, 4, 5, 6, 7],
+    start_time: '17:00',
+    end_time: '19:00',
+    source_url: VILLA_PORTUGUESE_SOURCE,
+    source_type: 'official_website',
+    terms:
+      'The venue publishes the hours but not the prices. Mondays run all day instead — listed separately.',
+  }),
+  special({
+    id: 'b2000000-0000-4000-8000-0000000000cd',
+    last_verified_at: CHECKED_9,
+    restaurant_id: VILLA_PORTUGUESE,
+    title: 'Happy hour all day Monday',
+    description:
+      'The daily happy hour runs from open to close on Mondays rather than for two hours.',
+    category: 'happy_hour',
+    days_of_week: [1],
+    source_url: VILLA_PORTUGUESE_SOURCE,
+    source_type: 'official_website',
+    terms: 'The venue publishes the offer but not the prices.',
+    featured: true,
+  }),
+
+  // ------------------------------------- Harrington Street, 14 September 2026
+  special({
+    id: 'b2000000-0000-4000-8000-0000000000ce',
+    last_verified_at: CHECKED_10,
+    restaurant_id: HARRINGTONS,
+    title: 'Friday happy hour — 40% off tapas and cocktails',
+    description: 'The same discount as midweek, running an hour longer because it starts at four.',
+    category: 'happy_hour',
+    days_of_week: [5],
+    start_time: '16:00',
+    end_time: '19:00',
+    valid_until: '2026-12-30',
+    source_url: HARRINGTONS_DINEPLAN,
+    source_type: 'booking_page',
+    terms: 'Applies to tapas and classic cocktails.',
+  }),
+  special({
+    id: 'b2000000-0000-4000-8000-0000000000cf',
+    last_verified_at: CHECKED_10,
+    restaurant_id: HARRINGTONS,
+    title: 'East City Supper Sessions',
+    description:
+      'Two courses — starter and main, or main and dessert — with two whiskey cocktails, some nights with live music.',
+    category: 'dinner',
+    days_of_week: [4],
+    start_time: '18:00',
+    end_time: '22:00',
+    valid_until: '2026-10-01',
+    booking_required: true,
+    source_url: HARRINGTONS_DINEPLAN,
+    source_type: 'booking_page',
+    terms:
+      'A deposit is needed to hold the table. The booking listing describes the package but publishes no price, so none is shown here rather than guessing one.',
+  }),
+  special({
+    id: 'b2000000-0000-4000-8000-0000000000d0',
+    last_verified_at: CHECKED_10,
+    restaurant_id: GALJOEN,
+    title: 'Winter tasting menu at lunch — R450',
+    description:
+      'The seafood tasting menu at a seasonal lunch price, down from R750. One sitting, no à la carte.',
+    category: 'lunch',
+    price: 450,
+    days_of_week: [4, 5, 6],
+    valid_until: '2026-09-30',
+    booking_required: true,
+    source_url: GALJOEN_SOURCE,
+    source_type: 'official_website',
+    terms: 'Per person. One sitting at 12.30pm. Standard price R750. Booking online only.',
+    featured: true,
+  }),
+  special({
+    id: 'b2000000-0000-4000-8000-0000000000d1',
+    last_verified_at: CHECKED_10,
+    restaurant_id: GALJOEN,
+    title: 'Winter tasting menu at dinner — R650',
+    description: 'The evening sitting of the tasting menu at a seasonal price, down from R1050.',
+    category: 'dinner',
+    price: 650,
+    days_of_week: [1, 2, 3, 4, 5, 6],
+    valid_until: '2026-09-30',
+    booking_required: true,
+    source_url: GALJOEN_SOURCE,
+    source_type: 'official_website',
+    terms: 'Per person. One sitting at 6.45pm. Standard price R1050. Booking online only.',
+  }),
 ];
 
 /**
@@ -5468,6 +5722,192 @@ export const SPECIALS_SEED: Special[] = [
  */
 
 export const RESEARCH_QUEUE_SEED: ResearchQueueItem[] = [
+  // ---------------------------------- Harrington Street, 14 September 2026
+  {
+    id: 'c3000000-0000-4000-8000-000000000058',
+    restaurant_id: EAST_CITY_GRILL,
+    proposed_special_data: {
+      restaurant: 'East City Grill',
+      street_address: '84 Harrington Street',
+      title: 'Feast for Four sharing menu',
+      price: 2600,
+      per_person: 650,
+      description:
+        'A sharing set menu for four, described as a permanent addition rather than a seasonal one.',
+      category: 'dinner',
+    },
+    source_url:
+      'https://www.wantedonline.co.za/food-and-drink/2026-09-04-a-feast-for-four-the-east-city-grill-way/',
+    photo_url: null,
+    detected_at: CHECKED_10,
+    confidence: 'medium',
+    review_status: 'pending',
+    reviewer_notes:
+      "This is what appears to have replaced the R595 winter menu that ended on 28 August. One reputable publication dated 4 September 2026 carries it; the venue's own menu pages were returning 520 errors all through the check and its booking listing shows no specials, so there is no first-party confirmation. Re-check eastcitygrill.co.za once it is back up. Yakiniku is the grill room upstairs at the same address, and its R695 winter menu ended on the same day with nothing published in its place.",
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-000000000059',
+    restaurant_id: null,
+    proposed_special_data: {
+      restaurant: 'Surfa Rosa',
+      street_address: '61 Harrington Street (unit number varies by source)',
+      title: 'Daily happy hour and Wednesday bunny chow',
+      start_time: '17:00',
+      end_time: '19:00',
+      category: 'happy_hour',
+    },
+    source_url: 'https://www.capetownmagazine.com/surfa-rosa',
+    photo_url: null,
+    detected_at: CHECKED_10,
+    confidence: 'low',
+    review_status: 'pending',
+    reviewer_notes:
+      "The only source is dated 16 August 2022, four years old, and the venue's current page on harringtonstreet.co.za lists no specials at all. Sources also disagree on whether it is at 61, 61a or 61b — it shares the Harrington Street complex with Harringtons Cocktail Lounge, District and Rum Runner. Confirm the offer and the unit number before listing.",
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-00000000005a',
+    restaurant_id: null,
+    proposed_special_data: {
+      restaurant: "Mamacita's on Harrington",
+      street_address: '75 Harrington Street, District Six',
+      title: 'Social hour and Taco Tuesday',
+      description:
+        'A second branch of the Kloof Street venue already listed, with what looks like the same weekly pattern.',
+      category: 'happy_hour',
+    },
+    source_url: 'https://www.dineplan.com/restaurants/mamacitas-on-harrington',
+    photo_url: null,
+    detected_at: CHECKED_10,
+    confidence: 'medium',
+    review_status: 'pending',
+    reviewer_notes:
+      "The Kloof Street branch publishes a daily 3-6pm social hour and a Taco Tuesday on the group menus page, and this branch is the same operator. But the group page does not say the specials run at both, and this branch's own booking listing shows none. Worth one call — if they do run here it is four or five listings at a stroke. Phone 083 660 5515.",
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  // ------------------------------------- Carlyle's on Derry, Vredehoek
+  // The venue that exposed the Vredehoek gap. All five of its weekly offers
+  // are held here rather than published, because the only source that states
+  // their terms is a third-party aggregator with no date on it. The venue's
+  // own site says it runs "all-day specials" and names none of them; its
+  // Dineplan page lists none; its food-menu PDF 404s; its Instagram and
+  // Facebook are disallowed by robots.txt. A phone call settles all five at
+  // once — 021 461 8786.
+  {
+    id: 'c3000000-0000-4000-8000-000000000053',
+    restaurant_id: CARLYLES,
+    proposed_special_data: {
+      restaurant: "Carlyle's on Derry",
+      street_address: '17 Derry Street, Vredehoek',
+      title: 'Monday burger special',
+      days_of_week: 'Monday',
+      price_note:
+        'A third-party video title quotes "R115 Monday 2-4-1 plain burger special". The aggregator itself says only "Monday brings the burgers" with no price.',
+      category: 'food',
+    },
+    source_url: 'https://www.capetowndine.com/229041460496302/Carlyles-on-Derry',
+    photo_url: null,
+    detected_at: CHECKED_9,
+    confidence: 'high',
+    review_status: 'pending',
+    reviewer_notes:
+      'Confirm the price and whether it is two-for-one or a flat R115, and whether it applies to the plain burger only. Two sources, neither first-party, and they do not agree on the terms. Kitchen opens 15:00 on Mondays per Dineplan, so check the start time too.',
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-000000000054',
+    restaurant_id: CARLYLES,
+    proposed_special_data: {
+      restaurant: "Carlyle's on Derry",
+      street_address: '17 Derry Street, Vredehoek',
+      title: 'Tuesday quiz night',
+      days_of_week: 'Tuesday',
+      price: 40,
+      start_time: '19:00',
+      booking_required: true,
+      category: 'food',
+    },
+    source_url: 'https://www.capetowndine.com/229041460496302/Carlyles-on-Derry',
+    photo_url: null,
+    detected_at: CHECKED_9,
+    confidence: 'medium',
+    review_status: 'pending',
+    reviewer_notes:
+      'R40 per person with prizes, booking essential, per the aggregator. Confirm the entry fee and whether booking really is required.',
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-000000000055',
+    restaurant_id: CARLYLES,
+    proposed_special_data: {
+      restaurant: "Carlyle's on Derry",
+      street_address: '17 Derry Street, Vredehoek',
+      title: 'Wednesday ribs',
+      days_of_week: 'Wednesday',
+      price: 199,
+      description: '600g of ribs with a choice of two sides.',
+      category: 'food',
+    },
+    source_url: 'https://www.capetowndine.com/229041460496302/Carlyles-on-Derry',
+    photo_url: null,
+    detected_at: CHECKED_9,
+    confidence: 'medium',
+    review_status: 'pending',
+    reviewer_notes:
+      'Confirm R199 and the 600g portion, and whether the two sides are included or extra.',
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-000000000056',
+    restaurant_id: CARLYLES,
+    proposed_special_data: {
+      restaurant: "Carlyle's on Derry",
+      street_address: '17 Derry Street, Vredehoek',
+      title: 'Thursday pizza night',
+      days_of_week: 'Thursday',
+      price: 99,
+      description: 'All classic pizzas at one price.',
+      category: 'food',
+    },
+    source_url: 'https://www.capetowndine.com/229041460496302/Carlyles-on-Derry',
+    photo_url: null,
+    detected_at: CHECKED_9,
+    confidence: 'medium',
+    review_status: 'pending',
+    reviewer_notes:
+      'Confirm R99 and which pizzas count as "classic". A Facebook video title corroborates that Thursday is pizza night but could not be opened to check the price.',
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
+  {
+    id: 'c3000000-0000-4000-8000-000000000057',
+    restaurant_id: CARLYLES,
+    proposed_special_data: {
+      restaurant: "Carlyle's on Derry",
+      street_address: '17 Derry Street, Vredehoek',
+      title: 'Daily happy hour',
+      days_of_week: 'Daily',
+      category: 'happy_hour',
+      times_conflict:
+        'The aggregator says 17:00 to 19:00; a Facebook post title suggests 16:00 to 19:00.',
+    },
+    source_url: 'https://www.capetowndine.com/229041460496302/Carlyles-on-Derry',
+    photo_url: null,
+    detected_at: CHECKED_9,
+    confidence: 'medium',
+    review_status: 'pending',
+    reviewer_notes:
+      'Sources disagree on the window and neither gives prices. Confirm the hours and what is actually discounted.',
+    created_at: NOW_ISO,
+    updated_at: NOW_ISO,
+  },
   {
     id: 'c3000000-0000-4000-8000-000000000018',
     restaurant_id: null,

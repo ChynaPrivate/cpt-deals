@@ -620,3 +620,149 @@ The three JavaScript-rendered sites above are the single biggest recoverable
 block — thirteen offers at three venues, all of which were live a fortnight
 ago. If a venue can send a screenshot or a link to a plain-text menu, all
 thirteen go back up the same day.
+
+---
+
+## Vredehoek — the suburb that was never researched (14 September 2026)
+
+A reader found a Monday burger special at **Carlyle's on Derry**, 17 Derry
+Street, that was not on the site. The cause was not a missed offer at a venue
+that had been checked. Vredehoek had been in the suburb allowlist since the
+first migration and **no venue in it had ever been researched** — nought out of
+eighty-seven listed restaurants. Carlyle's had never been looked at, so
+whatever it advertises was never going to appear.
+
+Three Vredehoek venues are now listed. Two publish specials on their own sites
+and are live. Carlyle's five weekly offers are in the review queue, because no
+first-party source states their terms:
+
+| Day   | Offer          | What a phone call needs to settle                                                                                                    |
+| ----- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Mon   | Burger special | Whether it is R115, and whether two-for-one or flat. The two third-party sources disagree, and the kitchen opens at 15:00 on Mondays |
+| Tue   | Quiz night     | R40 per person, prizes, booking essential                                                                                            |
+| Wed   | Ribs           | R199 for 600g, whether two sides are included                                                                                        |
+| Thu   | Pizza night    | R99, and which pizzas count as "classic"                                                                                             |
+| Daily | Happy hour     | One source says 17:00–19:00, another 16:00–19:00; neither gives prices                                                               |
+
+One call to 021 461 8786 settles all five.
+
+### Why nothing first-party could be found
+
+- **carlyles.co.za** says the venue runs "all-day specials" and names none.
+- **Its food-menu PDF**, linked from the menu page, returns 404.
+- **Its Dineplan booking page** lists no specials at all.
+- **Uber Eats** shows the burger at R136 with a 20% platform discount, which is
+  a delivery price on a different channel — not the Monday offer.
+- **Instagram and Facebook**, where the offers actually get posted, are
+  disallowed by robots.txt.
+- **dining-out.co.za** has a dedicated specials page for the venue that returns
+  403 to every request.
+
+The full weekly line-up is visible on capetowndine.com, a third-party
+aggregator that republishes the venue's social posts. It carries no date, so it
+cannot establish that any of it is running this week.
+
+### Also found in the sweep, still unresolved
+
+- **Bella Italia**, Derry Street, Vredehoek — has a dedicated specials page on
+  dining-out.co.za that returns 403, and its own site times out. Nothing
+  published.
+- **Cloud 9 Rooftop Bar**, 12 Kloof Nek Road, Tamboerskloof — a Wednesday
+  happy hour with R45 cocktails, but the only source is dated April 2019.
+- **Deer Park Café**, Deer Park Drive, Vredehoek — site loads, menu page times
+  out.
+- **Ou Meul Bakkery**, Oranjezicht — menu PDF times out.
+
+Checked and carrying no published specials: Miller's Thumb, The Blue Café,
+Beleza (site abandoned since about 2013), El Burro Taqueria.
+
+### Suburb-level lesson
+
+Vredehoek was invisible because nothing pointed at it. Oranjezicht and
+Tamboerskloof now have one venue each and are almost certainly in the same
+state — thin because they were barely searched, not because they are empty.
+Those two are the next sweep.
+
+### One correction found along the way
+
+**Cargo** is listed by Cape Town Magazine at 158 Kloof Street, Tamboerskloof,
+but its operator's own site says 178 Kloof Street, Gardens. The venue's own
+source wins, so it stays in Gardens — but the happy-hour terms differ between
+the two as well, and the existing queue entry for it is still unresolved.
+
+---
+
+## Harrington Street sweep — 14 September 2026
+
+The East City strip, read venue by venue. Three venues were already listed;
+one more was found, two published offers turned out to be wrong, two had
+quietly ended, and an address was wrong.
+
+### Added
+
+- **Galjoen**, 99 Harrington Street — a seafood tasting-menu restaurant that
+  was not listed at all. Its winter price is on its own site: **R450 at lunch**
+  (Thu–Sat, standard R750) and **R650 at dinner** (Mon–Sat, standard R1,050),
+  both **until 30 September**. Single sitting, booking online only.
+- **Harringtons — East City Supper Sessions**, Thursdays 18:00–22:00 until
+  1 October. Two courses with two whiskey cocktails. Published without a price
+  because the venue's booking listing describes the package and gives no figure.
+- **Harringtons — Friday happy hour**, 16:00–19:00. The Friday window starts an
+  hour earlier than midweek and had been missing entirely.
+
+### Corrected
+
+- **Harringtons happy hour** was published as "40% off cocktails, house wines
+  and pouring spirits" on Wed/Thu/Sat. The venue's own booking listing says
+  **tapas and classic cocktails**, Wed–Sat. The old wording came from an August
+  Instagram post; the booking listing is first-party and current, so it wins.
+  Now carries an end date of 30 December.
+- **Belly of the Beast** was listed at **108** Harrington Street. Its own site,
+  its booking page and the tourism listing all say **110**. Corrected.
+- **Belly of the Beast winter lunch** was sourced from a Dineplan round-up
+  rather than the venue. Re-sourced to the venue's own site, which confirms
+  R650 until 30 September against a standard R850.
+
+### Archived
+
+- **Fiesta Friday — R50 frozen margaritas** and **Fiesta Friday dinner R330**.
+  The lounge's own events page files Fiesta Fridays under offers that have
+  finished, and its booking listing — which does carry three current specials —
+  does not mention margaritas at all. The Thursday supper session appears to
+  have taken the slot.
+
+### Held in the review queue
+
+| Venue                                   | Offer                                                   | Why it is not published                                                                                                                                                                                                        |
+| --------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| East City Grill, 84 Harrington          | "Feast for Four" sharing menu, R2,600 for four / R650pp | The likely replacement for the R595 winter menu that ended 28 August. One reputable publication dated 4 September carries it; the venue's own menu pages returned 520 errors throughout, and its booking listing shows nothing |
+| Surfa Rosa, 61 Harrington               | Daily happy hour 17:00–19:00, Wednesday bunny chow      | Only source is dated August 2022. Its current page lists no specials                                                                                                                                                           |
+| Mamacita's on Harrington, 75 Harrington | Social hour, Taco Tuesday                               | Same operator as the Kloof Street branch already listed, and the group menus page carries those offers — but it does not say they run at both, and this branch's booking listing shows none. One call settles it               |
+
+### Checked, nothing published
+
+Lefty's (address conflicts between sources, no dated offer), La Menara (48
+Harrington, no site beyond Facebook), Wild Eatery (59 Harrington, weekday
+lunch only, no specials), Seebamboes (99 Harrington, shares the building with
+Galjoen), Rum Runner and District (both in the 61 Harrington complex; District
+is a live-music venue rather than a food-and-drink offer).
+
+**Yakiniku** is not a separate address — it is the grill room upstairs at 84
+Harrington, in the same building as East City Grill. Its R695 winter menu ended
+on 28 August alongside East City Grill's, with nothing published in its place.
+
+**Ramenhead** has moved off the street to 37 Parliament Street and is out of
+scope for Harrington.
+
+### Sources that could not be read
+
+harringtons.co.za (robots), eastcitygrill.co.za menu pages (520 errors
+throughout, a genuine outage rather than a block), insideguide.co.za pages for
+these venues (same 520), food-blog.co.za (robots), dining-out.co.za
+/md-specials/ (403), Instagram and Facebook for every venue (robots).
+
+Worth noting how much of this street's current data came from **Dineplan
+booking listings** rather than venue websites. Where a venue takes its bookings
+there, that listing is close to first-party and is kept up to date because
+money depends on it — it was more reliable than the venues' own sites on this
+sweep, and every correction above came from one.
