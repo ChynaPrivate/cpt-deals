@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
+import CitySwitch, { CityBlurb } from '@/components/CitySwitch';
 import ServiceWorkerRegistrar from '@/components/ServiceWorkerRegistrar';
 import './globals.css';
 
@@ -91,26 +92,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* The logo carries the name now, so the photograph and the typed-out
             title are both gone. It sits straight on the pink end of the
             gradient — no wash, no panel, nothing behind it. */}
-        <header className="flex justify-center px-4 pt-7 pb-5 sm:pt-9 sm:pb-6">
-          <Link href="/" aria-label="The Happy Hours — home" className="block">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/logo-3.svg"
-              alt="The Happy Hours"
-              width={1580}
-              height={1128}
-              fetchPriority="high"
-              // Sized by width, not height: the mark now carries the cocktail
-              // under the wordmark, so a height cap made it far too narrow.
-              className="w-[230px] max-w-full sm:w-[280px]"
-            />
+        <header className="px-4 pt-7 pb-5 sm:pt-9 sm:pb-6">
+          <div className="mx-auto max-w-[720px]">
+            <Link href="/" aria-label="The Happy Hours — home" className="mx-auto block w-fit">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo-3.svg"
+                alt="The Happy Hours"
+                width={1580}
+                height={1128}
+                fetchPriority="high"
+                // Sized by width, not height: the mark now carries the cocktail
+                // under the wordmark, so a height cap made it far too narrow.
+                className="w-[230px] max-w-full sm:w-[280px]"
+              />
+            </Link>
             {/* Deep brown rather than the logo's white: white on coral is about
                 2.2:1, and this is real text rather than part of the mark, so it
-                has to actually be readable. */}
-            <p className="text-ink/85 mt-1.5 text-center text-[12px] font-bold tracking-[0.32em] uppercase">
-              Cape Town
-            </p>
-          </Link>
+                has to actually be readable. Now also the city switch — it is
+                the only navigation on the public site. */}
+            <CitySwitch />
+          </div>
         </header>
 
         <main id="main" className="mx-auto max-w-[720px] px-4 pt-3 pb-16">
@@ -129,8 +131,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               Terms
             </Link>
             <span className="w-full pt-2">
-              The Happy Hours lists offers at venues in the Cape Town City Bowl and the near
-              Atlantic Seaboard. Every listing links to the source it was checked against.
+              <CityBlurb />
             </span>
           </div>
         </footer>

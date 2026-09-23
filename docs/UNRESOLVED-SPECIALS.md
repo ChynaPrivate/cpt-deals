@@ -766,3 +766,76 @@ booking listings** rather than venue websites. Where a venue takes its bookings
 there, that listing is close to first-party and is kept up to date because
 money depends on it — it was more reliable than the venues' own sites on this
 sweep, and every correction above came from one.
+
+---
+
+## Plettenberg Bay launch — 23 September 2026
+
+The site's second city. Five venues, nine offers, on its own page at `/plett`.
+
+### Published
+
+| Venue                    | Area           | Offer                                | Days               |
+| ------------------------ | -------------- | ------------------------------------ | ------------------ |
+| The Sanctuary Restaurant | Plett Central  | Plett Breakfast R105                 | Daily, 07:00–15:00 |
+| The Sanctuary Restaurant | Plett Central  | Spring spritzers R95                 | Daily to 31 Oct    |
+| The Sanctuary Restaurant | Plett Central  | Heritage Day — 20% off ribs          | **24 Sep only**    |
+| The Sanctuary Restaurant | Plett Central  | Linefish and Chardonnay R295         | 27 Sep only        |
+| The Fat Fish             | Plett Central  | Two fish and chips R200              | Tue, Thu to 30 Sep |
+| Emily's Restaurant       | Keurbooms      | Two courses R280                     | Wed to 30 Sep      |
+| Simon's Bar              | Keurbooms      | Pizza and a Stella R140              | Wed                |
+| Simon's Bar              | Keurbooms      | Friday happy hour, half-price drinks | Fri 18:00–19:00    |
+| Barrington's             | Piesang Valley | Sip Into Summer tasting R350         | 30 Sep only        |
+
+Four of the nine expire within a week. That is Plett, not sloppiness — several
+of these are explicitly out-of-season prices that end as the summer season
+starts. The end dates here are load-bearing in a way Cape Town's rarely are.
+
+One price conflict worth recording: a third-party listing quotes Simon's Bar's
+Wednesday pizza deal at R125 and adds two Devil's Peak beer combos not on the
+lodge's own page. The lodge says R140 and that is what is published.
+
+### Held back
+
+- **The Lookout Deck** (Lookout Beach) — a whole weekly line-up surfaced
+  (Schnitzel Saturdays, Fish & Chips Tuesdays, Prawn Wednesdays, oyster happy
+  hour), but the only source that carries it is a Plett Tourism post from
+  **July 2020**, explicitly labelled "winter offerings". Six years old. This is
+  the single biggest recoverable block in Plett — one call settles five or six
+  listings.
+- **Flashbacks** (Main Street) — 20% off pizzas Mondays and Wednesdays, from an
+  undated Facebook post that could not be opened.
+- **The Table** (Main Street) — cocktails at R15 and wine at R10 a glass, from
+  a directory listing giving a "23 November – 15 December" window with no year.
+  Their own site timed out.
+- **Barrington's Friday night special** (brisket burger, chips and a drink,
+  R195) — their own site says it ran "through mid-September". Expired, not
+  published.
+- **Ristorante Enrico** (Keurboomstrand) — could not confirm it is still
+  trading. No website beyond directory listings.
+
+### Identity problems to resolve
+
+- **"LM in Plett"** appears to have become **Sol Fire** — Tripadvisor shows
+  years of Sol Fire reviews under the old listing ID — but no official source
+  confirms the rebrand or the current address.
+- **Fu.shi** has no trace since about 2010. Probably long closed.
+- **Stringer's** and **Plett Wine Bar** could not be found as trading venues at
+  all under those names.
+- **Island Beach Bar** (Stanley Island) is confirmed **closed until summer** —
+  it trades only mid-December to early January.
+
+### Checked, no current special published
+
+Nguni, The Sandbar at The Plettenberg, the four Beacon Island Resort venues,
+Cornuti al Mare, Le Fournil, Lemon Grass, Moby's, Bramon, Newstead, Kay & Monty,
+Bitou Vineyards, Moss & Maple, Peppermill, Bread & Brew, Nature's Valley
+Trading Store, Zinzi/Tsala, Hunter's Country House, Goose Valley.
+
+Kurland is guest-and-private-event only, so it is not a public listing at all.
+
+Plett Tourism's own specials page says outright that it has no offers listed
+at the moment, which matches what the sweep found: this town advertises on
+Facebook and Instagram, both of which are closed to us. **Plett will depend on
+venue contact far more than Cape Town does.** You are there now — five phone
+calls would roughly double the page.

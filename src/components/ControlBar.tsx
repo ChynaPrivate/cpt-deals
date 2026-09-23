@@ -5,7 +5,6 @@ import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 import {
   FILTER_LABELS,
   SORT_LABELS,
-  FILTER_SUBURBS,
   SUBURB_SHORT,
   type FilterKey,
   type SortKey,
@@ -34,6 +33,12 @@ const SORT_ORDER: SortKey[] = [
 ];
 
 interface Props {
+  /** The filter buttons this city offers. Passed in rather than imported —
+      Cape Town and Plett have different ones. */
+  filterSuburbs: readonly Suburb[];
+  /** What the "all" button and the panel call these — "suburbs" in the city,
+      "areas" in Plett, because nobody calls Keurbooms a suburb. */
+  areaNoun: string;
   suburbs: Suburb[];
   suburbCounts: Record<string, number>;
   filters: FilterKey[];
@@ -114,6 +119,8 @@ function Toggle({
  * there is room and stay collapsed on a phone until asked for.
  */
 export default function ControlBar({
+  filterSuburbs,
+  areaNoun,
   suburbs,
   suburbCounts,
   filters,
@@ -135,10 +142,10 @@ export default function ControlBar({
   const filterOpen = filterOverride ?? hasRoom;
 
   return (
-    <section aria-label="Choose suburbs, filter and sort" className="mt-2">
+    <section aria-label={`Choose ${areaNoun}s, filter and sort`} className="mt-2">
       <div className="grid grid-cols-2 gap-2">
         <Toggle
-          label="Suburbs"
+          label={areaNoun === 'area' ? 'Areas' : 'Suburbs'}
           count={suburbs.length}
           open={suburbOpen}
           controls={suburbPanelId}
@@ -174,7 +181,7 @@ export default function ControlBar({
       </div>
 
       {suburbOpen && (
-        <div id={suburbPanelId} role="group" aria-label="Choose suburbs" className="mt-3">
+        <div id={suburbPanelId} role="group" aria-label={`Choose ${areaNoun}s`} className="mt-3">
           <button
             type="button"
             aria-pressed={suburbs.length === 0}
@@ -184,13 +191,13 @@ export default function ControlBar({
               suburbs.length === 0 ? 'sunset-selected' : 'glass-btn text-ink',
             ].join(' ')}
           >
-            All suburbs
+            {`All ${areaNoun}s`}
           </button>
 
           {/* Six suburbs, two to a row. Equal widths so the block reads as one
               shape rather than a ragged wrap. */}
           <div className="mt-2 grid grid-cols-2 gap-2">
-            {FILTER_SUBURBS.map((suburb) => {
+            {filterSuburbs.map((suburb: Suburb) => {
               const count = suburbCounts[suburb] ?? 0;
               const on = suburbs.includes(suburb);
               return (

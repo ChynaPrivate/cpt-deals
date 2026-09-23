@@ -1,3 +1,4 @@
+import { ALL_SUBURBS } from './cities';
 /**
  * Domain types for The Happy Hours.
  * These mirror the Supabase schema in supabase/migrations exactly, so the
@@ -30,24 +31,18 @@ export const WEEKDAY_SHORT: Record<Weekday, string> = {
 };
 
 /**
- * The suburbs this site covers. Adding one here is not enough on its own —
- * the database has a matching allowlist, so an out-of-area venue cannot be
- * saved by mistake.
+ * Every suburb the site covers, across every city.
+ *
+ * This is derived from CITIES rather than written out again, so adding a city
+ * cannot leave the two lists disagreeing. The database has a matching
+ * allowlist, so an out-of-area venue still cannot be saved by mistake — but
+ * note the allowlist is now union-wide: it stops a venue in an uncovered
+ * suburb, not a Plett venue mislabelled as Cape Town. The `city` column on
+ * restaurants is what settles that, and cityForSuburb() is what checks it.
  */
-export const SUBURBS = [
-  'Gardens',
-  'Tamboerskloof',
-  'Oranjezicht',
-  'Vredehoek',
-  'Cape Town City Centre',
-  'Sea Point',
-  'Green Point',
-  'Mouille Point',
-  'Camps Bay',
-  'Victoria & Alfred Waterfront',
-] as const;
+export const SUBURBS = ALL_SUBURBS as readonly string[];
 
-export type Suburb = (typeof SUBURBS)[number];
+export type Suburb = string;
 
 /**
  * The suburbs offered as buttons on the public site.
@@ -74,40 +69,43 @@ export type Suburb = (typeof SUBURBS)[number];
  * tapping Gardens and getting "8 Breda Street, Oranjezicht" tells the reader
  * exactly where they are going.
  */
-export const SUBURB_FILTER_GROUP: Partial<Record<Suburb, Suburb>> = {
+export const SUBURB_FILTER_GROUP: Record<string, string> = {
+  // Cape Town
   'Mouille Point': 'Green Point',
   Oranjezicht: 'Gardens',
   Vredehoek: 'Gardens',
   Tamboerskloof: 'Gardens',
+  // Plett. The beaches and Beacon Isle are all a short walk from the Main
+  // Street strip, so they answer to Plett Central; Keurboomstrand groups with
+  // Keurbooms, and the N2 areas with The Crags.
+  'Lookout Beach': 'Plett Central',
+  'Central Beach': 'Plett Central',
+  'Beacon Isle': 'Plett Central',
+  'Robberg Beach': 'Plett Central',
+  'Piesang Valley': 'Plett Central',
+  Keurboomstrand: 'Keurbooms',
+  'Bitou Valley': 'The Crags',
+  'Goose Valley': 'The Crags',
+  "Nature's Valley": 'The Crags',
 };
 
 /** The filter button a suburb answers to — itself, unless it is grouped. */
 export function filterSuburbFor(suburb: string): Suburb {
-  return SUBURB_FILTER_GROUP[suburb as Suburb] ?? (suburb as Suburb);
+  return SUBURB_FILTER_GROUP[suburb] ?? suburb;
 }
 
-export const FILTER_SUBURBS: Suburb[] = [
-  'Gardens',
-  'Cape Town City Centre',
-  'Sea Point',
-  'Green Point',
-  'Camps Bay',
-  'Victoria & Alfred Waterfront',
-];
 
-/** Short labels for the suburb filter row, where space is tight. */
-export const SUBURB_SHORT: Record<Suburb, string> = {
-  Gardens: 'Gardens',
-  Tamboerskloof: 'Tamboerskloof',
-  Oranjezicht: 'Oranjezicht',
-  Vredehoek: 'Vredehoek',
+/**
+ * Shorter names for the cards and filter buttons, where the full one would
+ * wrap. Anything not listed falls through to its own name.
+ */
+export const SUBURB_SHORT: Record<string, string> = {
   'Cape Town City Centre': 'City Centre',
-  'Sea Point': 'Sea Point',
-  'Green Point': 'Green Point',
-  'Mouille Point': 'Mouille Point',
-  'Camps Bay': 'Camps Bay',
   'Victoria & Alfred Waterfront': 'Waterfront',
+  'Plett Central': 'Central',
+  "Nature's Valley": "Nature's Valley",
 };
+
 
 export type SpecialCategory = 'food' | 'drinks' | 'breakfast' | 'lunch' | 'dinner' | 'happy_hour';
 
@@ -163,6 +161,12 @@ export interface Restaurant {
   categories: string[];
   street_address: string;
   suburb: string;
+  /**
+   * Which city page this venue appears on. Derivable from the suburb, but
+   * stored so a mislabelled suburb shows up as a contradiction rather than
+   * silently moving a venue to another city's page.
+   */
+  city: string;
   latitude: number | null;
   longitude: number | null;
   phone: string | null;

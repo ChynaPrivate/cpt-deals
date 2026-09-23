@@ -17,10 +17,9 @@ import {
   specialsForDay,
 } from '@/lib/specials';
 import { joinSeed, RESTAURANTS_SEED, SPECIALS_SEED } from '@/lib/data/seed';
+import { CITIES, cityByName, cityForSuburb } from '@/lib/cities';
 import {
-  FILTER_SUBURBS,
   SUBURBS,
-  SUBURB_FILTER_GROUP,
   filterSuburbFor,
   type Restaurant,
   type Special,
@@ -399,19 +398,23 @@ describe('the seed matches what the database will accept', () => {
   });
 });
 
-describe('FILTER_SUBURBS', () => {
-  it('only offers suburbs the database actually allows', () => {
-    for (const suburb of FILTER_SUBURBS) {
-      expect(SUBURBS).toContain(suburb);
+describe('city filter buttons', () => {
+  it('only offers areas the database actually allows', () => {
+    for (const city of CITIES) {
+      for (const suburb of city.filterSuburbs) {
+        expect(SUBURBS).toContain(suburb);
+      }
     }
   });
 
-  it('is exactly six, so the grid stays two by three', () => {
-    expect(FILTER_SUBURBS).toHaveLength(6);
-    expect(new Set(FILTER_SUBURBS).size).toBe(6);
+  it('offers no more than six buttons a city, so the grid stays two by three', () => {
+    for (const city of CITIES) {
+      expect(city.filterSuburbs.length).toBeLessThanOrEqual(6);
+      expect(new Set(city.filterSuburbs).size).toBe(city.filterSuburbs.length);
+    }
   });
 
-  it('hides no listing — every seeded suburb still has venues that show under All suburbs', () => {
+  it('hides no listing — every seeded suburb is on the allowlist', () => {
     const seeded = new Set(RESTAURANTS_SEED.map((r) => r.suburb));
     for (const suburb of seeded) {
       expect(SUBURBS).toContain(suburb);
@@ -420,29 +423,35 @@ describe('FILTER_SUBURBS', () => {
 
   /**
    * The real guard on grouping: every suburb a venue actually sits in must be
-   * reachable from one of the six buttons. If someone adds a venue in a new
-   * suburb and forgets to group it, this fails rather than the listing quietly
-   * becoming unfilterable.
+   * reachable from one of its own city's buttons. If someone adds a venue in a
+   * new area and forgets to group it, this fails rather than the listing
+   * quietly becoming unfilterable — and it fails per city, so a Plett area
+   * cannot be "reachable" via a Cape Town button.
    */
-  it('leaves no seeded suburb unreachable from a filter button', () => {
+  it('leaves no seeded suburb unreachable from a filter button in its own city', () => {
     for (const restaurant of RESTAURANTS_SEED) {
-      expect(FILTER_SUBURBS).toContain(filterSuburbFor(restaurant.suburb));
+      const city = cityByName(restaurant.city);
+      expect(city, `${restaurant.name} has an unknown city`).toBeDefined();
+      expect(
+        city!.filterSuburbs as readonly string[],
+        `${restaurant.name} (${restaurant.suburb}) is unreachable in ${restaurant.city}`,
+      ).toContain(filterSuburbFor(restaurant.suburb));
     }
   });
 
-  it('groups each stray suburb onto a suburb that has a button', () => {
-    for (const [from, to] of Object.entries(SUBURB_FILTER_GROUP)) {
-      expect(SUBURBS).toContain(from);
-      expect(FILTER_SUBURBS).toContain(to);
-      // A group must not point at another grouped suburb, or the chain breaks.
-      expect(SUBURB_FILTER_GROUP).not.toHaveProperty(to as string);
+  /** A venue's suburb and its city must agree, or it shows on the wrong page. */
+  it('files every venue under a suburb that belongs to its city', () => {
+    for (const restaurant of RESTAURANTS_SEED) {
+      expect(
+        cityForSuburb(restaurant.suburb)?.name,
+        `${restaurant.name}: suburb ${restaurant.suburb} is not in ${restaurant.city}`,
+      ).toBe(restaurant.city);
     }
   });
 
-  it('leaves an ungrouped suburb as itself', () => {
-    expect(filterSuburbFor('Sea Point')).toBe('Sea Point');
-    expect(filterSuburbFor('Mouille Point')).toBe('Green Point');
-    expect(filterSuburbFor('Oranjezicht')).toBe('Gardens');
+  /** Slugs are URLs; two cities sharing one would make a page unreachable. */
+  it('gives every city a distinct slug', () => {
+    expect(new Set(CITIES.map((c) => c.slug)).size).toBe(CITIES.length);
   });
 });
 

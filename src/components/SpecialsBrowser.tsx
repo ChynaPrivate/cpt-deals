@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import type { City } from '@/lib/cities';
 import DayPicker from './DayPicker';
 import KindToggle from './KindToggle';
 import ControlBar from './ControlBar';
@@ -32,13 +33,17 @@ import {
 
 interface Props {
   specials: SpecialWithRestaurant[];
-  /** Cape Town "now" computed on the server so the first paint is correct. */
+  /** South African "now" computed on the server so the first paint is correct. */
   serverNow: ZonedNow;
+  /** Which city's page this is — decides the filter buttons and the copy. */
+  city: City;
 }
 
 type LocationState = 'idle' | 'asking' | 'granted' | 'denied' | 'unsupported';
 
-export default function SpecialsBrowser({ specials, serverNow }: Props) {
+export default function SpecialsBrowser({ specials, serverNow, city }: Props) {
+  // Plett's places are areas, not suburbs — nobody calls Keurbooms a suburb.
+  const areaNoun = city.slug === '' ? 'suburb' : 'area';
   // Start from the server's value, then keep it current on the client.
   const [now, setNow] = useState<ZonedNow>(serverNow);
   const [selectedDay, setSelectedDay] = useState<Weekday>(serverNow.weekday);
@@ -162,6 +167,8 @@ export default function SpecialsBrowser({ specials, serverNow }: Props) {
       </div>
 
       <ControlBar
+          filterSuburbs={city.filterSuburbs}
+          areaNoun={areaNoun}
         suburbs={suburbs}
         suburbCounts={suburbCounts}
         filters={filters}

@@ -42,9 +42,12 @@ const SPECIAL_COLUMNS = `
  * enforced again by row-level security, so a misconfigured client cannot leak
  * unverified rows.
  */
-export async function getPublicSpecials(): Promise<SpecialWithRestaurant[]> {
+export async function getPublicSpecials(city?: string): Promise<SpecialWithRestaurant[]> {
   const supabase = await createServerSupabase();
-  if (!supabase) return joinSeed();
+  const byCity = (rows: SpecialWithRestaurant[]) =>
+    city ? rows.filter((row) => row.restaurant.city === city) : rows;
+
+  if (!supabase) return byCity(joinSeed());
 
   const { data, error } = await supabase
     .from('specials')
@@ -56,9 +59,15 @@ export async function getPublicSpecials(): Promise<SpecialWithRestaurant[]> {
     throw new Error(`Could not load specials: ${error.message}`);
   }
 
-  return ((data ?? []) as unknown as SpecialRow[])
-    .map(normaliseRow)
-    .filter((row): row is SpecialWithRestaurant => row !== null);
+  // Filtered here rather than in the query: the city lives on the joined
+  // restaurant row, and PostgREST cannot filter the parent by an embedded
+  // column without changing the join to an inner one, which would silently
+  // drop any special whose restaurant row is missing instead of surfacing it.
+  return byCity(
+    ((data ?? []) as unknown as SpecialRow[])
+      .map(normaliseRow)
+      .filter((row): row is SpecialWithRestaurant => row !== null),
+  );
 }
 
 /**

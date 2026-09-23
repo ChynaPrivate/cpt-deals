@@ -1,36 +1,19 @@
-import SpecialsBrowser from '@/components/SpecialsBrowser';
-import { getPublicSpecials } from '@/lib/data/repository';
-import { zonedNow } from '@/lib/time';
-import type { SpecialWithRestaurant } from '@/lib/types';
+import CityPage from './CityPage';
+import { cityBySlug } from '@/lib/cities';
 
 /**
- * Re-rendered every five minutes. The client re-checks the Cape Town clock
+ * Cape Town, at the site root.
+ *
+ * It stays at "/" rather than moving to "/cape-town": every share link already
+ * sent into WhatsApp points here, and anyone who added the site to their home
+ * screen has "/" as their start_url.
+ *
+ * Re-rendered every five minutes. The client re-checks the South African clock
  * after hydration, so a page served just before midnight still shows the
  * right day.
  */
 export const revalidate = 300;
 
-export default async function HomePage() {
-  const serverNow = zonedNow();
-
-  let specials: SpecialWithRestaurant[] = [];
-  let loadError: string | null = null;
-  try {
-    specials = await getPublicSpecials();
-  } catch (error) {
-    loadError = error instanceof Error ? error.message : 'Unknown error';
-  }
-
-  if (loadError) {
-    return (
-      <div role="alert" className="glass rounded-[var(--radius-card)] p-6">
-        <h2 className="text-[18px] font-bold">The specials could not be loaded</h2>
-        <p className="text-ink/90 mt-2 text-[15px]">
-          Something went wrong reaching the database. Please try again in a moment.
-        </p>
-      </div>
-    );
-  }
-
-  return <SpecialsBrowser specials={specials} serverNow={serverNow} />;
+export default function HomePage() {
+  return <CityPage city={cityBySlug('')!} />;
 }
