@@ -5,7 +5,7 @@ import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 import {
   FILTER_LABELS,
   SORT_LABELS,
-  SUBURB_SHORT,
+  suburbLabel,
   type FilterKey,
   type SortKey,
   type Suburb,
@@ -213,7 +213,7 @@ export default function ControlBar({
                     count === 0 && !on ? 'opacity-55' : '',
                   ].join(' ')}
                 >
-                  {SUBURB_SHORT[suburb]}
+                  {suburbLabel(suburb)}
                   <span className="text-ink/80 tabular-nums">{count}</span>
                   <span className="sr-only">
                     {' '}

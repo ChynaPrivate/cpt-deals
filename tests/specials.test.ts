@@ -21,6 +21,7 @@ import { CITIES, cityByName, cityForSuburb } from '@/lib/cities';
 import {
   SUBURBS,
   filterSuburbFor,
+  suburbLabel,
   type Restaurant,
   type Special,
   type SpecialWithRestaurant,
@@ -446,6 +447,29 @@ describe('city filter buttons', () => {
         cityForSuburb(restaurant.suburb)?.name,
         `${restaurant.name}: suburb ${restaurant.suburb} is not in ${restaurant.city}`,
       ).toBe(restaurant.city);
+    }
+  });
+
+  /**
+   * Every filter button must print a name, not just a count.
+   *
+   * The short-name map only carries the few suburbs that need shortening, and
+   * an earlier version had callers read it directly — so when it was trimmed,
+   * four Cape Town buttons rendered as a bare number with no name at all.
+   */
+  it('gives every filter button a visible name', () => {
+    for (const city of CITIES) {
+      for (const suburb of city.filterSuburbs) {
+        expect(suburbLabel(suburb), `${suburb} has no label`).toBeTruthy();
+        expect(suburbLabel(suburb).trim().length).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  /** And so must every suburb a venue actually sits in, for the cards. */
+  it('gives every seeded suburb a visible name', () => {
+    for (const restaurant of RESTAURANTS_SEED) {
+      expect(suburbLabel(restaurant.suburb), `${restaurant.suburb} has no label`).toBeTruthy();
     }
   });
 

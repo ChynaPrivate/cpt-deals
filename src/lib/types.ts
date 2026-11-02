@@ -94,18 +94,29 @@ export function filterSuburbFor(suburb: string): Suburb {
   return SUBURB_FILTER_GROUP[suburb] ?? suburb;
 }
 
-
 /**
  * Shorter names for the cards and filter buttons, where the full one would
  * wrap. Anything not listed falls through to its own name.
  */
-export const SUBURB_SHORT: Record<string, string> = {
+const SUBURB_SHORT: Record<string, string> = {
   'Cape Town City Centre': 'City Centre',
   'Victoria & Alfred Waterfront': 'Waterfront',
+  // The card already prints the street address, which says Plettenberg Bay.
   'Plett Central': 'Central',
-  "Nature's Valley": "Nature's Valley",
 };
 
+/**
+ * What to call a suburb on a card or a filter button.
+ *
+ * Only the handful above need shortening; everything else is already short
+ * enough to use as it stands. Going through this function rather than reading
+ * the map directly is the point: an earlier version had callers do a bare
+ * lookup, and when the map was trimmed to the few entries that needed it, four
+ * filter buttons rendered as a bare count with no name at all.
+ */
+export function suburbLabel(suburb: string): string {
+  return SUBURB_SHORT[suburb] ?? suburb;
+}
 
 export type SpecialCategory = 'food' | 'drinks' | 'breakfast' | 'lunch' | 'dinner' | 'happy_hour';
 

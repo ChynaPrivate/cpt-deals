@@ -7,7 +7,7 @@ import ShareButton from './ShareButton';
 import { formatRand, formatTimeRange, type ZonedNow } from '@/lib/time';
 import { splitTitlePrice } from '@/lib/title-price';
 import { shareMessage } from '@/lib/specials';
-import { SUBURB_SHORT, type SpecialWithRestaurant } from '@/lib/types';
+import { suburbLabel, type SpecialWithRestaurant } from '@/lib/types';
 
 interface Props {
   special: SpecialWithRestaurant;
@@ -42,9 +42,7 @@ export default function SpecialCard({ special, now, distanceKm }: Props) {
   const when = formatTimeRange(special.start_time, special.end_time);
   // restaurant.suburb is a plain string on the row type, so look it up loosely
   // and fall back to whatever the database holds.
-  const suburb =
-    (SUBURB_SHORT as Record<string, string>)[special.restaurant.suburb] ??
-    special.restaurant.suburb;
+  const suburb = suburbLabel(special.restaurant.suburb);
   // Some street addresses already end in the suburb ("…, V&A Waterfront").
   // Appending it again reads like a bug, so only add it when it is missing.
   const address = special.restaurant.street_address;

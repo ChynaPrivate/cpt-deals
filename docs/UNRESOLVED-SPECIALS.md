@@ -839,3 +839,99 @@ at the moment, which matches what the sweep found: this town advertises on
 Facebook and Instagram, both of which are closed to us. **Plett will depend on
 venue contact far more than Cape Town does.** You are there now — five phone
 calls would roughly double the page.
+
+---
+
+## Bree, Long and Loop — 2 November 2026
+
+Swept the three streets. The sweep turned up as much about what had lapsed as
+about what was new.
+
+### The headline: 74 offers had expired since late September
+
+Cape Town was down from 152 live specials to **98** when this sweep started —
+Wednesday had gone from 92 to 52. Almost all of it fell on 30 September, when
+the winter menus ended across the city, and nothing had re-checked them since.
+The renewals below took it back to **115**.
+
+That is the real lesson from this sweep: **the catalogue decays by roughly a
+third every time a season turns**, and nothing currently catches it. A sweep
+scheduled for the first week of April, July, October and January would catch
+each turn within days instead of five weeks.
+
+### Renewed — the PAN Collection cluster on Bree
+
+Every one of these venues let its winter offer lapse on 30 September and
+published a summer replacement on its booking listing. All now run to
+**20 December**, with a second window from 5 January 2027 that is recorded in
+the terms rather than listed separately.
+
+| Venue                        | Offer                                                                                          |
+| ---------------------------- | ---------------------------------------------------------------------------------------------- |
+| Iron Steak and Bar, 114 Bree | Summer special R265; half-price social hour with R79 bar bites; **Wagyu Wednesday R119 (new)** |
+| Hacienda, 92 Bree            | Taco Loco Wednesdays, every taco plate R119                                                    |
+| Nikkei, 87 Bree              | Pisco Hour, Mon–Sat; Sushi and Sake Sundays, 22-piece platter R199                             |
+| Yatai, 87 Bree               | Ramen Rush Mondays R119; **Sushi Bento Rush R199, Tue–Sat (new)**                              |
+| Maru, 107 Bree               | Summer lunch R349                                                                              |
+| Burger & Lobster, 105 Bree   | The 99 Smash R99 Thursdays; social hour, half-price drinks                                     |
+| Scala Pasta Bar, 81 Church   | Summer set menu R599; aperitivo hour with R79 cicchetti; Pranzo Club, any classic pasta R119   |
+
+### New venues
+
+- **The Blue Room**, 103A Bree — AfterGlow, three cocktails and a platter,
+  R375pp, Thu–Sat 15:00–19:00, to 31 March 2027.
+- **Cappello**, 204 Long — Brunch Club, any brunch dish R99 with three
+  mimosas, daily 11:00–15:00, to 28 February 2027.
+- **The Dubliner**, 251 Long — two-for-one burgers, Tuesdays 18:00–21:00,
+  from R155, to 31 December.
+
+### Corrections
+
+- **Rick's Steak Night is back.** It was archived on 14 September because no
+  source carried it. The venue's booking listing now lists it with dates —
+  Tuesdays 17:00–22:00, 6 October to 3 December. Reinstated.
+- **Rick's standing offers now carry real end dates** from the same listing
+  rather than running open-ended, and two descriptions were corrected: the
+  Aperol offer still described itself as a Women's Month promotion "running
+  through August", and the brandy offer as a winter one.
+- **The Wes**, 55 Shortmarket — its three-course menu is now the **spring**
+  set menu, same R495, re-sourced to the venue's own PDF.
+- **Tiki Tomb** — the Wednesday margarita offer now carries its real window
+  (to 6 January 2027) and the R100 margherita that goes with it.
+
+### Archived
+
+Iron Steak's Karoo set menus, Hacienda's winter sharing menu and half-price
+margaritas, Nikkei's winter bento, Yatai's sharing tasting menu and its NOMIKAI
+late-night happy hour — all gone from the booking listings with no replacement.
+
+### Confirmed closed
+
+- **Chefs Warehouse & Canteen**, 91 Bree — closed July 2026, along with
+  Merchant Bar & Grill. Note our listing is **The Red Room**, a different
+  address in Gardens, so it has been left alone — but it needs checking.
+- **Grub & Vine**, 103A Bree — closed, becoming "Les Amis".
+- **Tjing Tjing**, 165 Longmarket — final service 18 April 2026.
+- **Café Mojito**, 265 Long — shows as permanently closed.
+- **La Parada Bree Street** — absent from the group's own branch list.
+
+None of these are currently listed, so nothing had to come down.
+
+### Held back
+
+- **Beerhouse**, 223 Long — a current aggregator lists daily food specials, but
+  the venue's own site is pandemic-era and says specials are "on hold", and one
+  page says the R60 lunch special is discontinued. Needs a call.
+- **le pickle**, 215 Bree — a new opening with an R99 burger launch promo. No
+  evidence it recurs.
+- **Nkula**, 188 Long — a Tuesday wine-cocktail tasting, one publication only.
+- **Fable**, **BOMA**, **Orphanage**, **Village Idiot** — happy hours that
+  appear only in undated or year-old publication pages.
+- **Noah**, 80 Loop — a breakfast special on its booking listing with no price.
+
+### The next hole, and it is a big one
+
+**The V&A Waterfront cluster has not been re-checked and most of it expired on
+30 September**: Quay Four (5 offers), Upper Quay, Mitchell's and Ferryman's.
+Along with The President Hotel and The Nines. That is the obvious next sweep —
+it is the same renewal pattern as Bree, and these venues publish reliably.

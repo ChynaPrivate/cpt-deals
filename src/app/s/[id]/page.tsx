@@ -7,7 +7,7 @@ import { getPublicSpecialById } from '@/lib/data/repository';
 import { shareMessage } from '@/lib/specials';
 import { formatRand, formatTimeRange, zonedNow } from '@/lib/time';
 import { splitTitlePrice } from '@/lib/title-price';
-import { SUBURB_SHORT, WEEKDAY_NAMES, type SpecialWithRestaurant } from '@/lib/types';
+import { suburbLabel, WEEKDAY_NAMES, type SpecialWithRestaurant } from '@/lib/types';
 
 /**
  * One special on its own page, so a link shared into WhatsApp opens the offer
@@ -86,9 +86,7 @@ export default async function SpecialPage({ params }: Props) {
   const { title, price: priceFromTitle } = splitTitlePrice(special.title);
   const price = formatRand(special.price) ?? priceFromTitle;
   const showPrice = price !== null && !title.includes(price);
-  const suburb =
-    (SUBURB_SHORT as Record<string, string>)[special.restaurant.suburb] ??
-    special.restaurant.suburb;
+  const suburb = suburbLabel(special.restaurant.suburb);
   const address = special.restaurant.street_address;
   const where = address.toLowerCase().includes(suburb.toLowerCase())
     ? address
